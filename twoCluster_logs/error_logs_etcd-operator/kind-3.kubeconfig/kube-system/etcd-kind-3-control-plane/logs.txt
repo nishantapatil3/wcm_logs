@@ -1,0 +1,59 @@
+==== START logs for container etcd of pod kube-system/etcd-kind-3-control-plane ====
+[WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+2021-05-10 23:05:19.355042 I | etcdmain: etcd Version: 3.4.3
+2021-05-10 23:05:19.355397 I | etcdmain: Git SHA: 3cf2f69b5
+2021-05-10 23:05:19.355402 I | etcdmain: Go Version: go1.12.12
+2021-05-10 23:05:19.355404 I | etcdmain: Go OS/Arch: linux/amd64
+2021-05-10 23:05:19.355407 I | etcdmain: setting maximum number of CPUs to 6, total number of available CPUs is 6
+[WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+2021-05-10 23:05:19.355659 I | embed: peerTLS: cert = /etc/kubernetes/pki/etcd/peer.crt, key = /etc/kubernetes/pki/etcd/peer.key, trusted-ca = /etc/kubernetes/pki/etcd/ca.crt, client-cert-auth = true, crl-file = 
+2021-05-10 23:05:19.356683 I | embed: name = kind-3-control-plane
+2021-05-10 23:05:19.356721 I | embed: data dir = /var/lib/etcd
+2021-05-10 23:05:19.356726 I | embed: member dir = /var/lib/etcd/member
+2021-05-10 23:05:19.356728 I | embed: heartbeat = 100ms
+2021-05-10 23:05:19.356729 I | embed: election = 1000ms
+2021-05-10 23:05:19.356731 I | embed: snapshot count = 10000
+2021-05-10 23:05:19.356742 I | embed: advertise client URLs = https://172.17.0.4:2379
+2021-05-10 23:05:19.371298 I | etcdserver: starting member 40fd14fa28910cab in cluster a6ea9ad1b116d02f
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab switched to configuration voters=()
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab became follower at term 0
+raft2021/05/10 23:05:19 INFO: newRaft 40fd14fa28910cab [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab became follower at term 1
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab switched to configuration voters=(4682922252190157995)
+2021-05-10 23:05:19.374270 W | auth: simple token is not cryptographically signed
+2021-05-10 23:05:19.396241 I | etcdserver: starting server... [version: 3.4.3, cluster version: to_be_decided]
+2021-05-10 23:05:19.396460 I | etcdserver: 40fd14fa28910cab as single-node; fast-forwarding 9 ticks (election ticks 10)
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab switched to configuration voters=(4682922252190157995)
+2021-05-10 23:05:19.397934 I | etcdserver/membership: added member 40fd14fa28910cab [https://172.17.0.4:2380] to cluster a6ea9ad1b116d02f
+2021-05-10 23:05:19.399490 I | embed: ClientTLS: cert = /etc/kubernetes/pki/etcd/server.crt, key = /etc/kubernetes/pki/etcd/server.key, trusted-ca = /etc/kubernetes/pki/etcd/ca.crt, client-cert-auth = true, crl-file = 
+2021-05-10 23:05:19.399787 I | embed: listening for metrics on http://127.0.0.1:2381
+2021-05-10 23:05:19.400015 I | embed: listening for peers on 172.17.0.4:2380
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab is starting a new election at term 1
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab became candidate at term 2
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab received MsgVoteResp from 40fd14fa28910cab at term 2
+raft2021/05/10 23:05:19 INFO: 40fd14fa28910cab became leader at term 2
+raft2021/05/10 23:05:19 INFO: raft.node: 40fd14fa28910cab elected leader 40fd14fa28910cab at term 2
+2021-05-10 23:05:19.673055 I | etcdserver: published {Name:kind-3-control-plane ClientURLs:[https://172.17.0.4:2379]} to cluster a6ea9ad1b116d02f
+2021-05-10 23:05:19.673259 I | embed: ready to serve client requests
+2021-05-10 23:05:19.673439 I | etcdserver: setting up the initial cluster version to 3.4
+2021-05-10 23:05:19.673668 I | embed: ready to serve client requests
+2021-05-10 23:05:19.674165 N | etcdserver/membership: set the initial cluster version to 3.4
+2021-05-10 23:05:19.674240 I | etcdserver/api: enabled capabilities for version 3.4
+2021-05-10 23:05:19.676385 I | embed: serving client requests on 172.17.0.4:2379
+2021-05-10 23:05:19.681533 I | embed: serving client requests on 127.0.0.1:2379
+2021-05-10 23:05:33.164094 W | wal: sync duration of 1.163964118s, expected less than 1s
+2021-05-10 23:05:33.447963 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/token-cleaner\" " with result "range_response_count:0 size:5" took too long (1.408555593s) to execute
+2021-05-10 23:05:33.448388 W | etcdserver: read-only range request "key:\"/registry/services/endpoints/kube-system/kube-scheduler\" " with result "range_response_count:1 size:442" took too long (1.045713265s) to execute
+2021-05-10 23:07:39.056987 W | etcdserver: read-only range request "key:\"/registry/services/endpoints/local-path-storage/rancher.io-local-path\" " with result "range_response_count:1 size:488" took too long (108.200869ms) to execute
+2021-05-10 23:07:39.057357 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-scheduler\" " with result "range_response_count:1 size:293" took too long (143.851765ms) to execute
+2021-05-10 23:11:11.994163 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-scheduler\" " with result "range_response_count:1 size:293" took too long (787.8576ms) to execute
+2021-05-10 23:11:12.288032 W | etcdserver: request "header:<ID:912956770603309491 username:\"kube-apiserver-etcd-client\" auth_revision:1 > txn:<compare:<target:MOD key:\"/registry/events/metallb-system/speaker-4wtg5.167dd7655b3b7b30\" mod_revision:0 > success:<request_put:<key:\"/registry/events/metallb-system/speaker-4wtg5.167dd7655b3b7b30\" value_size:392 lease:912956770603309460 >> failure:<>>" with result "size:16" took too long (156.768178ms) to execute
+2021-05-10 23:11:12.288357 W | etcdserver: read-only range request "key:\"/registry/services/endpoints/local-path-storage/rancher.io-local-path\" " with result "range_response_count:1 size:489" took too long (366.089518ms) to execute
+2021-05-10 23:11:14.581685 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-scheduler\" " with result "range_response_count:1 size:293" took too long (282.12422ms) to execute
+2021-05-10 23:11:14.624963 W | etcdserver: read-only range request "key:\"/registry/minions/\" range_end:\"/registry/minions0\" " with result "range_response_count:1 size:2058" took too long (255.104842ms) to execute
+2021-05-10 23:15:19.279169 I | mvcc: store.index: compact 1191
+2021-05-10 23:15:19.335891 I | mvcc: finished scheduled compaction at 1191 (took 55.857103ms)
+2021-05-10 23:17:28.159310 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-scheduler\" " with result "range_response_count:1 size:294" took too long (200.418665ms) to execute
+2021-05-10 23:20:19.079678 I | mvcc: store.index: compact 2441
+2021-05-10 23:20:19.197476 I | mvcc: finished scheduled compaction at 2441 (took 115.016659ms)
+==== END logs for container etcd of pod kube-system/etcd-kind-3-control-plane ====

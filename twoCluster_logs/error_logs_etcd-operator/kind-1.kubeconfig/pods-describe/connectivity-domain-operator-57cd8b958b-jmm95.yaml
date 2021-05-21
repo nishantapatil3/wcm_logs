@@ -1,0 +1,61 @@
+Name:         connectivity-domain-operator-57cd8b958b-jmm95
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Mon, 10 May 2021 16:14:25 -0700
+Labels:       name=connectivity-domain-operator
+              pod-template-hash=57cd8b958b
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/connectivity-domain-operator-57cd8b958b
+Containers:
+  connectivity-domain-operator:
+    Container ID:  containerd://0320f439cfa3119603d8fbeda6a81cf42be32dae37b283436624783b29f95fed
+    Image:         containers.cisco.com/appn/connectivity-domain-operator:latest
+    Image ID:      containers.cisco.com/appn/connectivity-domain-operator@sha256:a9b4c2a4680b21e547cc650b6dcd0e98e4568cee0ed3eea7f67c3745de684a1e
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      connectivity-domain-operator
+    State:          Running
+      Started:      Mon, 10 May 2021 16:14:26 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         connectivity-domain-operator-57cd8b958b-jmm95 (v1:metadata.name)
+      OPERATOR_NAME:    connectivity-domain-operator
+      CONFIG_PATH:      etc/connectivity-domain-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from connectivity-domain-operator-token-frb8h (ro)
+      etc/connectivity-domain-configmap/config.yaml from config-data-connectivity-domain (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-connectivity-domain:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      connectivity-domain-configmap
+    Optional:  false
+  connectivity-domain-operator-token-frb8h:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  connectivity-domain-operator-token-frb8h
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  9m16s  default-scheduler  Successfully assigned wcm-system/connectivity-domain-operator-57cd8b958b-jmm95 to kind-1-control-plane
+  Normal  Pulled     9m15s  kubelet            Container image "containers.cisco.com/appn/connectivity-domain-operator:latest" already present on machine
+  Normal  Created    9m15s  kubelet            Created container connectivity-domain-operator
+  Normal  Started    9m15s  kubelet            Started container connectivity-domain-operator
+

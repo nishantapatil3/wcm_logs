@@ -1,0 +1,916 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-10T23:08:01Z"
+    generateName: wcm-crossconnect-monitor-6845699c87-
+    labels:
+      app: wcm-crossconnect-monitor
+      membercore: wcm
+      pod-template-hash: 6845699c87
+    name: wcm-crossconnect-monitor-6845699c87-txv8d
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: wcm-crossconnect-monitor-6845699c87
+      uid: bb3e1328-12b9-4f09-bb23-93a6149fdb4d
+    resourceVersion: "1209"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-crossconnect-monitor-6845699c87-txv8d
+    uid: 9e3420a5-b1af-49ef-a773-796c4e350d7c
+  spec:
+    containers:
+    - env:
+      - name: INSECURE
+        value: "true"
+      - name: METRICS_COLLECTOR_ENABLED
+        value: "false"
+      - name: PROMETHEUS
+        value: "false"
+      image: containers.cisco.com/appn/crossconnect-monitor:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: crossconnect-monitor
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-crossconnect-monitor-service-account-token-d25rk
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-crossconnect-monitor-service-account
+    serviceAccountName: wcm-crossconnect-monitor-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: wcm-crossconnect-monitor-service-account-token-d25rk
+      secret:
+        defaultMode: 420
+        secretName: wcm-crossconnect-monitor-service-account-token-d25rk
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:01Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:01Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://1d35193f93a6b0ab31ce4527eafc263c0d6991c9396e4758d0a2f8d85f415ac6
+      image: containers.cisco.com/appn/crossconnect-monitor:vl3_latest
+      imageID: containers.cisco.com/appn/crossconnect-monitor@sha256:dae4a37799694589cda09d3270647bc60bf7cca861a50f16a85e09aa4eecd876
+      lastState: {}
+      name: crossconnect-monitor
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:08:05Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.7
+    podIPs:
+    - ip: 10.244.0.7
+    qosClass: BestEffort
+    startTime: "2021-05-10T23:08:01Z"
+- metadata:
+    creationTimestamp: "2021-05-10T23:08:01Z"
+    generateName: wcm-jaeger-86c548cd44-
+    labels:
+      membercore: wcm
+      pod-template-hash: 86c548cd44
+      run: wcm-jaeger
+    name: wcm-jaeger-86c548cd44-5v85c
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: wcm-jaeger-86c548cd44
+      uid: 3f0d4834-2b92-4c6a-ad8c-cfbbd714c276
+    resourceVersion: "1884"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-jaeger-86c548cd44-5v85c
+    uid: bd7231bd-dfaf-4e90-9db9-76d4036f7eca
+  spec:
+    containers:
+    - image: jaegertracing/all-in-one:1.14.0
+      imagePullPolicy: IfNotPresent
+      name: jaeger
+      ports:
+      - containerPort: 16686
+        name: http
+        protocol: TCP
+      - containerPort: 6831
+        name: jaeger
+        protocol: UDP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-vpxq9
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-vpxq9
+      secret:
+        defaultMode: 420
+        secretName: default-token-vpxq9
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:01Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:10:55Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:10:55Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:01Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://139d6c27059b2aada7af5f544cf384b124bf83672f8d6c647f6df009440f3528
+      image: docker.io/jaegertracing/all-in-one:1.14.0
+      imageID: sha256:18e2a2315119a6e4d11cab78a4b98f638ca46ef895507dd85b12362dfff567e8
+      lastState: {}
+      name: jaeger
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:10:55Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.8
+    podIPs:
+    - ip: 10.244.0.8
+    qosClass: BestEffort
+    startTime: "2021-05-10T23:08:01Z"
+- metadata:
+    creationTimestamp: "2021-05-10T23:08:03Z"
+    generateName: wcm-nsm-admission-webhook-74c9466775-
+    labels:
+      app: wcm-nsm-admission-webhook
+      membercore: wcm
+      nsm-cr: wcm
+      pod-template-hash: 74c9466775
+    name: wcm-nsm-admission-webhook-74c9466775-8nvlh
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: wcm-nsm-admission-webhook-74c9466775
+      uid: a81daebe-219e-460e-a262-7cc9a5d696e1
+    resourceVersion: "1343"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsm-admission-webhook-74c9466775-8nvlh
+    uid: aeee36d6-de04-47a2-9deb-ded38012a72f
+  spec:
+    containers:
+    - env:
+      - name: REPO
+        value: containers.cisco.com/appn
+      - name: TAG
+        value: vl3_latest
+      - name: IMAGE_PULL_POLICY
+        value: IfNotPresent
+      - name: NSM_NAMESPACE
+        value: nsm-system
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      image: containers.cisco.com/appn/admission-webhook:vl3_latest
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /liveness
+          port: 5555
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      name: wcm-nsm-admission-webhook
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /readiness
+          port: 5555
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/webhook/certs
+        name: webhook-certs
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-vpxq9
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: webhook-certs
+      secret:
+        defaultMode: 420
+        secretName: wcm-nsm-admission-webhook-secret
+    - name: default-token-vpxq9
+      secret:
+        defaultMode: 420
+        secretName: default-token-vpxq9
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:03Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:32Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:32Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:03Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://7ed7476ea671a205494465ecfb43f4dfef4f04be1273f921a0d78b64a237707f
+      image: containers.cisco.com/appn/admission-webhook:vl3_latest
+      imageID: containers.cisco.com/appn/admission-webhook@sha256:b43d30f189eb8a59c390264ece91fb585142b07d09f8766694ea8d9350a533a7
+      lastState: {}
+      name: wcm-nsm-admission-webhook
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:08:14Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.9
+    podIPs:
+    - ip: 10.244.0.9
+    qosClass: BestEffort
+    startTime: "2021-05-10T23:08:03Z"
+- metadata:
+    creationTimestamp: "2021-05-10T23:08:05Z"
+    generateName: wcm-nsm-vpp-forwarder-
+    labels:
+      app: wcm-nsm-vpp-forwarder
+      controller-revision-hash: 785846f889
+      membercore: wcm
+      pod-template-generation: "1"
+    name: wcm-nsm-vpp-forwarder-bf6zq
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DaemonSet
+      name: wcm-nsm-vpp-forwarder
+      uid: 6ff6a4df-2a85-4e7e-a3f8-82676986b5e4
+    resourceVersion: "1366"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsm-vpp-forwarder-bf6zq
+    uid: d0f73c93-374b-4d35-b6eb-1e88e710aa50
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchFields:
+            - key: metadata.name
+              operator: In
+              values:
+              - kind-2-control-plane
+    containers:
+    - env:
+      - name: INSECURE
+        value: "true"
+      - name: METRICS_COLLECTOR_ENABLED
+        value: "false"
+      - name: NSM_FORWARDER_SRC_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: NSM_CONNECTION_MTU_OVERRIDE
+        value: "1400"
+      image: containers.cisco.com/appn/vppagent-forwarder:vl3_latest
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /liveness
+          port: 5555
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      name: wcm-nsm-vpp-forwarder
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /readiness
+          port: 5555
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources: {}
+      securityContext:
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/networkservicemesh/
+        mountPropagation: Bidirectional
+        name: workspace
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-nsm-vpp-forwarder-service-account-token-5nzxt
+        readOnly: true
+    dnsPolicy: ClusterFirstWithHostNet
+    enableServiceLinks: true
+    hostNetwork: true
+    hostPID: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-nsm-vpp-forwarder-service-account
+    serviceAccountName: wcm-nsm-vpp-forwarder-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/disk-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/pid-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/unschedulable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/network-unavailable
+      operator: Exists
+    volumes:
+    - hostPath:
+        path: /var/lib/networkservicemesh
+        type: DirectoryOrCreate
+      name: workspace
+    - name: wcm-nsm-vpp-forwarder-service-account-token-5nzxt
+      secret:
+        defaultMode: 420
+        secretName: wcm-nsm-vpp-forwarder-service-account-token-5nzxt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:37Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:37Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://302a797c5c6cc471bfe57e8a81ce122003327bb0992ee950610fe9ceae1efca5
+      image: containers.cisco.com/appn/vppagent-forwarder:vl3_latest
+      imageID: containers.cisco.com/appn/vppagent-forwarder@sha256:779abd903b5ebce9de3a5e20c519be4355ab9520ef5fb5eb4f6ff14a14c5e8a6
+      lastState: {}
+      name: wcm-nsm-vpp-forwarder
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:08:27Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 172.17.0.3
+    podIPs:
+    - ip: 172.17.0.3
+    qosClass: BestEffort
+    startTime: "2021-05-10T23:08:05Z"
+- metadata:
+    creationTimestamp: "2021-05-10T23:08:05Z"
+    generateName: wcm-nsmgr-
+    labels:
+      app: wcm-nsmgr
+      controller-revision-hash: 64dfc69bcb
+      membercore: wcm
+      pod-template-generation: "1"
+    name: wcm-nsmgr-4jd8f
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DaemonSet
+      name: wcm-nsmgr
+      uid: 5a0b51cf-6f4e-46f3-9a1e-d6c176e8bbdf
+    resourceVersion: "1486"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsmgr-4jd8f
+    uid: 3a49f992-3798-4175-9ead-e280a4148f14
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchFields:
+            - key: metadata.name
+              operator: In
+              values:
+              - kind-2-control-plane
+    containers:
+    - env:
+      - name: INSECURE
+        value: "true"
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: PROXY_NSMD_K8S_ADDRESS
+        value: wcm-proxy-nsmgr:5005
+      - name: PROXY_NSMD_ADDRESS
+        value: wcm-proxy-nsmgr:5006
+      image: containers.cisco.com/appn/nsmdp:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: wcm-nsmgr
+      ports:
+      - containerPort: 5001
+        hostPort: 5001
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/networkservicemesh
+        name: nsm-socket
+      - mountPath: /var/lib/kubelet/device-plugins
+        name: kubelet-socket
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-nsmgr-service-account-token-4qbp4
+        readOnly: true
+    - env:
+      - name: INSECURE
+        value: "true"
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: PROXY_NSMD_K8S_ADDRESS
+        value: wcm-proxy-nsmgr:5005
+      - name: PROXY_NSMD_ADDRESS
+        value: wcm-proxy-nsmgr:5006
+      - name: PREFERRED_REMOTE_MECHANISM
+        value: IPSEC
+      image: containers.cisco.com/appn/nsmd:vl3_latest
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          host: 127.0.0.1
+          path: /liveness
+          port: 5555
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      name: nsmd
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          host: 127.0.0.1
+          path: /readiness
+          port: 5555
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 3
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/networkservicemesh
+        name: nsm-socket
+      - mountPath: /var/lib/networkservicemesh/config
+        name: nsm-config-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-nsmgr-service-account-token-4qbp4
+        readOnly: true
+    - env:
+      - name: INSECURE
+        value: "true"
+      - name: POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.uid
+      - name: NODE_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: spec.nodeName
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: PROXY_NSMD_K8S_ADDRESS
+        value: wcm-proxy-nsmgr:5005
+      - name: PROXY_NSMD_ADDRESS
+        value: wcm-proxy-nsmgr:5006
+      - name: PREFERRED_REMOTE_MECHANISM
+        value: IPSEC
+      image: containers.cisco.com/appn/nsmd-k8s:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsmd-k8s
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-nsmgr-service-account-token-4qbp4
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-nsmgr-service-account
+    serviceAccountName: wcm-nsmgr-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/disk-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/pid-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/unschedulable
+      operator: Exists
+    volumes:
+    - hostPath:
+        path: /var/lib/kubelet/device-plugins
+        type: DirectoryOrCreate
+      name: kubelet-socket
+    - hostPath:
+        path: /var/lib/networkservicemesh
+        type: DirectoryOrCreate
+      name: nsm-socket
+    - configMap:
+        defaultMode: 420
+        name: wcm-nsm-config-map
+      name: nsm-config-volume
+    - name: wcm-nsmgr-service-account-token-4qbp4
+      secret:
+        defaultMode: 420
+        secretName: wcm-nsmgr-service-account-token-4qbp4
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:09:05Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:09:05Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://f8f63e55a74c7d7a2d97ed06c781a065a297c8d032fd7d06576ef122f9a3a5c8
+      image: containers.cisco.com/appn/nsmd:vl3_latest
+      imageID: containers.cisco.com/appn/nsmd@sha256:e6a06e87529a4d65ff0ba816ef110f2681851291daec24b52c1b5a0ca82855f1
+      lastState: {}
+      name: nsmd
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:08:54Z"
+    - containerID: containerd://8dfce06b48ff2b8a7592c30fa8d83f25059d75a2f54a50977b54c3522666d67d
+      image: containers.cisco.com/appn/nsmd-k8s:vl3_latest
+      imageID: containers.cisco.com/appn/nsmd-k8s@sha256:82195f563d77ae8c92e64b624345393c0b3b6d8b7e7167fa533b374914498324
+      lastState: {}
+      name: nsmd-k8s
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:09:01Z"
+    - containerID: containerd://09f0619e11fae1d7d8afd28700bb8f8f45a37e3c3156b2686b9a85afa8d2edc2
+      image: containers.cisco.com/appn/nsmdp:vl3_latest
+      imageID: containers.cisco.com/appn/nsmdp@sha256:a916962ef7fcb1e1dc77642ed4afc90e93c8eae15401cff15ce5742488268505
+      lastState: {}
+      name: wcm-nsmgr
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:08:48Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.11
+    podIPs:
+    - ip: 10.244.0.11
+    qosClass: BestEffort
+    startTime: "2021-05-10T23:08:05Z"
+- metadata:
+    creationTimestamp: "2021-05-10T23:08:05Z"
+    generateName: wcm-proxy-nsmgr-7694b88585-
+    labels:
+      app: wcm-proxy-nsmgr
+      membercore: wcm
+      pod-template-hash: 7694b88585
+    name: wcm-proxy-nsmgr-7694b88585-sws4p
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: wcm-proxy-nsmgr-7694b88585
+      uid: bf2d1c52-381a-440d-a22f-46a2975f45b2
+    resourceVersion: "1449"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-proxy-nsmgr-7694b88585-sws4p
+    uid: 8dfd468d-e429-4d07-8fea-c812b36da0da
+  spec:
+    containers:
+    - env:
+      - name: INSECURE
+        value: "true"
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: PROXY_NSMD_K8S_REMOTE_PORT
+        value: "31505"
+      - name: PROXY_NSMD_ADDRESS
+        value: wcm-proxy-nsmgr:5006
+      - name: PROXY_NSMD_K8S_ADDRESS
+        value: wcm-proxy-nsmgr:5005
+      image: containers.cisco.com/appn/proxy-nsmd:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: wcm-proxy-nsmgr
+      ports:
+      - containerPort: 5006
+        hostPort: 5006
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-proxy-nsmgr-service-account-token-zgz57
+        readOnly: true
+    - env:
+      - name: INSECURE
+        value: "true"
+      - name: NODE_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: spec.nodeName
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: PROXY_NSMD_K8S_REMOTE_PORT
+        value: "80"
+      - name: PROXY_NSMD_ADDRESS
+        value: wcm-proxy-nsmgr:5006
+      image: containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: proxy-nsmd-k8s
+      ports:
+      - containerPort: 5005
+        hostPort: 5005
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-proxy-nsmgr-service-account-token-zgz57
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-proxy-nsmgr-service-account
+    serviceAccountName: wcm-proxy-nsmgr-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: wcm-proxy-nsmgr-service-account-token-zgz57
+      secret:
+        defaultMode: 420
+        secretName: wcm-proxy-nsmgr-service-account-token-zgz57
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:58Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:58Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-10T23:08:05Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://62aa1fb5c2884ceca0866f32291293687a4ad15c2dd8c66042668301259673ad
+      image: containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest
+      imageID: containers.cisco.com/appn/proxy-nsmd-k8s@sha256:02dbdce52aacc269f64004c2826462347ca8894129d9c99224e1210a2e78fff4
+      lastState: {}
+      name: proxy-nsmd-k8s
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:08:58Z"
+    - containerID: containerd://f07820a450e7461b76c7940af2ea698601f2a2e8752d5b1122375d2fcbd2aa9d
+      image: containers.cisco.com/appn/proxy-nsmd:vl3_latest
+      imageID: containers.cisco.com/appn/proxy-nsmd@sha256:3e4f686ad2f9c04aacd1e49c9ab45a714b1c65dfe95875eeaf77c4740ba2ab5e
+      lastState: {}
+      name: wcm-proxy-nsmgr
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-10T23:08:52Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.10
+    podIPs:
+    - ip: 10.244.0.10
+    qosClass: BestEffort
+    startTime: "2021-05-10T23:08:05Z"
+kind: PodList
+metadata:
+  resourceVersion: "4439"
+  selfLink: /api/v1/namespaces/nsm-system/pods

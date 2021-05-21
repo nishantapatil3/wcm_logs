@@ -1,0 +1,69 @@
+Name:         connectivity-domain-operator-57cd8b958b-vpwqc
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 07 May 2021 16:12:14 -0700
+Labels:       name=connectivity-domain-operator
+              pod-template-hash=57cd8b958b
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  ReplicaSet/connectivity-domain-operator-57cd8b958b
+Containers:
+  connectivity-domain-operator:
+    Container ID:  containerd://7380b7dab491683e0a656e52d4753d01b1b64edcaa251cc9670b827e1ad95752
+    Image:         containers.cisco.com/appn/connectivity-domain-operator:latest
+    Image ID:      containers.cisco.com/appn/connectivity-domain-operator@sha256:7613ce600c588320589c60c520f70a0cd5fb6109169d155ff7846fdd011d22fd
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      connectivity-domain-operator
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    2
+      Started:      Fri, 07 May 2021 16:21:45 -0700
+      Finished:     Fri, 07 May 2021 16:21:49 -0700
+    Ready:          False
+    Restart Count:  6
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         connectivity-domain-operator-57cd8b958b-vpwqc (v1:metadata.name)
+      OPERATOR_NAME:    connectivity-domain-operator
+      CONFIG_PATH:      etc/connectivity-domain-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from connectivity-domain-operator-token-9t5hz (ro)
+      etc/connectivity-domain-configmap/config.yaml from config-data-connectivity-domain (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  config-data-connectivity-domain:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      connectivity-domain-configmap
+    Optional:  false
+  connectivity-domain-operator-token-9t5hz:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  connectivity-domain-operator-token-9t5hz
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                   From               Message
+  ----     ------     ----                  ----               -------
+  Normal   Scheduled  14m                   default-scheduler  Successfully assigned wcm-system/connectivity-domain-operator-57cd8b958b-vpwqc to kind-1-control-plane
+  Normal   Pulling    14m                   kubelet            Pulling image "containers.cisco.com/appn/connectivity-domain-operator:latest"
+  Normal   Pulled     14m                   kubelet            Successfully pulled image "containers.cisco.com/appn/connectivity-domain-operator:latest"
+  Normal   Created    9m26s (x5 over 14m)   kubelet            Created container connectivity-domain-operator
+  Normal   Started    9m26s (x5 over 14m)   kubelet            Started container connectivity-domain-operator
+  Normal   Pulled     9m26s (x4 over 11m)   kubelet            Container image "containers.cisco.com/appn/connectivity-domain-operator:latest" already present on machine
+  Warning  BackOff    4m36s (x28 over 11m)  kubelet            Back-off restarting failed container
+

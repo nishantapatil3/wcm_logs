@@ -1,0 +1,62 @@
+Name:         controller-65895b47d4-j7c25
+Namespace:    metallb-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 28 Apr 2021 14:14:36 -0700
+Labels:       app=metallb
+              component=controller
+              pod-template-hash=65895b47d4
+Annotations:  prometheus.io/port: 7472
+              prometheus.io/scrape: true
+Status:       Running
+IP:           10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  ReplicaSet/controller-65895b47d4
+Containers:
+  controller:
+    Container ID:  containerd://c005c32450305faac41ede91c565147979b8d9006a6b6083a2d00c9ec2de1f12
+    Image:         metallb/controller:v0.8.2
+    Image ID:      docker.io/metallb/controller@sha256:5c050e59074e152711737d2bb9ede96dff67016c80cf25cdf5fc46109718a583
+    Port:          7472/TCP
+    Host Port:     0/TCP
+    Args:
+      --port=7472
+      --config=config
+    State:          Running
+      Started:      Wed, 28 Apr 2021 14:16:29 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  100Mi
+    Requests:
+      cpu:        100m
+      memory:     100Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from controller-token-98xc7 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  controller-token-98xc7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  controller-token-98xc7
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  23m   default-scheduler  Successfully assigned metallb-system/controller-65895b47d4-j7c25 to kind-1-control-plane
+  Normal  Pulling    23m   kubelet            Pulling image "metallb/controller:v0.8.2"
+  Normal  Pulled     21m   kubelet            Successfully pulled image "metallb/controller:v0.8.2"
+  Normal  Created    21m   kubelet            Created container controller
+  Normal  Started    21m   kubelet            Started container controller
+

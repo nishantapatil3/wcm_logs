@@ -1,0 +1,122 @@
+Name:                 aws-node-9j6xj
+Namespace:            kube-system
+Priority:             2000001000
+Priority Class Name:  system-node-critical
+Node:                 ip-192-168-13-69.us-west-2.compute.internal/192.168.13.69
+Start Time:           Mon, 26 Apr 2021 13:53:55 -0700
+Labels:               controller-revision-hash=ff9745db6
+                      k8s-app=aws-node
+                      pod-template-generation=1
+Annotations:          kubernetes.io/psp: eks.privileged
+Status:               Running
+IP:                   192.168.13.69
+IPs:
+  IP:           192.168.13.69
+Controlled By:  DaemonSet/aws-node
+Init Containers:
+  aws-vpc-cni-init:
+    Container ID:   docker://7c3e10c5c999e49111ed9a29617ed5bcc8de0407e2dfa228078527770d07ae6a
+    Image:          602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni-init:v1.7.5-eksbuild.1
+    Image ID:       docker-pullable://602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni-init@sha256:d96d712513464de6ce94e422634a25546565418f20d1b28d3bce399d578f3296
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Mon, 26 Apr 2021 13:54:10 -0700
+      Finished:     Mon, 26 Apr 2021 13:54:10 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      DISABLE_TCP_EARLY_DEMUX:  false
+    Mounts:
+      /host/opt/cni/bin from cni-bin-dir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from aws-node-token-7bj79 (ro)
+Containers:
+  aws-node:
+    Container ID:   docker://b57f32388b4bc89d23dbc5f8e2d33884b0cbcbde00aee9a9a6bbd511df652d95
+    Image:          602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:v1.7.5-eksbuild.1
+    Image ID:       docker-pullable://602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni@sha256:f310c918ee2b4ebced76d2d64a2ec128dde3b364d1b495f0ae73011f489d474d
+    Port:           61678/TCP
+    Host Port:      61678/TCP
+    State:          Running
+      Started:      Mon, 26 Apr 2021 13:54:14 -0700
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      10m
+    Liveness:   exec [/app/grpc-health-probe -addr=:50051] delay=60s timeout=1s period=10s #success=1 #failure=3
+    Readiness:  exec [/app/grpc-health-probe -addr=:50051] delay=1s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      ADDITIONAL_ENI_TAGS:                 {}
+      AWS_VPC_CNI_NODE_PORT_SUPPORT:       true
+      AWS_VPC_ENI_MTU:                     9001
+      AWS_VPC_K8S_CNI_CONFIGURE_RPFILTER:  false
+      AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG:  false
+      AWS_VPC_K8S_CNI_EXTERNALSNAT:        false
+      AWS_VPC_K8S_CNI_LOGLEVEL:            DEBUG
+      AWS_VPC_K8S_CNI_LOG_FILE:            /host/var/log/aws-routed-eni/ipamd.log
+      AWS_VPC_K8S_CNI_RANDOMIZESNAT:       prng
+      AWS_VPC_K8S_CNI_VETHPREFIX:          eni
+      AWS_VPC_K8S_PLUGIN_LOG_FILE:         /var/log/aws-routed-eni/plugin.log
+      AWS_VPC_K8S_PLUGIN_LOG_LEVEL:        DEBUG
+      DISABLE_INTROSPECTION:               false
+      DISABLE_METRICS:                     false
+      ENABLE_POD_ENI:                      false
+      MY_NODE_NAME:                         (v1:spec.nodeName)
+      WARM_ENI_TARGET:                     1
+    Mounts:
+      /host/etc/cni/net.d from cni-net-dir (rw)
+      /host/opt/cni/bin from cni-bin-dir (rw)
+      /host/var/log/aws-routed-eni from log-dir (rw)
+      /run/xtables.lock from xtables-lock (rw)
+      /var/run/aws-node from run-dir (rw)
+      /var/run/dockershim.sock from dockershim (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from aws-node-token-7bj79 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  cni-bin-dir:
+    Type:          HostPath (bare host directory volume)
+    Path:          /opt/cni/bin
+    HostPathType:  
+  cni-net-dir:
+    Type:          HostPath (bare host directory volume)
+    Path:          /etc/cni/net.d
+    HostPathType:  
+  dockershim:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/run/dockershim.sock
+    HostPathType:  
+  xtables-lock:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/xtables.lock
+    HostPathType:  
+  log-dir:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/log/aws-routed-eni
+    HostPathType:  DirectoryOrCreate
+  run-dir:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/run/aws-node
+    HostPathType:  DirectoryOrCreate
+  aws-node-token-7bj79:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  aws-node-token-7bj79
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     op=Exists
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:          <none>
+

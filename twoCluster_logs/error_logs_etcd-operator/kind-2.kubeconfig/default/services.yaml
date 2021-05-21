@@ -1,0 +1,51 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-10T23:17:15Z"
+    labels:
+      app: helloworld-green
+      nsm/role: client
+    name: helloworld-green
+    namespace: default
+    resourceVersion: "3160"
+    selfLink: /api/v1/namespaces/default/services/helloworld-green
+    uid: e4162257-4b08-4581-95e2-ed3b4be040aa
+  spec:
+    clusterIP: 10.110.146.28
+    ports:
+    - name: http
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+    selector:
+      app: helloworld-green
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-05-10T23:04:36Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "146"
+    selfLink: /api/v1/namespaces/default/services/kubernetes
+    uid: 0e651405-c526-4c23-8afe-338076967c7d
+  spec:
+    clusterIP: 10.96.0.1
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "4430"
+  selfLink: /api/v1/namespaces/default/services

@@ -1,0 +1,293 @@
+Name:         membercores.wcm.cisco.com
+Namespace:    
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: member-core-operator-release
+              meta.helm.sh/release-namespace: default
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-05-21T20:17:20Z
+  Generation:          1
+  Resource Version:    3049
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/membercores.wcm.cisco.com
+  UID:                 cbc8c3db-f2fe-4f4a-b615-ca221709f448
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       wcm.cisco.com
+  Names:
+    Kind:                   MemberCore
+    List Kind:              MemberCoreList
+    Plural:                 membercores
+    Singular:               membercore
+  Preserve Unknown Fields:  true
+  Scope:                    Cluster
+  Versions:
+    Name:  v1alpha1
+    Schema:
+      openAPIV3Schema:
+        Description:  MemberCore is the Schema for the membercores API
+        Properties:
+          API Version:
+            Description:  APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            Type:         string
+          Kind:
+            Description:  Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            Type:         string
+          Metadata:
+            Type:  object
+          Spec:
+            Description:  MemberCoreSpec defines the desired state of MemberCore
+            Properties:
+              Insecure:
+                Description:  Insecure specifies if NSM control plane security is disabled or not
+                Type:         boolean
+              Jaeger Tracing:
+                Description:  JaegerTracing specifies if JaegerTracing is enabled
+                Type:         boolean
+              Metrics Collector Enable:
+                Description:  MetricsCollectorEnable specifies if the NSM metrics collector is enabled
+                Type:         boolean
+              Nse Discovery:
+                Description:  NseDiscovery specifies in which namespace the component is deployed
+                Properties:
+                  Namespace:
+                    Type:  string
+                Required:
+                  namespace
+                Type:  object
+              Preferred Remote Mechanism:
+                Description:  PreferredRemoteMechanism specifies the NSM remote mechanism to prefer (e.g. IPSEC)
+                Type:         string
+              Size:
+                Description:  Size of the deployment
+                Format:       int32
+                Minimum:      1
+                Type:         integer
+            Required:
+              insecure
+              jaegerTracing
+              nseDiscovery
+            Type:  object
+          Status:
+            Description:  MemberCoreStatus defines the observed state of MemberCore
+            Properties:
+              Cross Connect Monitor:
+                Description:  CrossConnectMonitor defines the observed state of CrossConnectMonitor components
+                Properties:
+                  Deployment:
+                    Type:  string
+                  Service:
+                    Type:  string
+                  Service Account:
+                    Type:  string
+                Type:      object
+              Jaeger:
+                Description:  Jaeger defines the observed state of Jaeger components
+                Properties:
+                  Deployment:
+                    Type:  string
+                  Service:
+                    Type:  string
+                Type:      object
+              Nse Discovery:
+                Description:  NseDiscovery defines the observed state of NseDiscovery components
+                Properties:
+                  Cluster Role:
+                    Type:  string
+                  Cluster Role Binding:
+                    Type:  string
+                  Deployment:
+                    Type:  string
+                  Namespace:
+                    Type:  string
+                  Service:
+                    Type:  string
+                  Service Account:
+                    Type:  string
+                Type:      object
+              Nsm:
+                Description:  NSM defines the observed state of NSM Components
+                Properties:
+                  Cluster Role:
+                    Type:  string
+                  Cluster Role Binding:
+                    Type:  string
+                  Cluster Role View:
+                    Type:  string
+                  Config Map:
+                    Type:  string
+                  Crds:
+                    Description:  NsmCrds defines the observed state of NSM CRDs
+                    Properties:
+                      Network Service:
+                        Type:  string
+                      Network Service Endpoint:
+                        Type:  string
+                      Network Service Manager:
+                        Type:  string
+                    Type:      object
+                  Namespace:
+                    Type:  string
+                  Nsm Admission Webhook:
+                    Description:  NsmAdmissionWebhook defines the observed state of NsmAdmissionWebhook components
+                    Properties:
+                      Cluster Role:
+                        Type:  string
+                      Cluster Role Binding:
+                        Type:  string
+                      Config Map:
+                        Type:  string
+                      Deployment:
+                        Type:  string
+                      Mutating Webhook Configuration:
+                        Type:  string
+                      Secret:
+                        Type:  string
+                      Service:
+                        Type:  string
+                      Service Account:
+                        Type:  string
+                    Type:      object
+                  Nsm Vpp Forwarder:
+                    Description:  NsmVppForwarder defines the observed state of NSM Dataplane
+                    Properties:
+                      Daemon Set:
+                        Type:  string
+                      Service Account:
+                        Type:  string
+                    Type:      object
+                  Nsmgr:
+                    Description:  Nsmgr defines the observed state of NSManager components
+                    Properties:
+                      Daemon Set:
+                        Type:  string
+                      Service:
+                        Type:  string
+                      Service Account:
+                        Type:  string
+                    Type:      object
+                Type:          object
+              Pods:
+                Items:
+                  Properties:
+                    Name:
+                      Type:  string
+                    Status:
+                      Type:  string
+                  Type:      object
+                Type:        array
+              Prefix - Service:
+                Description:  PrefixService defines the observed state of PrefixService component
+                Properties:
+                  Deployment:
+                    Type:  string
+                Type:      object
+              Proxy - Nsmgr:
+                Description:  ProxyNsmgr defines the observed state of ProxyNsmgr components
+                Properties:
+                  Deployment:
+                    Type:  string
+                  Service:
+                    Type:  string
+                  Service Account:
+                    Type:  string
+                Type:      object
+              Skydive:
+                Description:  Skydive defines the observed state of Skydive components
+                Properties:
+                  Agent:
+                    Description:  SkydiveAgent defines the observed state of SkydiveAgent components
+                    Properties:
+                      Config Map:
+                        Type:  string
+                      Daemon Set:
+                        Type:  string
+                    Type:      object
+                  Analyzer:
+                    Description:  SkydiveAnalyzer defines the observed state of SkydiveAnalyzer components
+                    Properties:
+                      Config Map:
+                        Type:  string
+                      Deployment:
+                        Type:  string
+                      Service:
+                        Type:  string
+                    Type:      object
+                Type:          object
+              Spire:
+                Description:  Spire defines the observed state of Spire components
+                Properties:
+                  Agent:
+                    Description:  SpireAgent defines the  observed state of SpireAgent components
+                    Properties:
+                      Cluster Role:
+                        Type:  string
+                      Cluster Role Binding:
+                        Type:  string
+                      Config Map:
+                        Type:  string
+                      Daemon Set:
+                        Type:  string
+                      Service Account:
+                        Type:  string
+                    Type:      object
+                  Bundle:
+                    Description:  SpireBundle defines the observed state of SpireBundle components
+                    Properties:
+                      Config Map:
+                        Type:  string
+                    Type:      object
+                  Entries:
+                    Properties:
+                      Config Map:
+                        Type:  string
+                    Type:      object
+                  Server:
+                    Description:  SpireAgent defines the observed state of SpireAgent components
+                    Properties:
+                      Cluster Role:
+                        Type:  string
+                      Cluster Role Binding:
+                        Type:  string
+                      Config Map:
+                        Type:  string
+                      Secret:
+                        Type:  string
+                      Service:
+                        Type:  string
+                      Service Account:
+                        Type:  string
+                      Stateful Set:
+                        Type:  string
+                    Type:      object
+                Type:          object
+            Type:              object
+        Required:
+          spec
+        Type:  object
+    Served:    true
+    Storage:   true
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Kind:       MemberCore
+    List Kind:  MemberCoreList
+    Plural:     membercores
+    Singular:   membercore
+  Conditions:
+    Last Transition Time:  2021-05-21T20:17:20Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-05-21T20:17:20Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1alpha1
+Events:  <none>
+

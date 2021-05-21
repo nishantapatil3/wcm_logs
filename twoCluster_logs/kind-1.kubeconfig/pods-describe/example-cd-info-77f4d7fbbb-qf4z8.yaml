@@ -1,0 +1,62 @@
+Name:         example-cd-info-77f4d7fbbb-qf4z8
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 21 May 2021 20:15:01 +0000
+Labels:       app=cd-info-example
+              connectivitydomain=example
+              pod-template-hash=77f4d7fbbb
+Annotations:  sidecar.jaegertracing.io/inject: true
+Status:       Running
+IP:           10.244.0.22
+IPs:
+  IP:           10.244.0.22
+Controlled By:  ReplicaSet/example-cd-info-77f4d7fbbb
+Containers:
+  example-cd-info:
+    Container ID:   containerd://44a7c25f488acdc45c928e077c7ef3993fe1f62b324102fc3dafb8b4ffeee306
+    Image:          public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/connectivity-domain-info@sha256:12050746cc98ab1c7b9ff67998eb4168fe0dc022811001f571f9cdb481a1aa78
+    Port:           50071/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 21 May 2021 20:15:02 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                     (v1:metadata.uid)
+      JAEGER_SERVICE_NAME:        status.service.server
+      JAEGER_AGENT_HOST:          localhost
+      JAEGER_AGENT_PORT:          6831
+      JAEGER_REPORTER_LOG_SPANS:  true
+      INSECURE:                   true
+    Mounts:
+      /etc/info-server-config/config.yaml from example-cd-info-config-map (rw,path="./config.yaml")
+      /var/run/secrets/kubernetes.io/serviceaccount from example-cd-info-service-account-token-tw2wx (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  example-cd-info-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      example-cd-info-config-map
+    Optional:  false
+  example-cd-info-service-account-token-tw2wx:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-cd-info-service-account-token-tw2wx
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  47m   default-scheduler  Successfully assigned wcm-system/example-cd-info-77f4d7fbbb-qf4z8 to kind-1-control-plane
+  Normal  Pulled     47m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest" already present on machine
+  Normal  Created    47m   kubelet            Created container example-cd-info
+  Normal  Started    47m   kubelet            Started container example-cd-info
+

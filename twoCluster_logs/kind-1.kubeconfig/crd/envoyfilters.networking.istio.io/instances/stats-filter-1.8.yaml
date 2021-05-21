@@ -1,0 +1,118 @@
+Name:         stats-filter-1.8
+Namespace:    istio-system
+Labels:       install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Pilot
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+Annotations:  <none>
+API Version:  networking.istio.io/v1alpha3
+Kind:         EnvoyFilter
+Metadata:
+  Creation Timestamp:  2021-04-28T21:17:01Z
+  Generation:          1
+  Resource Version:    2976
+  Self Link:           /apis/networking.istio.io/v1alpha3/namespaces/istio-system/envoyfilters/stats-filter-1.8
+  UID:                 72f85a16-4d84-494d-a492-540ce1293d48
+Spec:
+  Config Patches:
+    Apply To:  HTTP_FILTER
+    Match:
+      Context:  SIDECAR_OUTBOUND
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.http_connection_manager
+            Sub Filter:
+              Name:  envoy.router
+      Proxy:
+        Proxy Version:  ^1\.8.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.stats
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:
+                @type:  type.googleapis.com/google.protobuf.StringValue
+                Value:  {
+}
+
+              root_id:  stats_outbound
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.stats
+                Runtime:            envoy.wasm.runtime.null
+                vm_id:              stats_outbound
+    Apply To:                       HTTP_FILTER
+    Match:
+      Context:  SIDECAR_INBOUND
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.http_connection_manager
+            Sub Filter:
+              Name:  envoy.router
+      Proxy:
+        Proxy Version:  ^1\.8.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.stats
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:
+                @type:  type.googleapis.com/google.protobuf.StringValue
+                Value:  {
+}
+
+              root_id:  stats_inbound
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.stats
+                Runtime:            envoy.wasm.runtime.null
+                vm_id:              stats_inbound
+    Apply To:                       HTTP_FILTER
+    Match:
+      Context:  GATEWAY
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.http_connection_manager
+            Sub Filter:
+              Name:  envoy.router
+      Proxy:
+        Proxy Version:  ^1\.8.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.stats
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:
+                @type:  type.googleapis.com/google.protobuf.StringValue
+                Value:  {
+  "disable_host_header_fallback": true
+}
+
+              root_id:  stats_outbound
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.stats
+                Runtime:            envoy.wasm.runtime.null
+                vm_id:              stats_outbound
+Events:                             <none>
+

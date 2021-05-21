@@ -1,0 +1,62 @@
+Name:         connectivity-domain-operator-7db4d7548-2sm6l
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 12 May 2021 15:34:04 +0000
+Labels:       name=connectivity-domain-operator
+              pod-template-hash=7db4d7548
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.13
+IPs:
+  IP:           10.244.0.13
+Controlled By:  ReplicaSet/connectivity-domain-operator-7db4d7548
+Containers:
+  connectivity-domain-operator:
+    Container ID:  containerd://3c888bb7069e86e2aed55643fb856cf447f0ba557b03d48e19537cdb0ef1e2e0
+    Image:         public.ecr.aws/ciscoeti/appn/connectivity-domain-operator:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/connectivity-domain-operator@sha256:2bc38b2cfb2440efc919f0ab3eae2125f52266ba1f3c85c3af8143deaae447eb
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      connectivity-domain-operator
+    State:          Running
+      Started:      Wed, 12 May 2021 15:34:20 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         connectivity-domain-operator-7db4d7548-2sm6l (v1:metadata.name)
+      OPERATOR_NAME:    connectivity-domain-operator
+      CONFIG_PATH:      etc/connectivity-domain-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from connectivity-domain-operator-token-rt6wz (ro)
+      etc/connectivity-domain-configmap/config.yaml from config-data-connectivity-domain (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-connectivity-domain:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      connectivity-domain-configmap
+    Optional:  false
+  connectivity-domain-operator-token-rt6wz:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  connectivity-domain-operator-token-rt6wz
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  49m   default-scheduler  Successfully assigned wcm-system/connectivity-domain-operator-7db4d7548-2sm6l to kind-1-control-plane
+  Normal  Pulling    49m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/connectivity-domain-operator:latest"
+  Normal  Pulled     49m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/connectivity-domain-operator:latest"
+  Normal  Created    49m   kubelet            Created container connectivity-domain-operator
+  Normal  Started    49m   kubelet            Started container connectivity-domain-operator
+

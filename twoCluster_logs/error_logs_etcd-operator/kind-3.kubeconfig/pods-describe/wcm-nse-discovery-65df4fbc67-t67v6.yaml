@@ -1,0 +1,58 @@
+Name:         wcm-nse-discovery-65df4fbc67-t67v6
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Mon, 10 May 2021 16:11:25 -0700
+Labels:       app=nse-discovery-wcm
+              membercore=wcm
+              pod-template-hash=65df4fbc67
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  ReplicaSet/wcm-nse-discovery-65df4fbc67
+Containers:
+  wcm-nse-discovery:
+    Container ID:   containerd://163a3457e7e1dcfed9c82adf4cc8aff97fcaa05aebf7bd6c58b955406a92aed6
+    Image:          containers.cisco.com/appn/nse-discovery-operator:latest
+    Image ID:       containers.cisco.com/appn/nse-discovery-operator@sha256:1717244b54988cc3a0faa8463c24243147698370b3eb124308ffd4ec4858d986
+    Port:           2112/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 10 May 2021 16:11:46 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:         (v1:metadata.uid)
+      CLUSTER_NAME:   kind-3
+      INSECURE:       true
+      NSE_NAMESPACE:  wcm-system
+      NSR_ADDRESS:    wcm-proxy-nsmgr.nsm-system:5005
+      METRICS_PORT:   2112
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-discovery-service-account-token-qcgws (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  wcm-nse-discovery-service-account-token-qcgws:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-discovery-service-account-token-qcgws
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  13m   default-scheduler  Successfully assigned wcm-system/wcm-nse-discovery-65df4fbc67-t67v6 to kind-3-control-plane
+  Normal  Pulling    13m   kubelet            Pulling image "containers.cisco.com/appn/nse-discovery-operator:latest"
+  Normal  Pulled     12m   kubelet            Successfully pulled image "containers.cisco.com/appn/nse-discovery-operator:latest"
+  Normal  Created    12m   kubelet            Created container wcm-nse-discovery
+  Normal  Started    12m   kubelet            Started container wcm-nse-discovery
+

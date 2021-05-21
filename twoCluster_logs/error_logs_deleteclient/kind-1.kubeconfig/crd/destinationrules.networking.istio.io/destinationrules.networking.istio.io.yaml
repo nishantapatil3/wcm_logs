@@ -1,0 +1,2195 @@
+Name:         destinationrules.networking.istio.io
+Namespace:    
+Labels:       app=istio-pilot
+              chart=istio
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Base
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+              release=istio
+Annotations:  helm.sh/resource-policy: keep
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-05-12T06:29:30Z
+  Generation:          1
+  Resource Version:    1896
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/destinationrules.networking.istio.io
+  UID:                 40ebc6aa-aebf-449d-8204-2842648e25c1
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       networking.istio.io
+  Names:
+    Categories:
+      istio-io
+      networking-istio-io
+    Kind:       DestinationRule
+    List Kind:  DestinationRuleList
+    Plural:     destinationrules
+    Short Names:
+      dr
+    Singular:  destinationrule
+  Scope:       Namespaced
+  Versions:
+    Additional Printer Columns:
+      Description:  The name of a service from the service registry
+      Json Path:    .spec.host
+      Name:         Host
+      Type:         string
+      Description:  CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC. Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+      Json Path:    .metadata.creationTimestamp
+      Name:         Age
+      Type:         date
+    Name:           v1alpha3
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  Configuration affecting load balancing, outlier detection, etc. See more details at: https://istio.io/docs/reference/config/networking/destination-rule.html
+            Properties:
+              Export To:
+                Description:  A list of namespaces to which this destination rule is exported.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Host:
+                Description:  The name of a service from the service registry.
+                Format:       string
+                Type:         string
+              Subsets:
+                Items:
+                  Properties:
+                    Labels:
+                      Additional Properties:
+                        Format:  string
+                        Type:    string
+                      Type:      object
+                    Name:
+                      Description:  Name of the subset.
+                      Format:       string
+                      Type:         string
+                    Traffic Policy:
+                      Description:  Traffic policies that apply to this subset.
+                      Properties:
+                        Connection Pool:
+                          Properties:
+                            Http:
+                              Description:  HTTP connection pool settings.
+                              Properties:
+                                h2UpgradePolicy:
+                                  Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                                  Enum:
+                                    DEFAULT
+                                    DO_NOT_UPGRADE
+                                    UPGRADE
+                                  Type:  string
+                                http1MaxPendingRequests:
+                                  Description:  Maximum number of pending HTTP requests to a destination.
+                                  Format:       int32
+                                  Type:         integer
+                                http2MaxRequests:
+                                  Description:  Maximum number of requests to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Idle Timeout:
+                                  Description:  The idle timeout for upstream connection pool connections.
+                                  Type:         string
+                                Max Requests Per Connection:
+                                  Description:  Maximum number of requests per connection to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Max Retries:
+                                  Format:  int32
+                                  Type:    integer
+                                Use Client Protocol:
+                                  Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                                  Type:         boolean
+                              Type:             object
+                            Tcp:
+                              Description:  Settings common to both HTTP and TCP upstream connections.
+                              Properties:
+                                Connect Timeout:
+                                  Description:  TCP connection timeout.
+                                  Type:         string
+                                Max Connections:
+                                  Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                                  Format:       int32
+                                  Type:         integer
+                                Tcp Keepalive:
+                                  Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                                  Properties:
+                                    Interval:
+                                      Description:  The time duration between keep-alive probes.
+                                      Type:         string
+                                    Probes:
+                                      Type:  integer
+                                    Time:
+                                      Type:  string
+                                  Type:      object
+                              Type:          object
+                          Type:              object
+                        Load Balancer:
+                          Description:  Settings controlling the load balancer algorithms.
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  simple
+                                Properties:
+                                  Consistent Hash:
+                                    One Of:
+                                      Not:
+                                        Any Of:
+                                          Required:
+                                            httpHeaderName
+                                          Required:
+                                            httpCookie
+                                          Required:
+                                            useSourceIp
+                                          Required:
+                                            httpQueryParameterName
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                Required:
+                                  consistentHash
+                            Required:
+                              simple
+                            Properties:
+                              Consistent Hash:
+                                One Of:
+                                  Not:
+                                    Any Of:
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                  Required:
+                                    httpHeaderName
+                                  Required:
+                                    httpCookie
+                                  Required:
+                                    useSourceIp
+                                  Required:
+                                    httpQueryParameterName
+                            Required:
+                              consistentHash
+                          Properties:
+                            Consistent Hash:
+                              Properties:
+                                Http Cookie:
+                                  Description:  Hash based on HTTP cookie.
+                                  Properties:
+                                    Name:
+                                      Description:  Name of the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Path:
+                                      Description:  Path to set for the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Ttl:
+                                      Description:  Lifetime of the cookie.
+                                      Type:         string
+                                  Type:             object
+                                Http Header Name:
+                                  Description:  Hash based on a specific HTTP header.
+                                  Format:       string
+                                  Type:         string
+                                Http Query Parameter Name:
+                                  Description:  Hash based on a specific HTTP query parameter.
+                                  Format:       string
+                                  Type:         string
+                                Minimum Ring Size:
+                                  Type:  integer
+                                Use Source Ip:
+                                  Description:  Hash based on the source IP address.
+                                  Type:         boolean
+                              Type:             object
+                            Locality Lb Setting:
+                              Properties:
+                                Distribute:
+                                  Description:  Optional: only one of distribute or failover can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating locality, '/' separated, e.g.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Additional Properties:
+                                          Type:       integer
+                                        Description:  Map of upstream localities to traffic distribution weights.
+                                        Type:         object
+                                    Type:             object
+                                  Type:               array
+                                Enabled:
+                                  Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                                  Nullable:     true
+                                  Type:         boolean
+                                Failover:
+                                  Description:  Optional: only failover or distribute can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating region.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Format:  string
+                                        Type:    string
+                                    Type:        object
+                                  Type:          array
+                              Type:              object
+                            Simple:
+                              Enum:
+                                ROUND_ROBIN
+                                LEAST_CONN
+                                RANDOM
+                                PASSTHROUGH
+                              Type:  string
+                          Type:      object
+                        Outlier Detection:
+                          Properties:
+                            Base Ejection Time:
+                              Description:  Minimum ejection duration.
+                              Type:         string
+                            consecutive5xxErrors:
+                              Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Consecutive Errors:
+                              Format:  int32
+                              Type:    integer
+                            Consecutive Gateway Errors:
+                              Description:  Number of gateway errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Interval:
+                              Description:  Time interval between ejection sweep analysis.
+                              Type:         string
+                            Max Ejection Percent:
+                              Format:  int32
+                              Type:    integer
+                            Min Health Percent:
+                              Format:  int32
+                              Type:    integer
+                          Type:        object
+                        Port Level Settings:
+                          Description:  Traffic policies specific to individual ports.
+                          Items:
+                            Properties:
+                              Connection Pool:
+                                Properties:
+                                  Http:
+                                    Description:  HTTP connection pool settings.
+                                    Properties:
+                                      h2UpgradePolicy:
+                                        Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                                        Enum:
+                                          DEFAULT
+                                          DO_NOT_UPGRADE
+                                          UPGRADE
+                                        Type:  string
+                                      http1MaxPendingRequests:
+                                        Description:  Maximum number of pending HTTP requests to a destination.
+                                        Format:       int32
+                                        Type:         integer
+                                      http2MaxRequests:
+                                        Description:  Maximum number of requests to a backend.
+                                        Format:       int32
+                                        Type:         integer
+                                      Idle Timeout:
+                                        Description:  The idle timeout for upstream connection pool connections.
+                                        Type:         string
+                                      Max Requests Per Connection:
+                                        Description:  Maximum number of requests per connection to a backend.
+                                        Format:       int32
+                                        Type:         integer
+                                      Max Retries:
+                                        Format:  int32
+                                        Type:    integer
+                                      Use Client Protocol:
+                                        Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                                        Type:         boolean
+                                    Type:             object
+                                  Tcp:
+                                    Description:  Settings common to both HTTP and TCP upstream connections.
+                                    Properties:
+                                      Connect Timeout:
+                                        Description:  TCP connection timeout.
+                                        Type:         string
+                                      Max Connections:
+                                        Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                                        Format:       int32
+                                        Type:         integer
+                                      Tcp Keepalive:
+                                        Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                                        Properties:
+                                          Interval:
+                                            Description:  The time duration between keep-alive probes.
+                                            Type:         string
+                                          Probes:
+                                            Type:  integer
+                                          Time:
+                                            Type:  string
+                                        Type:      object
+                                    Type:          object
+                                Type:              object
+                              Load Balancer:
+                                Description:  Settings controlling the load balancer algorithms.
+                                One Of:
+                                  Not:
+                                    Any Of:
+                                      Required:
+                                        simple
+                                      Properties:
+                                        Consistent Hash:
+                                          One Of:
+                                            Not:
+                                              Any Of:
+                                                Required:
+                                                  httpHeaderName
+                                                Required:
+                                                  httpCookie
+                                                Required:
+                                                  useSourceIp
+                                                Required:
+                                                  httpQueryParameterName
+                                            Required:
+                                              httpHeaderName
+                                            Required:
+                                              httpCookie
+                                            Required:
+                                              useSourceIp
+                                            Required:
+                                              httpQueryParameterName
+                                      Required:
+                                        consistentHash
+                                  Required:
+                                    simple
+                                  Properties:
+                                    Consistent Hash:
+                                      One Of:
+                                        Not:
+                                          Any Of:
+                                            Required:
+                                              httpHeaderName
+                                            Required:
+                                              httpCookie
+                                            Required:
+                                              useSourceIp
+                                            Required:
+                                              httpQueryParameterName
+                                        Required:
+                                          httpHeaderName
+                                        Required:
+                                          httpCookie
+                                        Required:
+                                          useSourceIp
+                                        Required:
+                                          httpQueryParameterName
+                                  Required:
+                                    consistentHash
+                                Properties:
+                                  Consistent Hash:
+                                    Properties:
+                                      Http Cookie:
+                                        Description:  Hash based on HTTP cookie.
+                                        Properties:
+                                          Name:
+                                            Description:  Name of the cookie.
+                                            Format:       string
+                                            Type:         string
+                                          Path:
+                                            Description:  Path to set for the cookie.
+                                            Format:       string
+                                            Type:         string
+                                          Ttl:
+                                            Description:  Lifetime of the cookie.
+                                            Type:         string
+                                        Type:             object
+                                      Http Header Name:
+                                        Description:  Hash based on a specific HTTP header.
+                                        Format:       string
+                                        Type:         string
+                                      Http Query Parameter Name:
+                                        Description:  Hash based on a specific HTTP query parameter.
+                                        Format:       string
+                                        Type:         string
+                                      Minimum Ring Size:
+                                        Type:  integer
+                                      Use Source Ip:
+                                        Description:  Hash based on the source IP address.
+                                        Type:         boolean
+                                    Type:             object
+                                  Locality Lb Setting:
+                                    Properties:
+                                      Distribute:
+                                        Description:  Optional: only one of distribute or failover can be set.
+                                        Items:
+                                          Properties:
+                                            From:
+                                              Description:  Originating locality, '/' separated, e.g.
+                                              Format:       string
+                                              Type:         string
+                                            To:
+                                              Additional Properties:
+                                                Type:       integer
+                                              Description:  Map of upstream localities to traffic distribution weights.
+                                              Type:         object
+                                          Type:             object
+                                        Type:               array
+                                      Enabled:
+                                        Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                                        Nullable:     true
+                                        Type:         boolean
+                                      Failover:
+                                        Description:  Optional: only failover or distribute can be set.
+                                        Items:
+                                          Properties:
+                                            From:
+                                              Description:  Originating region.
+                                              Format:       string
+                                              Type:         string
+                                            To:
+                                              Format:  string
+                                              Type:    string
+                                          Type:        object
+                                        Type:          array
+                                    Type:              object
+                                  Simple:
+                                    Enum:
+                                      ROUND_ROBIN
+                                      LEAST_CONN
+                                      RANDOM
+                                      PASSTHROUGH
+                                    Type:  string
+                                Type:      object
+                              Outlier Detection:
+                                Properties:
+                                  Base Ejection Time:
+                                    Description:  Minimum ejection duration.
+                                    Type:         string
+                                  consecutive5xxErrors:
+                                    Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                                    Nullable:     true
+                                    Type:         integer
+                                  Consecutive Errors:
+                                    Format:  int32
+                                    Type:    integer
+                                  Consecutive Gateway Errors:
+                                    Description:  Number of gateway errors before a host is ejected from the connection pool.
+                                    Nullable:     true
+                                    Type:         integer
+                                  Interval:
+                                    Description:  Time interval between ejection sweep analysis.
+                                    Type:         string
+                                  Max Ejection Percent:
+                                    Format:  int32
+                                    Type:    integer
+                                  Min Health Percent:
+                                    Format:  int32
+                                    Type:    integer
+                                Type:        object
+                              Port:
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Tls:
+                                Description:  TLS related settings for connections to the upstream service.
+                                Properties:
+                                  Ca Certificates:
+                                    Format:  string
+                                    Type:    string
+                                  Client Certificate:
+                                    Description:  REQUIRED if mode is `MUTUAL`.
+                                    Format:       string
+                                    Type:         string
+                                  Credential Name:
+                                    Format:  string
+                                    Type:    string
+                                  Mode:
+                                    Enum:
+                                      DISABLE
+                                      SIMPLE
+                                      MUTUAL
+                                      ISTIO_MUTUAL
+                                    Type:  string
+                                  Private Key:
+                                    Description:  REQUIRED if mode is `MUTUAL`.
+                                    Format:       string
+                                    Type:         string
+                                  Sni:
+                                    Description:  SNI string to present to the server during TLS handshake.
+                                    Format:       string
+                                    Type:         string
+                                  Subject Alt Names:
+                                    Items:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      array
+                                Type:          object
+                            Type:              object
+                          Type:                array
+                        Tls:
+                          Description:  TLS related settings for connections to the upstream service.
+                          Properties:
+                            Ca Certificates:
+                              Format:  string
+                              Type:    string
+                            Client Certificate:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Credential Name:
+                              Format:  string
+                              Type:    string
+                            Mode:
+                              Enum:
+                                DISABLE
+                                SIMPLE
+                                MUTUAL
+                                ISTIO_MUTUAL
+                              Type:  string
+                            Private Key:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Sni:
+                              Description:  SNI string to present to the server during TLS handshake.
+                              Format:       string
+                              Type:         string
+                            Subject Alt Names:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                          Type:          object
+                      Type:              object
+                  Type:                  object
+                Type:                    array
+              Traffic Policy:
+                Properties:
+                  Connection Pool:
+                    Properties:
+                      Http:
+                        Description:  HTTP connection pool settings.
+                        Properties:
+                          h2UpgradePolicy:
+                            Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                            Enum:
+                              DEFAULT
+                              DO_NOT_UPGRADE
+                              UPGRADE
+                            Type:  string
+                          http1MaxPendingRequests:
+                            Description:  Maximum number of pending HTTP requests to a destination.
+                            Format:       int32
+                            Type:         integer
+                          http2MaxRequests:
+                            Description:  Maximum number of requests to a backend.
+                            Format:       int32
+                            Type:         integer
+                          Idle Timeout:
+                            Description:  The idle timeout for upstream connection pool connections.
+                            Type:         string
+                          Max Requests Per Connection:
+                            Description:  Maximum number of requests per connection to a backend.
+                            Format:       int32
+                            Type:         integer
+                          Max Retries:
+                            Format:  int32
+                            Type:    integer
+                          Use Client Protocol:
+                            Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                            Type:         boolean
+                        Type:             object
+                      Tcp:
+                        Description:  Settings common to both HTTP and TCP upstream connections.
+                        Properties:
+                          Connect Timeout:
+                            Description:  TCP connection timeout.
+                            Type:         string
+                          Max Connections:
+                            Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                            Format:       int32
+                            Type:         integer
+                          Tcp Keepalive:
+                            Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                            Properties:
+                              Interval:
+                                Description:  The time duration between keep-alive probes.
+                                Type:         string
+                              Probes:
+                                Type:  integer
+                              Time:
+                                Type:  string
+                            Type:      object
+                        Type:          object
+                    Type:              object
+                  Load Balancer:
+                    Description:  Settings controlling the load balancer algorithms.
+                    One Of:
+                      Not:
+                        Any Of:
+                          Required:
+                            simple
+                          Properties:
+                            Consistent Hash:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      httpHeaderName
+                                    Required:
+                                      httpCookie
+                                    Required:
+                                      useSourceIp
+                                    Required:
+                                      httpQueryParameterName
+                                Required:
+                                  httpHeaderName
+                                Required:
+                                  httpCookie
+                                Required:
+                                  useSourceIp
+                                Required:
+                                  httpQueryParameterName
+                          Required:
+                            consistentHash
+                      Required:
+                        simple
+                      Properties:
+                        Consistent Hash:
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  httpHeaderName
+                                Required:
+                                  httpCookie
+                                Required:
+                                  useSourceIp
+                                Required:
+                                  httpQueryParameterName
+                            Required:
+                              httpHeaderName
+                            Required:
+                              httpCookie
+                            Required:
+                              useSourceIp
+                            Required:
+                              httpQueryParameterName
+                      Required:
+                        consistentHash
+                    Properties:
+                      Consistent Hash:
+                        Properties:
+                          Http Cookie:
+                            Description:  Hash based on HTTP cookie.
+                            Properties:
+                              Name:
+                                Description:  Name of the cookie.
+                                Format:       string
+                                Type:         string
+                              Path:
+                                Description:  Path to set for the cookie.
+                                Format:       string
+                                Type:         string
+                              Ttl:
+                                Description:  Lifetime of the cookie.
+                                Type:         string
+                            Type:             object
+                          Http Header Name:
+                            Description:  Hash based on a specific HTTP header.
+                            Format:       string
+                            Type:         string
+                          Http Query Parameter Name:
+                            Description:  Hash based on a specific HTTP query parameter.
+                            Format:       string
+                            Type:         string
+                          Minimum Ring Size:
+                            Type:  integer
+                          Use Source Ip:
+                            Description:  Hash based on the source IP address.
+                            Type:         boolean
+                        Type:             object
+                      Locality Lb Setting:
+                        Properties:
+                          Distribute:
+                            Description:  Optional: only one of distribute or failover can be set.
+                            Items:
+                              Properties:
+                                From:
+                                  Description:  Originating locality, '/' separated, e.g.
+                                  Format:       string
+                                  Type:         string
+                                To:
+                                  Additional Properties:
+                                    Type:       integer
+                                  Description:  Map of upstream localities to traffic distribution weights.
+                                  Type:         object
+                              Type:             object
+                            Type:               array
+                          Enabled:
+                            Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                            Nullable:     true
+                            Type:         boolean
+                          Failover:
+                            Description:  Optional: only failover or distribute can be set.
+                            Items:
+                              Properties:
+                                From:
+                                  Description:  Originating region.
+                                  Format:       string
+                                  Type:         string
+                                To:
+                                  Format:  string
+                                  Type:    string
+                              Type:        object
+                            Type:          array
+                        Type:              object
+                      Simple:
+                        Enum:
+                          ROUND_ROBIN
+                          LEAST_CONN
+                          RANDOM
+                          PASSTHROUGH
+                        Type:  string
+                    Type:      object
+                  Outlier Detection:
+                    Properties:
+                      Base Ejection Time:
+                        Description:  Minimum ejection duration.
+                        Type:         string
+                      consecutive5xxErrors:
+                        Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                        Nullable:     true
+                        Type:         integer
+                      Consecutive Errors:
+                        Format:  int32
+                        Type:    integer
+                      Consecutive Gateway Errors:
+                        Description:  Number of gateway errors before a host is ejected from the connection pool.
+                        Nullable:     true
+                        Type:         integer
+                      Interval:
+                        Description:  Time interval between ejection sweep analysis.
+                        Type:         string
+                      Max Ejection Percent:
+                        Format:  int32
+                        Type:    integer
+                      Min Health Percent:
+                        Format:  int32
+                        Type:    integer
+                    Type:        object
+                  Port Level Settings:
+                    Description:  Traffic policies specific to individual ports.
+                    Items:
+                      Properties:
+                        Connection Pool:
+                          Properties:
+                            Http:
+                              Description:  HTTP connection pool settings.
+                              Properties:
+                                h2UpgradePolicy:
+                                  Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                                  Enum:
+                                    DEFAULT
+                                    DO_NOT_UPGRADE
+                                    UPGRADE
+                                  Type:  string
+                                http1MaxPendingRequests:
+                                  Description:  Maximum number of pending HTTP requests to a destination.
+                                  Format:       int32
+                                  Type:         integer
+                                http2MaxRequests:
+                                  Description:  Maximum number of requests to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Idle Timeout:
+                                  Description:  The idle timeout for upstream connection pool connections.
+                                  Type:         string
+                                Max Requests Per Connection:
+                                  Description:  Maximum number of requests per connection to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Max Retries:
+                                  Format:  int32
+                                  Type:    integer
+                                Use Client Protocol:
+                                  Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                                  Type:         boolean
+                              Type:             object
+                            Tcp:
+                              Description:  Settings common to both HTTP and TCP upstream connections.
+                              Properties:
+                                Connect Timeout:
+                                  Description:  TCP connection timeout.
+                                  Type:         string
+                                Max Connections:
+                                  Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                                  Format:       int32
+                                  Type:         integer
+                                Tcp Keepalive:
+                                  Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                                  Properties:
+                                    Interval:
+                                      Description:  The time duration between keep-alive probes.
+                                      Type:         string
+                                    Probes:
+                                      Type:  integer
+                                    Time:
+                                      Type:  string
+                                  Type:      object
+                              Type:          object
+                          Type:              object
+                        Load Balancer:
+                          Description:  Settings controlling the load balancer algorithms.
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  simple
+                                Properties:
+                                  Consistent Hash:
+                                    One Of:
+                                      Not:
+                                        Any Of:
+                                          Required:
+                                            httpHeaderName
+                                          Required:
+                                            httpCookie
+                                          Required:
+                                            useSourceIp
+                                          Required:
+                                            httpQueryParameterName
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                Required:
+                                  consistentHash
+                            Required:
+                              simple
+                            Properties:
+                              Consistent Hash:
+                                One Of:
+                                  Not:
+                                    Any Of:
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                  Required:
+                                    httpHeaderName
+                                  Required:
+                                    httpCookie
+                                  Required:
+                                    useSourceIp
+                                  Required:
+                                    httpQueryParameterName
+                            Required:
+                              consistentHash
+                          Properties:
+                            Consistent Hash:
+                              Properties:
+                                Http Cookie:
+                                  Description:  Hash based on HTTP cookie.
+                                  Properties:
+                                    Name:
+                                      Description:  Name of the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Path:
+                                      Description:  Path to set for the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Ttl:
+                                      Description:  Lifetime of the cookie.
+                                      Type:         string
+                                  Type:             object
+                                Http Header Name:
+                                  Description:  Hash based on a specific HTTP header.
+                                  Format:       string
+                                  Type:         string
+                                Http Query Parameter Name:
+                                  Description:  Hash based on a specific HTTP query parameter.
+                                  Format:       string
+                                  Type:         string
+                                Minimum Ring Size:
+                                  Type:  integer
+                                Use Source Ip:
+                                  Description:  Hash based on the source IP address.
+                                  Type:         boolean
+                              Type:             object
+                            Locality Lb Setting:
+                              Properties:
+                                Distribute:
+                                  Description:  Optional: only one of distribute or failover can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating locality, '/' separated, e.g.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Additional Properties:
+                                          Type:       integer
+                                        Description:  Map of upstream localities to traffic distribution weights.
+                                        Type:         object
+                                    Type:             object
+                                  Type:               array
+                                Enabled:
+                                  Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                                  Nullable:     true
+                                  Type:         boolean
+                                Failover:
+                                  Description:  Optional: only failover or distribute can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating region.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Format:  string
+                                        Type:    string
+                                    Type:        object
+                                  Type:          array
+                              Type:              object
+                            Simple:
+                              Enum:
+                                ROUND_ROBIN
+                                LEAST_CONN
+                                RANDOM
+                                PASSTHROUGH
+                              Type:  string
+                          Type:      object
+                        Outlier Detection:
+                          Properties:
+                            Base Ejection Time:
+                              Description:  Minimum ejection duration.
+                              Type:         string
+                            consecutive5xxErrors:
+                              Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Consecutive Errors:
+                              Format:  int32
+                              Type:    integer
+                            Consecutive Gateway Errors:
+                              Description:  Number of gateway errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Interval:
+                              Description:  Time interval between ejection sweep analysis.
+                              Type:         string
+                            Max Ejection Percent:
+                              Format:  int32
+                              Type:    integer
+                            Min Health Percent:
+                              Format:  int32
+                              Type:    integer
+                          Type:        object
+                        Port:
+                          Properties:
+                            Number:
+                              Type:  integer
+                          Type:      object
+                        Tls:
+                          Description:  TLS related settings for connections to the upstream service.
+                          Properties:
+                            Ca Certificates:
+                              Format:  string
+                              Type:    string
+                            Client Certificate:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Credential Name:
+                              Format:  string
+                              Type:    string
+                            Mode:
+                              Enum:
+                                DISABLE
+                                SIMPLE
+                                MUTUAL
+                                ISTIO_MUTUAL
+                              Type:  string
+                            Private Key:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Sni:
+                              Description:  SNI string to present to the server during TLS handshake.
+                              Format:       string
+                              Type:         string
+                            Subject Alt Names:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                          Type:          object
+                      Type:              object
+                    Type:                array
+                  Tls:
+                    Description:  TLS related settings for connections to the upstream service.
+                    Properties:
+                      Ca Certificates:
+                        Format:  string
+                        Type:    string
+                      Client Certificate:
+                        Description:  REQUIRED if mode is `MUTUAL`.
+                        Format:       string
+                        Type:         string
+                      Credential Name:
+                        Format:  string
+                        Type:    string
+                      Mode:
+                        Enum:
+                          DISABLE
+                          SIMPLE
+                          MUTUAL
+                          ISTIO_MUTUAL
+                        Type:  string
+                      Private Key:
+                        Description:  REQUIRED if mode is `MUTUAL`.
+                        Format:       string
+                        Type:         string
+                      Sni:
+                        Description:  SNI string to present to the server during TLS handshake.
+                        Format:       string
+                        Type:         string
+                      Subject Alt Names:
+                        Items:
+                          Format:  string
+                          Type:    string
+                        Type:      array
+                    Type:          object
+                Type:              object
+            Type:                  object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               true
+    Subresources:
+      Status:
+    Additional Printer Columns:
+      Description:  The name of a service from the service registry
+      Json Path:    .spec.host
+      Name:         Host
+      Type:         string
+      Description:  CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC. Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+      Json Path:    .metadata.creationTimestamp
+      Name:         Age
+      Type:         date
+    Name:           v1beta1
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  Configuration affecting load balancing, outlier detection, etc. See more details at: https://istio.io/docs/reference/config/networking/destination-rule.html
+            Properties:
+              Export To:
+                Description:  A list of namespaces to which this destination rule is exported.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Host:
+                Description:  The name of a service from the service registry.
+                Format:       string
+                Type:         string
+              Subsets:
+                Items:
+                  Properties:
+                    Labels:
+                      Additional Properties:
+                        Format:  string
+                        Type:    string
+                      Type:      object
+                    Name:
+                      Description:  Name of the subset.
+                      Format:       string
+                      Type:         string
+                    Traffic Policy:
+                      Description:  Traffic policies that apply to this subset.
+                      Properties:
+                        Connection Pool:
+                          Properties:
+                            Http:
+                              Description:  HTTP connection pool settings.
+                              Properties:
+                                h2UpgradePolicy:
+                                  Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                                  Enum:
+                                    DEFAULT
+                                    DO_NOT_UPGRADE
+                                    UPGRADE
+                                  Type:  string
+                                http1MaxPendingRequests:
+                                  Description:  Maximum number of pending HTTP requests to a destination.
+                                  Format:       int32
+                                  Type:         integer
+                                http2MaxRequests:
+                                  Description:  Maximum number of requests to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Idle Timeout:
+                                  Description:  The idle timeout for upstream connection pool connections.
+                                  Type:         string
+                                Max Requests Per Connection:
+                                  Description:  Maximum number of requests per connection to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Max Retries:
+                                  Format:  int32
+                                  Type:    integer
+                                Use Client Protocol:
+                                  Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                                  Type:         boolean
+                              Type:             object
+                            Tcp:
+                              Description:  Settings common to both HTTP and TCP upstream connections.
+                              Properties:
+                                Connect Timeout:
+                                  Description:  TCP connection timeout.
+                                  Type:         string
+                                Max Connections:
+                                  Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                                  Format:       int32
+                                  Type:         integer
+                                Tcp Keepalive:
+                                  Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                                  Properties:
+                                    Interval:
+                                      Description:  The time duration between keep-alive probes.
+                                      Type:         string
+                                    Probes:
+                                      Type:  integer
+                                    Time:
+                                      Type:  string
+                                  Type:      object
+                              Type:          object
+                          Type:              object
+                        Load Balancer:
+                          Description:  Settings controlling the load balancer algorithms.
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  simple
+                                Properties:
+                                  Consistent Hash:
+                                    One Of:
+                                      Not:
+                                        Any Of:
+                                          Required:
+                                            httpHeaderName
+                                          Required:
+                                            httpCookie
+                                          Required:
+                                            useSourceIp
+                                          Required:
+                                            httpQueryParameterName
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                Required:
+                                  consistentHash
+                            Required:
+                              simple
+                            Properties:
+                              Consistent Hash:
+                                One Of:
+                                  Not:
+                                    Any Of:
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                  Required:
+                                    httpHeaderName
+                                  Required:
+                                    httpCookie
+                                  Required:
+                                    useSourceIp
+                                  Required:
+                                    httpQueryParameterName
+                            Required:
+                              consistentHash
+                          Properties:
+                            Consistent Hash:
+                              Properties:
+                                Http Cookie:
+                                  Description:  Hash based on HTTP cookie.
+                                  Properties:
+                                    Name:
+                                      Description:  Name of the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Path:
+                                      Description:  Path to set for the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Ttl:
+                                      Description:  Lifetime of the cookie.
+                                      Type:         string
+                                  Type:             object
+                                Http Header Name:
+                                  Description:  Hash based on a specific HTTP header.
+                                  Format:       string
+                                  Type:         string
+                                Http Query Parameter Name:
+                                  Description:  Hash based on a specific HTTP query parameter.
+                                  Format:       string
+                                  Type:         string
+                                Minimum Ring Size:
+                                  Type:  integer
+                                Use Source Ip:
+                                  Description:  Hash based on the source IP address.
+                                  Type:         boolean
+                              Type:             object
+                            Locality Lb Setting:
+                              Properties:
+                                Distribute:
+                                  Description:  Optional: only one of distribute or failover can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating locality, '/' separated, e.g.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Additional Properties:
+                                          Type:       integer
+                                        Description:  Map of upstream localities to traffic distribution weights.
+                                        Type:         object
+                                    Type:             object
+                                  Type:               array
+                                Enabled:
+                                  Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                                  Nullable:     true
+                                  Type:         boolean
+                                Failover:
+                                  Description:  Optional: only failover or distribute can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating region.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Format:  string
+                                        Type:    string
+                                    Type:        object
+                                  Type:          array
+                              Type:              object
+                            Simple:
+                              Enum:
+                                ROUND_ROBIN
+                                LEAST_CONN
+                                RANDOM
+                                PASSTHROUGH
+                              Type:  string
+                          Type:      object
+                        Outlier Detection:
+                          Properties:
+                            Base Ejection Time:
+                              Description:  Minimum ejection duration.
+                              Type:         string
+                            consecutive5xxErrors:
+                              Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Consecutive Errors:
+                              Format:  int32
+                              Type:    integer
+                            Consecutive Gateway Errors:
+                              Description:  Number of gateway errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Interval:
+                              Description:  Time interval between ejection sweep analysis.
+                              Type:         string
+                            Max Ejection Percent:
+                              Format:  int32
+                              Type:    integer
+                            Min Health Percent:
+                              Format:  int32
+                              Type:    integer
+                          Type:        object
+                        Port Level Settings:
+                          Description:  Traffic policies specific to individual ports.
+                          Items:
+                            Properties:
+                              Connection Pool:
+                                Properties:
+                                  Http:
+                                    Description:  HTTP connection pool settings.
+                                    Properties:
+                                      h2UpgradePolicy:
+                                        Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                                        Enum:
+                                          DEFAULT
+                                          DO_NOT_UPGRADE
+                                          UPGRADE
+                                        Type:  string
+                                      http1MaxPendingRequests:
+                                        Description:  Maximum number of pending HTTP requests to a destination.
+                                        Format:       int32
+                                        Type:         integer
+                                      http2MaxRequests:
+                                        Description:  Maximum number of requests to a backend.
+                                        Format:       int32
+                                        Type:         integer
+                                      Idle Timeout:
+                                        Description:  The idle timeout for upstream connection pool connections.
+                                        Type:         string
+                                      Max Requests Per Connection:
+                                        Description:  Maximum number of requests per connection to a backend.
+                                        Format:       int32
+                                        Type:         integer
+                                      Max Retries:
+                                        Format:  int32
+                                        Type:    integer
+                                      Use Client Protocol:
+                                        Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                                        Type:         boolean
+                                    Type:             object
+                                  Tcp:
+                                    Description:  Settings common to both HTTP and TCP upstream connections.
+                                    Properties:
+                                      Connect Timeout:
+                                        Description:  TCP connection timeout.
+                                        Type:         string
+                                      Max Connections:
+                                        Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                                        Format:       int32
+                                        Type:         integer
+                                      Tcp Keepalive:
+                                        Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                                        Properties:
+                                          Interval:
+                                            Description:  The time duration between keep-alive probes.
+                                            Type:         string
+                                          Probes:
+                                            Type:  integer
+                                          Time:
+                                            Type:  string
+                                        Type:      object
+                                    Type:          object
+                                Type:              object
+                              Load Balancer:
+                                Description:  Settings controlling the load balancer algorithms.
+                                One Of:
+                                  Not:
+                                    Any Of:
+                                      Required:
+                                        simple
+                                      Properties:
+                                        Consistent Hash:
+                                          One Of:
+                                            Not:
+                                              Any Of:
+                                                Required:
+                                                  httpHeaderName
+                                                Required:
+                                                  httpCookie
+                                                Required:
+                                                  useSourceIp
+                                                Required:
+                                                  httpQueryParameterName
+                                            Required:
+                                              httpHeaderName
+                                            Required:
+                                              httpCookie
+                                            Required:
+                                              useSourceIp
+                                            Required:
+                                              httpQueryParameterName
+                                      Required:
+                                        consistentHash
+                                  Required:
+                                    simple
+                                  Properties:
+                                    Consistent Hash:
+                                      One Of:
+                                        Not:
+                                          Any Of:
+                                            Required:
+                                              httpHeaderName
+                                            Required:
+                                              httpCookie
+                                            Required:
+                                              useSourceIp
+                                            Required:
+                                              httpQueryParameterName
+                                        Required:
+                                          httpHeaderName
+                                        Required:
+                                          httpCookie
+                                        Required:
+                                          useSourceIp
+                                        Required:
+                                          httpQueryParameterName
+                                  Required:
+                                    consistentHash
+                                Properties:
+                                  Consistent Hash:
+                                    Properties:
+                                      Http Cookie:
+                                        Description:  Hash based on HTTP cookie.
+                                        Properties:
+                                          Name:
+                                            Description:  Name of the cookie.
+                                            Format:       string
+                                            Type:         string
+                                          Path:
+                                            Description:  Path to set for the cookie.
+                                            Format:       string
+                                            Type:         string
+                                          Ttl:
+                                            Description:  Lifetime of the cookie.
+                                            Type:         string
+                                        Type:             object
+                                      Http Header Name:
+                                        Description:  Hash based on a specific HTTP header.
+                                        Format:       string
+                                        Type:         string
+                                      Http Query Parameter Name:
+                                        Description:  Hash based on a specific HTTP query parameter.
+                                        Format:       string
+                                        Type:         string
+                                      Minimum Ring Size:
+                                        Type:  integer
+                                      Use Source Ip:
+                                        Description:  Hash based on the source IP address.
+                                        Type:         boolean
+                                    Type:             object
+                                  Locality Lb Setting:
+                                    Properties:
+                                      Distribute:
+                                        Description:  Optional: only one of distribute or failover can be set.
+                                        Items:
+                                          Properties:
+                                            From:
+                                              Description:  Originating locality, '/' separated, e.g.
+                                              Format:       string
+                                              Type:         string
+                                            To:
+                                              Additional Properties:
+                                                Type:       integer
+                                              Description:  Map of upstream localities to traffic distribution weights.
+                                              Type:         object
+                                          Type:             object
+                                        Type:               array
+                                      Enabled:
+                                        Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                                        Nullable:     true
+                                        Type:         boolean
+                                      Failover:
+                                        Description:  Optional: only failover or distribute can be set.
+                                        Items:
+                                          Properties:
+                                            From:
+                                              Description:  Originating region.
+                                              Format:       string
+                                              Type:         string
+                                            To:
+                                              Format:  string
+                                              Type:    string
+                                          Type:        object
+                                        Type:          array
+                                    Type:              object
+                                  Simple:
+                                    Enum:
+                                      ROUND_ROBIN
+                                      LEAST_CONN
+                                      RANDOM
+                                      PASSTHROUGH
+                                    Type:  string
+                                Type:      object
+                              Outlier Detection:
+                                Properties:
+                                  Base Ejection Time:
+                                    Description:  Minimum ejection duration.
+                                    Type:         string
+                                  consecutive5xxErrors:
+                                    Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                                    Nullable:     true
+                                    Type:         integer
+                                  Consecutive Errors:
+                                    Format:  int32
+                                    Type:    integer
+                                  Consecutive Gateway Errors:
+                                    Description:  Number of gateway errors before a host is ejected from the connection pool.
+                                    Nullable:     true
+                                    Type:         integer
+                                  Interval:
+                                    Description:  Time interval between ejection sweep analysis.
+                                    Type:         string
+                                  Max Ejection Percent:
+                                    Format:  int32
+                                    Type:    integer
+                                  Min Health Percent:
+                                    Format:  int32
+                                    Type:    integer
+                                Type:        object
+                              Port:
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Tls:
+                                Description:  TLS related settings for connections to the upstream service.
+                                Properties:
+                                  Ca Certificates:
+                                    Format:  string
+                                    Type:    string
+                                  Client Certificate:
+                                    Description:  REQUIRED if mode is `MUTUAL`.
+                                    Format:       string
+                                    Type:         string
+                                  Credential Name:
+                                    Format:  string
+                                    Type:    string
+                                  Mode:
+                                    Enum:
+                                      DISABLE
+                                      SIMPLE
+                                      MUTUAL
+                                      ISTIO_MUTUAL
+                                    Type:  string
+                                  Private Key:
+                                    Description:  REQUIRED if mode is `MUTUAL`.
+                                    Format:       string
+                                    Type:         string
+                                  Sni:
+                                    Description:  SNI string to present to the server during TLS handshake.
+                                    Format:       string
+                                    Type:         string
+                                  Subject Alt Names:
+                                    Items:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      array
+                                Type:          object
+                            Type:              object
+                          Type:                array
+                        Tls:
+                          Description:  TLS related settings for connections to the upstream service.
+                          Properties:
+                            Ca Certificates:
+                              Format:  string
+                              Type:    string
+                            Client Certificate:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Credential Name:
+                              Format:  string
+                              Type:    string
+                            Mode:
+                              Enum:
+                                DISABLE
+                                SIMPLE
+                                MUTUAL
+                                ISTIO_MUTUAL
+                              Type:  string
+                            Private Key:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Sni:
+                              Description:  SNI string to present to the server during TLS handshake.
+                              Format:       string
+                              Type:         string
+                            Subject Alt Names:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                          Type:          object
+                      Type:              object
+                  Type:                  object
+                Type:                    array
+              Traffic Policy:
+                Properties:
+                  Connection Pool:
+                    Properties:
+                      Http:
+                        Description:  HTTP connection pool settings.
+                        Properties:
+                          h2UpgradePolicy:
+                            Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                            Enum:
+                              DEFAULT
+                              DO_NOT_UPGRADE
+                              UPGRADE
+                            Type:  string
+                          http1MaxPendingRequests:
+                            Description:  Maximum number of pending HTTP requests to a destination.
+                            Format:       int32
+                            Type:         integer
+                          http2MaxRequests:
+                            Description:  Maximum number of requests to a backend.
+                            Format:       int32
+                            Type:         integer
+                          Idle Timeout:
+                            Description:  The idle timeout for upstream connection pool connections.
+                            Type:         string
+                          Max Requests Per Connection:
+                            Description:  Maximum number of requests per connection to a backend.
+                            Format:       int32
+                            Type:         integer
+                          Max Retries:
+                            Format:  int32
+                            Type:    integer
+                          Use Client Protocol:
+                            Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                            Type:         boolean
+                        Type:             object
+                      Tcp:
+                        Description:  Settings common to both HTTP and TCP upstream connections.
+                        Properties:
+                          Connect Timeout:
+                            Description:  TCP connection timeout.
+                            Type:         string
+                          Max Connections:
+                            Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                            Format:       int32
+                            Type:         integer
+                          Tcp Keepalive:
+                            Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                            Properties:
+                              Interval:
+                                Description:  The time duration between keep-alive probes.
+                                Type:         string
+                              Probes:
+                                Type:  integer
+                              Time:
+                                Type:  string
+                            Type:      object
+                        Type:          object
+                    Type:              object
+                  Load Balancer:
+                    Description:  Settings controlling the load balancer algorithms.
+                    One Of:
+                      Not:
+                        Any Of:
+                          Required:
+                            simple
+                          Properties:
+                            Consistent Hash:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      httpHeaderName
+                                    Required:
+                                      httpCookie
+                                    Required:
+                                      useSourceIp
+                                    Required:
+                                      httpQueryParameterName
+                                Required:
+                                  httpHeaderName
+                                Required:
+                                  httpCookie
+                                Required:
+                                  useSourceIp
+                                Required:
+                                  httpQueryParameterName
+                          Required:
+                            consistentHash
+                      Required:
+                        simple
+                      Properties:
+                        Consistent Hash:
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  httpHeaderName
+                                Required:
+                                  httpCookie
+                                Required:
+                                  useSourceIp
+                                Required:
+                                  httpQueryParameterName
+                            Required:
+                              httpHeaderName
+                            Required:
+                              httpCookie
+                            Required:
+                              useSourceIp
+                            Required:
+                              httpQueryParameterName
+                      Required:
+                        consistentHash
+                    Properties:
+                      Consistent Hash:
+                        Properties:
+                          Http Cookie:
+                            Description:  Hash based on HTTP cookie.
+                            Properties:
+                              Name:
+                                Description:  Name of the cookie.
+                                Format:       string
+                                Type:         string
+                              Path:
+                                Description:  Path to set for the cookie.
+                                Format:       string
+                                Type:         string
+                              Ttl:
+                                Description:  Lifetime of the cookie.
+                                Type:         string
+                            Type:             object
+                          Http Header Name:
+                            Description:  Hash based on a specific HTTP header.
+                            Format:       string
+                            Type:         string
+                          Http Query Parameter Name:
+                            Description:  Hash based on a specific HTTP query parameter.
+                            Format:       string
+                            Type:         string
+                          Minimum Ring Size:
+                            Type:  integer
+                          Use Source Ip:
+                            Description:  Hash based on the source IP address.
+                            Type:         boolean
+                        Type:             object
+                      Locality Lb Setting:
+                        Properties:
+                          Distribute:
+                            Description:  Optional: only one of distribute or failover can be set.
+                            Items:
+                              Properties:
+                                From:
+                                  Description:  Originating locality, '/' separated, e.g.
+                                  Format:       string
+                                  Type:         string
+                                To:
+                                  Additional Properties:
+                                    Type:       integer
+                                  Description:  Map of upstream localities to traffic distribution weights.
+                                  Type:         object
+                              Type:             object
+                            Type:               array
+                          Enabled:
+                            Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                            Nullable:     true
+                            Type:         boolean
+                          Failover:
+                            Description:  Optional: only failover or distribute can be set.
+                            Items:
+                              Properties:
+                                From:
+                                  Description:  Originating region.
+                                  Format:       string
+                                  Type:         string
+                                To:
+                                  Format:  string
+                                  Type:    string
+                              Type:        object
+                            Type:          array
+                        Type:              object
+                      Simple:
+                        Enum:
+                          ROUND_ROBIN
+                          LEAST_CONN
+                          RANDOM
+                          PASSTHROUGH
+                        Type:  string
+                    Type:      object
+                  Outlier Detection:
+                    Properties:
+                      Base Ejection Time:
+                        Description:  Minimum ejection duration.
+                        Type:         string
+                      consecutive5xxErrors:
+                        Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                        Nullable:     true
+                        Type:         integer
+                      Consecutive Errors:
+                        Format:  int32
+                        Type:    integer
+                      Consecutive Gateway Errors:
+                        Description:  Number of gateway errors before a host is ejected from the connection pool.
+                        Nullable:     true
+                        Type:         integer
+                      Interval:
+                        Description:  Time interval between ejection sweep analysis.
+                        Type:         string
+                      Max Ejection Percent:
+                        Format:  int32
+                        Type:    integer
+                      Min Health Percent:
+                        Format:  int32
+                        Type:    integer
+                    Type:        object
+                  Port Level Settings:
+                    Description:  Traffic policies specific to individual ports.
+                    Items:
+                      Properties:
+                        Connection Pool:
+                          Properties:
+                            Http:
+                              Description:  HTTP connection pool settings.
+                              Properties:
+                                h2UpgradePolicy:
+                                  Description:  Specify if http1.1 connection should be upgraded to http2 for the associated destination.
+                                  Enum:
+                                    DEFAULT
+                                    DO_NOT_UPGRADE
+                                    UPGRADE
+                                  Type:  string
+                                http1MaxPendingRequests:
+                                  Description:  Maximum number of pending HTTP requests to a destination.
+                                  Format:       int32
+                                  Type:         integer
+                                http2MaxRequests:
+                                  Description:  Maximum number of requests to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Idle Timeout:
+                                  Description:  The idle timeout for upstream connection pool connections.
+                                  Type:         string
+                                Max Requests Per Connection:
+                                  Description:  Maximum number of requests per connection to a backend.
+                                  Format:       int32
+                                  Type:         integer
+                                Max Retries:
+                                  Format:  int32
+                                  Type:    integer
+                                Use Client Protocol:
+                                  Description:  If set to true, client protocol will be preserved while initiating connection to backend.
+                                  Type:         boolean
+                              Type:             object
+                            Tcp:
+                              Description:  Settings common to both HTTP and TCP upstream connections.
+                              Properties:
+                                Connect Timeout:
+                                  Description:  TCP connection timeout.
+                                  Type:         string
+                                Max Connections:
+                                  Description:  Maximum number of HTTP1 /TCP connections to a destination host.
+                                  Format:       int32
+                                  Type:         integer
+                                Tcp Keepalive:
+                                  Description:  If set then set SO_KEEPALIVE on the socket to enable TCP Keepalives.
+                                  Properties:
+                                    Interval:
+                                      Description:  The time duration between keep-alive probes.
+                                      Type:         string
+                                    Probes:
+                                      Type:  integer
+                                    Time:
+                                      Type:  string
+                                  Type:      object
+                              Type:          object
+                          Type:              object
+                        Load Balancer:
+                          Description:  Settings controlling the load balancer algorithms.
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  simple
+                                Properties:
+                                  Consistent Hash:
+                                    One Of:
+                                      Not:
+                                        Any Of:
+                                          Required:
+                                            httpHeaderName
+                                          Required:
+                                            httpCookie
+                                          Required:
+                                            useSourceIp
+                                          Required:
+                                            httpQueryParameterName
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                Required:
+                                  consistentHash
+                            Required:
+                              simple
+                            Properties:
+                              Consistent Hash:
+                                One Of:
+                                  Not:
+                                    Any Of:
+                                      Required:
+                                        httpHeaderName
+                                      Required:
+                                        httpCookie
+                                      Required:
+                                        useSourceIp
+                                      Required:
+                                        httpQueryParameterName
+                                  Required:
+                                    httpHeaderName
+                                  Required:
+                                    httpCookie
+                                  Required:
+                                    useSourceIp
+                                  Required:
+                                    httpQueryParameterName
+                            Required:
+                              consistentHash
+                          Properties:
+                            Consistent Hash:
+                              Properties:
+                                Http Cookie:
+                                  Description:  Hash based on HTTP cookie.
+                                  Properties:
+                                    Name:
+                                      Description:  Name of the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Path:
+                                      Description:  Path to set for the cookie.
+                                      Format:       string
+                                      Type:         string
+                                    Ttl:
+                                      Description:  Lifetime of the cookie.
+                                      Type:         string
+                                  Type:             object
+                                Http Header Name:
+                                  Description:  Hash based on a specific HTTP header.
+                                  Format:       string
+                                  Type:         string
+                                Http Query Parameter Name:
+                                  Description:  Hash based on a specific HTTP query parameter.
+                                  Format:       string
+                                  Type:         string
+                                Minimum Ring Size:
+                                  Type:  integer
+                                Use Source Ip:
+                                  Description:  Hash based on the source IP address.
+                                  Type:         boolean
+                              Type:             object
+                            Locality Lb Setting:
+                              Properties:
+                                Distribute:
+                                  Description:  Optional: only one of distribute or failover can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating locality, '/' separated, e.g.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Additional Properties:
+                                          Type:       integer
+                                        Description:  Map of upstream localities to traffic distribution weights.
+                                        Type:         object
+                                    Type:             object
+                                  Type:               array
+                                Enabled:
+                                  Description:  enable locality load balancing, this is DestinationRule-level and will override mesh wide settings in entirety.
+                                  Nullable:     true
+                                  Type:         boolean
+                                Failover:
+                                  Description:  Optional: only failover or distribute can be set.
+                                  Items:
+                                    Properties:
+                                      From:
+                                        Description:  Originating region.
+                                        Format:       string
+                                        Type:         string
+                                      To:
+                                        Format:  string
+                                        Type:    string
+                                    Type:        object
+                                  Type:          array
+                              Type:              object
+                            Simple:
+                              Enum:
+                                ROUND_ROBIN
+                                LEAST_CONN
+                                RANDOM
+                                PASSTHROUGH
+                              Type:  string
+                          Type:      object
+                        Outlier Detection:
+                          Properties:
+                            Base Ejection Time:
+                              Description:  Minimum ejection duration.
+                              Type:         string
+                            consecutive5xxErrors:
+                              Description:  Number of 5xx errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Consecutive Errors:
+                              Format:  int32
+                              Type:    integer
+                            Consecutive Gateway Errors:
+                              Description:  Number of gateway errors before a host is ejected from the connection pool.
+                              Nullable:     true
+                              Type:         integer
+                            Interval:
+                              Description:  Time interval between ejection sweep analysis.
+                              Type:         string
+                            Max Ejection Percent:
+                              Format:  int32
+                              Type:    integer
+                            Min Health Percent:
+                              Format:  int32
+                              Type:    integer
+                          Type:        object
+                        Port:
+                          Properties:
+                            Number:
+                              Type:  integer
+                          Type:      object
+                        Tls:
+                          Description:  TLS related settings for connections to the upstream service.
+                          Properties:
+                            Ca Certificates:
+                              Format:  string
+                              Type:    string
+                            Client Certificate:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Credential Name:
+                              Format:  string
+                              Type:    string
+                            Mode:
+                              Enum:
+                                DISABLE
+                                SIMPLE
+                                MUTUAL
+                                ISTIO_MUTUAL
+                              Type:  string
+                            Private Key:
+                              Description:  REQUIRED if mode is `MUTUAL`.
+                              Format:       string
+                              Type:         string
+                            Sni:
+                              Description:  SNI string to present to the server during TLS handshake.
+                              Format:       string
+                              Type:         string
+                            Subject Alt Names:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                          Type:          object
+                      Type:              object
+                    Type:                array
+                  Tls:
+                    Description:  TLS related settings for connections to the upstream service.
+                    Properties:
+                      Ca Certificates:
+                        Format:  string
+                        Type:    string
+                      Client Certificate:
+                        Description:  REQUIRED if mode is `MUTUAL`.
+                        Format:       string
+                        Type:         string
+                      Credential Name:
+                        Format:  string
+                        Type:    string
+                      Mode:
+                        Enum:
+                          DISABLE
+                          SIMPLE
+                          MUTUAL
+                          ISTIO_MUTUAL
+                        Type:  string
+                      Private Key:
+                        Description:  REQUIRED if mode is `MUTUAL`.
+                        Format:       string
+                        Type:         string
+                      Sni:
+                        Description:  SNI string to present to the server during TLS handshake.
+                        Format:       string
+                        Type:         string
+                      Subject Alt Names:
+                        Items:
+                          Format:  string
+                          Type:    string
+                        Type:      array
+                    Type:          object
+                Type:              object
+            Type:                  object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               false
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Categories:
+      istio-io
+      networking-istio-io
+    Kind:       DestinationRule
+    List Kind:  DestinationRuleList
+    Plural:     destinationrules
+    Short Names:
+      dr
+    Singular:  destinationrule
+  Conditions:
+    Last Transition Time:  2021-05-12T06:29:30Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-05-12T06:29:30Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1alpha3
+Events:  <none>
+

@@ -1,0 +1,86 @@
+==== START logs for container vl3-nse-red of pod wcm-system/vl3-nse-red-59ffd88496-6kbcq ====
+time="2021-05-12 16:12:42.89156" level=info msg="Starting agent version: v0.0.0-dev" BuildDate= CommitHash= loc="agent/agent.go(134)" logger=agent
+time="2021-05-12 16:12:42.89241" level=info msg="Agent started with 2 plugins (took 1ms)" loc="agent/agent.go(179)" logger=agent
+time="2021-05-12T16:12:42Z" level=info msg="starting endpoint"
+time="2021-05-12T16:12:42Z" level=info msg="Serving metrics on: 0.0.0.0:2112" path=/metrics
+time="2021-05-12T16:12:42Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+                                       __
+  _  _____  ___ _______ ____ ____ ___ / /_  
+ | |/ / _ \/ _ /___/ _ '/ _ '/ -_/ _ / __/  vpp-agent v3.2.0
+ |___/ .__/ .__/   \_'_/\_' /\__/_//_\__/   Wed Nov  4 12:43:01 UTC 2020 (189 days ago)
+    /_/  /_/           /___/                root@cac5a9849c6e (go1.15.2 linux/amd64)
+
+time="2021-05-12 16:12:42.95677" level=info msg="Starting agent version: v3.2.0" BuildDate="Wed Nov  4 12:43:01 UTC 2020" CommitHash=f969fd3 loc="agent/agent.go(134)" logger=agent
+time="2021-05-12 16:12:42.95823" level=info msg="ETCD config not found, skip loading this plugin" loc="etcd/plugin_impl_etcd.go(293)" logger=etcd
+time="2021-05-12 16:12:42.95840" level=info msg="Consul config not found, skip loading this plugin" loc="consul/plugin.go(138)" logger=consul
+time="2021-05-12 16:12:42.95848" level=info msg="Redis config not found, skip loading this plugin" loc="redis/plugin_impl_redis.go(123)" logger=redis
+unix_config:471: couldn't open log '/var/log/vpp/vpp.log'
+/usr/bin/vpp[17]: clib_elf_parse_file: open `linux-vdso.so.1': No such file or directory
+/usr/bin/vpp[17]: clib_sysfs_prealloc_hugepages:261: pre-allocating 19 additional 2048K hugepages on numa node 0
+/usr/bin/vpp[17]: buffer: vlib_physmem_shared_map_create: pmalloc_map_pages: failed to mmap 19 pages at 0x1000000000 fd 4 numa 0 flags 0x11: Cannot allocate memory
+
+/usr/bin/vpp[17]: buffer: falling back to non-hugepage backed buffer pool
+/usr/bin/vpp[17]: perfmon: No table for cpuid 800f12
+/usr/bin/vpp[17]: perfmon:   model 1, stepping 2
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: gtpu plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: rdma plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: avf plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: pppoe plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: dhcp plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: oddbuf plugin not loaded...
+time="2021-05-12 16:12:43.39791" level=info msg="VPP version: 20.05.1-6~gf53edbc3b~b1" ClientID=0 PID=17 loc="govppmux/plugin_impl_govppmux.go(382)" logger=govpp
+time="2021-05-12 16:12:43.41378" level=info msg="VPP proxy ready" loc="govppmux/plugin_impl_govppmux.go(177)" logger=govpp
+time="2021-05-12 16:12:43.42319" level=info msg="kafka config not found  - skip loading this plugin" loc="kafka/plugin_impl_kafka.go(73)" logger=kafka
+time="2021-05-12 16:12:43.42374" level=warning msg="Failed to list Docker containers: Get \"http://unix.sock/containers/json?all=1\": dial unix /var/run/docker.sock: connect: no such file or directory" loc="descriptor/microservice.go(304)" logger=linux-nsplugin.ms-descriptor
+time="2021-05-12 16:12:43.42458" level=warning msg="VPP plugin wireguard was disabled by VPP" loc="wireguardplugin/wireguardplugin.go(51)" logger=vpp-wg-plugin
+time="2021-05-12 16:12:43.42514" level=info msg="Found 42 registered models" loc="orchestrator/orchestrator.go(101)" logger=orchestrator
+time="2021-05-12 16:12:43.42586" level=info msg="Watching 40 key prefixes from KVScheduler" loc="orchestrator/orchestrator.go(108)" logger=dispatcher
+time="2021-05-12 16:12:43.43419" level=info msg="VPP Wg handler is not available, it will be skipped" loc="configurator/plugin.go(156)" logger=configurator
+time="2021-05-12 16:12:43.43497" level=info msg="Wireguard handler is not available, it will be skipped" loc="restapi/plugin_restapi.go(174)" logger=restpapi
+time="2021-05-12 16:12:43.43549" level=info msg="polling period changed to 30s" loc="telemetry/telemetry.go(112)" logger=telemetry
+time="2021-05-12 16:12:43.43695" level=info msg="Serving on http://0.0.0.0:9191" loc="rest/plugin_impl_rest.go(114)" logger=http
+time="2021-05-12 16:12:43.43769" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=govpp state=ok
+time="2021-05-12 16:12:43.44654" level=info msg="Listening GRPC on: 0.0.0.0:9113" loc="grpc/plugin_impl_grpc.go(152)" logger=grpc
+time="2021-05-12T16:12:43Z" level=info msg="Resetting vppagent..."
+time="2021-05-12 16:12:43.44906" level=info msg="Starting health http-probe on port 9191" loc="probe/plugin_impl_probe.go(75)" logger=probe
+time="2021-05-12 16:12:43.44939" level=info msg="Unable to register prometheus-probe handler, Prometheus is nil" loc="probe/plugin_impl_probe.go(87)" logger=probe
+time="2021-05-12 16:12:43.44959" level=info msg="Serving /metrics on port 9191" loc="prometheus/plugin_impl_prometheus.go(88)" logger=prometheus
+time="2021-05-12 16:12:43.44970" level=warning msg="No registrations, skipping resync" loc="resync/plugin_impl_resync.go(98)" logger=resync
+time="2021-05-12 16:12:43.44978" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=VPPAgent state=ok
+time="2021-05-12 16:12:43.44986" level=info msg="Agent started with 40 plugins (took 492ms)" loc="agent/agent.go(179)" logger=agent
+time="2021-05-12 16:12:43.45004" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: EOF\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
++======================================================================================================================+
+| #0 - NBTransaction                                                                                        FullResync |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 0
+      - type: NB Transaction, Full Resync
+      - values:
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations:
+      <NONE>
+x----------------------------------------------------------------------------------------------------------------------x
+| #0 - NBTransaction                                                                                      took 158.1ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-05-12 16:12:43.61372" level=info msg="Transaction #0 successful! (took 158.5ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
+time="2021-05-12T16:12:43Z" level=info msg="Finished resetting vppagent..."
+time="2021-05-12T16:12:43Z" level=info msg="nsmServerSocket: /var/lib/networkservicemesh/nsm.server.io.sock"
+time="2021-05-12T16:12:43Z" level=info msg="nsmClientSocket: /var/lib/networkservicemesh/nsm.client.io.sock"
+time="2021-05-12T16:12:43Z" level=info msg="workspace: /var/lib/networkservicemesh/"
+time="2021-05-12T16:12:43Z" level=info msg="Advertise Network Service Name: red"
+time="2021-05-12T16:12:43Z" level=info msg="CLIENT_NETWORK_SERVICE not found."
+time="2021-05-12T16:12:43Z" level=info msg="Advertise labels: app=vl3-nse-red"
+time="2021-05-12T16:12:43Z" level=info msg="CLIENT_LABELS not found."
+time="2021-05-12T16:12:43Z" level=info msg="NSC_INTERFACE_NAME not found."
+time="2021-05-12T16:12:43Z" level=info msg="MECHANISM_TYPE not found."
+time="2021-05-12T16:12:43Z" level=info msg="IP_ADDRESS not found."
+time="2021-05-12T16:12:43Z" level=info msg="POD_NAME not found."
+time="2021-05-12T16:12:43Z" level=info msg="NSM_NAMESPACE not found."
+time="2021-05-12T16:12:43Z" level=info msg="ROUTES not found."
+time="2021-05-12T16:12:44Z" level=info msg="GRPC connection will be secured."
+time="2021-05-12T16:12:44Z" level=info msg="Dialing connection to IPAM service: wcmd-red.nispatil-wcm-cisco.com:443"
+time="2021-05-12T16:12:44Z" level=info msg="Issued certificate with id: spiffe://test.com/vl3-nse-red"
+time="2021-05-12 16:12:49.42542" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=vpp-ifplugin state=ok
+==== END logs for container vl3-nse-red of pod wcm-system/vl3-nse-red-59ffd88496-6kbcq ====

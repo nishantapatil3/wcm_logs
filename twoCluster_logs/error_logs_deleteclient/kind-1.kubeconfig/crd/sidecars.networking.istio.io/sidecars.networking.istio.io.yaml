@@ -1,0 +1,301 @@
+Name:         sidecars.networking.istio.io
+Namespace:    
+Labels:       app=istio-pilot
+              chart=istio
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Base
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+              release=istio
+Annotations:  helm.sh/resource-policy: keep
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-05-12T06:29:30Z
+  Generation:          1
+  Resource Version:    1915
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/sidecars.networking.istio.io
+  UID:                 4a8232ab-06c1-479c-ac21-a883cbf8bcae
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       networking.istio.io
+  Names:
+    Categories:
+      istio-io
+      networking-istio-io
+    Kind:       Sidecar
+    List Kind:  SidecarList
+    Plural:     sidecars
+    Singular:   sidecar
+  Scope:        Namespaced
+  Versions:
+    Name:  v1alpha3
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  Configuration affecting network reachability of a sidecar. See more details at: https://istio.io/docs/reference/config/networking/sidecar.html
+            Properties:
+              Egress:
+                Items:
+                  Properties:
+                    Bind:
+                      Format:  string
+                      Type:    string
+                    Capture Mode:
+                      Enum:
+                        DEFAULT
+                        IPTABLES
+                        NONE
+                      Type:  string
+                    Hosts:
+                      Items:
+                        Format:  string
+                        Type:    string
+                      Type:      array
+                    Port:
+                      Description:  The port associated with the listener.
+                      Properties:
+                        Name:
+                          Description:  Label assigned to the port.
+                          Format:       string
+                          Type:         string
+                        Number:
+                          Description:  A valid non-negative integer port number.
+                          Type:         integer
+                        Protocol:
+                          Description:  The protocol exposed on the port.
+                          Format:       string
+                          Type:         string
+                        Target Port:
+                          Type:  integer
+                      Type:      object
+                  Type:          object
+                Type:            array
+              Ingress:
+                Items:
+                  Properties:
+                    Bind:
+                      Description:  The IP to which the listener should be bound.
+                      Format:       string
+                      Type:         string
+                    Capture Mode:
+                      Enum:
+                        DEFAULT
+                        IPTABLES
+                        NONE
+                      Type:  string
+                    Default Endpoint:
+                      Format:  string
+                      Type:    string
+                    Port:
+                      Description:  The port associated with the listener.
+                      Properties:
+                        Name:
+                          Description:  Label assigned to the port.
+                          Format:       string
+                          Type:         string
+                        Number:
+                          Description:  A valid non-negative integer port number.
+                          Type:         integer
+                        Protocol:
+                          Description:  The protocol exposed on the port.
+                          Format:       string
+                          Type:         string
+                        Target Port:
+                          Type:  integer
+                      Type:      object
+                  Type:          object
+                Type:            array
+              Outbound Traffic Policy:
+                Description:  Configuration for the outbound traffic policy.
+                Properties:
+                  Egress Proxy:
+                    Properties:
+                      Host:
+                        Description:  The name of a service from the service registry.
+                        Format:       string
+                        Type:         string
+                      Port:
+                        Description:  Specifies the port on the host that is being addressed.
+                        Properties:
+                          Number:
+                            Type:  integer
+                        Type:      object
+                      Subset:
+                        Description:  The name of a subset within the service.
+                        Format:       string
+                        Type:         string
+                    Type:             object
+                  Mode:
+                    Enum:
+                      REGISTRY_ONLY
+                      ALLOW_ANY
+                    Type:  string
+                Type:      object
+              Workload Selector:
+                Properties:
+                  Labels:
+                    Additional Properties:
+                      Format:  string
+                      Type:    string
+                    Type:      object
+                Type:          object
+            Type:              object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               true
+    Subresources:
+      Status:
+    Name:  v1beta1
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  Configuration affecting network reachability of a sidecar. See more details at: https://istio.io/docs/reference/config/networking/sidecar.html
+            Properties:
+              Egress:
+                Items:
+                  Properties:
+                    Bind:
+                      Format:  string
+                      Type:    string
+                    Capture Mode:
+                      Enum:
+                        DEFAULT
+                        IPTABLES
+                        NONE
+                      Type:  string
+                    Hosts:
+                      Items:
+                        Format:  string
+                        Type:    string
+                      Type:      array
+                    Port:
+                      Description:  The port associated with the listener.
+                      Properties:
+                        Name:
+                          Description:  Label assigned to the port.
+                          Format:       string
+                          Type:         string
+                        Number:
+                          Description:  A valid non-negative integer port number.
+                          Type:         integer
+                        Protocol:
+                          Description:  The protocol exposed on the port.
+                          Format:       string
+                          Type:         string
+                        Target Port:
+                          Type:  integer
+                      Type:      object
+                  Type:          object
+                Type:            array
+              Ingress:
+                Items:
+                  Properties:
+                    Bind:
+                      Description:  The IP to which the listener should be bound.
+                      Format:       string
+                      Type:         string
+                    Capture Mode:
+                      Enum:
+                        DEFAULT
+                        IPTABLES
+                        NONE
+                      Type:  string
+                    Default Endpoint:
+                      Format:  string
+                      Type:    string
+                    Port:
+                      Description:  The port associated with the listener.
+                      Properties:
+                        Name:
+                          Description:  Label assigned to the port.
+                          Format:       string
+                          Type:         string
+                        Number:
+                          Description:  A valid non-negative integer port number.
+                          Type:         integer
+                        Protocol:
+                          Description:  The protocol exposed on the port.
+                          Format:       string
+                          Type:         string
+                        Target Port:
+                          Type:  integer
+                      Type:      object
+                  Type:          object
+                Type:            array
+              Outbound Traffic Policy:
+                Description:  Configuration for the outbound traffic policy.
+                Properties:
+                  Egress Proxy:
+                    Properties:
+                      Host:
+                        Description:  The name of a service from the service registry.
+                        Format:       string
+                        Type:         string
+                      Port:
+                        Description:  Specifies the port on the host that is being addressed.
+                        Properties:
+                          Number:
+                            Type:  integer
+                        Type:      object
+                      Subset:
+                        Description:  The name of a subset within the service.
+                        Format:       string
+                        Type:         string
+                    Type:             object
+                  Mode:
+                    Enum:
+                      REGISTRY_ONLY
+                      ALLOW_ANY
+                    Type:  string
+                Type:      object
+              Workload Selector:
+                Properties:
+                  Labels:
+                    Additional Properties:
+                      Format:  string
+                      Type:    string
+                    Type:      object
+                Type:          object
+            Type:              object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               false
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Categories:
+      istio-io
+      networking-istio-io
+    Kind:       Sidecar
+    List Kind:  SidecarList
+    Plural:     sidecars
+    Singular:   sidecar
+  Conditions:
+    Last Transition Time:  2021-05-12T06:29:30Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-05-12T06:29:30Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1alpha3
+Events:  <none>
+

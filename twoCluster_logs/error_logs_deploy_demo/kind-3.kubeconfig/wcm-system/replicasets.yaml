@@ -1,0 +1,322 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-05-12T16:12:39Z"
+    generation: 1
+    labels:
+      networkservicemesh.io/app: vl3-nse-red
+      networkservicemesh.io/impl: red
+      pod-template-hash: 59ffd88496
+      wcm-nse: red
+      wcm/nse.servicename: red
+    name: vl3-nse-red-59ffd88496
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: vl3-nse-red
+      uid: ab26cb2d-3dde-4652-8b23-c5a9644a0cd6
+    resourceVersion: "10444"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/vl3-nse-red-59ffd88496
+    uid: 859dcb73-194a-4316-8883-d0e8e279f212
+  spec:
+    replicas: 2
+    selector:
+      matchLabels:
+        networkservicemesh.io/app: vl3-nse-red
+        networkservicemesh.io/impl: red
+        pod-template-hash: 59ffd88496
+        wcm-nse: red
+        wcm/nse.servicename: red
+    template:
+      metadata:
+        annotations:
+          sidecar.istio.io/inject: "false"
+          wcm/nsr.address: red.nispatil-wcm-cisco.com
+          wcm/nsr.port: "443"
+        creationTimestamp: null
+        labels:
+          networkservicemesh.io/app: vl3-nse-red
+          networkservicemesh.io/impl: red
+          pod-template-hash: 59ffd88496
+          wcm-nse: red
+          wcm/nse.servicename: red
+      spec:
+        containers:
+        - env:
+          - name: ENDPOINT_NETWORK_SERVICE
+            value: red
+          - name: ENDPOINT_LABELS
+            value: app=vl3-nse-red
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_SERVICE_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_SERVICE_PORT_JAEGER
+            value: "6831"
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: WORKLOAD_REFRESH_INTERVAL
+            value: 2h30m
+          - name: NSREGISTRY_ADDR
+            value: wcm-nsmgr.nsm-system
+          - name: NSREGISTRY_PORT
+            value: "5000"
+          - name: CLUSTER_NAME
+            value: test
+          - name: NSE_POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          - name: NSE_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: NSM_REMOTE_NS_IP_LIST
+            valueFrom:
+              configMapKeyRef:
+                key: remote.ip_list
+                name: nsm-vl3-red-config-map
+          - name: METRICS_PORT
+            value: "2112"
+          - name: WORKLOAD_METRICS_PORT
+            value: "3000"
+          - name: INSECURE
+            value: "false"
+          image: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse:latest
+          imagePullPolicy: IfNotPresent
+          name: vl3-nse-red
+          ports:
+          - containerPort: 9191
+            name: monitoring-vpp
+            protocol: TCP
+          - containerPort: 2112
+            name: monitoring
+            protocol: TCP
+          - containerPort: 3000
+            name: workload
+            protocol: TCP
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/universal-cnf/config.yaml
+            name: universal-cnf-config-volume
+            subPath: config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: vl3-nse-red-service-account
+        serviceAccountName: vl3-nse-red-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: vl3-nse-red-config-map
+          name: universal-cnf-config-volume
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 2
+    fullyLabeledReplicas: 2
+    observedGeneration: 1
+    readyReplicas: 2
+    replicas: 2
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-05-12T16:11:41Z"
+    generation: 1
+    labels:
+      app: nse-discovery-wcm
+      membercore: wcm
+      pod-template-hash: 6577b59495
+    name: wcm-nse-discovery-6577b59495
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-nse-discovery
+      uid: f8a021dd-aafc-45a1-a78a-b93d745679bc
+    resourceVersion: "10152"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/wcm-nse-discovery-6577b59495
+    uid: 66885b50-4629-4d84-adaa-1431d3344d7a
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: nse-discovery-wcm
+        membercore: wcm
+        pod-template-hash: 6577b59495
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: nse-discovery-wcm
+          membercore: wcm
+          pod-template-hash: 6577b59495
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: CLUSTER_NAME
+            value: member2
+          - name: INSECURE
+            value: "false"
+          - name: NSE_NAMESPACE
+            value: wcm-system
+          - name: NSR_ADDRESS
+            value: wcm-proxy-nsmgr.nsm-system:5005
+          - name: METRICS_PORT
+            value: "2112"
+          image: public.ecr.aws/ciscoeti/appn/nse-discovery-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-nse-discovery
+          ports:
+          - containerPort: 2112
+            name: monitoring
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-nse-discovery-service-account
+        serviceAccountName: wcm-nse-discovery-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: nse-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-05-12T16:11:56Z"
+    generation: 1
+    labels:
+      name: wcm-nse-operator
+      pod-template-hash: 845589cf95
+    name: wcm-nse-operator-845589cf95
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-nse-operator
+      uid: 0c2a0061-d058-44b6-a9f9-99672e6975ae
+    resourceVersion: "10253"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/wcm-nse-operator-845589cf95
+    uid: f01f8988-4597-4747-8e43-b35b42bcd842
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: wcm-nse-operator
+        pod-template-hash: 845589cf95
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: wcm-nse-operator
+          pod-template-hash: 845589cf95
+      spec:
+        containers:
+        - command:
+          - wcm-nse-operator
+          env:
+          - name: WATCH_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OPERATOR_NAME
+            value: wcm-nse-operator
+          - name: CONFIG_PATH
+            value: etc/wcm-vpp-nse-configmap/config.yaml
+          image: public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-nse-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: etc/wcm-vpp-nse-configmap/config.yaml
+            name: config-data-wcm-nse
+            subPath: config.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-nse-operator
+        serviceAccountName: wcm-nse-operator
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: wcm-vpp-nse-configmap
+          name: config-data-wcm-nse
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: ReplicaSetList
+metadata:
+  resourceVersion: "12653"
+  selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets

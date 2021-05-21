@@ -1,0 +1,59 @@
+Name:         red
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: cd-release-red
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  wcm.cisco.com/v1alpha1
+Kind:         ConnectivityDomain
+Metadata:
+  Creation Timestamp:  2021-05-12T06:31:36Z
+  Finalizers:
+    finalizer.cache.wcm-cisco.com
+  Generation:        1
+  Resource Version:  2763
+  Self Link:         /apis/wcm.cisco.com/v1alpha1/namespaces/wcm-system/connectivitydomains/red
+  UID:               d4cca229-385b-4562-8e4c-ea402fd32c22
+Spec:
+  Fqdn:  red.wcm-cisco.com
+  Gateway:
+    Secret:       connectivity-domain-secret
+    Tls Mode:     2
+  Insecure:       false
+  Insecure Info:  true
+  Ipam:
+    Ip Family:    IPV4
+    Prefix Pool:  192.103.0.0/16
+  Istio:          false
+  Size:           1
+Status:
+  App Dns:
+    Deployment:       red-app-dns-publisher
+    Role:             red-app-dns-publisher-role
+    Role Binding:     red-app-dns-publisher-role-binding
+    Service Account:  red-app-dns-publisher-service-account
+  Cd Info:
+    Config Map:       red-cd-info-config-map
+    Deployment:       red-cd-info
+    Service:          red-cd-info
+    Service Account:  red-cd-info-service-account
+    Service Entry:    red-cd-info
+  Istio Resources:
+    Virtual Service:  grpc-red
+  Istiopub:
+  Nsr:
+    Deployment:       red
+    Role:             red-role
+    Service Account:  red-service-account
+    Service Entry:    red
+  Pods:
+    red-app-dns-publisher-65d96fdbf4-dcbbw
+    red-6458bd788d-z8w78
+    red-wcmd-58cf5b8d64-8vsjl
+    red-cd-info-58bb5df4bd-5qlhj
+  Wcmd:
+    Config Map:       red-wcmd-config-map
+    Deployment:       red-wcmd
+    Service:          red-wcmd
+    Service Account:  red-wcmd-service-account
+    Service Entry:    red-wcmd
+Events:               <none>

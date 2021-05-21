@@ -1,0 +1,36 @@
+Name:         vl3-nse-green-config-map
+Namespace:    wcm-system
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+config.yaml:
+----
+endpoints:
+    - name: green
+      labels:
+        app: vl3-nse-green
+        wcm/nsr.addr: green.wcm-cisco.com
+        wcm/nsr.port: "80"
+      nseControl:
+        name: green
+        address: green.wcm-cisco.com
+        connectivityDomain: green
+      vl3:
+        ipam:
+            defaultPrefixPool: 172.120.0.0/16
+            serverAddress: green.wcm-cisco.com:80
+            prefixLength: 22
+            routes: []
+        ifName: endpoint0
+      awsTgwEndpoint:
+        attachToTgw: false
+        region: example-region
+        subnetIDs:
+            - example-subnet-IDs
+        transitGatewayID: example-tgw-ID
+        vpcID: example-vpc-ID
+
+Events:  <none>
+

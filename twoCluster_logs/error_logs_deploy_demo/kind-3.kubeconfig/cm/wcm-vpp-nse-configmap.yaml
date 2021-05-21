@@ -1,0 +1,19 @@
+Name:         wcm-vpp-nse-configmap
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: nse-operator-release
+              meta.helm.sh/release-namespace: wcm-system
+
+Data
+====
+config.yaml:
+----
+org: public.ecr.aws/ciscoeti/appn
+tag: latest
+pullPolicy: IfNotPresent
+endpoint:
+  metricsPort: 2112
+  vppMetricsPort: 9191
+  workloadRefreshInterval: "2h30m"
+
+Events:  <none>

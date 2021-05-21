@@ -1,0 +1,102 @@
+Name:         metadata-exchange-1.8
+Namespace:    istio-system
+Labels:       install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Pilot
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+Annotations:  <none>
+API Version:  networking.istio.io/v1alpha3
+Kind:         EnvoyFilter
+Metadata:
+  Creation Timestamp:  2021-05-12T15:34:38Z
+  Generation:          1
+  Resource Version:    2835
+  Self Link:           /apis/networking.istio.io/v1alpha3/namespaces/istio-system/envoyfilters/metadata-exchange-1.8
+  UID:                 754f5af4-d183-41e7-b93b-b9c5cb029373
+Spec:
+  Config Patches:
+    Apply To:  HTTP_FILTER
+    Match:
+      Context:  SIDECAR_INBOUND
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.http_connection_manager
+      Proxy:
+        Proxy Version:  ^1\.8.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.metadata_exchange
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:
+                @type:  type.googleapis.com/google.protobuf.StringValue
+                Value:  {}
+
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.metadata_exchange
+                Runtime:            envoy.wasm.runtime.null
+    Apply To:                       HTTP_FILTER
+    Match:
+      Context:  SIDECAR_OUTBOUND
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.http_connection_manager
+      Proxy:
+        Proxy Version:  ^1\.8.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.metadata_exchange
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:
+                @type:  type.googleapis.com/google.protobuf.StringValue
+                Value:  {}
+
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.metadata_exchange
+                Runtime:            envoy.wasm.runtime.null
+    Apply To:                       HTTP_FILTER
+    Match:
+      Context:  GATEWAY
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.http_connection_manager
+      Proxy:
+        Proxy Version:  ^1\.8.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.metadata_exchange
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:
+                @type:  type.googleapis.com/google.protobuf.StringValue
+                Value:  {}
+
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.metadata_exchange
+                Runtime:            envoy.wasm.runtime.null
+Events:                             <none>
+

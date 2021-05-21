@@ -1,0 +1,63 @@
+Name:         controller-65895b47d4-tbgjv
+Namespace:    metallb-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Fri, 21 May 2021 20:10:41 +0000
+Labels:       app=metallb
+              component=controller
+              pod-template-hash=65895b47d4
+Annotations:  prometheus.io/port: 7472
+              prometheus.io/scrape: true
+Status:       Running
+IP:           10.244.0.3
+IPs:
+  IP:           10.244.0.3
+Controlled By:  ReplicaSet/controller-65895b47d4
+Containers:
+  controller:
+    Container ID:  containerd://fd93d9cce6d8d3c2f8ead53ef8fad1e6d24c2706b5c6325c9a3e6692718b59b2
+    Image:         metallb/controller:v0.8.2
+    Image ID:      docker.io/metallb/controller@sha256:5c050e59074e152711737d2bb9ede96dff67016c80cf25cdf5fc46109718a583
+    Port:          7472/TCP
+    Host Port:     0/TCP
+    Args:
+      --port=7472
+      --config=config
+    State:          Running
+      Started:      Fri, 21 May 2021 20:10:50 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  100Mi
+    Requests:
+      cpu:        100m
+      memory:     100Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from controller-token-vt8tg (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  controller-token-vt8tg:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  controller-token-vt8tg
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                From               Message
+  ----     ------            ----               ----               -------
+  Warning  FailedScheduling  52m (x2 over 52m)  default-scheduler  0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Normal   Scheduled         52m                default-scheduler  Successfully assigned metallb-system/controller-65895b47d4-tbgjv to kind-2-control-plane
+  Normal   Pulling           52m                kubelet            Pulling image "metallb/controller:v0.8.2"
+  Normal   Pulled            52m                kubelet            Successfully pulled image "metallb/controller:v0.8.2"
+  Normal   Created           52m                kubelet            Created container controller
+  Normal   Started           52m                kubelet            Started container controller
+

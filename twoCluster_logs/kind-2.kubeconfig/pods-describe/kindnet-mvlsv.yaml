@@ -1,0 +1,83 @@
+Name:         kindnet-mvlsv
+Namespace:    kube-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Fri, 21 May 2021 20:09:57 +0000
+Labels:       app=kindnet
+              controller-revision-hash=5b955bbc76
+              k8s-app=kindnet
+              pod-template-generation=1
+              tier=node
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.3
+IPs:
+  IP:           172.17.0.3
+Controlled By:  DaemonSet/kindnet
+Containers:
+  kindnet-cni:
+    Container ID:   containerd://0ae42b28cdd21db77e31f7bb31f1b10d7d43e0274c0b51cdb1a68b460d515b30
+    Image:          kindest/kindnetd:0.5.4
+    Image ID:       sha256:2186a1a396deb58f1ea5eaf20193a518ca05049b46ccd754ec83366b5c8c13d5
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 21 May 2021 20:09:59 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  50Mi
+    Requests:
+      cpu:     100m
+      memory:  50Mi
+    Environment:
+      HOST_IP:      (v1:status.hostIP)
+      POD_IP:       (v1:status.podIP)
+      POD_SUBNET:  10.244.0.0/16
+    Mounts:
+      /etc/cni/net.d from cni-cfg (rw)
+      /lib/modules from lib-modules (ro)
+      /run/xtables.lock from xtables-lock (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kindnet-token-xgtqr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  cni-cfg:
+    Type:          HostPath (bare host directory volume)
+    Path:          /etc/cni/net.d
+    HostPathType:  
+  xtables-lock:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/xtables.lock
+    HostPathType:  FileOrCreate
+  lib-modules:
+    Type:          HostPath (bare host directory volume)
+    Path:          /lib/modules
+    HostPathType:  
+  kindnet-token-xgtqr:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  kindnet-token-xgtqr
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     :NoSchedule op=Exists
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  53m   default-scheduler  Successfully assigned kube-system/kindnet-mvlsv to kind-2-control-plane
+  Normal  Pulled     53m   kubelet            Container image "kindest/kindnetd:0.5.4" already present on machine
+  Normal  Created    53m   kubelet            Created container kindnet-cni
+  Normal  Started    53m   kubelet            Started container kindnet-cni
+

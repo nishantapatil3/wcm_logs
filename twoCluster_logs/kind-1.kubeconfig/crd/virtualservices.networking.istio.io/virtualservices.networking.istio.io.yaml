@@ -1,0 +1,1553 @@
+Name:         virtualservices.networking.istio.io
+Namespace:    
+Labels:       app=istio-pilot
+              chart=istio
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Base
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+              release=istio
+Annotations:  helm.sh/resource-policy: keep
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-04-28T21:16:59Z
+  Generation:          1
+  Resource Version:    2950
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/virtualservices.networking.istio.io
+  UID:                 74e35679-d6e6-40fe-9da5-42a0bb5abbec
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       networking.istio.io
+  Names:
+    Categories:
+      istio-io
+      networking-istio-io
+    Kind:       VirtualService
+    List Kind:  VirtualServiceList
+    Plural:     virtualservices
+    Short Names:
+      vs
+    Singular:  virtualservice
+  Scope:       Namespaced
+  Versions:
+    Additional Printer Columns:
+      Description:  The names of gateways and sidecars that should apply these routes
+      Json Path:    .spec.gateways
+      Name:         Gateways
+      Type:         string
+      Description:  The destination hosts to which traffic is being sent
+      Json Path:    .spec.hosts
+      Name:         Hosts
+      Type:         string
+      Description:  CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC. Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+      Json Path:    .metadata.creationTimestamp
+      Name:         Age
+      Type:         date
+    Name:           v1alpha3
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  Configuration affecting label/content routing, sni routing, etc. See more details at: https://istio.io/docs/reference/config/networking/virtual-service.html
+            Properties:
+              Export To:
+                Description:  A list of namespaces to which this virtual service is exported.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Gateways:
+                Description:  The names of gateways and sidecars that should apply these routes.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Hosts:
+                Description:  The destination hosts to which traffic is being sent.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Http:
+                Description:  An ordered list of route rules for HTTP traffic.
+                Items:
+                  Properties:
+                    Cors Policy:
+                      Description:  Cross-Origin Resource Sharing policy (CORS).
+                      Properties:
+                        Allow Credentials:
+                          Nullable:  true
+                          Type:      boolean
+                        Allow Headers:
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Allow Methods:
+                          Description:  List of HTTP methods allowed to access the resource.
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Allow Origin:
+                          Description:  The list of origins that are allowed to perform CORS requests.
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Allow Origins:
+                          Description:  String patterns that match allowed origins.
+                          Items:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Type:               array
+                        Expose Headers:
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Max Age:
+                          Type:  string
+                      Type:      object
+                    Delegate:
+                      Properties:
+                        Name:
+                          Description:  Name specifies the name of the delegate VirtualService.
+                          Format:       string
+                          Type:         string
+                        Namespace:
+                          Description:  Namespace specifies the namespace where the delegate VirtualService resides.
+                          Format:       string
+                          Type:         string
+                      Type:             object
+                    Fault:
+                      Description:  Fault injection policy to apply on HTTP traffic at the client side.
+                      Properties:
+                        Abort:
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  httpStatus
+                                Required:
+                                  grpcStatus
+                                Required:
+                                  http2Error
+                            Required:
+                              httpStatus
+                            Required:
+                              grpcStatus
+                            Required:
+                              http2Error
+                          Properties:
+                            Grpc Status:
+                              Format:  string
+                              Type:    string
+                            http2Error:
+                              Format:  string
+                              Type:    string
+                            Http Status:
+                              Description:  HTTP status code to use to abort the Http request.
+                              Format:       int32
+                              Type:         integer
+                            Percentage:
+                              Description:  Percentage of requests to be aborted with the error code provided.
+                              Properties:
+                                Value:
+                                  Format:  double
+                                  Type:    number
+                              Type:        object
+                          Type:            object
+                        Delay:
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  fixedDelay
+                                Required:
+                                  exponentialDelay
+                            Required:
+                              fixedDelay
+                            Required:
+                              exponentialDelay
+                          Properties:
+                            Exponential Delay:
+                              Type:  string
+                            Fixed Delay:
+                              Description:  Add a fixed delay before forwarding the request.
+                              Type:         string
+                            Percent:
+                              Description:  Percentage of requests on which the delay will be injected (0-100).
+                              Format:       int32
+                              Type:         integer
+                            Percentage:
+                              Description:  Percentage of requests on which the delay will be injected.
+                              Properties:
+                                Value:
+                                  Format:  double
+                                  Type:    number
+                              Type:        object
+                          Type:            object
+                      Type:                object
+                    Headers:
+                      Properties:
+                        Request:
+                          Properties:
+                            Add:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                            Remove:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                            Set:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                          Type:          object
+                        Response:
+                          Properties:
+                            Add:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                            Remove:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                            Set:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                          Type:          object
+                      Type:              object
+                    Match:
+                      Items:
+                        Properties:
+                          Authority:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Gateways:
+                            Description:  Names of gateways where the rule should be applied.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Headers:
+                            Additional Properties:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      exact
+                                    Required:
+                                      prefix
+                                    Required:
+                                      regex
+                                Required:
+                                  exact
+                                Required:
+                                  prefix
+                                Required:
+                                  regex
+                              Properties:
+                                Exact:
+                                  Format:  string
+                                  Type:    string
+                                Prefix:
+                                  Format:  string
+                                  Type:    string
+                                Regex:
+                                  Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                  Format:       string
+                                  Type:         string
+                              Type:             object
+                            Type:               object
+                          Ignore Uri Case:
+                            Description:  Flag to specify whether the URI matching should be case-insensitive.
+                            Type:         boolean
+                          Method:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Name:
+                            Description:  The name assigned to a match.
+                            Format:       string
+                            Type:         string
+                          Port:
+                            Description:  Specifies the ports on the host that is being addressed.
+                            Type:         integer
+                          Query Params:
+                            Additional Properties:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      exact
+                                    Required:
+                                      prefix
+                                    Required:
+                                      regex
+                                Required:
+                                  exact
+                                Required:
+                                  prefix
+                                Required:
+                                  regex
+                              Properties:
+                                Exact:
+                                  Format:  string
+                                  Type:    string
+                                Prefix:
+                                  Format:  string
+                                  Type:    string
+                                Regex:
+                                  Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                  Format:       string
+                                  Type:         string
+                              Type:             object
+                            Description:        Query parameters for matching.
+                            Type:               object
+                          Scheme:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Source Labels:
+                            Additional Properties:
+                              Format:  string
+                              Type:    string
+                            Type:      object
+                          Source Namespace:
+                            Description:  Source namespace constraining the applicability of a rule to workloads in that namespace.
+                            Format:       string
+                            Type:         string
+                          Uri:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Without Headers:
+                            Additional Properties:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      exact
+                                    Required:
+                                      prefix
+                                    Required:
+                                      regex
+                                Required:
+                                  exact
+                                Required:
+                                  prefix
+                                Required:
+                                  regex
+                              Properties:
+                                Exact:
+                                  Format:  string
+                                  Type:    string
+                                Prefix:
+                                  Format:  string
+                                  Type:    string
+                                Regex:
+                                  Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                  Format:       string
+                                  Type:         string
+                              Type:             object
+                            Description:        withoutHeader has the same syntax with the header, but has opposite meaning.
+                            Type:               object
+                        Type:                   object
+                      Type:                     array
+                    Mirror:
+                      Properties:
+                        Host:
+                          Description:  The name of a service from the service registry.
+                          Format:       string
+                          Type:         string
+                        Port:
+                          Description:  Specifies the port on the host that is being addressed.
+                          Properties:
+                            Number:
+                              Type:  integer
+                          Type:      object
+                        Subset:
+                          Description:  The name of a subset within the service.
+                          Format:       string
+                          Type:         string
+                      Type:             object
+                    Mirror Percent:
+                      Description:  Percentage of the traffic to be mirrored by the `mirror` field.
+                      Nullable:     true
+                      Type:         integer
+                    Mirror Percentage:
+                      Description:  Percentage of the traffic to be mirrored by the `mirror` field.
+                      Properties:
+                        Value:
+                          Format:  double
+                          Type:    number
+                      Type:        object
+                    mirror_percent:
+                      Description:  Percentage of the traffic to be mirrored by the `mirror` field.
+                      Nullable:     true
+                      Type:         integer
+                    Name:
+                      Description:  The name assigned to the route for debugging purposes.
+                      Format:       string
+                      Type:         string
+                    Redirect:
+                      Description:  A HTTP rule can either redirect or forward (default) traffic.
+                      Properties:
+                        Authority:
+                          Format:  string
+                          Type:    string
+                        Redirect Code:
+                          Type:  integer
+                        Uri:
+                          Format:  string
+                          Type:    string
+                      Type:        object
+                    Retries:
+                      Description:  Retry policy for HTTP requests.
+                      Properties:
+                        Attempts:
+                          Description:  Number of retries to be allowed for a given request.
+                          Format:       int32
+                          Type:         integer
+                        Per Try Timeout:
+                          Description:  Timeout per retry attempt for a given request.
+                          Type:         string
+                        Retry On:
+                          Description:  Specifies the conditions under which retry takes place.
+                          Format:       string
+                          Type:         string
+                        Retry Remote Localities:
+                          Description:  Flag to specify whether the retries should retry to other localities.
+                          Nullable:     true
+                          Type:         boolean
+                      Type:             object
+                    Rewrite:
+                      Description:  Rewrite HTTP URIs and Authority headers.
+                      Properties:
+                        Authority:
+                          Description:  rewrite the Authority/Host header with this value.
+                          Format:       string
+                          Type:         string
+                        Uri:
+                          Format:  string
+                          Type:    string
+                      Type:        object
+                    Route:
+                      Description:  A HTTP rule can either redirect or forward (default) traffic.
+                      Items:
+                        Properties:
+                          Destination:
+                            Properties:
+                              Host:
+                                Description:  The name of a service from the service registry.
+                                Format:       string
+                                Type:         string
+                              Port:
+                                Description:  Specifies the port on the host that is being addressed.
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Subset:
+                                Description:  The name of a subset within the service.
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Headers:
+                            Properties:
+                              Request:
+                                Properties:
+                                  Add:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                  Remove:
+                                    Items:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      array
+                                  Set:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                Type:          object
+                              Response:
+                                Properties:
+                                  Add:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                  Remove:
+                                    Items:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      array
+                                  Set:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                Type:          object
+                            Type:              object
+                          Weight:
+                            Format:  int32
+                            Type:    integer
+                        Type:        object
+                      Type:          array
+                    Timeout:
+                      Description:  Timeout for HTTP requests, default is disabled.
+                      Type:         string
+                  Type:             object
+                Type:               array
+              Tcp:
+                Description:  An ordered list of route rules for opaque TCP traffic.
+                Items:
+                  Properties:
+                    Match:
+                      Items:
+                        Properties:
+                          Destination Subnets:
+                            Description:  IPv4 or IPv6 ip addresses of destination with optional subnet.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Gateways:
+                            Description:  Names of gateways where the rule should be applied.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Port:
+                            Description:  Specifies the port on the host that is being addressed.
+                            Type:         integer
+                          Source Labels:
+                            Additional Properties:
+                              Format:  string
+                              Type:    string
+                            Type:      object
+                          Source Namespace:
+                            Description:  Source namespace constraining the applicability of a rule to workloads in that namespace.
+                            Format:       string
+                            Type:         string
+                          Source Subnet:
+                            Description:  IPv4 or IPv6 ip address of source with optional subnet.
+                            Format:       string
+                            Type:         string
+                        Type:             object
+                      Type:               array
+                    Route:
+                      Description:  The destination to which the connection should be forwarded to.
+                      Items:
+                        Properties:
+                          Destination:
+                            Properties:
+                              Host:
+                                Description:  The name of a service from the service registry.
+                                Format:       string
+                                Type:         string
+                              Port:
+                                Description:  Specifies the port on the host that is being addressed.
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Subset:
+                                Description:  The name of a subset within the service.
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Weight:
+                            Format:  int32
+                            Type:    integer
+                        Type:        object
+                      Type:          array
+                  Type:              object
+                Type:                array
+              Tls:
+                Items:
+                  Properties:
+                    Match:
+                      Items:
+                        Properties:
+                          Destination Subnets:
+                            Description:  IPv4 or IPv6 ip addresses of destination with optional subnet.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Gateways:
+                            Description:  Names of gateways where the rule should be applied.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Port:
+                            Description:  Specifies the port on the host that is being addressed.
+                            Type:         integer
+                          Sni Hosts:
+                            Description:  SNI (server name indicator) to match on.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Source Labels:
+                            Additional Properties:
+                              Format:  string
+                              Type:    string
+                            Type:      object
+                          Source Namespace:
+                            Description:  Source namespace constraining the applicability of a rule to workloads in that namespace.
+                            Format:       string
+                            Type:         string
+                        Type:             object
+                      Type:               array
+                    Route:
+                      Description:  The destination to which the connection should be forwarded to.
+                      Items:
+                        Properties:
+                          Destination:
+                            Properties:
+                              Host:
+                                Description:  The name of a service from the service registry.
+                                Format:       string
+                                Type:         string
+                              Port:
+                                Description:  Specifies the port on the host that is being addressed.
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Subset:
+                                Description:  The name of a subset within the service.
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Weight:
+                            Format:  int32
+                            Type:    integer
+                        Type:        object
+                      Type:          array
+                  Type:              object
+                Type:                array
+            Type:                    object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               true
+    Subresources:
+      Status:
+    Additional Printer Columns:
+      Description:  The names of gateways and sidecars that should apply these routes
+      Json Path:    .spec.gateways
+      Name:         Gateways
+      Type:         string
+      Description:  The destination hosts to which traffic is being sent
+      Json Path:    .spec.hosts
+      Name:         Hosts
+      Type:         string
+      Description:  CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC. Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+      Json Path:    .metadata.creationTimestamp
+      Name:         Age
+      Type:         date
+    Name:           v1beta1
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  Configuration affecting label/content routing, sni routing, etc. See more details at: https://istio.io/docs/reference/config/networking/virtual-service.html
+            Properties:
+              Export To:
+                Description:  A list of namespaces to which this virtual service is exported.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Gateways:
+                Description:  The names of gateways and sidecars that should apply these routes.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Hosts:
+                Description:  The destination hosts to which traffic is being sent.
+                Items:
+                  Format:  string
+                  Type:    string
+                Type:      array
+              Http:
+                Description:  An ordered list of route rules for HTTP traffic.
+                Items:
+                  Properties:
+                    Cors Policy:
+                      Description:  Cross-Origin Resource Sharing policy (CORS).
+                      Properties:
+                        Allow Credentials:
+                          Nullable:  true
+                          Type:      boolean
+                        Allow Headers:
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Allow Methods:
+                          Description:  List of HTTP methods allowed to access the resource.
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Allow Origin:
+                          Description:  The list of origins that are allowed to perform CORS requests.
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Allow Origins:
+                          Description:  String patterns that match allowed origins.
+                          Items:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Type:               array
+                        Expose Headers:
+                          Items:
+                            Format:  string
+                            Type:    string
+                          Type:      array
+                        Max Age:
+                          Type:  string
+                      Type:      object
+                    Delegate:
+                      Properties:
+                        Name:
+                          Description:  Name specifies the name of the delegate VirtualService.
+                          Format:       string
+                          Type:         string
+                        Namespace:
+                          Description:  Namespace specifies the namespace where the delegate VirtualService resides.
+                          Format:       string
+                          Type:         string
+                      Type:             object
+                    Fault:
+                      Description:  Fault injection policy to apply on HTTP traffic at the client side.
+                      Properties:
+                        Abort:
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  httpStatus
+                                Required:
+                                  grpcStatus
+                                Required:
+                                  http2Error
+                            Required:
+                              httpStatus
+                            Required:
+                              grpcStatus
+                            Required:
+                              http2Error
+                          Properties:
+                            Grpc Status:
+                              Format:  string
+                              Type:    string
+                            http2Error:
+                              Format:  string
+                              Type:    string
+                            Http Status:
+                              Description:  HTTP status code to use to abort the Http request.
+                              Format:       int32
+                              Type:         integer
+                            Percentage:
+                              Description:  Percentage of requests to be aborted with the error code provided.
+                              Properties:
+                                Value:
+                                  Format:  double
+                                  Type:    number
+                              Type:        object
+                          Type:            object
+                        Delay:
+                          One Of:
+                            Not:
+                              Any Of:
+                                Required:
+                                  fixedDelay
+                                Required:
+                                  exponentialDelay
+                            Required:
+                              fixedDelay
+                            Required:
+                              exponentialDelay
+                          Properties:
+                            Exponential Delay:
+                              Type:  string
+                            Fixed Delay:
+                              Description:  Add a fixed delay before forwarding the request.
+                              Type:         string
+                            Percent:
+                              Description:  Percentage of requests on which the delay will be injected (0-100).
+                              Format:       int32
+                              Type:         integer
+                            Percentage:
+                              Description:  Percentage of requests on which the delay will be injected.
+                              Properties:
+                                Value:
+                                  Format:  double
+                                  Type:    number
+                              Type:        object
+                          Type:            object
+                      Type:                object
+                    Headers:
+                      Properties:
+                        Request:
+                          Properties:
+                            Add:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                            Remove:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                            Set:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                          Type:          object
+                        Response:
+                          Properties:
+                            Add:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                            Remove:
+                              Items:
+                                Format:  string
+                                Type:    string
+                              Type:      array
+                            Set:
+                              Additional Properties:
+                                Format:  string
+                                Type:    string
+                              Type:      object
+                          Type:          object
+                      Type:              object
+                    Match:
+                      Items:
+                        Properties:
+                          Authority:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Gateways:
+                            Description:  Names of gateways where the rule should be applied.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Headers:
+                            Additional Properties:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      exact
+                                    Required:
+                                      prefix
+                                    Required:
+                                      regex
+                                Required:
+                                  exact
+                                Required:
+                                  prefix
+                                Required:
+                                  regex
+                              Properties:
+                                Exact:
+                                  Format:  string
+                                  Type:    string
+                                Prefix:
+                                  Format:  string
+                                  Type:    string
+                                Regex:
+                                  Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                  Format:       string
+                                  Type:         string
+                              Type:             object
+                            Type:               object
+                          Ignore Uri Case:
+                            Description:  Flag to specify whether the URI matching should be case-insensitive.
+                            Type:         boolean
+                          Method:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Name:
+                            Description:  The name assigned to a match.
+                            Format:       string
+                            Type:         string
+                          Port:
+                            Description:  Specifies the ports on the host that is being addressed.
+                            Type:         integer
+                          Query Params:
+                            Additional Properties:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      exact
+                                    Required:
+                                      prefix
+                                    Required:
+                                      regex
+                                Required:
+                                  exact
+                                Required:
+                                  prefix
+                                Required:
+                                  regex
+                              Properties:
+                                Exact:
+                                  Format:  string
+                                  Type:    string
+                                Prefix:
+                                  Format:  string
+                                  Type:    string
+                                Regex:
+                                  Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                  Format:       string
+                                  Type:         string
+                              Type:             object
+                            Description:        Query parameters for matching.
+                            Type:               object
+                          Scheme:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Source Labels:
+                            Additional Properties:
+                              Format:  string
+                              Type:    string
+                            Type:      object
+                          Source Namespace:
+                            Description:  Source namespace constraining the applicability of a rule to workloads in that namespace.
+                            Format:       string
+                            Type:         string
+                          Uri:
+                            One Of:
+                              Not:
+                                Any Of:
+                                  Required:
+                                    exact
+                                  Required:
+                                    prefix
+                                  Required:
+                                    regex
+                              Required:
+                                exact
+                              Required:
+                                prefix
+                              Required:
+                                regex
+                            Properties:
+                              Exact:
+                                Format:  string
+                                Type:    string
+                              Prefix:
+                                Format:  string
+                                Type:    string
+                              Regex:
+                                Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Without Headers:
+                            Additional Properties:
+                              One Of:
+                                Not:
+                                  Any Of:
+                                    Required:
+                                      exact
+                                    Required:
+                                      prefix
+                                    Required:
+                                      regex
+                                Required:
+                                  exact
+                                Required:
+                                  prefix
+                                Required:
+                                  regex
+                              Properties:
+                                Exact:
+                                  Format:  string
+                                  Type:    string
+                                Prefix:
+                                  Format:  string
+                                  Type:    string
+                                Regex:
+                                  Description:  RE2 style regex-based match (https://github.com/google/re2/wiki/Syntax).
+                                  Format:       string
+                                  Type:         string
+                              Type:             object
+                            Description:        withoutHeader has the same syntax with the header, but has opposite meaning.
+                            Type:               object
+                        Type:                   object
+                      Type:                     array
+                    Mirror:
+                      Properties:
+                        Host:
+                          Description:  The name of a service from the service registry.
+                          Format:       string
+                          Type:         string
+                        Port:
+                          Description:  Specifies the port on the host that is being addressed.
+                          Properties:
+                            Number:
+                              Type:  integer
+                          Type:      object
+                        Subset:
+                          Description:  The name of a subset within the service.
+                          Format:       string
+                          Type:         string
+                      Type:             object
+                    Mirror Percent:
+                      Description:  Percentage of the traffic to be mirrored by the `mirror` field.
+                      Nullable:     true
+                      Type:         integer
+                    Mirror Percentage:
+                      Description:  Percentage of the traffic to be mirrored by the `mirror` field.
+                      Properties:
+                        Value:
+                          Format:  double
+                          Type:    number
+                      Type:        object
+                    mirror_percent:
+                      Description:  Percentage of the traffic to be mirrored by the `mirror` field.
+                      Nullable:     true
+                      Type:         integer
+                    Name:
+                      Description:  The name assigned to the route for debugging purposes.
+                      Format:       string
+                      Type:         string
+                    Redirect:
+                      Description:  A HTTP rule can either redirect or forward (default) traffic.
+                      Properties:
+                        Authority:
+                          Format:  string
+                          Type:    string
+                        Redirect Code:
+                          Type:  integer
+                        Uri:
+                          Format:  string
+                          Type:    string
+                      Type:        object
+                    Retries:
+                      Description:  Retry policy for HTTP requests.
+                      Properties:
+                        Attempts:
+                          Description:  Number of retries to be allowed for a given request.
+                          Format:       int32
+                          Type:         integer
+                        Per Try Timeout:
+                          Description:  Timeout per retry attempt for a given request.
+                          Type:         string
+                        Retry On:
+                          Description:  Specifies the conditions under which retry takes place.
+                          Format:       string
+                          Type:         string
+                        Retry Remote Localities:
+                          Description:  Flag to specify whether the retries should retry to other localities.
+                          Nullable:     true
+                          Type:         boolean
+                      Type:             object
+                    Rewrite:
+                      Description:  Rewrite HTTP URIs and Authority headers.
+                      Properties:
+                        Authority:
+                          Description:  rewrite the Authority/Host header with this value.
+                          Format:       string
+                          Type:         string
+                        Uri:
+                          Format:  string
+                          Type:    string
+                      Type:        object
+                    Route:
+                      Description:  A HTTP rule can either redirect or forward (default) traffic.
+                      Items:
+                        Properties:
+                          Destination:
+                            Properties:
+                              Host:
+                                Description:  The name of a service from the service registry.
+                                Format:       string
+                                Type:         string
+                              Port:
+                                Description:  Specifies the port on the host that is being addressed.
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Subset:
+                                Description:  The name of a subset within the service.
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Headers:
+                            Properties:
+                              Request:
+                                Properties:
+                                  Add:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                  Remove:
+                                    Items:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      array
+                                  Set:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                Type:          object
+                              Response:
+                                Properties:
+                                  Add:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                  Remove:
+                                    Items:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      array
+                                  Set:
+                                    Additional Properties:
+                                      Format:  string
+                                      Type:    string
+                                    Type:      object
+                                Type:          object
+                            Type:              object
+                          Weight:
+                            Format:  int32
+                            Type:    integer
+                        Type:        object
+                      Type:          array
+                    Timeout:
+                      Description:  Timeout for HTTP requests, default is disabled.
+                      Type:         string
+                  Type:             object
+                Type:               array
+              Tcp:
+                Description:  An ordered list of route rules for opaque TCP traffic.
+                Items:
+                  Properties:
+                    Match:
+                      Items:
+                        Properties:
+                          Destination Subnets:
+                            Description:  IPv4 or IPv6 ip addresses of destination with optional subnet.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Gateways:
+                            Description:  Names of gateways where the rule should be applied.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Port:
+                            Description:  Specifies the port on the host that is being addressed.
+                            Type:         integer
+                          Source Labels:
+                            Additional Properties:
+                              Format:  string
+                              Type:    string
+                            Type:      object
+                          Source Namespace:
+                            Description:  Source namespace constraining the applicability of a rule to workloads in that namespace.
+                            Format:       string
+                            Type:         string
+                          Source Subnet:
+                            Description:  IPv4 or IPv6 ip address of source with optional subnet.
+                            Format:       string
+                            Type:         string
+                        Type:             object
+                      Type:               array
+                    Route:
+                      Description:  The destination to which the connection should be forwarded to.
+                      Items:
+                        Properties:
+                          Destination:
+                            Properties:
+                              Host:
+                                Description:  The name of a service from the service registry.
+                                Format:       string
+                                Type:         string
+                              Port:
+                                Description:  Specifies the port on the host that is being addressed.
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Subset:
+                                Description:  The name of a subset within the service.
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Weight:
+                            Format:  int32
+                            Type:    integer
+                        Type:        object
+                      Type:          array
+                  Type:              object
+                Type:                array
+              Tls:
+                Items:
+                  Properties:
+                    Match:
+                      Items:
+                        Properties:
+                          Destination Subnets:
+                            Description:  IPv4 or IPv6 ip addresses of destination with optional subnet.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Gateways:
+                            Description:  Names of gateways where the rule should be applied.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Port:
+                            Description:  Specifies the port on the host that is being addressed.
+                            Type:         integer
+                          Sni Hosts:
+                            Description:  SNI (server name indicator) to match on.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Source Labels:
+                            Additional Properties:
+                              Format:  string
+                              Type:    string
+                            Type:      object
+                          Source Namespace:
+                            Description:  Source namespace constraining the applicability of a rule to workloads in that namespace.
+                            Format:       string
+                            Type:         string
+                        Type:             object
+                      Type:               array
+                    Route:
+                      Description:  The destination to which the connection should be forwarded to.
+                      Items:
+                        Properties:
+                          Destination:
+                            Properties:
+                              Host:
+                                Description:  The name of a service from the service registry.
+                                Format:       string
+                                Type:         string
+                              Port:
+                                Description:  Specifies the port on the host that is being addressed.
+                                Properties:
+                                  Number:
+                                    Type:  integer
+                                Type:      object
+                              Subset:
+                                Description:  The name of a subset within the service.
+                                Format:       string
+                                Type:         string
+                            Type:             object
+                          Weight:
+                            Format:  int32
+                            Type:    integer
+                        Type:        object
+                      Type:          array
+                  Type:              object
+                Type:                array
+            Type:                    object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               false
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Categories:
+      istio-io
+      networking-istio-io
+    Kind:       VirtualService
+    List Kind:  VirtualServiceList
+    Plural:     virtualservices
+    Short Names:
+      vs
+    Singular:  virtualservice
+  Conditions:
+    Last Transition Time:  2021-04-28T21:16:59Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-04-28T21:16:59Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1alpha3
+Events:  <none>
+

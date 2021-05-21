@@ -1,0 +1,87 @@
+Name:         wcm-proxy-nsmgr-5796ffd7cc-sx57z
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Wed, 12 May 2021 16:11:36 +0000
+Labels:       app=wcm-proxy-nsmgr
+              membercore=wcm
+              pod-template-hash=5796ffd7cc
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.21
+IPs:
+  IP:           10.244.0.21
+Controlled By:  ReplicaSet/wcm-proxy-nsmgr-5796ffd7cc
+Containers:
+  wcm-proxy-nsmgr:
+    Container ID:   containerd://f707d116a6e8262cfb472c341359172a4d7fe6f100173b44f0b763ed40e20e8d
+    Image:          public.ecr.aws/ciscoeti/appn/proxy-nsmd:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/proxy-nsmd@sha256:3e4f686ad2f9c04aacd1e49c9ab45a714b1c65dfe95875eeaf77c4740ba2ab5e
+    Port:           5006/TCP
+    Host Port:      5006/TCP
+    State:          Running
+      Started:      Wed, 12 May 2021 16:11:37 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  31505
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-vrscs (ro)
+  proxy-nsmd-k8s:
+    Container ID:   containerd://f768e9b274abc5686d941b5b34834e7f9e9d8c0a3cd053bbfd165aee327c151e
+    Image:          public.ecr.aws/ciscoeti/appn/proxy-nsmd-k8s:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/proxy-nsmd-k8s@sha256:02dbdce52aacc269f64004c2826462347ca8894129d9c99224e1210a2e78fff4
+    Port:           5005/TCP
+    Host Port:      5005/TCP
+    State:          Running
+      Started:      Wed, 12 May 2021 16:11:38 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  443
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-vrscs (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-proxy-nsmgr-service-account-token-vrscs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-proxy-nsmgr-service-account-token-vrscs
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned nsm-system/wcm-proxy-nsmgr-5796ffd7cc-sx57z to kind-3-control-plane
+  Normal  Pulled     12m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/proxy-nsmd:vl3_latest" already present on machine
+  Normal  Created    12m   kubelet            Created container wcm-proxy-nsmgr
+  Normal  Started    12m   kubelet            Started container wcm-proxy-nsmgr
+  Normal  Pulled     12m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/proxy-nsmd-k8s:vl3_latest" already present on machine
+  Normal  Created    12m   kubelet            Created container proxy-nsmd-k8s
+  Normal  Started    12m   kubelet            Started container proxy-nsmd-k8s
+

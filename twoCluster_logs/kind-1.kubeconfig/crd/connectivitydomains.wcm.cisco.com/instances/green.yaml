@@ -1,0 +1,57 @@
+Name:         green
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: cd-release-green
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  wcm.cisco.com/v1alpha1
+Kind:         ConnectivityDomain
+Metadata:
+  Creation Timestamp:  2021-04-28T21:19:28Z
+  Finalizers:
+    finalizer.cache.wcm-cisco.com
+  Generation:        1
+  Resource Version:  3909
+  Self Link:         /apis/wcm.cisco.com/v1alpha1/namespaces/wcm-system/connectivitydomains/green
+  UID:               ea508c63-081e-4675-8e11-32cf79a6a23b
+Spec:
+  Fqdn:  green.nispatil-wcm-cisco.com
+  Gateway:
+    Secret:    connectivity-domain-secret
+    Tls Mode:  3
+  Insecure:    false
+  Ipam:
+    Ip Family:    IPV4
+    Prefix Pool:  172.100.0.0/16
+  Istio:          false
+  Size:           1
+Status:
+  App Dns:
+    Deployment:       green-app-dns-publisher
+    Role:             green-app-dns-publisher-role
+    Role Binding:     green-app-dns-publisher-role-binding
+    Service Account:  green-app-dns-publisher-service-account
+  Cd Info:
+    Config Map:       green-cd-info-config-map
+    Deployment:       green-cd-info
+    Service:          green-cd-info
+    Service Account:  green-cd-info-service-account
+    Service Entry:    green-cd-info
+  Istio Resources:
+    Virtual Service:  green
+  Istiopub:
+  Nsr:
+    Deployment:       green
+    Role:             green-role
+    Service Account:  green-service-account
+    Service Entry:    green
+  Pods:
+    green-wcmd-95d54dcb4-dpwgb
+    green-app-dns-publisher-5b76cc5c4f-2tr8v
+    green-cd-info-66c4bb6996-gw4zp
+    green-8547dbdf48-gr5n8
+  Wcmd:
+    Config Map:       green-wcmd-config-map
+    Deployment:       green-wcmd
+    Service Account:  green-wcmd-service-account
+    Service Entry:    green-wcmd
+Events:               <none>

@@ -1,0 +1,101 @@
+Name:         wcm-etcd-cluster-jb88gxnntd
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 21 May 2021 20:10:48 +0000
+Labels:       app=etcd
+              etcd_cluster=wcm-etcd-cluster
+              etcd_node=wcm-etcd-cluster-jb88gxnntd
+Annotations:  etcd.version: 3.2.13
+Status:       Running
+IP:           10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  EtcdCluster/wcm-etcd-cluster
+Init Containers:
+  check-dns:
+    Container ID:  containerd://3f0dea767b76bf3a12caa8bc2249c129dd860b96a6cf52c83f4d08349a886908
+    Image:         busybox:1.28.0-glibc
+    Image ID:      docker.io/library/busybox@sha256:0b55a30394294ab23b9afd58fab94e61a923f5834fba7ddbae7f8e0c11ba85e6
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/sh
+      -c
+      
+                TIMEOUT_READY=0
+                while ( ! nslookup wcm-etcd-cluster-jb88gxnntd.wcm-etcd-cluster.wcm-system.svc )
+                do
+                  # If TIMEOUT_READY is 0 we should never time out and exit 
+                  TIMEOUT_READY=$(( TIMEOUT_READY-1 ))
+                              if [ $TIMEOUT_READY -eq 0 ];
+                                  then
+                                      echo "Timed out waiting for DNS entry"
+                                      exit 1
+                                  fi
+                              sleep 1
+                            done
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Fri, 21 May 2021 20:10:50 +0000
+      Finished:     Fri, 21 May 2021 20:10:52 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:         <none>
+Containers:
+  etcd:
+    Container ID:  containerd://3675b967494b486303cf2521e2c973c9c183f669d74ea75e850ae45c552d2fc7
+    Image:         quay.io/coreos/etcd:v3.2.13
+    Image ID:      sha256:cb19d1a6c2a7a7d508fc990facf7cf6b42600537bb38336b5f4f3a697016c0de
+    Ports:         2380/TCP, 2379/TCP
+    Host Ports:    0/TCP, 0/TCP
+    Command:
+      /usr/local/bin/etcd
+      --data-dir=/var/etcd/data
+      --name=wcm-etcd-cluster-jb88gxnntd
+      --initial-advertise-peer-urls=http://wcm-etcd-cluster-jb88gxnntd.wcm-etcd-cluster.wcm-system.svc:2380
+      --listen-peer-urls=http://0.0.0.0:2380
+      --listen-client-urls=http://0.0.0.0:2379
+      --advertise-client-urls=http://wcm-etcd-cluster-jb88gxnntd.wcm-etcd-cluster.wcm-system.svc:2379
+      --initial-cluster=wcm-etcd-cluster-jb88gxnntd=http://wcm-etcd-cluster-jb88gxnntd.wcm-etcd-cluster.wcm-system.svc:2380
+      --initial-cluster-state=new
+      --initial-cluster-token=8583429b-6210-40b5-98c4-6b6d878ff61d
+    State:          Running
+      Started:      Fri, 21 May 2021 20:10:56 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       exec [/bin/sh -ec ETCDCTL_API=3 etcdctl endpoint status] delay=10s timeout=10s period=60s #success=1 #failure=3
+    Readiness:      exec [/bin/sh -ec ETCDCTL_API=3 etcdctl endpoint status] delay=1s timeout=5s period=5s #success=1 #failure=3
+    Environment:    <none>
+    Mounts:
+      /var/etcd from etcd-data (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  etcd-data:
+    Type:        EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:      
+    SizeLimit:   <unset>
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  52m   default-scheduler  Successfully assigned wcm-system/wcm-etcd-cluster-jb88gxnntd to kind-1-control-plane
+  Normal  Pulling    52m   kubelet            Pulling image "busybox:1.28.0-glibc"
+  Normal  Pulled     52m   kubelet            Successfully pulled image "busybox:1.28.0-glibc"
+  Normal  Created    52m   kubelet            Created container check-dns
+  Normal  Started    52m   kubelet            Started container check-dns
+  Normal  Pulling    52m   kubelet            Pulling image "quay.io/coreos/etcd:v3.2.13"
+  Normal  Pulled     52m   kubelet            Successfully pulled image "quay.io/coreos/etcd:v3.2.13"
+  Normal  Created    52m   kubelet            Created container etcd
+  Normal  Started    52m   kubelet            Started container etcd
+

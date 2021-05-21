@@ -1,0 +1,172 @@
+Name:         helloworld-green-7c95645db9-gp485
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Mon, 10 May 2021 16:17:15 -0700
+Labels:       app=helloworld-green
+              nsm/servicename=helloworld.cluster-0.green.wcm-cisco.com
+              pod-template-hash=7c95645db9
+              version=v1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.16
+IPs:
+  IP:           10.244.0.16
+Controlled By:  ReplicaSet/helloworld-green-7c95645db9
+Init Containers:
+  nsm-dns-init:
+    Container ID:  containerd://0046afa65bc9abac3259955fd88416bc1e502588665480724fcacca552333fc5
+    Image:         containers.cisco.com/appn/nsm-dns-init:vl3_latest
+    Image ID:      containers.cisco.com/appn/nsm-dns-init@sha256:9e3d48d985ac55f4e68869fca2b4e21a20c6a5009de07f92b96b79b0c44daddd
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/nsm-dns-init
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Mon, 10 May 2021 16:17:17 -0700
+      Finished:     Mon, 10 May 2021 16:17:17 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      NS_NETWORKSERVICEMESH_IO:  green/green?service=helloworld&port=5000&clusterName=cluster-0
+      NSM_NAMESPACE:             nsm-system
+      JAEGER_AGENT_HOST:         wcm-jaeger.nsm-system
+      TRACER_ENABLED:            true
+      JAEGER_AGENT_PORT:         6831
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-zgjh6 (ro)
+  nsm-init-container:
+    Container ID:   containerd://e10f126e8f42c0666c6fd52ea2eca418ad722ff050a0865b05f951fab98ee763
+    Image:          containers.cisco.com/appn/nsm-init:vl3_latest
+    Image ID:       containers.cisco.com/appn/nsm-init@sha256:0c02164ba2f12407b03b009c40db9b1583dfe63dbffbba913571d05d47c7d85f
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Mon, 10 May 2021 16:17:20 -0700
+      Finished:     Mon, 10 May 2021 16:17:20 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      NS_NETWORKSERVICEMESH_IO:  green/green?service=helloworld&port=5000&clusterName=cluster-0
+      NSM_NAMESPACE:             nsm-system
+      JAEGER_AGENT_HOST:         wcm-jaeger.nsm-system
+      TRACER_ENABLED:            true
+      JAEGER_AGENT_PORT:         6831
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-zgjh6 (ro)
+Containers:
+  helloworld:
+    Container ID:   containerd://76185aff6dcfdeaf5d90bd9e5c544321da5dbac26055a9adbfa9e9e009174e35
+    Image:          docker.io/istio/examples-helloworld-v1:latest
+    Image ID:       docker.io/istio/examples-helloworld-v1@sha256:c671702b11cbcda103720c2bd3e81a4211012bfef085b7326bb7fbfd8cea4a94
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 10 May 2021 16:18:00 -0700
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-zgjh6 (ro)
+  nsm-dns-monitor:
+    Container ID:  containerd://cf048fefb1efb270547286d059ab575e4431d327b1aef66083674ab6610f6b4c
+    Image:         containers.cisco.com/appn/nsm-monitor:vl3_latest
+    Image ID:      containers.cisco.com/appn/nsm-monitor@sha256:8e721def11550e4f1a0efe03d8ffeed72dbfcd653481b18a4254075a3fd386ef
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/nsm-monitor
+    State:          Running
+      Started:      Mon, 10 May 2021 16:18:03 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      MONITOR_DNS_CONFIGS:       true
+      NS_NETWORKSERVICEMESH_IO:  green/green?service=helloworld&port=5000&clusterName=cluster-0
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-zgjh6 (ro)
+  coredns:
+    Container ID:  containerd://25ec181f9eb72b5880dab00d8dbb3a8b8ccdacb516910edc77e30d7fc3dd1de6
+    Image:         networkservicemesh/coredns:master
+    Image ID:      docker.io/networkservicemesh/coredns@sha256:17de0ac5d4640cc9e2c41b5b899c772818fc1715de78c160dfa5d945543d35ce
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      -conf
+      /etc/coredns/Corefile
+    State:          Running
+      Started:      Mon, 10 May 2021 16:18:07 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:                     <none>
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-zgjh6 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  nsm-coredns-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  nsc-service-account-token-zgjh6:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  nsc-service-account-token-zgjh6
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  7m8s   default-scheduler  Successfully assigned default/helloworld-green-7c95645db9-gp485 to kind-2-control-plane
+  Normal  Pulling    7m8s   kubelet            Pulling image "containers.cisco.com/appn/nsm-dns-init:vl3_latest"
+  Normal  Pulled     7m6s   kubelet            Successfully pulled image "containers.cisco.com/appn/nsm-dns-init:vl3_latest"
+  Normal  Created    7m6s   kubelet            Created container nsm-dns-init
+  Normal  Started    7m6s   kubelet            Started container nsm-dns-init
+  Normal  Pulling    7m6s   kubelet            Pulling image "containers.cisco.com/appn/nsm-init:vl3_latest"
+  Normal  Pulled     7m4s   kubelet            Successfully pulled image "containers.cisco.com/appn/nsm-init:vl3_latest"
+  Normal  Created    7m4s   kubelet            Created container nsm-init-container
+  Normal  Started    7m3s   kubelet            Started container nsm-init-container
+  Normal  Pulling    7m3s   kubelet            Pulling image "docker.io/istio/examples-helloworld-v1:latest"
+  Normal  Pulled     6m24s  kubelet            Successfully pulled image "docker.io/istio/examples-helloworld-v1:latest"
+  Normal  Created    6m23s  kubelet            Created container helloworld
+  Normal  Started    6m23s  kubelet            Started container helloworld
+  Normal  Pulling    6m23s  kubelet            Pulling image "containers.cisco.com/appn/nsm-monitor:vl3_latest"
+  Normal  Pulled     6m21s  kubelet            Successfully pulled image "containers.cisco.com/appn/nsm-monitor:vl3_latest"
+  Normal  Created    6m20s  kubelet            Created container nsm-dns-monitor
+  Normal  Started    6m20s  kubelet            Started container nsm-dns-monitor
+  Normal  Pulling    6m20s  kubelet            Pulling image "networkservicemesh/coredns:master"
+  Normal  Pulled     6m16s  kubelet            Successfully pulled image "networkservicemesh/coredns:master"
+  Normal  Created    6m16s  kubelet            Created container coredns
+  Normal  Started    6m16s  kubelet            Started container coredns
+

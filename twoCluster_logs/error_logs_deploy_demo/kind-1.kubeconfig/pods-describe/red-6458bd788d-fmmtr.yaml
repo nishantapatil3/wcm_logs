@@ -1,0 +1,63 @@
+Name:         red-6458bd788d-fmmtr
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 12 May 2021 16:12:09 +0000
+Labels:       app=wcm-nsr-red
+              connectivitydomain=red
+              pod-template-hash=6458bd788d
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.17
+IPs:
+  IP:           10.244.0.17
+Controlled By:  ReplicaSet/red-6458bd788d
+Containers:
+  red:
+    Container ID:   containerd://f9fdf86b6c1deb39e58e85ceecf7aff2b439c142a97f06c1a4d13b8e053d1ef8
+    Image:          public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmrs@sha256:15d833b2a7d27c1b38c10fe1e49ae717dc97e25523ea3a39fdb96cf0f3919415
+    Port:           31505/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 12 May 2021 16:12:11 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                  (v1:metadata.uid)
+      NODE_NAME:                (v1:spec.nodeName)
+      NSM_NAMESPACE:           wcm-system
+      INSECURE:                false
+      NSMRS_API_ADDRESS:       :31505
+      NSE_EXPIRATION_TIMEOUT:  1h
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from red-service-account-token-7hrhc (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  red-service-account-token-7hrhc:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  red-service-account-token-7hrhc
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned wcm-system/red-6458bd788d-fmmtr to kind-1-control-plane
+  Normal  Pulling    11m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest"
+  Normal  Pulled     11m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest"
+  Normal  Created    11m   kubelet            Created container red
+  Normal  Started    11m   kubelet            Started container red
+

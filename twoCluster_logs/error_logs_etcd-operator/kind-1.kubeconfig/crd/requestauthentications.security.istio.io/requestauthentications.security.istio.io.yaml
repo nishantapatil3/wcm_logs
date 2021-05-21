@@ -1,0 +1,140 @@
+Name:         requestauthentications.security.istio.io
+Namespace:    
+Labels:       app=istio-pilot
+              chart=istio
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio=security
+              istio.io/rev=default
+              operator.istio.io/component=Base
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+              release=istio
+Annotations:  helm.sh/resource-policy: keep
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-05-07T23:13:10Z
+  Generation:          1
+  Resource Version:    1670
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/requestauthentications.security.istio.io
+  UID:                 aff4b8ca-fdea-4b17-b862-4e8a2bcbde0a
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       security.istio.io
+  Names:
+    Categories:
+      istio-io
+      security-istio-io
+    Kind:       RequestAuthentication
+    List Kind:  RequestAuthenticationList
+    Plural:     requestauthentications
+    Short Names:
+      ra
+    Singular:  requestauthentication
+  Scope:       Namespaced
+  Versions:
+    Name:  v1beta1
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  RequestAuthentication defines what request authentication methods are supported by a workload.
+            Properties:
+              Jwt Rules:
+                Description:  Define the list of JWTs that can be validated at the selected workloads' proxy.
+                Items:
+                  Properties:
+                    Audiences:
+                      Items:
+                        Format:  string
+                        Type:    string
+                      Type:      array
+                    Forward Original Token:
+                      Description:  If set to true, the orginal token will be kept for the ustream request.
+                      Type:         boolean
+                    From Headers:
+                      Description:  List of header locations from which JWT is expected.
+                      Items:
+                        Properties:
+                          Name:
+                            Description:  The HTTP header name.
+                            Format:       string
+                            Type:         string
+                          Prefix:
+                            Description:  The prefix that should be stripped before decoding the token.
+                            Format:       string
+                            Type:         string
+                        Type:             object
+                      Type:               array
+                    From Params:
+                      Description:  List of query parameters from which JWT is expected.
+                      Items:
+                        Format:  string
+                        Type:    string
+                      Type:      array
+                    Issuer:
+                      Description:  Identifies the issuer that issued the JWT.
+                      Format:       string
+                      Type:         string
+                    Jwks:
+                      Description:  JSON Web Key Set of public keys to validate signature of the JWT.
+                      Format:       string
+                      Type:         string
+                    Jwks Uri:
+                      Format:  string
+                      Type:    string
+                    jwks_uri:
+                      Format:  string
+                      Type:    string
+                    Output Payload To Header:
+                      Format:  string
+                      Type:    string
+                  Type:        object
+                Type:          array
+              Selector:
+                Description:  The selector determines the workloads to apply the RequestAuthentication on.
+                Properties:
+                  Match Labels:
+                    Additional Properties:
+                      Format:  string
+                      Type:    string
+                    Type:      object
+                Type:          object
+            Type:              object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               true
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Categories:
+      istio-io
+      security-istio-io
+    Kind:       RequestAuthentication
+    List Kind:  RequestAuthenticationList
+    Plural:     requestauthentications
+    Short Names:
+      ra
+    Singular:  requestauthentication
+  Conditions:
+    Last Transition Time:  2021-05-07T23:13:10Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-05-07T23:13:10Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1beta1
+Events:  <none>
+

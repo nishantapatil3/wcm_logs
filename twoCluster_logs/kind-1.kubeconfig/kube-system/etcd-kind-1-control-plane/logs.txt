@@ -1,0 +1,99 @@
+==== START logs for container etcd of pod kube-system/etcd-kind-1-control-plane ====
+[WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+2021-05-21 20:09:06.681369 I | etcdmain: etcd Version: 3.4.3
+2021-05-21 20:09:06.681418 I | etcdmain: Git SHA: 3cf2f69b5
+2021-05-21 20:09:06.681424 I | etcdmain: Go Version: go1.12.12
+2021-05-21 20:09:06.681433 I | etcdmain: Go OS/Arch: linux/amd64
+2021-05-21 20:09:06.681439 I | etcdmain: setting maximum number of CPUs to 4, total number of available CPUs is 4
+[WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+2021-05-21 20:09:06.681536 I | embed: peerTLS: cert = /etc/kubernetes/pki/etcd/peer.crt, key = /etc/kubernetes/pki/etcd/peer.key, trusted-ca = /etc/kubernetes/pki/etcd/ca.crt, client-cert-auth = true, crl-file = 
+2021-05-21 20:09:06.682558 I | embed: name = kind-1-control-plane
+2021-05-21 20:09:06.682577 I | embed: data dir = /var/lib/etcd
+2021-05-21 20:09:06.682583 I | embed: member dir = /var/lib/etcd/member
+2021-05-21 20:09:06.682589 I | embed: heartbeat = 100ms
+2021-05-21 20:09:06.682594 I | embed: election = 1000ms
+2021-05-21 20:09:06.682600 I | embed: snapshot count = 10000
+2021-05-21 20:09:06.682610 I | embed: advertise client URLs = https://172.17.0.2:2379
+2021-05-21 20:09:06.693357 I | etcdserver: starting member b8e14bda2255bc24 in cluster 38b0e74a458e7a1f
+raft2021/05/21 20:09:06 INFO: b8e14bda2255bc24 switched to configuration voters=()
+raft2021/05/21 20:09:06 INFO: b8e14bda2255bc24 became follower at term 0
+raft2021/05/21 20:09:06 INFO: newRaft b8e14bda2255bc24 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2021/05/21 20:09:06 INFO: b8e14bda2255bc24 became follower at term 1
+raft2021/05/21 20:09:06 INFO: b8e14bda2255bc24 switched to configuration voters=(13322012572989635620)
+2021-05-21 20:09:06.702657 W | auth: simple token is not cryptographically signed
+2021-05-21 20:09:06.710980 I | etcdserver: starting server... [version: 3.4.3, cluster version: to_be_decided]
+2021-05-21 20:09:06.713597 I | embed: ClientTLS: cert = /etc/kubernetes/pki/etcd/server.crt, key = /etc/kubernetes/pki/etcd/server.key, trusted-ca = /etc/kubernetes/pki/etcd/ca.crt, client-cert-auth = true, crl-file = 
+2021-05-21 20:09:06.713805 I | embed: listening for metrics on http://127.0.0.1:2381
+2021-05-21 20:09:06.714130 I | etcdserver: b8e14bda2255bc24 as single-node; fast-forwarding 9 ticks (election ticks 10)
+2021-05-21 20:09:06.714430 I | embed: listening for peers on 172.17.0.2:2380
+raft2021/05/21 20:09:06 INFO: b8e14bda2255bc24 switched to configuration voters=(13322012572989635620)
+2021-05-21 20:09:06.714771 I | etcdserver/membership: added member b8e14bda2255bc24 [https://172.17.0.2:2380] to cluster 38b0e74a458e7a1f
+raft2021/05/21 20:09:07 INFO: b8e14bda2255bc24 is starting a new election at term 1
+raft2021/05/21 20:09:07 INFO: b8e14bda2255bc24 became candidate at term 2
+raft2021/05/21 20:09:07 INFO: b8e14bda2255bc24 received MsgVoteResp from b8e14bda2255bc24 at term 2
+raft2021/05/21 20:09:07 INFO: b8e14bda2255bc24 became leader at term 2
+raft2021/05/21 20:09:07 INFO: raft.node: b8e14bda2255bc24 elected leader b8e14bda2255bc24 at term 2
+2021-05-21 20:09:07.398328 I | etcdserver: published {Name:kind-1-control-plane ClientURLs:[https://172.17.0.2:2379]} to cluster 38b0e74a458e7a1f
+2021-05-21 20:09:07.398719 I | embed: ready to serve client requests
+2021-05-21 20:09:07.400572 I | embed: serving client requests on 127.0.0.1:2379
+2021-05-21 20:09:07.400935 I | etcdserver: setting up the initial cluster version to 3.4
+2021-05-21 20:09:07.401347 I | embed: ready to serve client requests
+2021-05-21 20:09:07.405764 N | etcdserver/membership: set the initial cluster version to 3.4
+2021-05-21 20:09:07.406357 I | etcdserver/api: enabled capabilities for version 3.4
+2021-05-21 20:09:07.407219 I | embed: serving client requests on 172.17.0.2:2379
+2021-05-21 20:09:18.697028 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/certificate-controller\" " with result "range_response_count:1 size:263" took too long (173.945834ms) to execute
+2021-05-21 20:09:18.927446 W | etcdserver: request "header:<ID:13557094440018479807 username:\"kube-apiserver-etcd-client\" auth_revision:1 > txn:<compare:<target:MOD key:\"/registry/serviceaccounts/kube-system/bootstrap-signer\" mod_revision:275 > success:<request_put:<key:\"/registry/serviceaccounts/kube-system/bootstrap-signer\" value_size:168 >> failure:<request_range:<key:\"/registry/serviceaccounts/kube-system/bootstrap-signer\" > >>" with result "size:16" took too long (124.707153ms) to execute
+2021-05-21 20:09:18.928083 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/node-controller\" " with result "range_response_count:1 size:242" took too long (185.678138ms) to execute
+2021-05-21 20:09:19.169325 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/service-account-controller\" " with result "range_response_count:0 size:5" took too long (102.894374ms) to execute
+2021-05-21 20:09:30.829911 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/service-controller\" " with result "range_response_count:0 size:5" took too long (107.50535ms) to execute
+2021-05-21 20:09:31.248564 W | etcdserver: read-only range request "key:\"/registry/limitranges/local-path-storage/\" range_end:\"/registry/limitranges/local-path-storage0\" " with result "range_response_count:0 size:5" took too long (237.095388ms) to execute
+2021-05-21 20:09:31.249003 W | etcdserver: request "header:<ID:13557094440018479973 username:\"kube-apiserver-etcd-client\" auth_revision:1 > txn:<compare:<target:MOD key:\"/registry/pods/kube-system/coredns-6955765f44-nntvm\" mod_revision:346 > success:<request_put:<key:\"/registry/pods/kube-system/coredns-6955765f44-nntvm\" value_size:1361 >> failure:<request_range:<key:\"/registry/pods/kube-system/coredns-6955765f44-nntvm\" > >>" with result "size:16" took too long (125.165543ms) to execute
+2021-05-21 20:09:31.253297 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-node-lease/default\" " with result "range_response_count:1 size:189" took too long (181.8832ms) to execute
+2021-05-21 20:09:31.253712 W | etcdserver: read-only range request "key:\"/registry/deployments/local-path-storage/local-path-provisioner\" " with result "range_response_count:1 size:2220" took too long (184.092518ms) to execute
+2021-05-21 20:09:31.254090 W | etcdserver: read-only range request "key:\"/registry/pods/kube-system/coredns-6955765f44-nntvm\" " with result "range_response_count:1 size:1435" took too long (200.110441ms) to execute
+2021-05-21 20:09:31.254377 W | etcdserver: read-only range request "key:\"/registry/clusterroles/edit\" " with result "range_response_count:1 size:1592" took too long (188.149619ms) to execute
+2021-05-21 20:09:31.254866 W | etcdserver: read-only range request "key:\"/registry/clusterroles/admin\" " with result "range_response_count:1 size:509" took too long (188.150299ms) to execute
+2021-05-21 20:09:31.254951 W | etcdserver: read-only range request "key:\"/registry/deployments/kube-system/coredns\" " with result "range_response_count:1 size:1152" took too long (184.816858ms) to execute
+2021-05-21 20:09:31.533333 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/default/default\" " with result "range_response_count:1 size:173" took too long (259.103386ms) to execute
+2021-05-21 20:09:31.581766 W | etcdserver: read-only range request "key:\"/registry/pods/kube-system/coredns-6955765f44-nntvm\" " with result "range_response_count:1 size:1435" took too long (222.27832ms) to execute
+2021-05-21 20:09:31.582089 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/local-path-storage/default\" " with result "range_response_count:1 size:195" took too long (239.809982ms) to execute
+2021-05-21 20:09:31.582201 W | etcdserver: read-only range request "key:\"/registry/deployments/kube-system/coredns\" " with result "range_response_count:1 size:1269" took too long (232.000943ms) to execute
+2021-05-21 20:09:31.582276 W | etcdserver: read-only range request "key:\"/registry/pods/kube-system/coredns-6955765f44-nntvm\" " with result "range_response_count:1 size:1435" took too long (222.142368ms) to execute
+2021-05-21 20:09:31.582530 W | etcdserver: read-only range request "key:\"/registry/events/kube-system/coredns-6955765f44-nntvm.16812dddb34ee87b\" " with result "range_response_count:1 size:495" took too long (222.24609ms) to execute
+2021-05-21 20:09:31.582856 W | etcdserver: read-only range request "key:\"/registry/clusterroles/edit\" " with result "range_response_count:1 size:2808" took too long (238.776039ms) to execute
+2021-05-21 20:09:31.732045 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/default\" " with result "range_response_count:1 size:181" took too long (190.052223ms) to execute
+2021-05-21 20:09:31.789176 W | etcdserver: read-only range request "key:\"/registry/pods/kube-system/kube-proxy-2q69k\" " with result "range_response_count:1 size:1742" took too long (107.313427ms) to execute
+2021-05-21 20:09:31.789634 W | etcdserver: read-only range request "key:\"/registry/pods/kube-system/coredns-6955765f44-dgtnd\" " with result "range_response_count:1 size:1435" took too long (201.104893ms) to execute
+2021-05-21 20:09:31.790503 W | etcdserver: read-only range request "key:\"/registry/services/endpoints/kube-system/kube-scheduler\" " with result "range_response_count:1 size:442" took too long (133.917114ms) to execute
+2021-05-21 20:09:31.921531 W | etcdserver: read-only range request "key:\"/registry/pods/kube-system/coredns-6955765f44-dgtnd\" " with result "range_response_count:1 size:1435" took too long (184.105569ms) to execute
+2021-05-21 20:09:31.921597 W | etcdserver: read-only range request "key:\"/registry/services/endpoints/kube-system/kube-controller-manager\" " with result "range_response_count:1 size:460" took too long (166.00274ms) to execute
+2021-05-21 20:09:31.964108 W | etcdserver: read-only range request "key:\"/registry/minions/kind-1-control-plane\" " with result "range_response_count:1 size:2089" took too long (166.976222ms) to execute
+2021-05-21 20:09:31.964951 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-scheduler\" " with result "range_response_count:1 size:293" took too long (166.233962ms) to execute
+2021-05-21 20:09:32.163336 W | etcdserver: request "header:<ID:13557094440018480041 username:\"kube-apiserver-etcd-client\" auth_revision:1 > txn:<compare:<target:MOD key:\"/registry/pods/local-path-storage/local-path-provisioner-58f6947c7-ml4ts\" mod_revision:366 > success:<request_put:<key:\"/registry/pods/local-path-storage/local-path-provisioner-58f6947c7-ml4ts\" value_size:1445 >> failure:<request_range:<key:\"/registry/pods/local-path-storage/local-path-provisioner-58f6947c7-ml4ts\" > >>" with result "size:16" took too long (126.57222ms) to execute
+2021-05-21 20:09:32.164335 W | etcdserver: read-only range request "key:\"/registry/pods/local-path-storage/local-path-provisioner-58f6947c7-ml4ts\" " with result "range_response_count:1 size:1540" took too long (195.563773ms) to execute
+2021-05-21 20:09:32.164478 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-controller-manager\" " with result "range_response_count:1 size:311" took too long (192.92752ms) to execute
+2021-05-21 20:09:32.332955 W | etcdserver: read-only range request "key:\"/registry/events/local-path-storage/local-path-provisioner-58f6947c7-ml4ts.16812ddde9f7209f\" " with result "range_response_count:1 size:559" took too long (151.153022ms) to execute
+2021-05-21 20:09:32.362892 W | etcdserver: read-only range request "key:\"/registry/pods/local-path-storage/local-path-provisioner-58f6947c7-ml4ts\" " with result "range_response_count:1 size:1540" took too long (181.0875ms) to execute
+2021-05-21 20:09:32.363162 W | etcdserver: read-only range request "key:\"/registry/pods/local-path-storage/local-path-provisioner-58f6947c7-ml4ts\" " with result "range_response_count:1 size:1540" took too long (181.0353ms) to execute
+2021-05-21 20:19:07.484252 I | mvcc: store.index: compact 1984
+2021-05-21 20:19:07.506100 I | mvcc: finished scheduled compaction at 1984 (took 21.170582ms)
+2021-05-21 20:24:07.488877 I | mvcc: store.index: compact 3859
+2021-05-21 20:24:07.518566 I | mvcc: finished scheduled compaction at 3859 (took 28.910497ms)
+2021-05-21 20:29:07.493927 I | mvcc: store.index: compact 5134
+2021-05-21 20:29:07.521389 I | mvcc: finished scheduled compaction at 5134 (took 26.635398ms)
+2021-05-21 20:34:07.498406 I | mvcc: store.index: compact 6484
+2021-05-21 20:34:07.526173 I | mvcc: finished scheduled compaction at 6484 (took 27.088623ms)
+2021-05-21 20:39:07.502962 I | mvcc: store.index: compact 7750
+2021-05-21 20:39:07.533606 I | mvcc: finished scheduled compaction at 7750 (took 29.854497ms)
+2021-05-21 20:40:12.887788 I | etcdserver: start to snapshot (applied: 10001, lastsnap: 0)
+2021-05-21 20:40:12.894949 I | etcdserver: saved snapshot at index 10001
+2021-05-21 20:40:12.895116 I | etcdserver: compacted raft log at 5001
+2021-05-21 20:44:07.507747 I | mvcc: store.index: compact 9118
+2021-05-21 20:44:07.535713 I | mvcc: finished scheduled compaction at 9118 (took 27.204527ms)
+2021-05-21 20:49:07.514906 I | mvcc: store.index: compact 10548
+2021-05-21 20:49:07.544476 I | mvcc: finished scheduled compaction at 10548 (took 27.989489ms)
+2021-05-21 20:54:07.520986 I | mvcc: store.index: compact 11908
+2021-05-21 20:54:07.549985 I | mvcc: finished scheduled compaction at 11908 (took 28.017951ms)
+2021-05-21 20:59:07.528505 I | mvcc: store.index: compact 13204
+2021-05-21 20:59:07.568172 I | mvcc: finished scheduled compaction at 13204 (took 38.616771ms)
+==== END logs for container etcd of pod kube-system/etcd-kind-1-control-plane ====

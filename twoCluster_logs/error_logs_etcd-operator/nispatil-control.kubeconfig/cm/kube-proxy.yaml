@@ -1,0 +1,30 @@
+Name:         kube-proxy
+Namespace:    kube-system
+Labels:       eks.amazonaws.com/component=kube-proxy
+              k8s-app=kube-proxy
+Annotations:  <none>
+
+Data
+====
+kubeconfig:
+----
+kind: Config
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    server: https://ad2fad8b63dc45346dcaf28c0aeaac6e.gr7.us-west-2.eks.amazonaws.com
+  name: default
+contexts:
+- context:
+    cluster: default
+    namespace: default
+    user: default
+  name: default
+current-context: default
+users:
+- name: default
+  user:
+    tokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+Events:  <none>
+

@@ -1,0 +1,57 @@
+Name:         example-5978f7f5ff-9vbxl
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 21 May 2021 20:15:01 +0000
+Labels:       app=wcm-nsr-example
+              connectivitydomain=example
+              pod-template-hash=5978f7f5ff
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/example-5978f7f5ff
+Containers:
+  example:
+    Container ID:   containerd://46181587ae352f977beb6bcec579df2c4ddbeb8d0098cfbc62af0482bae92867
+    Image:          public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmrs@sha256:5a0de4b6ff2c877884338ef6831efb246953133d858660c7e7da4ef849552436
+    Port:           31505/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 21 May 2021 20:15:02 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                  (v1:metadata.uid)
+      NODE_NAME:                (v1:spec.nodeName)
+      NSM_NAMESPACE:           wcm-system
+      INSECURE:                true
+      NSMRS_API_ADDRESS:       :31505
+      NSE_EXPIRATION_TIMEOUT:  1h
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from example-service-account-token-964m4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  example-service-account-token-964m4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-service-account-token-964m4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  47m   default-scheduler  Successfully assigned wcm-system/example-5978f7f5ff-9vbxl to kind-1-control-plane
+  Normal  Pulled     47m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest" already present on machine
+  Normal  Created    47m   kubelet            Created container example
+  Normal  Started    47m   kubelet            Started container example
+

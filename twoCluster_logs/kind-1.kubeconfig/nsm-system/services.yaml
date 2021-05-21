@@ -1,0 +1,148 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-21T20:17:27Z"
+    labels:
+      membercore: wcm
+      run: wcm-jaeger
+    name: wcm-jaeger
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: 7f576f94-45e0-42c5-b4fc-4a7ded2eaf1c
+    resourceVersion: "3186"
+    selfLink: /api/v1/namespaces/nsm-system/services/wcm-jaeger
+    uid: 8cec2b53-ab89-4918-a05a-718ff5ed4dbc
+  spec:
+    clusterIP: 10.109.171.214
+    externalTrafficPolicy: Cluster
+    ports:
+    - name: http
+      nodePort: 31922
+      port: 16686
+      protocol: TCP
+      targetPort: 16686
+    - name: jaeger
+      nodePort: 32292
+      port: 6831
+      protocol: UDP
+      targetPort: 6831
+    selector:
+      membercore: wcm
+      run: wcm-jaeger
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-05-21T20:17:28Z"
+    labels:
+      app: wcm-nsm-admission-webhook
+      membercore: wcm
+      nsm-cr: wcm
+    name: wcm-nsm-admission-webhook
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: 7f576f94-45e0-42c5-b4fc-4a7ded2eaf1c
+    resourceVersion: "3211"
+    selfLink: /api/v1/namespaces/nsm-system/services/wcm-nsm-admission-webhook
+    uid: 086d6934-ce62-4e62-8182-0b88e63b72a1
+  spec:
+    clusterIP: 10.96.210.201
+    ports:
+    - port: 443
+      protocol: TCP
+      targetPort: 443
+    selector:
+      app: wcm-nsm-admission-webhook
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-05-21T20:17:32Z"
+    labels:
+      app: wcm-nsmgr
+      membercore: wcm
+    name: wcm-nsmgr
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: 7f576f94-45e0-42c5-b4fc-4a7ded2eaf1c
+    resourceVersion: "3304"
+    selfLink: /api/v1/namespaces/nsm-system/services/wcm-nsmgr
+    uid: 39352b52-0328-4f9a-9b58-97589423d79e
+  spec:
+    clusterIP: 10.103.231.83
+    ports:
+    - name: registry
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+    - name: api
+      port: 5001
+      protocol: TCP
+      targetPort: 5001
+    selector:
+      app: wcm-nsmgr
+      membercore: wcm
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-05-21T20:17:31Z"
+    labels:
+      app: wcm-proxy-nsmgr
+      membercore: wcm
+    name: wcm-proxy-nsmgr
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: 7f576f94-45e0-42c5-b4fc-4a7ded2eaf1c
+    resourceVersion: "3288"
+    selfLink: /api/v1/namespaces/nsm-system/services/wcm-proxy-nsmgr
+    uid: 96932693-76b4-4336-98a1-7696c258e947
+  spec:
+    clusterIP: 10.106.245.255
+    externalTrafficPolicy: Cluster
+    ports:
+    - name: pnsmr
+      nodePort: 31505
+      port: 5005
+      protocol: TCP
+      targetPort: 5005
+    - name: pnsmd
+      nodePort: 31506
+      port: 5006
+      protocol: TCP
+      targetPort: 5006
+    selector:
+      app: wcm-proxy-nsmgr
+      membercore: wcm
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "15596"
+  selfLink: /api/v1/namespaces/nsm-system/services

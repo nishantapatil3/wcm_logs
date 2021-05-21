@@ -1,0 +1,41 @@
+Name:         rest-example
+Namespace:    wcm-system
+Labels:       connectivitydomain=example
+              gateway=example
+Annotations:  <none>
+API Version:  networking.istio.io/v1beta1
+Kind:         VirtualService
+Metadata:
+  Creation Timestamp:  2021-05-21T20:15:02Z
+  Generation:          1
+  Owner References:
+    API Version:           wcm.cisco.com/v1alpha1
+    Block Owner Deletion:  true
+    Controller:            true
+    Kind:                  ConnectivityDomain
+    Name:                  example
+    UID:                   99f6b531-6a19-4e02-867d-2a7d212b8f2b
+  Resource Version:        2349
+  Self Link:               /apis/networking.istio.io/v1beta1/namespaces/wcm-system/virtualservices/rest-example
+  UID:                     3a92de63-5563-4c74-980f-9677e5e4d933
+Spec:
+  Gateways:
+    rest-example
+  Hosts:
+    info-example.nispatil-wcm-cisco.com
+  Http:
+    Match:
+      Uri:
+        Prefix:  /nses
+      Uri:
+        Prefix:  /subnets
+      Uri:
+        Prefix:  /ranges
+      Uri:
+        Prefix:  /workloads
+    Route:
+      Destination:
+        Host:  example-cd-info
+        Port:
+          Number:  50071
+Events:            <none>

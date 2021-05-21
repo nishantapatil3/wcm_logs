@@ -1,0 +1,182 @@
+Name:         connectivitydomainendpoints.wcm.cisco.com
+Namespace:    
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: nse-operator-release
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-05-12T16:11:52Z
+  Generation:          1
+  Resource Version:    10293
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/connectivitydomainendpoints.wcm.cisco.com
+  UID:                 91cf1639-0f52-44dc-97a1-9a33175b9739
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       wcm.cisco.com
+  Names:
+    Kind:                   ConnectivityDomainEndpoint
+    List Kind:              ConnectivityDomainEndpointList
+    Plural:                 connectivitydomainendpoints
+    Singular:               connectivitydomainendpoint
+  Preserve Unknown Fields:  true
+  Scope:                    Namespaced
+  Versions:
+    Name:  v1alpha1
+    Schema:
+      openAPIV3Schema:
+        Description:  ConnectivityDomainEndpoint is the Schema for the connectivitydomainendpoints API
+        Properties:
+          API Version:
+            Description:  APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            Type:         string
+          Kind:
+            Description:  Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            Type:         string
+          Metadata:
+            Type:  object
+          Spec:
+            Description:  ConnectivityDomainEndpointSpec defines the desired state of ConnectivityDomainEndpoint
+            Properties:
+              Insecure:
+                Description:  Insecure specifies if connectivity domain endpoint security is disabled or not
+                Type:         boolean
+              Nse:
+                Properties:
+                  Aws Tgw Endpoint:
+                    Properties:
+                      Attach To Tgw:
+                        Type:  boolean
+                      Region:
+                        Type:  string
+                      Subnet I Ds:
+                        Items:
+                          Type:  string
+                        Type:    array
+                      Transit Gateway ID:
+                        Type:  string
+                      Vpc ID:
+                        Type:  string
+                    Required:
+                      attachToTgw
+                      region
+                      subnetIDs
+                      transitGatewayID
+                      vpcID
+                    Type:  object
+                  Cluster Name:
+                    Type:  string
+                  Ipam:
+                    Properties:
+                      Prefix Length:
+                        Format:  int32
+                        Type:    integer
+                      Prefix Pool:
+                        Type:  string
+                      Server Address:
+                        Type:  string
+                    Required:
+                      prefixLength
+                      prefixPool
+                      serverAddress
+                    Type:  object
+                  Nsr:
+                    Properties:
+                      Address:
+                        Type:  string
+                      Connectivity Domain:
+                        Type:  string
+                      Port:
+                        Type:  string
+                    Required:
+                      address
+                      connectivityDomain
+                      port
+                    Type:  object
+                Required:
+                  clusterName
+                  ipam
+                  nsr
+                Type:  object
+              Nsm:
+                Properties:
+                  Jaeger Service Name:
+                    Description:  Name of the Jaeger Service
+                    Type:         string
+                  Nsmgr Service Name:
+                    Description:  Name of the Nsmgr Service
+                    Type:         string
+                  Service Name:
+                    Description:  Name of the vl3 service
+                    Type:         string
+                Required:
+                  jaegerServiceName
+                  nsmgrServiceName
+                  serviceName
+                Type:  object
+              Size:
+                Description:  Size of the deployment
+                Format:       int32
+                Minimum:      1
+                Type:         integer
+            Required:
+              insecure
+              nse
+              nsm
+              size
+            Type:  object
+          Status:
+            Description:  ConnectivityDomainEndpointStatus defines the observed state of ConnectivityDomainEndpoint
+            Properties:
+              Nse:
+                Properties:
+                  Config Map:
+                    Type:  string
+                  Deployment:
+                    Type:  string
+                  Service:
+                    Type:  string
+                  Service Account:
+                    Type:  string
+                  Service Monitoring Vpp:
+                    Type:  string
+                Type:      object
+              Nsm:
+                Properties:
+                  Config Map:
+                    Type:  string
+                Type:      object
+              Pods:
+                Items:
+                  Type:  string
+                Type:    array
+            Type:        object
+        Required:
+          spec
+        Type:  object
+    Served:    true
+    Storage:   true
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Kind:       ConnectivityDomainEndpoint
+    List Kind:  ConnectivityDomainEndpointList
+    Plural:     connectivitydomainendpoints
+    Singular:   connectivitydomainendpoint
+  Conditions:
+    Last Transition Time:  2021-05-12T16:11:52Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-05-12T16:11:52Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1alpha1
+Events:  <none>
+

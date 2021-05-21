@@ -1,0 +1,55 @@
+Name:         wcm-crossconnect-monitor-d89574d4f-42p4k
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 21 May 2021 20:17:27 +0000
+Labels:       app=wcm-crossconnect-monitor
+              membercore=wcm
+              pod-template-hash=d89574d4f
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.26
+IPs:
+  IP:           10.244.0.26
+Controlled By:  ReplicaSet/wcm-crossconnect-monitor-d89574d4f
+Containers:
+  crossconnect-monitor:
+    Container ID:   containerd://e30d8b7a2822a5578e6e4afb4474b1feaa175e641fe86c999208e6f1f0f4a180
+    Image:          public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/crossconnect-monitor@sha256:167f8eca6c90521f748caf4d921075aa413d15452c83a5b88f848cbe281173a6
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 21 May 2021 20:17:31 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                   true
+      METRICS_COLLECTOR_ENABLED:  false
+      PROMETHEUS:                 false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-crossconnect-monitor-service-account-token-w52v8 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  wcm-crossconnect-monitor-service-account-token-w52v8:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-crossconnect-monitor-service-account-token-w52v8
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  45m   default-scheduler  Successfully assigned nsm-system/wcm-crossconnect-monitor-d89574d4f-42p4k to kind-1-control-plane
+  Normal  Pulling    45m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest"
+  Normal  Pulled     45m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest"
+  Normal  Created    45m   kubelet            Created container crossconnect-monitor
+  Normal  Started    45m   kubelet            Started container crossconnect-monitor
+

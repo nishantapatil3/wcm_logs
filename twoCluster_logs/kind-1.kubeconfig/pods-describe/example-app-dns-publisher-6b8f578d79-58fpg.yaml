@@ -1,0 +1,64 @@
+Name:         example-app-dns-publisher-6b8f578d79-58fpg
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 21 May 2021 20:15:02 +0000
+Labels:       app=app-dns-publisher-example
+              connectivitydomain=example
+              pod-template-hash=6b8f578d79
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.23
+IPs:
+  IP:           10.244.0.23
+Controlled By:  ReplicaSet/example-app-dns-publisher-6b8f578d79
+Containers:
+  example-app-dns-publisher:
+    Container ID:  containerd://f902ac22495a3c53672b7b472b8c4c245cee16a3544a907d507bcaa8ca779782
+    Image:         public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller@sha256:58f498b29a8e34c34e1e7b6f13dc4e16202899b00f97f8056be3ee314ab8faaf
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/bin/app-dns-publisher-controller
+    Args:
+      -n
+      wcm-system
+      -s
+      example-wcmd:50051
+      -d
+      example.nispatil-wcm-cisco.com
+      -i
+      true
+    State:          Running
+      Started:      Fri, 21 May 2021 20:15:03 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:    (v1:metadata.uid)
+      INSECURE:  true
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from example-app-dns-publisher-service-account-token-jtns5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  example-app-dns-publisher-service-account-token-jtns5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-app-dns-publisher-service-account-token-jtns5
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  47m   default-scheduler  Successfully assigned wcm-system/example-app-dns-publisher-6b8f578d79-58fpg to kind-1-control-plane
+  Normal  Pulled     47m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest" already present on machine
+  Normal  Created    47m   kubelet            Created container example-app-dns-publisher
+  Normal  Started    47m   kubelet            Started container example-app-dns-publisher
+

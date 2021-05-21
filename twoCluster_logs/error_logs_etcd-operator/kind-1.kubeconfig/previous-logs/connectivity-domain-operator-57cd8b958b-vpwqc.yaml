@@ -1,0 +1,109 @@
+{"level":"info","ts":1620429705.3495562,"logger":"cmd","msg":"Operator Version: 0.0.1"}
+{"level":"info","ts":1620429705.349617,"logger":"cmd","msg":"Go Version: go1.14"}
+{"level":"info","ts":1620429705.3496547,"logger":"cmd","msg":"Go OS/Arch: linux/amd64"}
+{"level":"info","ts":1620429705.3496854,"logger":"cmd","msg":"Version of operator-sdk: v0.18.1"}
+{"level":"info","ts":1620429705.3503845,"logger":"cmd","msg":"Configs:"}
+{"level":"info","ts":1620429705.3506627,"logger":"leader","msg":"Trying to become the leader."}
+{"level":"info","ts":1620429706.0206835,"logger":"leader","msg":"Found existing lock with my name. I was likely restarted."}
+{"level":"info","ts":1620429706.0207937,"logger":"leader","msg":"Continuing as the leader."}
+{"level":"info","ts":1620429706.673776,"logger":"controller-runtime.metrics","msg":"metrics server is starting to listen","addr":"0.0.0.0:8383"}
+{"level":"info","ts":1620429706.6748705,"logger":"cmd","msg":"Registering Components."}
+{"level":"info","ts":1620429707.9914403,"logger":"cmd","msg":"Could not create metrics Service","error":"failed to initialize service object for metrics: replicasets.apps \"connectivity-domain-operator-57cd8b958b\" is forbidden: User \"system:serviceaccount:wcm-system:connectivity-domain-operator\" cannot get resource \"replicasets\" in API group \"apps\" in the namespace \"wcm-system\""}
+{"level":"info","ts":1620429708.642951,"logger":"cmd","msg":"Could not create ServiceMonitor object","error":"no ServiceMonitor registered with the API"}
+{"level":"info","ts":1620429708.6430063,"logger":"cmd","msg":"Install prometheus-operator in your cluster to create ServiceMonitor objects","error":"no ServiceMonitor registered with the API"}
+{"level":"info","ts":1620429708.6432056,"logger":"cmd","msg":"Starting the Cmd."}
+{"level":"info","ts":1620429708.6439068,"logger":"controller-runtime.manager","msg":"starting metrics server","path":"/metrics"}
+{"level":"info","ts":1620429708.6445746,"logger":"controller","msg":"Starting EventSource","controller":"connectivitydomain-controller","source":"kind source: /, Kind="}
+{"level":"info","ts":1620429708.7455263,"logger":"controller","msg":"Starting EventSource","controller":"connectivitydomain-controller","source":"kind source: /, Kind="}
+{"level":"info","ts":1620429708.8461797,"logger":"controller","msg":"Starting EventSource","controller":"connectivitydomain-controller","source":"kind source: /, Kind="}
+{"level":"info","ts":1620429708.947042,"logger":"controller","msg":"Starting Controller","controller":"connectivitydomain-controller"}
+{"level":"info","ts":1620429708.9471874,"logger":"controller","msg":"Starting workers","controller":"connectivitydomain-controller","worker count":1}
+{"level":"info","ts":1620429709.0481398,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1620429709.148672,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1620429709.2494016,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1620429709.2495077,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1620429709.2496383,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1620429709.3502514,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1620429709.3503327,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1620429709.3504028,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1620429709.350435,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1620429709.3504643,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1620429709.3504767,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1620429709.3505116,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1620429709.3508027,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1620429709.451415,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1620429709.4518745,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1620429709.4519825,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+E0507 23:21:49.452654       1 runtime.go:78] Observed a panic: "invalid memory address or nil pointer dereference" (runtime error: invalid memory address or nil pointer dereference)
+goroutine 772 [running]:
+k8s.io/apimachinery/pkg/util/runtime.logPanic(0x18709e0, 0x2ab5ab0)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/runtime/runtime.go:74 +0xa3
+k8s.io/apimachinery/pkg/util/runtime.HandleCrash(0x0, 0x0, 0x0)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/runtime/runtime.go:48 +0x82
+panic(0x18709e0, 0x2ab5ab0)
+	/usr/local/go/src/runtime/panic.go:967 +0x15d
+cisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*ReconcileConnectivityDomain).restGateway(0xc0008ac800, 0x1d62280, 0xc0008be820, 0x1d03a00, 0xc000490540, 0x4138e3, 0xc0008be820, 0xc0004cd408, 0xd0)
+	connectivity-domain-operator/pkg/controller/connectivitydomain/ingress_resources.go:158 +0x2ad
+cisco-app-networking.github.io/wcm-api/common-operator-resources.K8sObject.build(...)
+	common-operator-resources/resources.go:57
+cisco-app-networking.github.io/wcm-api/common-operator-resources.WCMComponent.UpdateObject(0xc00012f006, 0x5, 0xc000132b70, 0xa, 0x0, 0xc0000fd020, 0x0, 0x0, 0x0, 0x0, ...)
+	common-operator-resources/resources.go:488 +0x1bf
+cisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject(0x1d62280, 0xc0000f3790, 0x1d4a080, 0xc00000d500, 0x1d06980, 0xc000868380, 0x1d03a00, 0xc000490540, 0xc0005c26c0, 0xa, ...)
+	common-operator-resources/resources.go:868 +0x161
+cisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*ReconcileConnectivityDomain).Reconcile(0xc0008ac800, 0xc000132b70, 0xa, 0xc000132b60, 0x5, 0x1278f7d, 0x18e4ee0, 0xc0005d4900, 0x2)
+	connectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:395 +0x36cd
+cisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile(0xc0008ac800, 0xc000132b70, 0xa, 0xc000132b60, 0x5, 0xc0005d4900, 0x0, 0x0, 0x0)
+	connectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117 +0xeb
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler(0xc0008997a0, 0x18dff00, 0xc0008074c0, 0xc00050bb00)
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235 +0x284
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem(0xc0008997a0, 0x203000)
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209 +0xae
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker(0xc0008997a0)
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188 +0x2b
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc0004840e0)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc0004840e0, 0x1cfb880, 0xc000378030, 0x1, 0xc000227260)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156 +0xa3
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc0004840e0, 0x3b9aca00, 0x0, 0x1b64501, 0xc000227260)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(0xc0004840e0, 0x3b9aca00, 0xc000227260)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90 +0x4d
+created by sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func1
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:170 +0x411
+panic: runtime error: invalid memory address or nil pointer dereference [recovered]
+	panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x10 pc=0x16e485d]
+
+goroutine 772 [running]:
+k8s.io/apimachinery/pkg/util/runtime.HandleCrash(0x0, 0x0, 0x0)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/runtime/runtime.go:55 +0x105
+panic(0x18709e0, 0x2ab5ab0)
+	/usr/local/go/src/runtime/panic.go:967 +0x15d
+cisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*ReconcileConnectivityDomain).restGateway(0xc0008ac800, 0x1d62280, 0xc0008be820, 0x1d03a00, 0xc000490540, 0x4138e3, 0xc0008be820, 0xc0004cd408, 0xd0)
+	connectivity-domain-operator/pkg/controller/connectivitydomain/ingress_resources.go:158 +0x2ad
+cisco-app-networking.github.io/wcm-api/common-operator-resources.K8sObject.build(...)
+	common-operator-resources/resources.go:57
+cisco-app-networking.github.io/wcm-api/common-operator-resources.WCMComponent.UpdateObject(0xc00012f006, 0x5, 0xc000132b70, 0xa, 0x0, 0xc0000fd020, 0x0, 0x0, 0x0, 0x0, ...)
+	common-operator-resources/resources.go:488 +0x1bf
+cisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject(0x1d62280, 0xc0000f3790, 0x1d4a080, 0xc00000d500, 0x1d06980, 0xc000868380, 0x1d03a00, 0xc000490540, 0xc0005c26c0, 0xa, ...)
+	common-operator-resources/resources.go:868 +0x161
+cisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*ReconcileConnectivityDomain).Reconcile(0xc0008ac800, 0xc000132b70, 0xa, 0xc000132b60, 0x5, 0x1278f7d, 0x18e4ee0, 0xc0005d4900, 0x2)
+	connectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:395 +0x36cd
+cisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile(0xc0008ac800, 0xc000132b70, 0xa, 0xc000132b60, 0x5, 0xc0005d4900, 0x0, 0x0, 0x0)
+	connectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117 +0xeb
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler(0xc0008997a0, 0x18dff00, 0xc0008074c0, 0xc00050bb00)
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235 +0x284
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem(0xc0008997a0, 0x203000)
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209 +0xae
+sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker(0xc0008997a0)
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188 +0x2b
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc0004840e0)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc0004840e0, 0x1cfb880, 0xc000378030, 0x1, 0xc000227260)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156 +0xa3
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc0004840e0, 0x3b9aca00, 0x0, 0x1b64501, 0xc000227260)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(0xc0004840e0, 0x3b9aca00, 0xc000227260)
+	/home/ubuntu/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90 +0x4d
+created by sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func1
+	/home/ubuntu/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:170 +0x411

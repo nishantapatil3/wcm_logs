@@ -1,0 +1,46 @@
+Name:         metadata-exchange-1.6
+Namespace:    istio-system
+Labels:       install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Pilot
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+Annotations:  <none>
+API Version:  networking.istio.io/v1alpha3
+Kind:         EnvoyFilter
+Metadata:
+  Creation Timestamp:  2021-04-28T21:17:01Z
+  Generation:          1
+  Resource Version:    2970
+  Self Link:           /apis/networking.istio.io/v1alpha3/namespaces/istio-system/envoyfilters/metadata-exchange-1.6
+  UID:                 cdf03511-865e-4ebf-8314-da28d3c18187
+Spec:
+  Config Patches:
+    Apply To:  HTTP_FILTER
+    Match:
+      Context:  ANY
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.http_connection_manager
+      Proxy:
+        Proxy Version:  ^1\.6.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.metadata_exchange
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:  {}
+
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.metadata_exchange
+                Runtime:            envoy.wasm.runtime.null
+Events:                             <none>
+

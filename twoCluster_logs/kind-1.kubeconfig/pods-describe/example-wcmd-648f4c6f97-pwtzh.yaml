@@ -1,0 +1,65 @@
+Name:         example-wcmd-648f4c6f97-pwtzh
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 21 May 2021 20:15:01 +0000
+Labels:       app=wcmd-example
+              connectivitydomain=example
+              pod-template-hash=648f4c6f97
+Annotations:  sidecar.jaegertracing.io/inject: true
+Status:       Running
+IP:           10.244.0.21
+IPs:
+  IP:           10.244.0.21
+Controlled By:  ReplicaSet/example-wcmd-648f4c6f97
+Containers:
+  example-wcmd:
+    Container ID:   containerd://ba523d266bf2a2009b467c037311b8b47ee111784629609c7f8bab9348bd9b1e
+    Image:          public.ecr.aws/ciscoeti/appn/wcmd:latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/wcmd@sha256:21c4fe98e0a24783e5010423c804c3fb9bce046b1aa63d492caa591b9902b1df
+    Ports:          50061/TCP, 50051/TCP, 8080/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Fri, 21 May 2021 20:15:02 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:8080/probe/alive delay=10s timeout=1s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:8080/probe/ready delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      POD_UID:                     (v1:metadata.uid)
+      JAEGER_SERVICE_NAME:        wcmd.service.server
+      JAEGER_AGENT_HOST:          localhost
+      JAEGER_AGENT_PORT:          6831
+      JAEGER_REPORTER_LOG_SPANS:  true
+      INSECURE:                   true
+      CONNECTIVITY_DOMAIN_NAME:   example
+    Mounts:
+      /etc/wcmd-server-config/config.yaml from example-wcmd-config-map (rw,path="./config.yaml")
+      /var/run/secrets/kubernetes.io/serviceaccount from example-wcmd-service-account-token-l4swr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  example-wcmd-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      example-wcmd-config-map
+    Optional:  false
+  example-wcmd-service-account-token-l4swr:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-wcmd-service-account-token-l4swr
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  47m   default-scheduler  Successfully assigned wcm-system/example-wcmd-648f4c6f97-pwtzh to kind-1-control-plane
+  Normal  Pulled     47m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/wcmd:latest" already present on machine
+  Normal  Created    47m   kubelet            Created container example-wcmd
+  Normal  Started    47m   kubelet            Started container example-wcmd
+

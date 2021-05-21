@@ -1,0 +1,1001 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: connectivity-domain-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-05-21T20:12:29Z"
+    generation: 1
+    labels:
+      name: connectivity-domain-operator
+      pod-template-hash: 64db8f64fc
+    name: connectivity-domain-operator-64db8f64fc
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: connectivity-domain-operator
+      uid: 2101fedd-806f-4bf1-b002-b299516bd190
+    resourceVersion: "1341"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/connectivity-domain-operator-64db8f64fc
+    uid: 947dda7a-cdc5-48a3-b139-5512630fcdbf
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: connectivity-domain-operator
+        pod-template-hash: 64db8f64fc
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: connectivity-domain-operator
+          pod-template-hash: 64db8f64fc
+      spec:
+        containers:
+        - command:
+          - connectivity-domain-operator
+          env:
+          - name: WATCH_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OPERATOR_NAME
+            value: connectivity-domain-operator
+          - name: CONFIG_PATH
+            value: etc/connectivity-domain-configmap/config.yaml
+          - name: INSECURE
+            value: "true"
+          image: public.ecr.aws/ciscoeti/appn/connectivity-domain-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: connectivity-domain-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: etc/connectivity-domain-configmap/config.yaml
+            name: config-data-connectivity-domain
+            subPath: config.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: connectivity-domain-operator-service-account
+        serviceAccountName: connectivity-domain-operator-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: connectivity-domain-configmap
+          name: config-data-connectivity-domain
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: etcd-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-05-21T20:10:36Z"
+    generation: 1
+    labels:
+      app: etcd-operator
+      pod-template-hash: 84cf6bc5d5
+    name: etcd-operator-84cf6bc5d5
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: etcd-operator
+      uid: 39ca1f2a-61f8-4280-a24f-f86dd59a8a56
+    resourceVersion: "673"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/etcd-operator-84cf6bc5d5
+    uid: a2ee8576-4049-4ed6-9761-3cfcf571fd89
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: etcd-operator
+        pod-template-hash: 84cf6bc5d5
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: etcd-operator
+          pod-template-hash: 84cf6bc5d5
+      spec:
+        containers:
+        - command:
+          - etcd-operator
+          env:
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          image: quay.io/coreos/etcd-operator:v0.9.4
+          imagePullPolicy: IfNotPresent
+          name: etcd-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-05-21T20:15:01Z"
+    generation: 1
+    labels:
+      app: wcm-nsr-example
+      connectivitydomain: example
+      pod-template-hash: 5978f7f5ff
+    name: example-5978f7f5ff
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: example
+      uid: 737766d6-4259-41b7-8c6c-d73cd100ad09
+    resourceVersion: "2385"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/example-5978f7f5ff
+    uid: 3007c42b-9d00-4b47-90b0-bc91f65f5739
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: wcm-nsr-example
+        connectivitydomain: example
+        pod-template-hash: 5978f7f5ff
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: wcm-nsr-example
+          connectivitydomain: example
+          pod-template-hash: 5978f7f5ff
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: NSM_NAMESPACE
+            value: wcm-system
+          - name: INSECURE
+            value: "true"
+          - name: NSMRS_API_ADDRESS
+            value: :31505
+          - name: NSE_EXPIRATION_TIMEOUT
+            value: 1h
+          image: public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: example
+          ports:
+          - containerPort: 31505
+            name: grpc-nsr
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-service-account
+        serviceAccountName: example-service-account
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-05-21T20:15:02Z"
+    generation: 1
+    labels:
+      app: app-dns-publisher-example
+      connectivitydomain: example
+      pod-template-hash: 6b8f578d79
+    name: example-app-dns-publisher-6b8f578d79
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: example-app-dns-publisher
+      uid: 71a465f0-16eb-4dcf-a6fa-7157458e2f24
+    resourceVersion: "2396"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/example-app-dns-publisher-6b8f578d79
+    uid: f37d8810-82da-467c-a48c-164d6e9e9852
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: app-dns-publisher-example
+        connectivitydomain: example
+        pod-template-hash: 6b8f578d79
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: app-dns-publisher-example
+          connectivitydomain: example
+          pod-template-hash: 6b8f578d79
+      spec:
+        containers:
+        - args:
+          - -n
+          - wcm-system
+          - -s
+          - example-wcmd:50051
+          - -d
+          - example.nispatil-wcm-cisco.com
+          - -i
+          - "true"
+          command:
+          - /app/bin/app-dns-publisher-controller
+          env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: INSECURE
+            value: "true"
+          image: public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest
+          imagePullPolicy: IfNotPresent
+          name: example-app-dns-publisher
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-app-dns-publisher-service-account
+        serviceAccountName: example-app-dns-publisher-service-account
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-05-21T20:15:01Z"
+    generation: 1
+    labels:
+      app: cd-info-example
+      connectivitydomain: example
+      pod-template-hash: 77f4d7fbbb
+    name: example-cd-info-77f4d7fbbb
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: example-cd-info
+      uid: ab0c4e61-05e3-4732-9925-302762e03b35
+    resourceVersion: "2379"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/example-cd-info-77f4d7fbbb
+    uid: 6e6e38c3-898e-4f67-b846-f9588845c955
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: cd-info-example
+        connectivitydomain: example
+        pod-template-hash: 77f4d7fbbb
+    template:
+      metadata:
+        annotations:
+          sidecar.jaegertracing.io/inject: "true"
+        creationTimestamp: null
+        labels:
+          app: cd-info-example
+          connectivitydomain: example
+          pod-template-hash: 77f4d7fbbb
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: JAEGER_SERVICE_NAME
+            value: status.service.server
+          - name: JAEGER_AGENT_HOST
+            value: localhost
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: JAEGER_REPORTER_LOG_SPANS
+            value: "true"
+          - name: INSECURE
+            value: "true"
+          image: public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest
+          imagePullPolicy: IfNotPresent
+          name: example-cd-info
+          ports:
+          - containerPort: 50071
+            name: info-http
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/info-server-config/config.yaml
+            name: example-cd-info-config-map
+            subPath: ./config.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-cd-info-service-account
+        serviceAccountName: example-cd-info-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: example-cd-info-config-map
+          name: example-cd-info-config-map
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-05-21T20:15:01Z"
+    generation: 1
+    labels:
+      app: wcmd-example
+      connectivitydomain: example
+      pod-template-hash: 648f4c6f97
+    name: example-wcmd-648f4c6f97
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: example-wcmd
+      uid: 3cc3b15c-b42a-4bf6-b199-22f7a5e39eb8
+    resourceVersion: "2427"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/example-wcmd-648f4c6f97
+    uid: 922cc1dc-e21a-423c-aa1c-56458acab560
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: wcmd-example
+        connectivitydomain: example
+        pod-template-hash: 648f4c6f97
+    template:
+      metadata:
+        annotations:
+          sidecar.jaegertracing.io/inject: "true"
+        creationTimestamp: null
+        labels:
+          app: wcmd-example
+          connectivitydomain: example
+          pod-template-hash: 648f4c6f97
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: JAEGER_SERVICE_NAME
+            value: wcmd.service.server
+          - name: JAEGER_AGENT_HOST
+            value: localhost
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: JAEGER_REPORTER_LOG_SPANS
+            value: "true"
+          - name: INSECURE
+            value: "true"
+          - name: CONNECTIVITY_DOMAIN_NAME
+            value: example
+          image: public.ecr.aws/ciscoeti/appn/wcmd:latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /probe/alive
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: example-wcmd
+          ports:
+          - containerPort: 50061
+            name: grpc-registry
+            protocol: TCP
+          - containerPort: 50051
+            name: grpc-allocator
+            protocol: TCP
+          - containerPort: 8080
+            name: probes
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /probe/ready
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/wcmd-server-config/config.yaml
+            name: example-wcmd-config-map
+            subPath: ./config.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-wcmd-service-account
+        serviceAccountName: example-wcmd-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: example-wcmd-config-map
+          name: example-wcmd-config-map
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "1"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: external-dns-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-05-21T20:12:28Z"
+    generation: 1
+    labels:
+      app: external-dns
+      pod-template-hash: 849696cb6d
+    name: external-dns-849696cb6d
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: external-dns
+      uid: e1996c47-0bf5-4f69-aeb7-71eec5f8807f
+    resourceVersion: "1297"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/external-dns-849696cb6d
+    uid: 6e5ca583-576e-46af-834c-f754283135ed
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: external-dns
+        pod-template-hash: 849696cb6d
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: external-dns
+          pod-template-hash: 849696cb6d
+      spec:
+        containers:
+        - args:
+          - --log-level=debug
+          - --source=service
+          - --source=crd
+          - --source=istio-virtualservice
+          - --source=istio-gateway
+          - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+          - --crd-source-kind=DNSEndpoint
+          - --publish-internal-services
+          - --registry=noop
+          - --policy=sync
+          - --provider=coredns
+          - --txt-owner-id=kind-1.kubeconfig
+          env:
+          - name: ETCD_URLS
+            value: http://wcm-etcd-cluster-client.wcm-system:2379
+          image: registry.opensource.zalan.do/teapot/external-dns:v0.7.6
+          imagePullPolicy: IfNotPresent
+          name: external-dns
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: external-dns
+        serviceAccountName: external-dns
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: coredns-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-05-21T20:12:27Z"
+    generation: 1
+    labels:
+      app: coredns
+      pod-template-hash: 7d7ccd5547
+      release: my-coredns
+    name: my-coredns-coredns-7d7ccd5547
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: my-coredns-coredns
+      uid: d15eb3de-06d7-44ba-9ae4-ec10196efb1d
+    resourceVersion: "1235"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/my-coredns-coredns-7d7ccd5547
+    uid: a6fd2507-fa91-44f2-a661-806b9cee03b3
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: coredns
+        pod-template-hash: 7d7ccd5547
+        release: my-coredns
+    template:
+      metadata:
+        annotations:
+          checksum/config: 00754626f8f4e5239ec2382866eacbad725e07e4e8ef778d703597e246a15b2c
+        creationTimestamp: null
+        labels:
+          app: coredns
+          pod-template-hash: 7d7ccd5547
+          release: my-coredns
+      spec:
+        containers:
+        - args:
+          - -conf
+          - /etc/coredns/Corefile
+          image: coredns/coredns:1.3.1
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          name: coredns
+          ports:
+          - containerPort: 53
+            protocol: UDP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/coredns
+            name: config-volume
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: my-coredns-coredns
+        serviceAccountName: my-coredns-coredns
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+            - key: Corefile
+              path: Corefile
+            name: my-coredns-coredns
+          name: config-volume
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-05-21T20:43:00Z"
+    generation: 1
+    labels:
+      networkservicemesh.io/app: vl3-nse-example
+      networkservicemesh.io/impl: example
+      pod-template-hash: 5f77749bd4
+      wcm-nse: example
+      wcm/nse.servicename: example
+    name: vl3-nse-example-5f77749bd4
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: vl3-nse-example
+      uid: cdd9d595-27e8-4e55-b313-954293d6ec30
+    resourceVersion: "10257"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/vl3-nse-example-5f77749bd4
+    uid: a27c32ac-2c24-4f30-be48-d54a4d1748c6
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        networkservicemesh.io/app: vl3-nse-example
+        networkservicemesh.io/impl: example
+        pod-template-hash: 5f77749bd4
+        wcm-nse: example
+        wcm/nse.servicename: example
+    template:
+      metadata:
+        annotations:
+          sidecar.istio.io/inject: "false"
+          wcm/nsr.address: example.nispatil-wcm-cisco.com
+          wcm/nsr.port: "80"
+        creationTimestamp: null
+        labels:
+          networkservicemesh.io/app: vl3-nse-example
+          networkservicemesh.io/impl: example
+          pod-template-hash: 5f77749bd4
+          wcm-nse: example
+          wcm/nse.servicename: example
+      spec:
+        containers:
+        - env:
+          - name: ENDPOINT_NETWORK_SERVICE
+            value: example
+          - name: ENDPOINT_LABELS
+            value: app=vl3-nse-example
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_SERVICE_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_SERVICE_PORT_JAEGER
+            value: "6831"
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: WORKLOAD_REFRESH_INTERVAL
+            value: 2h30m
+          - name: NSREGISTRY_ADDR
+            value: wcm-nsmgr.nsm-system
+          - name: NSREGISTRY_PORT
+            value: "5000"
+          - name: CLUSTER_NAME
+            value: member1
+          - name: NSE_POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          - name: NSE_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: NSM_REMOTE_NS_IP_LIST
+            valueFrom:
+              configMapKeyRef:
+                key: remote.ip_list
+                name: nsm-vl3-example-config-map
+          - name: METRICS_PORT
+            value: "2112"
+          - name: WORKLOAD_METRICS_PORT
+            value: "3000"
+          - name: INSECURE
+            value: "true"
+          image: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse:latest
+          imagePullPolicy: IfNotPresent
+          name: vl3-nse-example
+          ports:
+          - containerPort: 9191
+            name: monitoring-vpp
+            protocol: TCP
+          - containerPort: 2112
+            name: monitoring
+            protocol: TCP
+          - containerPort: 3000
+            name: workload
+            protocol: TCP
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/universal-cnf/config.yaml
+            name: universal-cnf-config-volume
+            subPath: config.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: vl3-nse-example-service-account
+        serviceAccountName: vl3-nse-example-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: vl3-nse-example-config-map
+          name: universal-cnf-config-volume
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-05-21T20:17:34Z"
+    generation: 1
+    labels:
+      app: nse-discovery-wcm
+      membercore: wcm
+      pod-template-hash: 9d8cfcc95
+    name: wcm-nse-discovery-9d8cfcc95
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-nse-discovery
+      uid: 731b56d7-7ea4-4fce-afbf-ed0a3a098364
+    resourceVersion: "3493"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/wcm-nse-discovery-9d8cfcc95
+    uid: bf436c17-75fc-4863-a5bf-4d3a5f199272
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: nse-discovery-wcm
+        membercore: wcm
+        pod-template-hash: 9d8cfcc95
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: nse-discovery-wcm
+          membercore: wcm
+          pod-template-hash: 9d8cfcc95
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: CLUSTER_NAME
+            value: test
+          - name: INSECURE
+            value: "true"
+          - name: NSE_NAMESPACE
+            value: wcm-system
+          - name: NSR_ADDRESS
+            value: wcm-proxy-nsmgr.nsm-system:5005
+          - name: METRICS_PORT
+            value: "2112"
+          image: public.ecr.aws/ciscoeti/appn/nse-discovery-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-nse-discovery
+          ports:
+          - containerPort: 2112
+            name: monitoring
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-nse-discovery-service-account
+        serviceAccountName: wcm-nse-discovery-service-account
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: nse-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-05-21T20:17:21Z"
+    generation: 1
+    labels:
+      name: wcm-nse-operator
+      pod-template-hash: 6857b7ffbd
+    name: wcm-nse-operator-6857b7ffbd
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-nse-operator
+      uid: fad01a41-904c-4538-8e0f-5e6a0741cbb7
+    resourceVersion: "10191"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets/wcm-nse-operator-6857b7ffbd
+    uid: cebac789-9d93-41dd-9d7d-e78670d6770f
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: wcm-nse-operator
+        pod-template-hash: 6857b7ffbd
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: wcm-nse-operator
+          pod-template-hash: 6857b7ffbd
+      spec:
+        containers:
+        - command:
+          - wcm-nse-operator
+          env:
+          - name: WATCH_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OPERATOR_NAME
+            value: wcm-nse-operator
+          - name: CONFIG_PATH
+            value: etc/wcm-vpp-nse-configmap/config.yaml
+          - name: INSECURE
+            value: "false"
+          image: public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-nse-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: etc/wcm-vpp-nse-configmap/config.yaml
+            name: config-data-wcm-nse
+            subPath: config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-nse-operator-service-account
+        serviceAccountName: wcm-nse-operator-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: wcm-vpp-nse-configmap
+          name: config-data-wcm-nse
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: ReplicaSetList
+metadata:
+  resourceVersion: "15600"
+  selfLink: /apis/apps/v1/namespaces/wcm-system/replicasets

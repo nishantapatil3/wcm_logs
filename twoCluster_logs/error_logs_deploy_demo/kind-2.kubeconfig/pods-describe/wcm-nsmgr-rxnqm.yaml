@@ -1,0 +1,136 @@
+Name:         wcm-nsmgr-rxnqm
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Wed, 12 May 2021 16:11:32 +0000
+Labels:       app=wcm-nsmgr
+              controller-revision-hash=5cd64df649
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.22
+IPs:
+  IP:           10.244.0.22
+Controlled By:  DaemonSet/wcm-nsmgr
+Containers:
+  wcm-nsmgr:
+    Container ID:   containerd://3e976e536d3dcdc9ad1a2d80a4ea5f3f15afca53975febcebd74ff40ac3b5647
+    Image:          public.ecr.aws/ciscoeti/appn/nsmdp:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmdp@sha256:a916962ef7fcb1e1dc77642ed4afc90e93c8eae15401cff15ce5742488268505
+    Port:           5001/TCP
+    Host Port:      5001/TCP
+    State:          Running
+      Started:      Wed, 12 May 2021 16:11:34 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                false
+      TRACER_ENABLED:          true
+      JAEGER_AGENT_HOST:       wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:       6831
+      PROXY_NSMD_K8S_ADDRESS:  wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:      wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/kubelet/device-plugins from kubelet-socket (rw)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-hjp5m (ro)
+  nsmd:
+    Container ID:   containerd://a00178d98a3339c8ed25d8fb8ae2fdbf3015adcdd429689d9d099262426083f3
+    Image:          public.ecr.aws/ciscoeti/appn/nsmd:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmd@sha256:e6a06e87529a4d65ff0ba816ef110f2681851291daec24b52c1b5a0ca82855f1
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 12 May 2021 16:11:34 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://127.0.0.1:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://127.0.0.1:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-hjp5m (ro)
+  nsmd-k8s:
+    Container ID:   containerd://83ceed4f2d4197e463843b2af5152d147df032630f925e4a4a25e0a4c69048ba
+    Image:          public.ecr.aws/ciscoeti/appn/nsmd-k8s:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmd-k8s@sha256:82195f563d77ae8c92e64b624345393c0b3b6d8b7e7167fa533b374914498324
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 12 May 2021 16:11:34 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      POD_NAME:                    wcm-nsmgr-rxnqm (v1:metadata.name)
+      POD_UID:                      (v1:metadata.uid)
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-hjp5m (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubelet-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/kubelet/device-plugins
+    HostPathType:  DirectoryOrCreate
+  nsm-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-nsm-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nsmgr-service-account-token-hjp5m:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsmgr-service-account-token-hjp5m
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned nsm-system/wcm-nsmgr-rxnqm to kind-2-control-plane
+  Normal  Pulled     12m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsmdp:vl3_latest" already present on machine
+  Normal  Created    12m   kubelet            Created container wcm-nsmgr
+  Normal  Started    12m   kubelet            Started container wcm-nsmgr
+  Normal  Pulled     12m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsmd:vl3_latest" already present on machine
+  Normal  Created    12m   kubelet            Created container nsmd
+  Normal  Started    12m   kubelet            Started container nsmd
+  Normal  Pulled     12m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsmd-k8s:vl3_latest" already present on machine
+  Normal  Created    12m   kubelet            Created container nsmd-k8s
+  Normal  Started    12m   kubelet            Started container nsmd-k8s
+

@@ -1,0 +1,111 @@
+Name:         tcp-stats-filter-1.6
+Namespace:    istio-system
+Labels:       install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Pilot
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+Annotations:  <none>
+API Version:  networking.istio.io/v1alpha3
+Kind:         EnvoyFilter
+Metadata:
+  Creation Timestamp:  2021-05-07T23:13:17Z
+  Generation:          1
+  Resource Version:    1730
+  Self Link:           /apis/networking.istio.io/v1alpha3/namespaces/istio-system/envoyfilters/tcp-stats-filter-1.6
+  UID:                 4931fe65-3967-45d0-8999-e86b0a528c72
+Spec:
+  Config Patches:
+    Apply To:  NETWORK_FILTER
+    Match:
+      Context:  SIDECAR_INBOUND
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.tcp_proxy
+      Proxy:
+        Proxy Version:  ^1\.6.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.stats
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:  {
+  "debug": "false",
+  "stat_prefix": "istio"
+}
+
+              root_id:  stats_inbound
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.stats
+                Runtime:            envoy.wasm.runtime.null
+                vm_id:              tcp_stats_inbound
+    Apply To:                       NETWORK_FILTER
+    Match:
+      Context:  SIDECAR_OUTBOUND
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.tcp_proxy
+      Proxy:
+        Proxy Version:  ^1\.6.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.stats
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:  {
+  "debug": "false",
+  "stat_prefix": "istio"
+}
+
+              root_id:  stats_outbound
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.stats
+                Runtime:            envoy.wasm.runtime.null
+                vm_id:              tcp_stats_outbound
+    Apply To:                       NETWORK_FILTER
+    Match:
+      Context:  GATEWAY
+      Listener:
+        Filter Chain:
+          Filter:
+            Name:  envoy.tcp_proxy
+      Proxy:
+        Proxy Version:  ^1\.6.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.stats
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.extensions.filters.network.wasm.v3.Wasm
+          Value:
+            Config:
+              Configuration:  {
+  "debug": "false",
+  "stat_prefix": "istio"
+}
+
+              root_id:  stats_outbound
+              vm_config:
+                Code:
+                  Local:
+                    inline_string:  envoy.wasm.stats
+                Runtime:            envoy.wasm.runtime.null
+                vm_id:              tcp_stats_outbound
+Events:                             <none>
+

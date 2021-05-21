@@ -1,0 +1,14 @@
+Name:              wcm-etcd-cluster-client
+Namespace:         wcm-system
+Labels:            app=etcd
+                   etcd_cluster=wcm-etcd-cluster
+Annotations:       service.alpha.kubernetes.io/tolerate-unready-endpoints: true
+Selector:          app=etcd,etcd_cluster=wcm-etcd-cluster
+Type:              ClusterIP
+IP:                10.110.218.60
+Port:              client  2379/TCP
+TargetPort:        2379/TCP
+Endpoints:         10.244.0.6:2379,10.244.0.7:2379,10.244.0.8:2379
+Session Affinity:  None
+Events:            <none>
+

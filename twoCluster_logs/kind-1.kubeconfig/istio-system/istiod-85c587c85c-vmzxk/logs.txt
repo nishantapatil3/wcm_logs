@@ -1,0 +1,538 @@
+==== START logs for container discovery of pod istio-system/istiod-85c587c85c-vmzxk ====
+2021-04-28T21:17:18.031113Z	info	FLAG: --appNamespace=""
+2021-04-28T21:17:18.031167Z	info	FLAG: --caCertFile=""
+2021-04-28T21:17:18.031173Z	info	FLAG: --clusterID="Kubernetes"
+2021-04-28T21:17:18.031176Z	info	FLAG: --clusterRegistriesNamespace="istio-system"
+2021-04-28T21:17:18.031179Z	info	FLAG: --configDir=""
+2021-04-28T21:17:18.031181Z	info	FLAG: --ctrlz_address="localhost"
+2021-04-28T21:17:18.031185Z	info	FLAG: --ctrlz_port="9876"
+2021-04-28T21:17:18.031188Z	info	FLAG: --domain="cluster.local"
+2021-04-28T21:17:18.031191Z	info	FLAG: --grpcAddr=":15010"
+2021-04-28T21:17:18.031196Z	info	FLAG: --help="false"
+2021-04-28T21:17:18.031198Z	info	FLAG: --httpAddr=":8080"
+2021-04-28T21:17:18.031200Z	info	FLAG: --httpsAddr=":15017"
+2021-04-28T21:17:18.031205Z	info	FLAG: --keepaliveInterval="30s"
+2021-04-28T21:17:18.031207Z	info	FLAG: --keepaliveMaxServerConnectionAge="30m0s"
+2021-04-28T21:17:18.031209Z	info	FLAG: --keepaliveTimeout="10s"
+2021-04-28T21:17:18.031211Z	info	FLAG: --kubeconfig=""
+2021-04-28T21:17:18.031215Z	info	FLAG: --kubernetesApiBurst="160"
+2021-04-28T21:17:18.031218Z	info	FLAG: --kubernetesApiQPS="80"
+2021-04-28T21:17:18.031220Z	info	FLAG: --log_as_json="false"
+2021-04-28T21:17:18.031230Z	info	FLAG: --log_caller=""
+2021-04-28T21:17:18.031232Z	info	FLAG: --log_output_level="default:info"
+2021-04-28T21:17:18.031234Z	info	FLAG: --log_rotate=""
+2021-04-28T21:17:18.031236Z	info	FLAG: --log_rotate_max_age="30"
+2021-04-28T21:17:18.031238Z	info	FLAG: --log_rotate_max_backups="1000"
+2021-04-28T21:17:18.031240Z	info	FLAG: --log_rotate_max_size="104857600"
+2021-04-28T21:17:18.031242Z	info	FLAG: --log_stacktrace_level="default:none"
+2021-04-28T21:17:18.031247Z	info	FLAG: --log_target="[stdout]"
+2021-04-28T21:17:18.031250Z	info	FLAG: --mcpInitialConnWindowSize="1048576"
+2021-04-28T21:17:18.031252Z	info	FLAG: --mcpInitialWindowSize="1048576"
+2021-04-28T21:17:18.031254Z	info	FLAG: --mcpMaxMsgSize="4194304"
+2021-04-28T21:17:18.031257Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2021-04-28T21:17:18.031258Z	info	FLAG: --monitoringAddr=":15014"
+2021-04-28T21:17:18.031261Z	info	FLAG: --namespace="istio-system"
+2021-04-28T21:17:18.031264Z	info	FLAG: --networksConfig="/etc/istio/config/meshNetworks"
+2021-04-28T21:17:18.031269Z	info	FLAG: --plugins="[authn,authz,health]"
+2021-04-28T21:17:18.031271Z	info	FLAG: --profile="true"
+2021-04-28T21:17:18.031274Z	info	FLAG: --registries="[Kubernetes]"
+2021-04-28T21:17:18.031276Z	info	FLAG: --resync="1m0s"
+2021-04-28T21:17:18.031279Z	info	FLAG: --secureGRPCAddr=":15012"
+2021-04-28T21:17:18.031280Z	info	FLAG: --tlsCertFile=""
+2021-04-28T21:17:18.031282Z	info	FLAG: --tlsKeyFile=""
+2021-04-28T21:17:18.031284Z	info	FLAG: --trust-domain=""
+2021-04-28T21:17:18.152201Z	info	klog	Config not found: /var/run/secrets/remote/config[]
+2021-04-28T21:17:18.153708Z	info	initializing mesh configuration ./etc/istio/config/mesh
+2021-04-28T21:17:18.154799Z	info	mesh configuration: {
+    "proxyListenPort": 15001,
+    "connectTimeout": "10s",
+    "protocolDetectionTimeout": "0s",
+    "ingressClass": "istio",
+    "ingressService": "istio-ingressgateway",
+    "ingressControllerMode": "STRICT",
+    "enableTracing": true,
+    "defaultConfig": {
+        "configPath": "./etc/istio/proxy",
+        "binaryPath": "/usr/local/bin/envoy",
+        "serviceCluster": "istio-proxy",
+        "drainDuration": "45s",
+        "parentShutdownDuration": "60s",
+        "discoveryAddress": "istiod.istio-system.svc:15012",
+        "proxyAdminPort": 15000,
+        "controlPlaneAuthPolicy": "MUTUAL_TLS",
+        "statNameLength": 189,
+        "concurrency": 2,
+        "tracing": {
+            "zipkin": {
+                "address": "zipkin.istio-system:9411"
+            }
+        },
+        "envoyAccessLogService": {
+
+        },
+        "envoyMetricsService": {
+
+        },
+        "proxyMetadata": {
+            "DNS_AGENT": ""
+        },
+        "statusPort": 15020,
+        "terminationDrainDuration": "5s"
+    },
+    "outboundTrafficPolicy": {
+        "mode": "ALLOW_ANY"
+    },
+    "enableAutoMtls": true,
+    "trustDomain": "cluster.local",
+    "trustDomainAliases": [
+    ],
+    "defaultServiceExportTo": [
+        "*"
+    ],
+    "defaultVirtualServiceExportTo": [
+        "*"
+    ],
+    "defaultDestinationRuleExportTo": [
+        "*"
+    ],
+    "rootNamespace": "istio-system",
+    "localityLbSetting": {
+        "enabled": true
+    },
+    "dnsRefreshRate": "5s",
+    "certificates": [
+    ],
+    "thriftConfig": {
+
+    },
+    "serviceSettings": [
+    ],
+    "enablePrometheusMerge": true
+}
+2021-04-28T21:17:18.154812Z	info	version: 1.8.3-e282a1f927086cc046b967f0171840e238a9aa8c-Clean
+2021-04-28T21:17:18.155253Z	info	flags: 
+2021-04-28T21:17:18.155284Z	info	initializing mesh networks
+2021-04-28T21:17:18.155395Z	info	mesh networks configuration: {
+   "networks": {
+   }
+}
+2021-04-28T21:17:18.155472Z	info	initializing mesh handlers
+2021-04-28T21:17:18.155479Z	info	initializing controllers
+2021-04-28T21:17:18.155481Z	info	No certificates specified, skipping K8S DNS certificate controller
+2021-04-28T21:17:18.197083Z	info	Skipping IngressClass, resource not supported
+2021-04-28T21:17:18.197190Z	info	Adding Kubernetes registry adapter
+2021-04-28T21:17:18.197197Z	info	Initializing Kubernetes service registry "Kubernetes"
+2021-04-28T21:17:18.197314Z	info	JWT policy is first-party-jwt
+2021-04-28T21:17:18.197321Z	info	creating CA and initializing public key
+2021-04-28T21:17:18.197344Z	info	Use self-signed certificate as the CA certificate
+2021-04-28T21:17:18.199777Z	info	pkica	Failed to get secret (error: secrets "istio-ca-secret" not found), will create one
+2021-04-28T21:17:18.377694Z	info	pkica	Using self-generated public key: -----BEGIN CERTIFICATE-----
+MIIC/TCCAeWgAwIBAgIRAJT54I/BdLSL8kLEI4DpRL0wDQYJKoZIhvcNAQELBQAw
+GDEWMBQGA1UEChMNY2x1c3Rlci5sb2NhbDAeFw0yMTA0MjgyMTE3MThaFw0zMTA0
+MjYyMTE3MThaMBgxFjAUBgNVBAoTDWNsdXN0ZXIubG9jYWwwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQDHjZSAoarvlyWh5Ttw8e+/W2PDTcE/80IKwR55
+BDG02I/I5zKlShJNYIceXzu/R8il8XuQY353gFtz+jRnR9icAZFxNfcs9HiGP3F/
+/HnXzGFwtv8c8x2CUfV3KnbY/RcnxzmwtJ/SmOguTr5t6dS5sAMOnKZobEQ4uORR
+AW4skIr58Fma9EponY8LCBX7ilYyJT+kUx5cDObh/6M6YvJ+QLCvjNaUx7i7VNqW
+Md1XSGrLrrfTKU5p7nPH8oUl0AGv/Thd++JY9YgPldqF6i0DkLxEJKItnCQEa0qV
+g3VZ+0lzooWJIb/9Ytik4Pb4L99JBncHtfFyRdqtNSmB5sgvAgMBAAGjQjBAMA4G
+A1UdDwEB/wQEAwICBDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBS5L5nZdamN
+vGoOtM+fp6NTJNcbVTANBgkqhkiG9w0BAQsFAAOCAQEAB6QbZzObOvRoOSSEYCfW
+7nsNG4YMzCdOSVfB6DdCdUl1jxYYXN1pBmhGPP/dlnQUtazPXN4hjMd+oUL4DcXH
+DRKOggr8giVvnxlq5h1cjaqZ7YKK1XyVo1OwnoA5HUdENcX4BydBHgHHJUG2IUdq
+e6JF7PmLLw6oodjZj4YuD0tdH2jhamUj82ZGdSn/D546PPCe4gzpuZE5+3pd6trG
+E2HFKLJhIeYRQ3LsQmLARLRo+CzrKim/gxbCSwG5Nm53MW4LQgqdZOIWRqjBnG69
+GPpXfcgBjPWXvcjrQs4aDyR6CDD8SWwK+FQ49Vldp3gfjAsmPeuFGjPYz7207utc
+iw==
+-----END CERTIFICATE-----
+
+2021-04-28T21:17:18.377748Z	info	rootcertrotator	Set up back off time 41m31s to start rotator.
+2021-04-28T21:17:18.377787Z	info	initializing Istiod DNS certificates host: istiod.istio-system.svc, custom host: 
+2021-04-28T21:17:18.377808Z	info	Generating K8S-signed cert for [istiod.istio-system.svc istiod-remote.istio-system.svc istio-pilot.istio-system.svc]
+2021-04-28T21:17:18.378128Z	info	rootcertrotator	Jitter is enabled, wait 41m31s before starting root cert rotator.
+2021-04-28T21:17:18.603995Z	info	DNS certificates created in ./var/run/secrets/istio-dns
+2021-04-28T21:17:18.604371Z	info	adding watcher for certificate var/run/secrets/istio-dns/cert-chain.pem
+2021-04-28T21:17:18.604578Z	info	adding watcher for certificate var/run/secrets/istio-dns/key.pem
+2021-04-28T21:17:18.604722Z	info	spiffe	Added 1 certs to trust domain cluster.local in peer cert verifier
+2021-04-28T21:17:18.604729Z	info	initializing secure discovery service
+2021-04-28T21:17:18.605083Z	info	using max conn age of 30m0s
+2021-04-28T21:17:18.605129Z	info	initializing secure webhook server for istiod webhooks
+2021-04-28T21:17:18.605168Z	info	initializing sidecar injector
+2021-04-28T21:17:18.607800Z	info	initializing config validator
+2021-04-28T21:17:18.607869Z	info	initializing Istiod admin server
+2021-04-28T21:17:18.607895Z	info	initializing registry event handlers
+2021-04-28T21:17:18.607910Z	info	starting discovery service
+2021-04-28T21:17:18.607915Z	info	using max conn age of 30m0s
+2021-04-28T21:17:18.608065Z	info	initializing Kubernetes cluster registry
+2021-04-28T21:17:18.608144Z	info	Setting up event handlers
+2021-04-28T21:17:18.608280Z	info	initializing Kubernetes credential reader for cluster Kubernetes
+2021-04-28T21:17:18.609057Z	info	Starting Secrets controller
+2021-04-28T21:17:18.609104Z	info	Waiting for informer caches to sync
+2021-04-28T21:17:18.708725Z	info	Setting up event handlers
+2021-04-28T21:17:18.708938Z	info	Starting Secrets controller
+2021-04-28T21:17:18.708980Z	info	Waiting for informer caches to sync
+2021-04-28T21:17:18.712126Z	info	Starting Istiod Server with primary cluster Kubernetes
+2021-04-28T21:17:18.712397Z	info	klog	attempting to acquire leader lease  istio-system/istio-leader...[]
+2021-04-28T21:17:18.712432Z	info	kube	Starting Pilot K8S CRD controller
+2021-04-28T21:17:18.712695Z	info	kube	Pilot K8S CRD controller synced 259.71µs
+2021-04-28T21:17:18.712156Z	info	ControlZ available at 127.0.0.1:9876
+2021-04-28T21:17:18.712798Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-dns/kube-system has not been populated
+2021-04-28T21:17:18.712847Z	info	ads	Full push, new service kube-dns.kube-system.svc.cluster.local
+2021-04-28T21:17:18.720063Z	info	klog	successfully acquired lease istio-system/istio-leader[]
+2021-04-28T21:17:18.721527Z	info	Starting ingress controller
+2021-04-28T21:17:18.721956Z	warn	Missing ingress, skip status updates
+2021-04-28T21:17:18.730204Z	info	klog	attempting to acquire leader lease  istio-system/istio-validation-controller-election...[]
+2021-04-28T21:17:18.730444Z	info	Starting ADS server
+2021-04-28T21:17:18.730486Z	info	Starting IstioD CA
+2021-04-28T21:17:18.730732Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-controller-manager/kube-system has not been populated
+2021-04-28T21:17:18.730774Z	info	ads	Incremental push, service kube-controller-manager.kube-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.730900Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service spire-server/spire has not been populated
+2021-04-28T21:17:18.730914Z	info	ads	Full push, new service spire-server.spire.svc.cluster.local
+2021-04-28T21:17:18.731004Z	info	Istiod CA has started
+2021-04-28T21:17:18.731024Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service wcm-etcd-cluster-client-service/wcm-system has not been populated
+2021-04-28T21:17:18.731366Z	info	klog	attempting to acquire leader lease  istio-system/istio-namespace-controller-election...[]
+2021-04-28T21:17:18.731756Z	info	ads	Full push, new service wcm-etcd-cluster-client-service.wcm-system.svc.cluster.local
+2021-04-28T21:17:18.732254Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service istio-operator/istio-system has not been populated
+2021-04-28T21:17:18.732301Z	info	ads	Full push, new service istio-operator.istio-system.svc.cluster.local
+2021-04-28T21:17:18.732860Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kubernetes/default has not been populated
+2021-04-28T21:17:18.732902Z	info	ads	Full push, new service kubernetes.default.svc.cluster.local
+2021-04-28T21:17:18.733140Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service etcd-operator/wcm-system has not been populated
+2021-04-28T21:17:18.733227Z	info	ads	Incremental push, service etcd-operator.wcm-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.733975Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service wcm-etcd-cluster-client/wcm-system has not been populated
+2021-04-28T21:17:18.734047Z	info	ads	Full push, new service wcm-etcd-cluster-client.wcm-system.svc.cluster.local
+2021-04-28T21:17:18.736312Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service wcm-etcd-cluster/wcm-system has not been populated
+2021-04-28T21:17:18.736400Z	info	ads	Full push, new service wcm-etcd-cluster.wcm-system.svc.cluster.local
+2021-04-28T21:17:18.737238Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service istiod/istio-system has not been populated
+2021-04-28T21:17:18.737477Z	info	ads	Incremental push, service istiod.istio-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.737584Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-scheduler/kube-system has not been populated
+2021-04-28T21:17:18.737763Z	info	ads	Incremental push, service kube-scheduler.kube-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.737827Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service rancher.io-local-path/local-path-storage has not been populated
+2021-04-28T21:17:18.737845Z	info	ads	Incremental push, service rancher.io-local-path.local-path-storage.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.737874Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service my-coredns-coredns/wcm-system has not been populated
+2021-04-28T21:17:18.737891Z	info	ads	Full push, new service my-coredns-coredns.wcm-system.svc.cluster.local
+2021-04-28T21:17:18.746947Z	info	klog	successfully acquired lease istio-system/istio-validation-controller-election[]
+2021-04-28T21:17:18.747401Z	info	Starting validation controller
+2021-04-28T21:17:18.748658Z	info	klog	successfully acquired lease istio-system/istio-namespace-controller-election[]
+2021-04-28T21:17:18.748903Z	info	Starting namespace controller
+2021-04-28T21:17:18.832069Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-controller-manager/kube-system has not been populated
+2021-04-28T21:17:18.832194Z	info	ads	Incremental push, service kube-controller-manager.kube-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.832600Z	info	ads	Incremental push, service istiod.istio-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.832671Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-scheduler/kube-system has not been populated
+2021-04-28T21:17:18.832675Z	info	ads	Incremental push, service kube-scheduler.kube-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.832682Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service rancher.io-local-path/local-path-storage has not been populated
+2021-04-28T21:17:18.832684Z	info	ads	Incremental push, service rancher.io-local-path.local-path-storage.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.832706Z	info	ads	Full push, service accounts changed, kubernetes.default.svc.cluster.local
+2021-04-28T21:17:18.832711Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service etcd-operator/wcm-system has not been populated
+2021-04-28T21:17:18.832714Z	info	ads	Incremental push, service etcd-operator.wcm-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.833073Z	info	starting secure gRPC discovery service at [::]:15012
+2021-04-28T21:17:18.833116Z	info	ads	All caches have been synced up in 808.039873ms, marking server ready
+2021-04-28T21:17:18.833141Z	info	starting gRPC discovery service at [::]:15010
+2021-04-28T21:17:18.833157Z	info	starting Http service at [::]:8080
+2021-04-28T21:17:18.833189Z	info	starting webhook service at [::]:8080
+2021-04-28T21:17:18.839431Z	info	ads	Incremental push, service istiod.istio-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.839509Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-scheduler/kube-system has not been populated
+2021-04-28T21:17:18.839520Z	info	ads	Incremental push, service kube-scheduler.kube-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.839537Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-controller-manager/kube-system has not been populated
+2021-04-28T21:17:18.839556Z	info	ads	Incremental push, service kube-controller-manager.kube-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.839570Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service rancher.io-local-path/local-path-storage has not been populated
+2021-04-28T21:17:18.839576Z	info	ads	Incremental push, service rancher.io-local-path.local-path-storage.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.839822Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service etcd-operator/wcm-system has not been populated
+2021-04-28T21:17:18.839837Z	info	ads	Incremental push, service etcd-operator.wcm-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.840440Z	info	ads	Incremental push, service istiod.istio-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:18.848109Z	info	validationController	Reconcile(enter): add event (v1, Kind=Endpoints) istio-system/istiod
+2021-04-28T21:17:18.849389Z	info	Namespace controller started
+2021-04-28T21:17:18.854992Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:18.864177Z	info	validationController	Successfully updated validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore,resourceVersion=3096)
+2021-04-28T21:17:18.864362Z	info	validationController	Reconcile(enter): add event (admissionregistration.k8s.io/v1beta1, Kind=ValidatingWebhookConfiguration) istiod-istio-system
+2021-04-28T21:17:18.871969Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:18.872279Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:18.872320Z	info	validationController	Reconcile(enter): update event (v1, Kind=Endpoints) istio-system/istiod
+2021-04-28T21:17:18.879767Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:18.880195Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:18.880238Z	info	validationController	Reconcile(enter): initial request to kickstart reconciliation
+2021-04-28T21:17:18.883684Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:18.884201Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:18.884294Z	info	validationController	Reconcile(enter): update event (admissionregistration.k8s.io/v1beta1, Kind=ValidatingWebhookConfiguration) istiod-istio-system
+2021-04-28T21:17:18.888073Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:18.888519Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:18.940754Z	info	ads	Push debounce stable[1] 135: 100.257837ms since last change, 210.14468ms since last push, full=true
+2021-04-28T21:17:18.947805Z	info	ads	XDS: Pushing:2021-04-28T21:17:18Z/0 Services:9 ConnectedEndpoints:0
+2021-04-28T21:17:19.855243Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:19.859166Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:19.859584Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:19.872208Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:19.875459Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:19.875831Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:19.879996Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:19.882684Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:19.882971Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:19.883949Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:19.887722Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:19.888068Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:19.888338Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:19.891556Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:19.892076Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:20.859396Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:20.864703Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:20.865148Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:20.875955Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:20.881388Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:20.881860Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:20.882921Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:20.887070Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:20.887671Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:20.887879Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:20.895381Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:20.895948Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:20.896034Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:20.900236Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:20.900886Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:20.998415Z	info	validationController	Reconcile(enter): update event (v1, Kind=Endpoints) istio-system/istiod
+2021-04-28T21:17:20.999003Z	info	ads	Full push, new service istiod.istio-system.svc.cluster.local
+2021-04-28T21:17:21.004042Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:21.004458Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:21.099189Z	info	ads	Push debounce stable[2] 1: 100.147475ms since last change, 100.147342ms since last push, full=true
+2021-04-28T21:17:21.099829Z	info	ads	XDS: Pushing:2021-04-28T21:17:21Z/1 Services:9 ConnectedEndpoints:0
+2021-04-28T21:17:21.864872Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:21.868598Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:21.868936Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:21.881587Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:21.885323Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:21.886005Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:21.887360Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:21.890817Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:21.891327Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:21.895850Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:21.899086Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:21.899497Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:21.900517Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:21.904267Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:21.904864Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:22.004283Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:22.008820Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:22.009280Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:22.826226Z	info	ads	Push debounce stable[3] 1: 100.142757ms since last change, 100.142583ms since last push, full=false
+2021-04-28T21:17:22.826385Z	info	ads	XDS: Incremental Pushing:2021-04-28T21:17:21Z/1 ConnectedEndpoints:0
+2021-04-28T21:17:22.847650Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:22.861937Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:22.862491Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:22.864221Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:22.877619Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:22.878247Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:22.878322Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:22.883078Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:22.883592Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:22.883611Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:22.889894Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:22.890469Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:22.890543Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:22.900061Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:22.900662Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:22.964956Z	info	ads	Incremental push, service istio-ingressgateway.istio-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:22.987861Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:22.992455Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:22.993021Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:23.154755Z	info	ads	Push debounce stable[4] 3: 100.24333ms since last change, 197.976369ms since last push, full=true
+2021-04-28T21:17:23.155572Z	info	ads	XDS: Pushing:2021-04-28T21:17:23Z/2 Services:10 ConnectedEndpoints:0
+2021-04-28T21:17:23.862427Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:23.866784Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:23.867105Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:23.878997Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:23.884499Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:23.885247Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:23.885350Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:23.890418Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:23.890719Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:23.890761Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:23.896284Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:23.896844Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:23.900335Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:23.909914Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:23.910253Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:23.992790Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:23.996860Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:23.997406Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:24.867010Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:24.871872Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:24.872183Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:24.884847Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:24.894554Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:24.895502Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:24.895568Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:24.902132Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:24.902661Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:24.902692Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:24.913945Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:24.919605Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:24.920078Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:24.952773Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:24.955434Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:24.998756Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:25.016217Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:25.028887Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:25.872242Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:25.881346Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:25.881831Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:25.894828Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:25.900547Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:25.901063Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:25.902437Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:25.907836Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:25.908140Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:25.914308Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:25.918699Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:25.919170Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:25.953488Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:25.959670Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:25.960701Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:26.016475Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:26.020148Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:26.020595Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:26.881703Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:26.892055Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:26.892580Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:26.901060Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:26.910975Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:26.911779Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:26.911822Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:26.920840Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:26.921204Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:26.921245Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:26.935266Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:26.935657Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:26.959956Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:26.971766Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:26.972147Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:27.020459Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:27.031438Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:27.031907Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:27.892331Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:27.908074Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:27.908619Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:27.911406Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:27.924834Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:27.925641Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:27.925824Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:27.943185Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:27.943531Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:27.943545Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:27.957640Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:27.958069Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:27.972127Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:27.986235Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-04-28T21:17:27.986831Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore, resourceVersion=3096) is up-to-date. No change required.
+2021-04-28T21:17:28.031717Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:28.050958Z	info	validationServer	configuration is invalid: gateway must have at least one server
+2021-04-28T21:17:28.057502Z	info	validationController	Endpoint successfully rejected invalid config. Switching to fail-close.
+2021-04-28T21:17:28.063469Z	info	validationController	Successfully updated validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail,resourceVersion=3179)
+2021-04-28T21:17:28.063577Z	info	validationController	Reconcile(enter): update event (admissionregistration.k8s.io/v1beta1, Kind=ValidatingWebhookConfiguration) istiod-istio-system
+2021-04-28T21:17:28.063820Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=3179) is up-to-date. No change required.
+2021-04-28T21:17:28.709746Z	info	ads	Push Status: {}
+2021-04-28T21:17:28.908476Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:28.908854Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=3179) is up-to-date. No change required.
+2021-04-28T21:17:28.925495Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:28.925970Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=3179) is up-to-date. No change required.
+2021-04-28T21:17:28.943521Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:28.945027Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=3179) is up-to-date. No change required.
+2021-04-28T21:17:28.957981Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:28.959271Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=3179) is up-to-date. No change required.
+2021-04-28T21:17:28.986976Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-04-28T21:17:28.987798Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=3179) is up-to-date. No change required.
+2021-04-28T21:17:40.223813Z	info	ads	ADS: new connection for node:router~10.244.0.16~istio-ingressgateway-5c658595cb-2gbpx.istio-system~istio-system.svc.cluster.local-1
+2021-04-28T21:17:40.227187Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:37
+2021-04-28T21:17:40.252953Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:36 empty:10 cached:0/36
+2021-04-28T21:17:40.661285Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:37
+2021-04-28T21:17:40.661925Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:36 empty:0 cached:36/36
+2021-04-28T21:17:40.663204Z	info	ads	Incremental push, service istio-ingressgateway.istio-system.svc.cluster.local has no endpoints
+2021-04-28T21:17:40.763740Z	info	ads	Push debounce stable[5] 1: 100.439992ms since last change, 100.439822ms since last push, full=false
+2021-04-28T21:17:40.763887Z	info	ads	XDS: Incremental Pushing:2021-04-28T21:17:23Z/2 ConnectedEndpoints:1
+2021-04-28T21:17:40.867637Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:0
+2021-04-28T21:17:41.248287Z	info	ads	Full push, new service istio-ingressgateway.istio-system.svc.cluster.local
+2021-04-28T21:17:41.348582Z	info	ads	Push debounce stable[6] 1: 100.195453ms since last change, 100.195294ms since last push, full=true
+2021-04-28T21:17:41.349205Z	info	ads	XDS: Pushing:2021-04-28T21:17:41Z/3 Services:10 ConnectedEndpoints:1
+2021-04-28T21:17:41.352385Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:37
+2021-04-28T21:17:41.352704Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:36 empty:0 cached:26/36
+2021-04-28T21:17:41.353174Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:0
+2021-04-28T21:17:48.709705Z	info	ads	Push Status: {}
+2021-04-28T21:19:28.700268Z	info	ads	Push debounce stable[7] 2: 100.363473ms since last change, 125.196614ms since last push, full=false
+2021-04-28T21:19:28.700455Z	info	ads	XDS: Incremental Pushing:2021-04-28T21:17:41Z/3 ConnectedEndpoints:1
+2021-04-28T21:19:28.994232Z	info	ads	Push debounce stable[8] 1: 100.193313ms since last change, 100.193141ms since last push, full=false
+2021-04-28T21:19:28.994361Z	info	ads	XDS: Incremental Pushing:2021-04-28T21:17:41Z/3 ConnectedEndpoints:1
+2021-04-28T21:19:30.049875Z	info	ads	Incremental push, service green.wcm-system.svc.cluster.local has no endpoints
+2021-04-28T21:19:30.150114Z	info	ads	Push debounce stable[9] 2: 100.172063ms since last change, 114.56962ms since last push, full=true
+2021-04-28T21:19:30.150785Z	info	ads	XDS: Pushing:2021-04-28T21:19:30Z/4 Services:11 ConnectedEndpoints:1
+2021-04-28T21:19:30.152102Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:39
+2021-04-28T21:19:30.152275Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:36 empty:0 cached:36/36
+2021-04-28T21:19:30.152389Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:0
+2021-04-28T21:19:30.161897Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:38 empty:2 cached:36/38
+2021-04-28T21:19:30.876579Z	info	ads	Full push, new service green.wcm-system.svc.cluster.local
+2021-04-28T21:19:30.976773Z	info	ads	Push debounce stable[10] 1: 100.068511ms since last change, 100.068326ms since last push, full=true
+2021-04-28T21:19:30.977432Z	info	ads	XDS: Pushing:2021-04-28T21:19:30Z/5 Services:11 ConnectedEndpoints:1
+2021-04-28T21:19:30.978646Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:39
+2021-04-28T21:19:30.978848Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:38 empty:0 cached:36/38
+2021-04-28T21:19:30.979267Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:0
+2021-04-28T21:19:31.199053Z	info	ads	Incremental push, service green-wcmd.wcm-system.svc.cluster.local has no endpoints
+2021-04-28T21:19:31.299325Z	info	ads	Push debounce stable[11] 3: 100.078936ms since last change, 117.686194ms since last push, full=true
+2021-04-28T21:19:31.300077Z	info	ads	XDS: Pushing:2021-04-28T21:19:31Z/6 Services:12 ConnectedEndpoints:1
+2021-04-28T21:19:31.301796Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:43
+2021-04-28T21:19:31.301905Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:38 empty:0 cached:38/38
+2021-04-28T21:19:31.302136Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:0
+2021-04-28T21:19:31.315899Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:42 empty:4 cached:38/42
+2021-04-28T21:19:32.281066Z	info	ads	Incremental push, service green-cd-info.wcm-system.svc.cluster.local has no endpoints
+2021-04-28T21:19:32.381507Z	info	ads	Push debounce stable[12] 3: 100.184328ms since last change, 144.108718ms since last push, full=true
+2021-04-28T21:19:32.382075Z	info	ads	XDS: Pushing:2021-04-28T21:19:32Z/7 Services:13 ConnectedEndpoints:1
+2021-04-28T21:19:32.383359Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:45
+2021-04-28T21:19:32.383540Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:42 empty:0 cached:42/42
+2021-04-28T21:19:32.383851Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:0
+2021-04-28T21:19:32.396541Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:44 empty:2 cached:42/44
+2021-04-28T21:19:32.895284Z	info	ads	Incremental push, service green-wcmd.wcm-system.svc.cluster.local has no endpoints
+2021-04-28T21:19:32.995492Z	info	ads	Push debounce stable[13] 1: 100.080135ms since last change, 100.079955ms since last push, full=false
+2021-04-28T21:19:32.995582Z	info	ads	XDS: Incremental Pushing:2021-04-28T21:19:32Z/7 ConnectedEndpoints:1
+2021-04-28T21:19:33.170365Z	info	ads	Push debounce stable[14] 1: 100.496605ms since last change, 100.496433ms since last push, full=true
+2021-04-28T21:19:33.170865Z	info	ads	XDS: Pushing:2021-04-28T21:19:33Z/8 Services:13 ConnectedEndpoints:1
+2021-04-28T21:19:33.175969Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:45
+2021-04-28T21:19:33.178432Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:2
+2021-04-28T21:19:33.201632Z	warn	constructed http route config for route http.80 on port 80 with no vhosts; Setting up a default 404 vhost
+2021-04-28T21:19:33.202370Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:19:33.332150Z	info	ads	Push debounce stable[15] 3: 100.260034ms since last change, 140.357655ms since last push, full=true
+2021-04-28T21:19:33.332867Z	info	ads	XDS: Pushing:2021-04-28T21:19:33Z/9 Services:16 ConnectedEndpoints:1
+2021-04-28T21:19:33.334527Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:48
+2021-04-28T21:19:33.334625Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:44 empty:0 cached:44/44
+2021-04-28T21:19:33.334975Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:2
+2021-04-28T21:19:33.335016Z	warn	constructed http route config for route http.80 on port 80 with no vhosts; Setting up a default 404 vhost
+2021-04-28T21:19:33.335052Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:19:33.462087Z	info	ads	Push debounce stable[16] 1: 100.245492ms since last change, 100.245326ms since last push, full=true
+2021-04-28T21:19:33.464129Z	info	ads	XDS: Pushing:2021-04-28T21:19:33Z/10 Services:16 ConnectedEndpoints:1
+2021-04-28T21:19:33.467092Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:48
+2021-04-28T21:19:33.467553Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:2
+2021-04-28T21:19:33.471301Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:19:33.900089Z	info	ads	Full push, new service green-cd-info.wcm-system.svc.cluster.local
+2021-04-28T21:19:34.045979Z	info	ads	Push debounce stable[17] 2: 100.366701ms since last change, 145.741704ms since last push, full=true
+2021-04-28T21:19:34.046866Z	info	ads	XDS: Pushing:2021-04-28T21:19:34Z/11 Services:16 ConnectedEndpoints:1
+2021-04-28T21:19:34.049127Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:48
+2021-04-28T21:19:34.049400Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:44 empty:0 cached:42/44
+2021-04-28T21:19:34.050246Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:2
+2021-04-28T21:19:34.050669Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:19:38.625411Z	info	ads	Push Status: {}
+2021-04-28T21:19:41.957451Z	info	ads	Full push, new service green-wcmd.wcm-system.svc.cluster.local
+2021-04-28T21:19:42.057671Z	info	ads	Push debounce stable[18] 1: 100.178214ms since last change, 100.178051ms since last push, full=true
+2021-04-28T21:19:42.058433Z	info	ads	XDS: Pushing:2021-04-28T21:19:42Z/12 Services:16 ConnectedEndpoints:1
+2021-04-28T21:19:42.059664Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:48
+2021-04-28T21:19:42.059891Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:44 empty:0 cached:40/44
+2021-04-28T21:19:42.060276Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:2
+2021-04-28T21:19:42.060471Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:19:48.625519Z	info	ads	Push Status: {}
+2021-04-28T21:19:59.446117Z	info	ads	Push debounce stable[19] 1: 100.240758ms since last change, 100.240565ms since last push, full=true
+2021-04-28T21:19:59.446466Z	info	ads	XDS: Pushing:2021-04-28T21:19:59Z/13 Services:16 ConnectedEndpoints:1
+2021-04-28T21:19:59.448369Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:48
+2021-04-28T21:19:59.448602Z	info	gateway omitting listener "0.0.0.0_8443" due to: must have more than 0 chains in listener "0.0.0.0_8443"
+2021-04-28T21:19:59.448782Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:19:59.449298Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:20:08.604294Z	info	ads	Push Status: {}
+2021-04-28T21:21:40.000242Z	info	ads	Push debounce stable[20] 1: 100.460436ms since last change, 100.460247ms since last push, full=true
+2021-04-28T21:21:40.000720Z	info	ads	XDS: Pushing:2021-04-28T21:21:40Z/14 Services:16 ConnectedEndpoints:1
+2021-04-28T21:21:40.002955Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:48
+2021-04-28T21:21:40.003578Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:2
+2021-04-28T21:21:40.004201Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-2gbpx.istio-system resources:1
+2021-04-28T21:21:48.540882Z	info	ads	Push Status: {}
+==== END logs for container discovery of pod istio-system/istiod-85c587c85c-vmzxk ====

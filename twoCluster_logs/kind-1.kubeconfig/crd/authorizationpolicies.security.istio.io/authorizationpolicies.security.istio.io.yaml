@@ -1,0 +1,263 @@
+Name:         authorizationpolicies.security.istio.io
+Namespace:    
+Labels:       app=istio-pilot
+              chart=istio
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio=security
+              istio.io/rev=default
+              operator.istio.io/component=Base
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+              release=istio
+Annotations:  helm.sh/resource-policy: keep
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-04-28T21:16:58Z
+  Generation:          1
+  Resource Version:    2913
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/authorizationpolicies.security.istio.io
+  UID:                 ce6e3331-5463-4fcb-a757-9ac8af516c8a
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       security.istio.io
+  Names:
+    Categories:
+      istio-io
+      security-istio-io
+    Kind:       AuthorizationPolicy
+    List Kind:  AuthorizationPolicyList
+    Plural:     authorizationpolicies
+    Singular:   authorizationpolicy
+  Scope:        Namespaced
+  Versions:
+    Name:  v1beta1
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  Configuration for access control on workloads. See more details at: https://istio.io/docs/reference/config/security/authorization-policy.html
+            One Of:
+              Not:
+                Any Of:
+                  Required:
+                    provider
+              Required:
+                provider
+            Properties:
+              Action:
+                Description:  Optional.
+                Enum:
+                  ALLOW
+                  DENY
+                  AUDIT
+                  CUSTOM
+                Type:  string
+              Provider:
+                Properties:
+                  Name:
+                    Description:  Specifies the name of the extension provider.
+                    Format:       string
+                    Type:         string
+                Type:             object
+              Rules:
+                Description:  Optional.
+                Items:
+                  Properties:
+                    From:
+                      Description:  Optional.
+                      Items:
+                        Properties:
+                          Source:
+                            Description:  Source specifies the source of a request.
+                            Properties:
+                              Ip Blocks:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Namespaces:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Ip Blocks:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Namespaces:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Principals:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Remote Ip Blocks:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Request Principals:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Principals:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Remote Ip Blocks:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Request Principals:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                            Type:          object
+                        Type:              object
+                      Type:                array
+                    To:
+                      Description:  Optional.
+                      Items:
+                        Properties:
+                          Operation:
+                            Description:  Operation specifies the operation of a request.
+                            Properties:
+                              Hosts:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Methods:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Hosts:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Methods:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Paths:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Not Ports:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Paths:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                              Ports:
+                                Description:  Optional.
+                                Items:
+                                  Format:  string
+                                  Type:    string
+                                Type:      array
+                            Type:          object
+                        Type:              object
+                      Type:                array
+                    When:
+                      Description:  Optional.
+                      Items:
+                        Properties:
+                          Key:
+                            Description:  The name of an Istio attribute.
+                            Format:       string
+                            Type:         string
+                          Not Values:
+                            Description:  Optional.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                          Values:
+                            Description:  Optional.
+                            Items:
+                              Format:  string
+                              Type:    string
+                            Type:      array
+                        Type:          object
+                      Type:            array
+                  Type:                object
+                Type:                  array
+              Selector:
+                Description:  Optional.
+                Properties:
+                  Match Labels:
+                    Additional Properties:
+                      Format:  string
+                      Type:    string
+                    Type:      object
+                Type:          object
+            Type:              object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               true
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Categories:
+      istio-io
+      security-istio-io
+    Kind:       AuthorizationPolicy
+    List Kind:  AuthorizationPolicyList
+    Plural:     authorizationpolicies
+    Singular:   authorizationpolicy
+  Conditions:
+    Last Transition Time:  2021-04-28T21:16:58Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-04-28T21:16:58Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1beta1
+Events:  <none>
+

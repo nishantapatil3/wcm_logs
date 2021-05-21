@@ -1,0 +1,71 @@
+Name:         speaker-ks77z
+Namespace:    metallb-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 28 Apr 2021 14:14:36 -0700
+Labels:       app=metallb
+              component=speaker
+              controller-revision-hash=f6cf9fd9f
+              pod-template-generation=1
+Annotations:  prometheus.io/port: 7472
+              prometheus.io/scrape: true
+Status:       Running
+IP:           172.17.0.2
+IPs:
+  IP:           172.17.0.2
+Controlled By:  DaemonSet/speaker
+Containers:
+  speaker:
+    Container ID:  containerd://2aa0628d0686177b1b1554e2b1edb2db3ba882fd9efafbffcdd9de07d5aa3bcc
+    Image:         metallb/speaker:v0.8.2
+    Image ID:      docker.io/metallb/speaker@sha256:f1941498a28cdb332429e25d18233683da6949ecfc4f6dacf12b1416d7d38263
+    Port:          7472/TCP
+    Host Port:     7472/TCP
+    Args:
+      --port=7472
+      --config=config
+    State:          Running
+      Started:      Wed, 28 Apr 2021 14:16:21 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  100Mi
+    Requests:
+      cpu:     100m
+      memory:  100Mi
+    Environment:
+      METALLB_NODE_NAME:   (v1:spec.nodeName)
+      METALLB_HOST:        (v1:status.hostIP)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from speaker-token-cpx6k (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  speaker-token-cpx6k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  speaker-token-cpx6k
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  23m   default-scheduler  Successfully assigned metallb-system/speaker-ks77z to kind-1-control-plane
+  Normal  Pulling    23m   kubelet            Pulling image "metallb/speaker:v0.8.2"
+  Normal  Pulled     21m   kubelet            Successfully pulled image "metallb/speaker:v0.8.2"
+  Normal  Created    21m   kubelet            Created container speaker
+  Normal  Started    21m   kubelet            Started container speaker
+

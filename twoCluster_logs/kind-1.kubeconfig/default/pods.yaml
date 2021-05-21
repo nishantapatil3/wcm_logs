@@ -1,0 +1,366 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-21T20:48:06Z"
+    generateName: helloworld-example-6b584dbf9f-
+    labels:
+      app: helloworld-example
+      nsm/servicename: helloworld.cluster1.nispatil-wcm-cisco.com
+      pod-template-hash: 6b584dbf9f
+      version: v1
+    name: helloworld-example-6b584dbf9f-hklzk
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: helloworld-example-6b584dbf9f
+      uid: 61fdbd22-d62b-41b1-befa-f315e43b7baa
+    resourceVersion: "11797"
+    selfLink: /api/v1/namespaces/default/pods/helloworld-example-6b584dbf9f-hklzk
+    uid: e5fa0d40-f83c-4377-8c48-a3be2afa9331
+  spec:
+    containers:
+    - image: docker.io/istio/examples-helloworld-v1:latest
+      imagePullPolicy: IfNotPresent
+      name: helloworld
+      ports:
+      - containerPort: 5000
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 100m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-65qn7
+        readOnly: true
+    - command:
+      - /bin/nsm-monitor
+      env:
+      - name: MONITOR_DNS_CONFIGS
+        value: "true"
+      - name: NS_NETWORKSERVICEMESH_IO
+        value: example?service=helloworld&port=5000&clusterName=cluster1
+      image: public.ecr.aws/ciscoeti/appn/nsm-monitor:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsm-dns-monitor
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: nsm-coredns-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-65qn7
+        readOnly: true
+    - args:
+      - -conf
+      - /etc/coredns/Corefile
+      image: public.ecr.aws/ciscoeti/appn/nsm-coredns:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: coredns
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: nsm-coredns-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-65qn7
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    initContainers:
+    - command:
+      - /bin/nsm-dns-init
+      env:
+      - name: NS_NETWORKSERVICEMESH_IO
+        value: example?service=helloworld&port=5000&clusterName=cluster1
+      - name: NSM_NAMESPACE
+        value: nsm-system
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      image: public.ecr.aws/ciscoeti/appn/nsm-dns-init:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsm-dns-init
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: nsm-coredns-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-65qn7
+        readOnly: true
+    - env:
+      - name: NS_NETWORKSERVICEMESH_IO
+        value: example?service=helloworld&port=5000&clusterName=cluster1
+      - name: NSM_NAMESPACE
+        value: nsm-system
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      image: public.ecr.aws/ciscoeti/appn/nsm-init:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsm-init-container
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-65qn7
+        readOnly: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: nsc-service-account
+    serviceAccountName: nsc-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: nsm-coredns-volume
+    - name: nsc-service-account-token-65qn7
+      secret:
+        defaultMode: 420
+        secretName: nsc-service-account-token-65qn7
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:48:14Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:48:41Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:48:41Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:48:06Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://0bc089ec30d1b1373cfa804dbce46139706558ac2cf78156370cab77c0261199
+      image: public.ecr.aws/ciscoeti/appn/nsm-coredns:vl3_latest
+      imageID: public.ecr.aws/ciscoeti/appn/nsm-coredns@sha256:17de0ac5d4640cc9e2c41b5b899c772818fc1715de78c160dfa5d945543d35ce
+      lastState: {}
+      name: coredns
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-21T20:48:40Z"
+    - containerID: containerd://cb8611aca094169002fc60159cd2ed4f6a52d2efff27a1445f3ac41de9cf25d5
+      image: docker.io/istio/examples-helloworld-v1:latest
+      imageID: docker.io/istio/examples-helloworld-v1@sha256:c671702b11cbcda103720c2bd3e81a4211012bfef085b7326bb7fbfd8cea4a94
+      lastState: {}
+      name: helloworld
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-21T20:48:37Z"
+    - containerID: containerd://54bb2ad4ac0404d205d06abe93a59a3a1f69269d5aea0c41a562b59226a81f56
+      image: public.ecr.aws/ciscoeti/appn/nsm-monitor:vl3_latest
+      imageID: public.ecr.aws/ciscoeti/appn/nsm-monitor@sha256:f50fecc1d1b360e718e21b902abbc57f167822918af2dcd50479d2639417076c
+      lastState: {}
+      name: nsm-dns-monitor
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-21T20:48:39Z"
+    hostIP: 172.17.0.2
+    initContainerStatuses:
+    - containerID: containerd://ba7bd4e787311f6a403ce26ce97e5691fd6815d44587be9bf72a02679f2b4d6d
+      image: public.ecr.aws/ciscoeti/appn/nsm-dns-init:vl3_latest
+      imageID: public.ecr.aws/ciscoeti/appn/nsm-dns-init@sha256:c303147c9ab2721a9ea60b607b588937311bf9a092caf9f50fbf5c912871629e
+      lastState: {}
+      name: nsm-dns-init
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://ba7bd4e787311f6a403ce26ce97e5691fd6815d44587be9bf72a02679f2b4d6d
+          exitCode: 0
+          finishedAt: "2021-05-21T20:48:10Z"
+          reason: Completed
+          startedAt: "2021-05-21T20:48:10Z"
+    - containerID: containerd://c021de7d2d0b36dc0bb843c8e379433b1569683ce9afe978fb5863305b73b361
+      image: public.ecr.aws/ciscoeti/appn/nsm-init:vl3_latest
+      imageID: public.ecr.aws/ciscoeti/appn/nsm-init@sha256:86dda2af1a34eb19896419d2ba988414d695255bd63dbb3adee7876395b56c20
+      lastState: {}
+      name: nsm-init-container
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://c021de7d2d0b36dc0bb843c8e379433b1569683ce9afe978fb5863305b73b361
+          exitCode: 0
+          finishedAt: "2021-05-21T20:48:13Z"
+          reason: Completed
+          startedAt: "2021-05-21T20:48:13Z"
+    phase: Running
+    podIP: 10.244.0.38
+    podIPs:
+    - ip: 10.244.0.38
+    qosClass: Burstable
+    startTime: "2021-05-21T20:48:07Z"
+- metadata:
+    creationTimestamp: "2021-05-21T20:17:20Z"
+    generateName: member-core-operator-55bdfffc85-
+    labels:
+      name: member-core-operator
+      pod-template-hash: 55bdfffc85
+    name: member-core-operator-55bdfffc85-dpcgh
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: member-core-operator-55bdfffc85
+      uid: 35453142-6aa7-4ba1-84fc-008e46b87593
+    resourceVersion: "3118"
+    selfLink: /api/v1/namespaces/default/pods/member-core-operator-55bdfffc85-dpcgh
+    uid: 3fa0a7a0-19f2-4e9a-8136-fbc517773355
+  spec:
+    containers:
+    - command:
+      - member-core-operator
+      env:
+      - name: WATCH_NAMESPACE
+      - name: POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: OPERATOR_NAME
+        value: member-core-operator
+      - name: CONFIG_PATH
+        value: etc/member-core-configmap/config.yaml
+      image: public.ecr.aws/ciscoeti/appn/member-core-operator:latest
+      imagePullPolicy: IfNotPresent
+      name: member-core-operator
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: etc/member-core-configmap/config.yaml
+        name: config-data-member-core
+        subPath: config.yaml
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: member-core-operator-token-snnsw
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: member-core-operator
+    serviceAccountName: member-core-operator
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: member-core-configmap
+      name: config-data-member-core
+    - name: member-core-operator-token-snnsw
+      secret:
+        defaultMode: 420
+        secretName: member-core-operator-token-snnsw
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:17:20Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:17:24Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:17:24Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-21T20:17:20Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://549e12d2aebb9fcb76edbe390560a4a57f9792f10ee20753395300f368e75aea
+      image: public.ecr.aws/ciscoeti/appn/member-core-operator:latest
+      imageID: public.ecr.aws/ciscoeti/appn/member-core-operator@sha256:41bcaa1f854c5251fa15df36caa2d9150e5e7633740fd9fa1808e20d38ee8b06
+      lastState: {}
+      name: member-core-operator
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-21T20:17:24Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.24
+    podIPs:
+    - ip: 10.244.0.24
+    qosClass: BestEffort
+    startTime: "2021-05-21T20:17:20Z"
+kind: PodList
+metadata:
+  resourceVersion: "15578"
+  selfLink: /api/v1/namespaces/default/pods

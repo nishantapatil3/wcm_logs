@@ -1,0 +1,58 @@
+Name:         wcm-nse-discovery-9d8cfcc95-4sqfm
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Fri, 21 May 2021 20:17:35 +0000
+Labels:       app=nse-discovery-wcm
+              membercore=wcm
+              pod-template-hash=9d8cfcc95
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.31
+IPs:
+  IP:           10.244.0.31
+Controlled By:  ReplicaSet/wcm-nse-discovery-9d8cfcc95
+Containers:
+  wcm-nse-discovery:
+    Container ID:   containerd://43d40966e621ffc934f902c22dd7a45238e73a905a27c24b08fb4c596c4e4562
+    Image:          public.ecr.aws/ciscoeti/appn/nse-discovery-operator:latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nse-discovery-operator@sha256:e799dd4e99061c8b0545056e69986cefd4eea3af04b9bf2ef61c1ba086ada7f1
+    Port:           2112/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 21 May 2021 20:17:56 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:         (v1:metadata.uid)
+      CLUSTER_NAME:   test
+      INSECURE:       true
+      NSE_NAMESPACE:  wcm-system
+      NSR_ADDRESS:    wcm-proxy-nsmgr.nsm-system:5005
+      METRICS_PORT:   2112
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-discovery-service-account-token-z466k (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  wcm-nse-discovery-service-account-token-z466k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-discovery-service-account-token-z466k
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  45m   default-scheduler  Successfully assigned wcm-system/wcm-nse-discovery-9d8cfcc95-4sqfm to kind-1-control-plane
+  Normal  Pulling    45m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/nse-discovery-operator:latest"
+  Normal  Pulled     45m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/nse-discovery-operator:latest"
+  Normal  Created    45m   kubelet            Created container wcm-nse-discovery
+  Normal  Started    45m   kubelet            Started container wcm-nse-discovery
+

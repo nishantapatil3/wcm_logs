@@ -1,0 +1,62 @@
+Name:         wcm-nse-discovery-85cb67c46c-7mm6b
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Wed, 28 Apr 2021 14:15:03 -0700
+Labels:       app=nse-discovery-wcm
+              membercore=wcm
+              pod-template-hash=85cb67c46c
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.13
+IPs:
+  IP:           10.244.0.13
+Controlled By:  ReplicaSet/wcm-nse-discovery-85cb67c46c
+Containers:
+  wcm-nse-discovery:
+    Container ID:   containerd://bcc072fb8f37deb2054c4ea245ee698d63314c726e8e61aa625ff757cca619f4
+    Image:          containers.cisco.com/appn/nse-discovery-operator:latest
+    Image ID:       sha256:cc330a6afacf952c3d75258043de8de186f0550f0743494932c42aa324d4f2c5
+    Port:           2112/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 28 Apr 2021 14:15:04 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:         (v1:metadata.uid)
+      CLUSTER_NAME:   test
+      INSECURE:       false
+      NSE_NAMESPACE:  wcm-system
+      NSR_ADDRESS:    wcm-proxy-nsmgr.nsm-system:5005
+      METRICS_PORT:   2112
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-discovery-service-account-token-mth7j (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nse-discovery-service-account-token-mth7j:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-discovery-service-account-token-mth7j
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  23m   default-scheduler  Successfully assigned wcm-system/wcm-nse-discovery-85cb67c46c-7mm6b to kind-2-control-plane
+  Normal  Pulled     23m   kubelet            Container image "containers.cisco.com/appn/nse-discovery-operator:latest" already present on machine
+  Normal  Created    23m   kubelet            Created container wcm-nse-discovery
+  Normal  Started    23m   kubelet            Started container wcm-nse-discovery
+

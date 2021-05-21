@@ -1,0 +1,60 @@
+Name:         wcm-nse-operator-845589cf95-n5b7r
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Wed, 12 May 2021 16:11:56 +0000
+Labels:       name=wcm-nse-operator
+              pod-template-hash=845589cf95
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.24
+IPs:
+  IP:           10.244.0.24
+Controlled By:  ReplicaSet/wcm-nse-operator-845589cf95
+Containers:
+  wcm-nse-operator:
+    Container ID:  containerd://de517b17ae0c833fb124507b031abfbe150b55084db0de5e78f2deb71cf7f14d
+    Image:         public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/wcm-nse-operator@sha256:97ad22ffda3b7b3cb379525f5de555ba1b738ea3773ea6af1d7718bca15c0d23
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      wcm-nse-operator
+    State:          Running
+      Started:      Wed, 12 May 2021 16:11:57 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         wcm-nse-operator-845589cf95-n5b7r (v1:metadata.name)
+      OPERATOR_NAME:    wcm-nse-operator
+      CONFIG_PATH:      etc/wcm-vpp-nse-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-operator-token-jzgq8 (ro)
+      etc/wcm-vpp-nse-configmap/config.yaml from config-data-wcm-nse (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-wcm-nse:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-vpp-nse-configmap
+    Optional:  false
+  wcm-nse-operator-token-jzgq8:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-operator-token-jzgq8
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned wcm-system/wcm-nse-operator-845589cf95-n5b7r to kind-3-control-plane
+  Normal  Pulled     11m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest" already present on machine
+  Normal  Created    11m   kubelet            Created container wcm-nse-operator
+  Normal  Started    11m   kubelet            Started container wcm-nse-operator

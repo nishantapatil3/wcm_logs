@@ -1,0 +1,83 @@
+Name:         wcm-proxy-nsmgr-7694b88585-64ft6
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Mon, 10 May 2021 16:11:23 -0700
+Labels:       app=wcm-proxy-nsmgr
+              membercore=wcm
+              pod-template-hash=7694b88585
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/wcm-proxy-nsmgr-7694b88585
+Containers:
+  wcm-proxy-nsmgr:
+    Container ID:   containerd://b9389f7e9f60c9eccc468fb278c871148affef6ebb5e0d75cabbd5f13146d58c
+    Image:          containers.cisco.com/appn/proxy-nsmd:vl3_latest
+    Image ID:       containers.cisco.com/appn/proxy-nsmd@sha256:3e4f686ad2f9c04aacd1e49c9ab45a714b1c65dfe95875eeaf77c4740ba2ab5e
+    Port:           5006/TCP
+    Host Port:      5006/TCP
+    State:          Running
+      Started:      Mon, 10 May 2021 16:11:50 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    true
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  31505
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-z9lfn (ro)
+  proxy-nsmd-k8s:
+    Container ID:   containerd://777c152558062244e29dbded9fd632ffa2dca4ad8e2925d0930b87f8c2a50134
+    Image:          containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest
+    Image ID:       containers.cisco.com/appn/proxy-nsmd-k8s@sha256:02dbdce52aacc269f64004c2826462347ca8894129d9c99224e1210a2e78fff4
+    Port:           5005/TCP
+    Host Port:      5005/TCP
+    State:          Running
+      Started:      Mon, 10 May 2021 16:11:58 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    true
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  80
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-z9lfn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  wcm-proxy-nsmgr-service-account-token-z9lfn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-proxy-nsmgr-service-account-token-z9lfn
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  13m   default-scheduler  Successfully assigned nsm-system/wcm-proxy-nsmgr-7694b88585-64ft6 to kind-3-control-plane
+  Normal  Pulling    12m   kubelet            Pulling image "containers.cisco.com/appn/proxy-nsmd:vl3_latest"
+  Normal  Pulled     12m   kubelet            Successfully pulled image "containers.cisco.com/appn/proxy-nsmd:vl3_latest"
+  Normal  Created    12m   kubelet            Created container wcm-proxy-nsmgr
+  Normal  Started    12m   kubelet            Started container wcm-proxy-nsmgr
+  Normal  Pulling    12m   kubelet            Pulling image "containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest"
+  Normal  Pulled     12m   kubelet            Successfully pulled image "containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest"
+  Normal  Created    12m   kubelet            Created container proxy-nsmd-k8s
+  Normal  Started    12m   kubelet            Started container proxy-nsmd-k8s
+

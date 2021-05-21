@@ -1,0 +1,957 @@
+==== START logs for container vl3-nse-green of pod wcm-system/vl3-nse-green-7c4bc88947-58hml ====
+time="2021-04-28 21:19:53.36491" level=info msg="Starting agent version: v0.0.0-dev" BuildDate= CommitHash= loc="agent/agent.go(134)" logger=agent
+time="2021-04-28 21:19:53.36604" level=info msg="Agent started with 2 plugins (took 0s)" loc="agent/agent.go(179)" logger=agent
+time="2021-04-28T21:19:53Z" level=info msg="starting endpoint"
+time="2021-04-28T21:19:53Z" level=info msg="Serving metrics on: 0.0.0.0:2112" path=/metrics
+time="2021-04-28T21:19:53Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+                                       __
+  _  _____  ___ _______ ____ ____ ___ / /_  
+ | |/ / _ \/ _ /___/ _ '/ _ '/ -_/ _ / __/  vpp-agent v3.2.0
+ |___/ .__/ .__/   \_'_/\_' /\__/_//_\__/   Wed Nov  4 12:43:01 UTC 2020 (175 days ago)
+    /_/  /_/           /___/                root@cac5a9849c6e (go1.15.2 linux/amd64)
+
+time="2021-04-28 21:19:53.61897" level=info msg="Starting agent version: v3.2.0" BuildDate="Wed Nov  4 12:43:01 UTC 2020" CommitHash=f969fd3 loc="agent/agent.go(134)" logger=agent
+time="2021-04-28 21:19:53.62314" level=info msg="ETCD config not found, skip loading this plugin" loc="etcd/plugin_impl_etcd.go(293)" logger=etcd
+time="2021-04-28 21:19:53.62327" level=info msg="Consul config not found, skip loading this plugin" loc="consul/plugin.go(138)" logger=consul
+time="2021-04-28 21:19:53.62333" level=info msg="Redis config not found, skip loading this plugin" loc="redis/plugin_impl_redis.go(123)" logger=redis
+unix_config:471: couldn't open log '/var/log/vpp/vpp.log'
+/usr/bin/vpp[15]: clib_elf_parse_file: open `linux-vdso.so.1': No such file or directory
+/usr/bin/vpp[15]: clib_sysfs_prealloc_hugepages:261: pre-allocating 19 additional 2048K hugepages on numa node 0
+/usr/bin/vpp[15]: buffer: vlib_physmem_shared_map_create: pmalloc_map_pages: failed to mmap 19 pages at 0x1000000000 fd 4 numa 0 flags 0x11: Cannot allocate memory
+
+/usr/bin/vpp[15]: buffer: falling back to non-hugepage backed buffer pool
+/usr/bin/vpp[15]: vat-plug/load: vat_plugin_register: gtpu plugin not loaded...
+/usr/bin/vpp[15]: vat-plug/load: vat_plugin_register: pppoe plugin not loaded...
+/usr/bin/vpp[15]: vat-plug/load: vat_plugin_register: oddbuf plugin not loaded...
+/usr/bin/vpp[15]: vat-plug/load: vat_plugin_register: dhcp plugin not loaded...
+/usr/bin/vpp[15]: vat-plug/load: vat_plugin_register: avf plugin not loaded...
+/usr/bin/vpp[15]: vat-plug/load: vat_plugin_register: rdma plugin not loaded...
+time="2021-04-28 21:19:54.37447" level=info msg="VPP version: 20.05.1-6~gf53edbc3b~b1" ClientID=0 PID=15 loc="govppmux/plugin_impl_govppmux.go(382)" logger=govpp
+time="2021-04-28 21:19:54.38038" level=info msg="VPP proxy ready" loc="govppmux/plugin_impl_govppmux.go(177)" logger=govpp
+time="2021-04-28 21:19:54.38078" level=info msg="kafka config not found  - skip loading this plugin" loc="kafka/plugin_impl_kafka.go(73)" logger=kafka
+time="2021-04-28 21:19:54.39066" level=warning msg="VPP plugin wireguard was disabled by VPP" loc="wireguardplugin/wireguardplugin.go(51)" logger=vpp-wg-plugin
+time="2021-04-28 21:19:54.39151" level=warning msg="Failed to list Docker containers: Get \"http://unix.sock/containers/json?all=1\": dial unix /var/run/docker.sock: connect: no such file or directory" loc="descriptor/microservice.go(304)" logger=linux-nsplugin.ms-descriptor
+time="2021-04-28 21:19:54.39495" level=info msg="Found 42 registered models" loc="orchestrator/orchestrator.go(101)" logger=orchestrator
+time="2021-04-28 21:19:54.39534" level=info msg="Watching 40 key prefixes from KVScheduler" loc="orchestrator/orchestrator.go(108)" logger=dispatcher
+time="2021-04-28 21:19:54.39554" level=info msg="VPP Wg handler is not available, it will be skipped" loc="configurator/plugin.go(156)" logger=configurator
+time="2021-04-28 21:19:54.39567" level=info msg="Wireguard handler is not available, it will be skipped" loc="restapi/plugin_restapi.go(174)" logger=restpapi
+time="2021-04-28 21:19:54.39680" level=info msg="polling period changed to 30s" loc="telemetry/telemetry.go(112)" logger=telemetry
+time="2021-04-28 21:19:54.39746" level=info msg="Serving on http://0.0.0.0:9191" loc="rest/plugin_impl_rest.go(114)" logger=http
+time="2021-04-28 21:19:54.39762" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=govpp state=ok
+time="2021-04-28 21:19:54.39875" level=info msg="Listening GRPC on: 0.0.0.0:9113" loc="grpc/plugin_impl_grpc.go(152)" logger=grpc
+time="2021-04-28 21:19:54.40076" level=info msg="Starting health http-probe on port 9191" loc="probe/plugin_impl_probe.go(75)" logger=probe
+time="2021-04-28 21:19:54.40086" level=info msg="Unable to register prometheus-probe handler, Prometheus is nil" loc="probe/plugin_impl_probe.go(87)" logger=probe
+time="2021-04-28 21:19:54.40101" level=info msg="Serving /metrics on port 9191" loc="prometheus/plugin_impl_prometheus.go(88)" logger=prometheus
+time="2021-04-28 21:19:54.40250" level=warning msg="No registrations, skipping resync" loc="resync/plugin_impl_resync.go(98)" logger=resync
+time="2021-04-28 21:19:54.40257" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=VPPAgent state=ok
+time="2021-04-28 21:19:54.40264" level=info msg="Agent started with 40 plugins (took 783ms)" loc="agent/agent.go(179)" logger=agent
+time="2021-04-28T21:19:54Z" level=info msg="Resetting vppagent..."
+time="2021-04-28 21:19:54.42051" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: EOF\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
+INFO: 2021/04/28 21:19:54 parsed scheme: ""
+INFO: 2021/04/28 21:19:54 scheme "" not registered, fallback to default scheme
+INFO: 2021/04/28 21:19:54 ccResolverWrapper: sending update to cc: {[{localhost:9113  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:19:54 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:19:54 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:19:54 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:19:54 blockingPicker: the picked transport is not ready, loop back to repick
+INFO: 2021/04/28 21:19:54 Subchannel picks a new address "localhost:9113" to connect
+INFO: 2021/04/28 21:19:54 pickfirstBalancer: HandleSubConnStateChange: 0xc0005063f0, {CONNECTING <nil>}
+INFO: 2021/04/28 21:19:54 Channel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:19:54 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:19:54 pickfirstBalancer: HandleSubConnStateChange: 0xc0005063f0, {READY <nil>}
+INFO: 2021/04/28 21:19:54 Channel Connectivity change to READY
++======================================================================================================================+
+| #0 - NBTransaction                                                                                        FullResync |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 0
+      - type: NB Transaction, Full Resync
+      - values:
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations:
+      <NONE>
+x----------------------------------------------------------------------------------------------------------------------x
+| #0 - NBTransaction                                                                                       took 86.6ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-04-28 21:19:54.51433" level=info msg="Transaction #0 successful! (took 88.2ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
+INFO: 2021/04/28 21:19:54 Channel Connectivity change to SHUTDOWN
+INFO: 2021/04/28 21:19:54 Subchannel Connectivity change to SHUTDOWN
+INFO: 2021/04/28 21:19:54 parsed scheme: "unix"
+INFO: 2021/04/28 21:19:54 scheme "unix" not registered, fallback to default scheme
+INFO: 2021/04/28 21:19:54 ccResolverWrapper: sending update to cc: {[{unix:///run/spire/sockets/agent.sock  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:19:54 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:19:54 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:19:54 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:19:54 blockingPicker: the picked transport is not ready, loop back to repick
+INFO: 2021/04/28 21:19:54 Subchannel picks a new address "unix:///run/spire/sockets/agent.sock" to connect
+INFO: 2021/04/28 21:19:54 pickfirstBalancer: HandleSubConnStateChange: 0xc000151c50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:19:54 Channel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:19:54 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+time="2021-04-28T21:19:54Z" level=info msg="Finished resetting vppagent..."
+time="2021-04-28T21:19:54Z" level=info msg="nsmServerSocket: /var/lib/networkservicemesh/nsm.server.io.sock"
+time="2021-04-28T21:19:54Z" level=info msg="nsmClientSocket: /var/lib/networkservicemesh/nsm.client.io.sock"
+time="2021-04-28T21:19:54Z" level=info msg="workspace: /var/lib/networkservicemesh/"
+time="2021-04-28T21:19:54Z" level=info msg="Advertise Network Service Name: green"
+time="2021-04-28T21:19:54Z" level=info msg="CLIENT_NETWORK_SERVICE not found."
+time="2021-04-28T21:19:54Z" level=info msg="Advertise labels: app=vl3-nse-green"
+time="2021-04-28T21:19:54Z" level=info msg="CLIENT_LABELS not found."
+time="2021-04-28T21:19:54Z" level=info msg="NSC_INTERFACE_NAME not found."
+time="2021-04-28T21:19:54Z" level=info msg="MECHANISM_TYPE not found."
+time="2021-04-28T21:19:54Z" level=info msg="IP_ADDRESS not found."
+time="2021-04-28T21:19:54Z" level=info msg="POD_NAME not found."
+time="2021-04-28T21:19:54Z" level=info msg="NSM_NAMESPACE not found."
+time="2021-04-28T21:19:54Z" level=info msg="ROUTES not found."
+INFO: 2021/04/28 21:19:54 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:19:54 pickfirstBalancer: HandleSubConnStateChange: 0xc000151c50, {READY <nil>}
+INFO: 2021/04/28 21:19:54 Channel Connectivity change to READY
+INFO: 2021/04/28 21:19:54 parsed scheme: ""
+INFO: 2021/04/28 21:19:54 scheme "" not registered, fallback to default scheme
+INFO: 2021/04/28 21:19:54 ccResolverWrapper: sending update to cc: {[{green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:19:54 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:19:54 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:19:54 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:19:54 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:19:54 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:19:54 Channel Connectivity change to CONNECTING
+time="2021-04-28T21:19:54Z" level=info msg="GRPC connection will be secured."
+time="2021-04-28T21:19:54Z" level=info msg="Dialing connection to IPAM service: green.nispatil-wcm-cisco.com:443"
+time="2021-04-28T21:19:54Z" level=info msg="Issued certificate with id: spiffe://test.com/vl3-nse-green"
+WARNING: 2021/04/28 21:19:54 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host". Reconnecting...
+INFO: 2021/04/28 21:19:54 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:19:54 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host"}
+INFO: 2021/04/28 21:19:54 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:19:55 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:19:55 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:19:55 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:19:55 Channel Connectivity change to CONNECTING
+WARNING: 2021/04/28 21:19:55 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host". Reconnecting...
+INFO: 2021/04/28 21:19:55 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:19:55 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host"}
+INFO: 2021/04/28 21:19:55 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:19:57 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:19:57 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:19:57 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:19:57 Channel Connectivity change to CONNECTING
+WARNING: 2021/04/28 21:19:57 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host". Reconnecting...
+INFO: 2021/04/28 21:19:57 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:19:57 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host"}
+INFO: 2021/04/28 21:19:57 Channel Connectivity change to TRANSIENT_FAILURE
+time="2021-04-28 21:20:00.39202" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=vpp-ifplugin state=ok
+INFO: 2021/04/28 21:20:00 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:20:00 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:20:00 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:20:00 Channel Connectivity change to CONNECTING
+WARNING: 2021/04/28 21:20:00 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host". Reconnecting...
+INFO: 2021/04/28 21:20:00 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:00 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host"}
+INFO: 2021/04/28 21:20:00 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:05 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:20:05 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:20:05 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:20:05 Channel Connectivity change to CONNECTING
+WARNING: 2021/04/28 21:20:05 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host". Reconnecting...
+INFO: 2021/04/28 21:20:05 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:05 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host"}
+INFO: 2021/04/28 21:20:05 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:11 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:20:11 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:20:11 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:20:11 Channel Connectivity change to CONNECTING
+WARNING: 2021/04/28 21:20:11 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host". Reconnecting...
+INFO: 2021/04/28 21:20:11 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:11 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host"}
+INFO: 2021/04/28 21:20:11 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:22 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:20:22 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:20:22 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:20:22 Channel Connectivity change to CONNECTING
+WARNING: 2021/04/28 21:20:22 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host". Reconnecting...
+INFO: 2021/04/28 21:20:22 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:22 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp: lookup green.nispatil-wcm-cisco.com on 10.96.0.10:53: no such host"}
+INFO: 2021/04/28 21:20:22 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:37 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:20:37 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:20:37 Channel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:20:37 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+WARNING: 2021/04/28 21:20:37 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp 172.17.255.1:443: connect: connection refused". Reconnecting...
+INFO: 2021/04/28 21:20:37 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:20:37 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp 172.17.255.1:443: connect: connection refused"}
+INFO: 2021/04/28 21:20:37 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:21:07 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:21:07 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:21:07 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:21:07 Channel Connectivity change to CONNECTING
+WARNING: 2021/04/28 21:21:07 grpc: addrConn.createTransport failed to connect to {green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}. Err: connection error: desc = "transport: Error while dialing dial tcp 172.17.255.1:443: connect: connection refused". Reconnecting...
+INFO: 2021/04/28 21:21:07 Subchannel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:21:07 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {TRANSIENT_FAILURE connection error: desc = "transport: Error while dialing dial tcp 172.17.255.1:443: connect: connection refused"}
+INFO: 2021/04/28 21:21:07 Channel Connectivity change to TRANSIENT_FAILURE
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:21:52 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {CONNECTING <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to CONNECTING
+time="2021-04-28T21:21:52Z" level=info msg="Allocating subnet"
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc000158d50, {READY <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to READY
+time="2021-04-28T21:21:52Z" level=info msg="begin the ipam leased subnet renew process"
+time="2021-04-28T21:21:52Z" level=info msg="Obtained subnet from IPAM Service: 172.100.252.0/22"
+time="2021-04-28T21:21:52Z" level=info msg="Creating vL3 IPAM endpoint" nsConfig.IPAddress=172.100.252.0/22 prefixPool=172.100.252.0/22
+time="2021-04-28T21:21:52Z" level=info msg=vl3composite
+INFO: 2021/04/28 21:21:52 parsed scheme: ""
+INFO: 2021/04/28 21:21:52 scheme "" not registered, fallback to default scheme
+INFO: 2021/04/28 21:21:52 ccResolverWrapper: sending update to cc: {[{wcm-nsmgr.nsm-system:5000  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:21:52 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:21:52 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to CONNECTING
+time="2021-04-28T21:21:52Z" level=info msg="EndpointConnection - Serve starting..."
+INFO: 2021/04/28 21:21:52 Subchannel picks a new address "wcm-nsmgr.nsm-system:5000" to connect
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc0002e1af0, {CONNECTING <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc0002e1af0, {READY <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to READY
+time="2021-04-28T21:21:52Z" level=info msg="vl3composite socket operation ok... create networkDiscoveryClient"
+time="2021-04-28T21:21:52Z" level=info msg="Creating logger from config: &{nsm-client@vl3-nse-green-7c4bc88947-58hml false false [] 0xc0000a93e0 0xc00016bd50 <nil> <nil> <nil>}"
+2021/04/28 21:21:52 debug logging disabled
+2021/04/28 21:21:52 Initializing logging reporter
+2021/04/28 21:21:52 debug logging disabled
+INFO: 2021/04/28 21:21:52 parsed scheme: ""
+INFO: 2021/04/28 21:21:52 scheme "" not registered, fallback to default scheme
+INFO: 2021/04/28 21:21:52 ccResolverWrapper: sending update to cc: {[{/var/lib/networkservicemesh/nsm.server.io.sock  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:21:52 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:21:52 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:21:52 Subchannel picks a new address "/var/lib/networkservicemesh/nsm.server.io.sock" to connect
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc000158040, {CONNECTING <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc000158040, {READY <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to READY
+time="2021-04-28T21:21:52Z" level=info msg="nsm: connection to nsm server on socket: /var/lib/networkservicemesh/nsm.server.io.sock succeeded."
+time="2021-04-28T21:21:52Z" level=info msg="GRPC connection will be secured."
+INFO: 2021/04/28 21:21:52 parsed scheme: ""
+INFO: 2021/04/28 21:21:52 scheme "" not registered, fallback to default scheme
+INFO: 2021/04/28 21:21:52 ccResolverWrapper: sending update to cc: {[{green.nispatil-wcm-cisco.com:443  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:21:52 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:21:52 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to CONNECTING
+time="2021-04-28T21:21:52Z" level=info msg="service registry initialized"
+time="2021-04-28T21:21:52Z" level=debug msg="vl3composite returning"
+time="2021-04-28T21:21:52Z" level=info msg="Starting endpoints"
+INFO: 2021/04/28 21:21:52 parsed scheme: ""
+INFO: 2021/04/28 21:21:52 scheme "" not registered, fallback to default scheme
+INFO: 2021/04/28 21:21:52 Subchannel picks a new address "green.nispatil-wcm-cisco.com:443" to connect
+time="2021-04-28T21:21:52Z" level=debug msg="start processing workload jobs"
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc0000306f0, {CONNECTING <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:21:52 ccResolverWrapper: sending update to cc: {[{/var/lib/networkservicemesh/nsm.server.io.sock  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:21:52 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:21:52 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:21:52 Subchannel picks a new address "/var/lib/networkservicemesh/nsm.server.io.sock" to connect
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc0003a1140, {CONNECTING <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to CONNECTING
+time="2021-04-28T21:21:52Z" level=info msg="nsm: connection to nsm server on socket: /var/lib/networkservicemesh/nsm.server.io.sock succeeded."
+time="2021-04-28T21:21:52Z" level=warning msg="global opentracer is already initialized"
+time="2021-04-28T21:21:52Z" level=info msg="Creating logger from config: &{green@vl3-nse-green-7c4bc88947-58hml false false [] 0xc000563b60 0xc00019d260 <nil> <nil> <nil>}"
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc0003a1140, {READY <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to READY
+time="2021-04-28T21:21:52Z" level=info msg="==--> NewServer() span:21b6759b24debade:21b6759b24debade:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg="==----> GetCertificate() span:21b6759b24debade:57734b08cc9272c2:21b6759b24debade:1"
+time="2021-04-28T21:21:52Z" level=info msg="nse: listening socket /var/lib/networkservicemesh/nsm.client.io.sock"
+time="2021-04-28T21:21:52Z" level=info msg="==--> Endpoint-green-Start() span:14e3599568e18907:14e3599568e18907:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg=">><<-- labels={\"app\":\"vl3-nse-green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"} span=14e3599568e18907:14e3599568e18907:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg=">><<-- nse-request={\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_endpoint\":{\"payload\":\"IP\",\"network_service_name\":\"green\",\"labels\":{\"app\":\"vl3-nse-green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"}}} span=14e3599568e18907:14e3599568e18907:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg=">><<---- /registry.NetworkServiceRegistry/RegisterNSE()=\"\" span=14e3599568e18907:14e3599568e18907:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg=">><<---- request={\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_endpoint\":{\"payload\":\"IP\",\"network_service_name\":\"green\",\"labels\":{\"app\":\"vl3-nse-green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"}}} span=14e3599568e18907:14e3599568e18907:0000000000000000:1"
+2021/04/28 21:21:52 debug logging disabled
+2021/04/28 21:21:52 Initializing logging reporter
+2021/04/28 21:21:52 debug logging disabled
+2021/04/28 21:21:52 Reporting span 21b6759b24debade:57734b08cc9272c2:21b6759b24debade:1
+time="2021-04-28T21:21:52Z" level=info msg="GRPC.NewServer with open tracing enabled" operation=NewServer span="21b6759b24debade:21b6759b24debade:0000000000000000:1"
+2021/04/28 21:21:52 Reporting span 21b6759b24debade:21b6759b24debade:0000000000000000:1
+INFO: 2021/04/28 21:21:52 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:21:52 pickfirstBalancer: HandleSubConnStateChange: 0xc0000306f0, {READY <nil>}
+INFO: 2021/04/28 21:21:52 Channel Connectivity change to READY
+2021/04/28 21:21:52 Reporting span 14e3599568e18907:6917affe4042ec5d:14e3599568e18907:1
+time="2021-04-28T21:21:52Z" level=info msg="NSE registered: network_service:<name:\"green\" payload:\"IP\" > network_service_manager:<name:\"kind-2-control-plane\" url:\"10.244.0.12:5001\" state:\"RUNNING\" > network_service_endpoint:<name:\"green58phj\" payload:\"IP\" network_service_name:\"green\" network_service_manager_name:\"kind-2-control-plane\" labels:<key:\"app\" value:\"vl3-nse-green\" > labels:<key:\"networkservicename\" value:\"green\" > labels:<key:\"nsepod.name\" value:\"test_vl3-nse-green-7c4bc88947-58hml\" > labels:<key:\"wcm/nsr.addr\" value:\"green.nispatil-wcm-cisco.com\" > labels:<key:\"wcm/nsr.port\" value:\"443\" > state:\"RUNNING\" > " operation=Endpoint-green-Start span="14e3599568e18907:14e3599568e18907:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg="NSE: channel has been successfully advertised, waiting for connection from NSM..." operation=Endpoint-green-Start span="14e3599568e18907:14e3599568e18907:0000000000000000:1"
+2021/04/28 21:21:52 Reporting span 14e3599568e18907:14e3599568e18907:0000000000000000:1
+time="2021-04-28T21:21:52Z" level=info msg=">><<---- response={\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_manager\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"},\"network_service_endpoint\":{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}} span=14e3599568e18907:14e3599568e18907:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg=">><<-- endpoint-name=\"green58phj\" span=14e3599568e18907:14e3599568e18907:0000000000000000:1"
+time="2021-04-28T21:21:52Z" level=info msg="Started endpoint green58phj"
+time="2021-04-28T21:21:52Z" level=info msg="endpoint started"
+time="2021-04-28T21:21:52Z" level=info msg="EndpointConnectionMonitor using filter path_segments:<name:\"kind-2-control-plane\" > "
+time="2021-04-28T21:21:52Z" level=info msg="MonitorServerImpl.AddRecipient: EndpointConnection-&{0xc000158560 0xc0000c7a40}"
+time="2021-04-28T21:21:52Z" level=debug msg="Try to send message "
+time="2021-04-28T21:22:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:22:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:22:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:22:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:22:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:22:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:22:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:22:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:22:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:22:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:22:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:22:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:22:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:22:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:22:38Z" level=info msg=">><<-- GRPC->/networkservice.NetworkService/Request()=\"\" span=0915963bfb2c4a57:6b507d3f47810870:3378c2566b7d98c5:1"
+time="2021-04-28T21:22:38Z" level=info msg=">><<-- request={\"connection\":{\"id\":\"2\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=0915963bfb2c4a57:6b507d3f47810870:3378c2566b7d98c5:1"
+time="2021-04-28T21:22:38Z" level=info msg="==--> Endpoint.Request() span:0915963bfb2c4a57:1c04bb48026c5744:6b507d3f47810870:1"
+time="2021-04-28T21:22:38Z" level=info msg=">><<-- request={\"connection\":{\"id\":\"2\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=0915963bfb2c4a57:1c04bb48026c5744:6b507d3f47810870:1"
+time="2021-04-28T21:22:38Z" level=info msg="Request for Network Service received connection:<id:\"2\" network_service:\"green\" context:<ip_context:<src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"greendhpdv\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > mechanism_preferences:<type:\"MEMIF\" > mechanism_preferences:<type:\"KERNEL_INTERFACE\" > " operation=Endpoint.Request span="0915963bfb2c4a57:1c04bb48026c5744:6b507d3f47810870:1"
+time="2021-04-28T21:22:38Z" level=info msg="==--> *MonitorEndpoint.Request() span:0915963bfb2c4a57:72473289cdec08ad:6b507d3f47810870:1"
+time="2021-04-28T21:22:38Z" level=info msg=">><<-- request={\"connection\":{\"id\":\"2\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=0915963bfb2c4a57:72473289cdec08ad:6b507d3f47810870:1"
+time="2021-04-28T21:22:38Z" level=info msg="==----> *ConnectionEndpoint.Request() span:0915963bfb2c4a57:7940cf1ea5049b99:72473289cdec08ad:1"
+time="2021-04-28T21:22:38Z" level=info msg=">><<---- request={\"connection\":{\"id\":\"2\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=0915963bfb2c4a57:7940cf1ea5049b99:72473289cdec08ad:1"
+time="2021-04-28T21:22:38Z" level=info msg="==------> *IpamEndpoint.Request() span:0915963bfb2c4a57:2130ea2b3ee772b1:7940cf1ea5049b99:1"
+time="2021-04-28T21:22:38Z" level=info msg=">><<------ request={\"connection\":{\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=0915963bfb2c4a57:2130ea2b3ee772b1:7940cf1ea5049b99:1"
+time="2021-04-28T21:22:39Z" level=info msg="==--------> *vL3ConnectComposite.Request() span:0915963bfb2c4a57:5db22a39889fd2c5:2130ea2b3ee772b1:1"
+time="2021-04-28T21:22:39Z" level=info msg="vL3ConnectComposite Request handler" endpointName= networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:22:39Z" level=warning msg="vL3 workload params not in labels: [cluster name not found on labels serviceName not found on labels ports not found on labels pod name not found on labels], not going to register the workload because it is a peer NSE"
+time="2021-04-28T21:22:39Z" level=info msg="vL3ConnectComposite request done"
+time="2021-04-28T21:22:39Z" level=info msg=">><<-------- request={\"connection\":{\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=0915963bfb2c4a57:5db22a39889fd2c5:2130ea2b3ee772b1:1"
+time="2021-04-28T21:22:39Z" level=info msg="vL3ConnectComposite received connection request from vL3 NSE greendhpdv"
+time="2021-04-28T21:22:39Z" level=info msg="vL3ConnectComposite vl3 NSE peer greendhpdv added" endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane new_state=4 prior_state=0
+time="2021-04-28T21:22:39Z" level=info msg="==----------> *UniversalCNFEndpoint.Request() span:0915963bfb2c4a57:070e9501c2137b03:5db22a39889fd2c5:1"
+time="2021-04-28T21:22:39Z" level=info msg=">><<---------- request={\"connection\":{\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=0915963bfb2c4a57:070e9501c2137b03:5db22a39889fd2c5:1"
+time="2021-04-28T21:22:39Z" level=info msg="Setting ifName with vL3 peer name: greendhpdv"
+time="2021-04-28T21:22:39Z" level=warning msg="Start continous ping, IP address: 172.100.252.1"
+time="2021-04-28T21:22:39Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+time="2021-04-28T21:22:39Z" level=info msg="starting continous ping IP 172.100.252.1"
+INFO: 2021/04/28 21:22:39 parsed scheme: ""
+INFO: 2021/04/28 21:22:39 scheme "" not registered, fallback to default scheme
+INFO: 2021/04/28 21:22:39 ccResolverWrapper: sending update to cc: {[{localhost:9113  <nil> 0 <nil>}] <nil> <nil>}
+INFO: 2021/04/28 21:22:39 ClientConn switching balancer to "pick_first"
+INFO: 2021/04/28 21:22:39 Channel switches to new LB policy "pick_first"
+INFO: 2021/04/28 21:22:39 Subchannel Connectivity change to CONNECTING
+INFO: 2021/04/28 21:22:39 pickfirstBalancer: HandleSubConnStateChange: 0xc00070c210, {CONNECTING <nil>}
+INFO: 2021/04/28 21:22:39 Channel Connectivity change to CONNECTING
+time="2021-04-28 21:22:39.00194" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: EOF\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
+INFO: 2021/04/28 21:22:39 Subchannel picks a new address "localhost:9113" to connect
+INFO: 2021/04/28 21:22:39 Subchannel Connectivity change to READY
+INFO: 2021/04/28 21:22:39 pickfirstBalancer: HandleSubConnStateChange: 0xc00070c210, {READY <nil>}
+INFO: 2021/04/28 21:22:39 Channel Connectivity change to READY
+time="2021-04-28T21:22:39Z" level=info msg="Sending DataChange to vppagent for updating desired config: vpp_config:{interfaces:{name:\"greendhpdv\"  type:MEMIF  enabled:true  ip_addresses:\"172.100.252.2/30\"  rx_modes:{mode:INTERRUPT  default_mode:true}  memif:{master:true  socket_filename:\"/var/lib/networkservicemesh/nsmz4nowalc2/memif.sock\"  ring_size:512}}  routes:{type:INTER_VRF  dst_network:\"172.100.248.0/22\"  next_hop_addr:\"172.100.252.1\"}}"
++======================================================================================================================+
+| #1 - NBTransaction                                                                                                   |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 1
+      - type: NB Transaction
+      - values:
+          - key: config/vpp/v2/interfaces/greendhpdv
+            val: { name:"greendhpdv" type:MEMIF enabled:true ip_addresses:"172.100.252.2/30" rx_modes:{mode:INTERRUPT default_mode:true} memif:{master:true socket_filename:"/var/lib/networkservicemesh/nsmz4nowalc2/memif.sock" ring_size:512} }
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.248.0/22/gw/172.100.252.1
+            val: { type:INTER_VRF dst_network:"172.100.248.0/22" next_hop_addr:"172.100.252.1" }
+
+/usr/bin/vpp[15]: memif_plugin: clib_file_add fd 13 private_data 1 idx 5
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-04-28 21:22:39.004 +0000 UTC -> 2021-04-28 21:22:39.012 +0000 UTC, dur: 8ms):
+      1. CREATE:
+          - key: config/vpp/v2/interfaces/greendhpdv
+          - value: { name:"greendhpdv" type:MEMIF enabled:true ip_addresses:"172.100.252.2/30" rx_modes:{mode:INTERRUPT default_mode:true} memif:{master:true socket_filename:"/var/lib/networkservicemesh/nsmz4nowalc2/memif.sock" ring_size:512} } 
+      2. CREATE [DERIVED NOOP IS-PENDING]:
+          - key: vpp/interface/greendhpdv/rx-modes
+          - value: { name:"greendhpdv" type:MEMIF rx_modes:{mode:INTERRUPT default_mode:true} } 
+      3. CREATE [DERIVED]:
+          - key: vpp/interface/greendhpdv/vrf/0/ip-version/v4
+          - value: <EMPTY> 
+      4. CREATE [DERIVED]:
+          - key: vpp/interface/greendhpdv/address/static/172.100.252.2/30
+          - value: <EMPTY> 
+      5. CREATE [DERIVED]:
+          - key: vpp/interface/greendhpdv/has-IP-address
+          - value: <EMPTY> 
+      6. CREATE:
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.248.0/22/gw/172.100.252.1
+          - value: { type:INTER_VRF dst_network:"172.100.248.0/22" next_hop_addr:"172.100.252.1" } 
+x----------------------------------------------------------------------------------------------------------------------x
+| #1 - NBTransaction                                                                                        took 8.4ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
++======================================================================================================================+
+| #2 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 2
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/greendhpdv/link-state/DOWN
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-04-28 21:22:39.012 +0000 UTC -> 2021-04-28 21:22:39.013 +0000 UTC, dur: 0s):
+      1. CREATE [OBTAINED]:
+          - key: vpp/interface/greendhpdv/link-state/DOWN
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #2 - SBNotification                                                                                       took 100µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-04-28 21:22:39.01259" level=info msg="Transaction 2 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+time="2021-04-28 21:22:39.01270" level=info msg="Transaction #1 successful! (took 9ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
+2021/04/28 21:22:39 Reporting span 3e3042d793b3559f:3e3042d793b3559f:0000000000000000:1
+INFO: 2021/04/28 21:22:39 Channel Connectivity change to SHUTDOWN
+INFO: 2021/04/28 21:22:39 Subchannel Connectivity change to SHUTDOWN
+time="2021-04-28T21:22:39Z" level=info msg=">><<---------- response={\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=0915963bfb2c4a57:070e9501c2137b03:5db22a39889fd2c5:1"
+time="2021-04-28T21:22:39Z" level=info msg=">><<-------- response={\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=0915963bfb2c4a57:5db22a39889fd2c5:2130ea2b3ee772b1:1"
+time="2021-04-28T21:22:39Z" level=info msg=">><<------ response={\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=0915963bfb2c4a57:2130ea2b3ee772b1:7940cf1ea5049b99:1"
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:070e9501c2137b03:5db22a39889fd2c5:1
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:5db22a39889fd2c5:2130ea2b3ee772b1:1
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:2130ea2b3ee772b1:7940cf1ea5049b99:1
+INFO: 2021/04/28 21:22:39 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+time="2021-04-28T21:22:39Z" level=info msg=">><<---- response={\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=0915963bfb2c4a57:7940cf1ea5049b99:72473289cdec08ad:1"
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:7940cf1ea5049b99:72473289cdec08ad:1
+time="2021-04-28T21:22:39Z" level=info msg="Monitor UpdateConnection: id:\"2\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsmz4nowalc2\" > parameters:<key:\"netnsInode\" value:\"4026536578\" > parameters:<key:\"socketfile\" value:\"nsmz4nowalc2/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.252.1/30\" dst_ip_addr:\"172.100.252.2/30\" src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > dst_routes:<prefix:\"172.100.252.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"ucnf/peerName\" value:\"greendhpdv\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"greendhpdv\" > path:<path_segments:<name:\"kind-2-control-plane\" > > " operation="*MonitorEndpoint.Request" span="0915963bfb2c4a57:72473289cdec08ad:6b507d3f47810870:1"
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:72473289cdec08ad:6b507d3f47810870:1
+time="2021-04-28T21:22:39Z" level=info msg=">><<-- response={\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=0915963bfb2c4a57:72473289cdec08ad:6b507d3f47810870:1"
+time="2021-04-28T21:22:39Z" level=info msg="EndpointConnection-New event: &{{UPDATE map[2:0xc000303200] 0xc000558330}}"
+time="2021-04-28T21:22:39Z" level=info msg="==----> EndpointConnection-send-update() span:0915963bfb2c4a57:0d8968cb20f06cb4:72473289cdec08ad:1"
+time="2021-04-28T21:22:39Z" level=info msg=">><<---- eventType=\"UPDATE\" span=0915963bfb2c4a57:0d8968cb20f06cb4:72473289cdec08ad:1"
+time="2021-04-28T21:22:39Z" level=info msg="Monitor UpdateConnection: id:\"2\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsmz4nowalc2\" > parameters:<key:\"netnsInode\" value:\"4026536578\" > parameters:<key:\"socketfile\" value:\"nsmz4nowalc2/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.252.1/30\" dst_ip_addr:\"172.100.252.2/30\" src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > dst_routes:<prefix:\"172.100.252.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"ucnf/peerName\" value:\"greendhpdv\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"greendhpdv\" > path:<path_segments:<name:\"kind-2-control-plane\" > > "
+time="2021-04-28T21:22:39Z" level=info msg="Responding to NetworkService.Request(connection:<id:\"2\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsmz4nowalc2\" > parameters:<key:\"netnsInode\" value:\"4026536578\" > parameters:<key:\"socketfile\" value:\"nsmz4nowalc2/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.252.1/30\" dst_ip_addr:\"172.100.252.2/30\" src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > dst_routes:<prefix:\"172.100.252.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"ucnf/peerName\" value:\"greendhpdv\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"greendhpdv\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > mechanism_preferences:<type:\"MEMIF\" > mechanism_preferences:<type:\"KERNEL_INTERFACE\" > ): id:\"2\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsmz4nowalc2\" > parameters:<key:\"netnsInode\" value:\"4026536578\" > parameters:<key:\"socketfile\" value:\"nsmz4nowalc2/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.252.1/30\" dst_ip_addr:\"172.100.252.2/30\" src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > dst_routes:<prefix:\"172.100.252.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"ucnf/peerName\" value:\"greendhpdv\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"greendhpdv\" > path:<path_segments:<name:\"kind-2-control-plane\" > > " operation=Endpoint.Request span="0915963bfb2c4a57:1c04bb48026c5744:6b507d3f47810870:1"
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:0d8968cb20f06cb4:72473289cdec08ad:1
+time="2021-04-28T21:22:39Z" level=info msg=">><<---- msg={\"type\":1,\"connections\":{\"2\":{\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}}}} span=0915963bfb2c4a57:0d8968cb20f06cb4:72473289cdec08ad:1"
+time="2021-04-28T21:22:39Z" level=info msg=">><<-- response={\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=0915963bfb2c4a57:1c04bb48026c5744:6b507d3f47810870:1"
+time="2021-04-28T21:22:39Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"2\" value:<id:\"2\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsmz4nowalc2\" > parameters:<key:\"netnsInode\" value:\"4026536578\" > parameters:<key:\"socketfile\" value:\"nsmz4nowalc2/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.252.1/30\" dst_ip_addr:\"172.100.252.2/30\" src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > dst_routes:<prefix:\"172.100.252.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"ucnf/peerName\" value:\"greendhpdv\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"greendhpdv\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+time="2021-04-28T21:22:39Z" level=info msg=">><<-- response={\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=0915963bfb2c4a57:6b507d3f47810870:3378c2566b7d98c5:1"
+time="2021-04-28T21:22:39Z" level=info msg="EndpointConnection-New event: &{{UPDATE map[2:0xc000303200] 0xc00003fe30}}"
+time="2021-04-28T21:22:39Z" level=info msg="==--> EndpointConnection-send-update() span:0915963bfb2c4a57:2c00f7f40ee757f6:6b507d3f47810870:1"
+time="2021-04-28T21:22:39Z" level=info msg=">><<-- eventType=\"UPDATE\" span=0915963bfb2c4a57:2c00f7f40ee757f6:6b507d3f47810870:1"
+time="2021-04-28T21:22:39Z" level=info msg=">><<-- msg={\"type\":1,\"connections\":{\"2\":{\"id\":\"2\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsmz4nowalc2\",\"netnsInode\":\"4026536578\",\"socketfile\":\"nsmz4nowalc2/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"ucnf/peerName\":\"greendhpdv\",\"vl3Nse/nseSource/endpointName\":\"greendhpdv\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}}}} span=0915963bfb2c4a57:2c00f7f40ee757f6:6b507d3f47810870:1"
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:1c04bb48026c5744:6b507d3f47810870:1
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:6b507d3f47810870:3378c2566b7d98c5:1
+2021/04/28 21:22:39 Reporting span 0915963bfb2c4a57:2c00f7f40ee757f6:6b507d3f47810870:1
+time="2021-04-28T21:22:39Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"2\" value:<id:\"2\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsmz4nowalc2\" > parameters:<key:\"netnsInode\" value:\"4026536578\" > parameters:<key:\"socketfile\" value:\"nsmz4nowalc2/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.252.1/30\" dst_ip_addr:\"172.100.252.2/30\" src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > dst_routes:<prefix:\"172.100.252.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"ucnf/peerName\" value:\"greendhpdv\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"greendhpdv\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+INFO: 2021/04/28 21:22:39 transport: loopyWriter.run returning. connection error: desc = "transport is closing"
+/usr/bin/vpp[15]: memif_plugin: clib_file_add fd 14 private_data 1 idx 6
+/usr/bin/vpp[15]: memif_plugin: clib_file_add fd 17 private_data 0 idx 7
++======================================================================================================================+
+| #3 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 3
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/greendhpdv/link-state/DOWN
+            val: <NIL>
+          - key: vpp/interface/greendhpdv/link-state/UP
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-04-28 21:22:42.084 +0000 UTC -> 2021-04-28 21:22:42.085 +0000 UTC, dur: 1ms):
+      1. DELETE [WAS-OBTAINED]:
+          - key: vpp/interface/greendhpdv/link-state/DOWN
+          - value: <EMPTY> 
+      2. CREATE [OBTAINED]:
+          - key: vpp/interface/greendhpdv/link-state/UP
+          - value: <EMPTY> 
+      3. CREATE [DERIVED WAS-PENDING]:
+          - key: vpp/interface/greendhpdv/rx-modes
+          - value: { name:"greendhpdv" type:MEMIF rx_modes:{mode:INTERRUPT default_mode:true} } 
+x----------------------------------------------------------------------------------------------------------------------x
+| #3 - SBNotification                                                                                       took 1.2ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-04-28 21:22:42.08566" level=info msg="Transaction 3 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+time="2021-04-28T21:22:44Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:22:47Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=6.4761 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.2077 ms\r\n\r\nStatistics: 3 sent, 2 received, 33% packet loss\r\n"
+time="2021-04-28T21:22:47Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:22:52Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:22:52Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:22:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:22:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:22:52Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:22:52Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:22:52Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:22:52Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:22:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:22:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:22:52Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:22:52Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:22:52Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:22:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:22:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:22:55Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2518 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.3861 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.3273 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:22:55Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:00Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:03Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.3223 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.4754 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.4118 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:03Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:08Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:11Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2245 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.2706 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.4023 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:11Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:16Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:19Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=3.3873 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.3038 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.3458 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:19Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:23:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:23:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:23:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:23:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:23:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:23:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:23:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:23:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:23:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:23:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:23:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:23:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:23:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:23:24Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:27Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2659 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.2551 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=3.3526 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:27Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:32Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:35Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2378 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.2438 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.2589 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:35Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:40Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:43Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2341 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.4299 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.3766 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:43Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:48Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:51Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.1937 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.2752 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=3.7600 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:51Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:23:52Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:23:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:23:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:23:52Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:23:52Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:23:52Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:23:52Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:23:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:23:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:23:52Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:23:52Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:23:52Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:23:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:23:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:23:56Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:23:59Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2339 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.2328 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.6050 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:23:59Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:24:04Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:24:07Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2607 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.2855 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.4416 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:24:07Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:24:12Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:24:15Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2518 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=3.3213 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.2771 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:24:15Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:24:20Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:24:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:24:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:24:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:24:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:24:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:24:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:24:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:24:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:24:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:24:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:24:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:24:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:24:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:24:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:24:23Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2425 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.4990 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.2322 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:24:23Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:24:28Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:24:31Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.3349 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.1958 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.4246 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:24:31Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:24:36Z" level=debug msg="running VPP PING for IP: 172.100.252.1"
+time="2021-04-28T21:24:39Z" level=debug msg="VPP PING output: Source address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=1 ttl=64 time=2.2633 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=2 ttl=64 time=2.3118 ms\r\nSource address: 172.100.252.2 \r\n116 bytes from 172.100.252.1: icmp_seq=3 ttl=64 time=2.4409 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-04-28T21:24:39Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n    170.6005              172.100.252.1                D    02:fe:0a:ea:ad:05 memif1/0\r\n"
+time="2021-04-28T21:24:52Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:24:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:24:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:24:52Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:24:52Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:24:52Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:24:52Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:24:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:24:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:24:52Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:24:52Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:24:52Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:24:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:24:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:25:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:25:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:25:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:25:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:25:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:25:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:25:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:25:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:25:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:25:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:25:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:25:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:25:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:25:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:25:52Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:25:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:25:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:25:52Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:25:52Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:25:52Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:25:52Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:25:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:25:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:25:52Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:25:52Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:25:52Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:25:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:25:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:26:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:26:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:26:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:26:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:26:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:26:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:26:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:26:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:26:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:26:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:26:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:26:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:26:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:26:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:26:52Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:26:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:26:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:26:52Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:26:52Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:26:52Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:26:52Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:26:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:26:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:26:52Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:26:52Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:26:52Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:26:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:26:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:27:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:27:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:27:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:27:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:27:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:27:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:27:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:27:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:27:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:27:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:27:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:27:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:27:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:27:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:27:52Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:27:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:27:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:27:52Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:27:52Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:27:52Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:27:52Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:27:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:27:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:27:52Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:27:52Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:27:52Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:27:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:27:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:28:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:28:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:28:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:28:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:28:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:28:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:28:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:28:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:28:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:28:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:28:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:28:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:28:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:28:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:28:52Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:28:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:28:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:28:52Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:28:52Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:28:52Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:28:52Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:28:52Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:28:52Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:28:52Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:28:52Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:28:52Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:28:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:28:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:29:22Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:29:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:29:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:29:22Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:29:22Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:29:22Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:29:22Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:29:22Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:29:22Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:29:22Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:29:22Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:29:22Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:29:22Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:29:22Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:29:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:29:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:29:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:29:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:29:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:29:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:29:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:29:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:29:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:29:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:29:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:29:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:29:52Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:29:52Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:30:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:30:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:30:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:30:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:30:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:30:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:30:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:30:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:30:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:30:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:30:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:30:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:30:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:30:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:30:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:30:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:30:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:30:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:30:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:30:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:30:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:30:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:30:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:30:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:30:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:30:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:30:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:30:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:31:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:31:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:31:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:31:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:31:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:31:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:31:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:31:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:31:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:31:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:31:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:31:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:31:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:31:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:31:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:31:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:31:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:31:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:31:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:31:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:31:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:31:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:31:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:31:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:31:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:31:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:31:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:31:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:32:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:32:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:32:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:32:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:32:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:32:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:32:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:32:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:32:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:32:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:32:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:32:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:32:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:32:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:32:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:32:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:32:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:32:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:32:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:32:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:32:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:32:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:32:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:32:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:32:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:32:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:32:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:32:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:33:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:33:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:33:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:33:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:33:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:33:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:33:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:33:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:33:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:33:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:33:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:33:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:33:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:33:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:33:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:33:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:33:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:33:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:33:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:33:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:33:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:33:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:33:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:33:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:33:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:33:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:33:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:33:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:34:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:34:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:34:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:34:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:34:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:34:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:34:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:34:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:34:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:34:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:34:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:34:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:34:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:34:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:34:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:34:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:34:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:34:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:34:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:34:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:34:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:34:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:34:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:34:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:34:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:34:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:34:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:34:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:35:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:35:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:35:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:35:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:35:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:35:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:35:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:35:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:35:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:35:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:35:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:35:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:35:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:35:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:35:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:35:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:35:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:35:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:35:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:35:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:35:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:35:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:35:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:35:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:35:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:35:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:35:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:35:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:36:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:36:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:36:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:36:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:36:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:36:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:36:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:36:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:36:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:36:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:36:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:36:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:36:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:36:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:36:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:36:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:36:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:36:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:36:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:36:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:36:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:36:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:36:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:36:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:36:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:36:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:36:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:36:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:37:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:37:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:37:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:37:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:37:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:37:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:37:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:37:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:37:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:37:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:37:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:37:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:37:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:37:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:37:51Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:37:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:37:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:37:51Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:37:51Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:37:51Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:37:51Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:37:51Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:37:51Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:37:51Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:37:51Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:37:51Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:37:51Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:37:51Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+time="2021-04-28T21:38:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-04-28T21:38:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:38:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-04-28T21:38:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.12:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green58phj\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-58hml\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greendhpdv\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"test_vl3-nse-green-7c4bc88947-kcg9f\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-04-28T21:38:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-04-28T21:38:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-04-28T21:38:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-04-28T21:38:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-04-28T21:38:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-04-28T21:38:21Z" level=info msg="Found my vL3 service green instance endpoint name: green58phj"
+time="2021-04-28T21:38:21Z" level=info msg="Found vL3 service green peer greendhpdv"
+time="2021-04-28T21:38:21Z" level=info msg="This nse is the lesser of the nse pair. My nseName green58phj peer nseName: greendhpdv.\nThe greater peer will perform connection to this peer." endpointName=greendhpdv networkServiceManagerName=kind-2-control-plane
+time="2021-04-28T21:38:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-04-28T21:38:21Z" level=error msg="failed to find network service green@green.nispatil-wcm-cisco.com: rpc error: code = Unimplemented desc = unknown service registry.NetworkServiceDiscovery"
+==== END logs for container vl3-nse-green of pod wcm-system/vl3-nse-green-7c4bc88947-58hml ====

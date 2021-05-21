@@ -1,0 +1,115 @@
+Name:         peerauthentications.security.istio.io
+Namespace:    
+Labels:       app=istio-pilot
+              chart=istio
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio=security
+              istio.io/rev=default
+              operator.istio.io/component=Base
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+              release=istio
+Annotations:  helm.sh/resource-policy: keep
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-05-07T23:13:09Z
+  Generation:          1
+  Resource Version:    1665
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/peerauthentications.security.istio.io
+  UID:                 1499bed5-b5f7-4d0e-9caf-19d1b33d3d2f
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       security.istio.io
+  Names:
+    Categories:
+      istio-io
+      security-istio-io
+    Kind:       PeerAuthentication
+    List Kind:  PeerAuthenticationList
+    Plural:     peerauthentications
+    Short Names:
+      pa
+    Singular:  peerauthentication
+  Scope:       Namespaced
+  Versions:
+    Name:  v1beta1
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Description:  PeerAuthentication defines how traffic will be tunneled (or not) to the sidecar.
+            Properties:
+              Mtls:
+                Description:  Mutual TLS settings for workload.
+                Properties:
+                  Mode:
+                    Description:  Defines the mTLS mode used for peer authentication.
+                    Enum:
+                      UNSET
+                      DISABLE
+                      PERMISSIVE
+                      STRICT
+                    Type:  string
+                Type:      object
+              Port Level Mtls:
+                Additional Properties:
+                  Properties:
+                    Mode:
+                      Description:  Defines the mTLS mode used for peer authentication.
+                      Enum:
+                        UNSET
+                        DISABLE
+                        PERMISSIVE
+                        STRICT
+                      Type:   string
+                  Type:       object
+                Description:  Port specific mutual TLS settings.
+                Type:         object
+              Selector:
+                Description:  The selector determines the workloads to apply the ChannelAuthentication on.
+                Properties:
+                  Match Labels:
+                    Additional Properties:
+                      Format:  string
+                      Type:    string
+                    Type:      object
+                Type:          object
+            Type:              object
+          Status:
+            Type:                                          object
+            X - Kubernetes - Preserve - Unknown - Fields:  true
+        Type:                                              object
+    Served:                                                true
+    Storage:                                               true
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Categories:
+      istio-io
+      security-istio-io
+    Kind:       PeerAuthentication
+    List Kind:  PeerAuthenticationList
+    Plural:     peerauthentications
+    Short Names:
+      pa
+    Singular:  peerauthentication
+  Conditions:
+    Last Transition Time:  2021-05-07T23:13:09Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-05-07T23:13:09Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1beta1
+Events:  <none>
+

@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"helloworld-red","nsm/role":"client"},"name":"helloworld-red","namespace":"default"},"spec":{"ports":[{"name":"http","port":5000}],"selector":{"app":"helloworld-red"}}}
+    creationTimestamp: "2021-05-12T16:13:00Z"
+    labels:
+      app: helloworld-red
+      nsm/role: client
+    name: helloworld-red
+    namespace: default
+    resourceVersion: "10586"
+    selfLink: /api/v1/namespaces/default/services/helloworld-red
+    uid: 799a75ea-47e4-4372-945b-b02f3952cf2c
+  spec:
+    clusterIP: 10.102.255.7
+    ports:
+    - name: http
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+    selector:
+      app: helloworld-red
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-05-12T15:23:11Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "148"
+    selfLink: /api/v1/namespaces/default/services/kubernetes
+    uid: 12e99ac0-1337-4242-bccd-71bea382fdda
+  spec:
+    clusterIP: 10.96.0.1
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "12602"
+  selfLink: /api/v1/namespaces/default/services

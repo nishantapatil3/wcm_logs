@@ -1,0 +1,70 @@
+Name:         green-wcmd-56f648f664-66x77
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 12 May 2021 06:36:46 +0000
+Labels:       app=wcmd-green
+              connectivitydomain=green
+              pod-template-hash=56f648f664
+Annotations:  sidecar.jaegertracing.io/inject: true
+Status:       Running
+IP:           10.244.0.22
+IPs:
+  IP:           10.244.0.22
+Controlled By:  ReplicaSet/green-wcmd-56f648f664
+Containers:
+  green-wcmd:
+    Container ID:   containerd://a51292c9a4861a97791c55adea25f4fac1208069534ab11efdea0982fd4cdf90
+    Image:          public.ecr.aws/ciscoeti/appn/wcmd:latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/wcmd@sha256:11046c1a4d8d9754a4bf4baa776bf19b9ec582f4390ec4d6898a6fb388796ba5
+    Ports:          50061/TCP, 50051/TCP, 8080/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Wed, 12 May 2021 06:36:47 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:8080/probe/alive delay=10s timeout=1s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:8080/probe/ready delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      POD_UID:                     (v1:metadata.uid)
+      JAEGER_SERVICE_NAME:        wcmd.service.server
+      JAEGER_AGENT_HOST:          localhost
+      JAEGER_AGENT_PORT:          6831
+      JAEGER_REPORTER_LOG_SPANS:  true
+      INSECURE:                   false
+      CONNECTIVITY_DOMAIN_NAME:   green
+    Mounts:
+      /etc/wcmd-server-config/config.yaml from green-wcmd-config-map (rw,path="./config.yaml")
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from green-wcmd-service-account-token-schz7 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  green-wcmd-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      green-wcmd-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  green-wcmd-service-account-token-schz7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-wcmd-service-account-token-schz7
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  5m55s  default-scheduler  Successfully assigned wcm-system/green-wcmd-56f648f664-66x77 to kind-1-control-plane
+  Normal  Pulled     5m55s  kubelet            Container image "public.ecr.aws/ciscoeti/appn/wcmd:latest" already present on machine
+  Normal  Created    5m55s  kubelet            Created container green-wcmd
+  Normal  Started    5m54s  kubelet            Started container green-wcmd
+

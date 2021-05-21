@@ -1,0 +1,236 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-10T23:12:24Z"
+    labels:
+      app: wcm-nsr-green
+      connectivitydomain: green
+    name: green
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: green
+      uid: ca197542-aa50-4157-a18e-0ce37ee5677d
+    resourceVersion: "2727"
+    selfLink: /api/v1/namespaces/wcm-system/services/green
+    uid: 0ef1c9c9-fea1-412d-8cfd-ac7accbad74b
+  spec:
+    clusterIP: 10.111.82.25
+    ports:
+    - name: grpc-nsr
+      port: 31505
+      protocol: TCP
+      targetPort: 31505
+    selector:
+      app: wcm-nsr-green
+      connectivitydomain: green
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-05-10T23:12:26Z"
+    labels:
+      app: cd-info-green
+      connectivitydomain: green
+    name: green-cd-info
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: green
+      uid: ca197542-aa50-4157-a18e-0ce37ee5677d
+    resourceVersion: "2789"
+    selfLink: /api/v1/namespaces/wcm-system/services/green-cd-info
+    uid: a1663d98-b6a2-4b2c-87d7-121565e91b20
+  spec:
+    clusterIP: 10.109.207.234
+    ports:
+    - name: info-http
+      port: 50071
+      protocol: TCP
+      targetPort: 50071
+    selector:
+      app: cd-info-green
+      connectivitydomain: green
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-05-10T23:12:25Z"
+    labels:
+      app: wcmd-green
+      connectivitydomain: green
+    name: green-wcmd
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: green
+      uid: ca197542-aa50-4157-a18e-0ce37ee5677d
+    resourceVersion: "2758"
+    selfLink: /api/v1/namespaces/wcm-system/services/green-wcmd
+    uid: 4c4afc2f-2e13-4d5d-b0b3-e430a208332f
+  spec:
+    clusterIP: 10.98.202.28
+    ports:
+    - name: grpc-registry
+      port: 50061
+      protocol: TCP
+      targetPort: 50061
+    - name: grpc-allocator
+      port: 50051
+      protocol: TCP
+      targetPort: 50051
+    - name: monitoring
+      port: 2112
+      protocol: TCP
+      targetPort: 2112
+    selector:
+      app: wcmd-green
+      connectivitydomain: green
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    annotations:
+      meta.helm.sh/release-name: coredns-release
+      meta.helm.sh/release-namespace: wcm-system
+      prometheus.io/port: "9153"
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2021-05-10T23:07:19Z"
+    labels:
+      app: coredns
+      app.kubernetes.io/managed-by: Helm
+      chart: coredns-1.2.4
+      heritage: Tiller
+      release: my-coredns
+    name: my-coredns-coredns
+    namespace: wcm-system
+    resourceVersion: "1162"
+    selfLink: /api/v1/namespaces/wcm-system/services/my-coredns-coredns
+    uid: 7396f3bd-1bea-436a-8dad-802650eef9f8
+  spec:
+    clusterIP: 10.100.100.200
+    externalTrafficPolicy: Cluster
+    ports:
+    - nodePort: 32053
+      port: 53
+      protocol: UDP
+      targetPort: 53
+    selector:
+      app: coredns
+      release: my-coredns
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- metadata:
+    annotations:
+      service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+    creationTimestamp: "2021-05-10T23:05:46Z"
+    labels:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+    name: wcm-etcd-cluster
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: etcd.database.coreos.com/v1beta2
+      controller: true
+      kind: EtcdCluster
+      name: wcm-etcd-cluster
+      uid: 95e5ff04-6ee0-4b18-aeb5-004fdb97d2fa
+    resourceVersion: "789"
+    selfLink: /api/v1/namespaces/wcm-system/services/wcm-etcd-cluster
+    uid: bd86ccd4-22ba-4b38-8aa3-fd9e3d95439e
+  spec:
+    clusterIP: None
+    ports:
+    - name: client
+      port: 2379
+      protocol: TCP
+      targetPort: 2379
+    - name: peer
+      port: 2380
+      protocol: TCP
+      targetPort: 2380
+    selector:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    annotations:
+      service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+    creationTimestamp: "2021-05-10T23:05:46Z"
+    labels:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+    name: wcm-etcd-cluster-client
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: etcd.database.coreos.com/v1beta2
+      controller: true
+      kind: EtcdCluster
+      name: wcm-etcd-cluster
+      uid: 95e5ff04-6ee0-4b18-aeb5-004fdb97d2fa
+    resourceVersion: "787"
+    selfLink: /api/v1/namespaces/wcm-system/services/wcm-etcd-cluster-client
+    uid: 2eae0bc2-2f32-4bbd-8c06-36bca2401545
+  spec:
+    clusterIP: 10.103.13.227
+    ports:
+    - name: client
+      port: 2379
+      protocol: TCP
+      targetPort: 2379
+    selector:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    annotations:
+      meta.helm.sh/release-name: etcd-wcm-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-05-10T23:05:46Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: wcm-etcd-cluster-client-service
+    namespace: wcm-system
+    resourceVersion: "776"
+    selfLink: /api/v1/namespaces/wcm-system/services/wcm-etcd-cluster-client-service
+    uid: c53750cf-fb87-47ef-a270-66530316efc5
+  spec:
+    clusterIP: 10.99.157.74
+    externalTrafficPolicy: Cluster
+    ports:
+    - nodePort: 32379
+      port: 2379
+      protocol: TCP
+      targetPort: 2379
+    selector:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "5669"
+  selfLink: /api/v1/namespaces/wcm-system/services

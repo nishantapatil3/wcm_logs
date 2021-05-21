@@ -1,0 +1,58 @@
+Name:         green-64fcf49d96-swbk4
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Mon, 10 May 2021 16:12:25 -0700
+Labels:       app=wcm-nsr-green
+              connectivitydomain=green
+              pod-template-hash=64fcf49d96
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.16
+IPs:
+  IP:           10.244.0.16
+Controlled By:  ReplicaSet/green-64fcf49d96
+Containers:
+  green:
+    Container ID:   containerd://03069fec7f76a9b314d2b1df21bdecc4423811b541358ee665783314564bdc84
+    Image:          containers.cisco.com/appn/nsmrs:vl3_latest
+    Image ID:       containers.cisco.com/appn/nsmrs@sha256:15d833b2a7d27c1b38c10fe1e49ae717dc97e25523ea3a39fdb96cf0f3919415
+    Port:           31505/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 10 May 2021 16:12:28 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                  (v1:metadata.uid)
+      NODE_NAME:                (v1:spec.nodeName)
+      NSM_NAMESPACE:           wcm-system
+      INSECURE:                true
+      NSMRS_API_ADDRESS:       :31505
+      NSE_EXPIRATION_TIMEOUT:  1h
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from green-service-account-token-lfxtd (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  green-service-account-token-lfxtd:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-service-account-token-lfxtd
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned wcm-system/green-64fcf49d96-swbk4 to kind-1-control-plane
+  Normal  Pulling    11m   kubelet            Pulling image "containers.cisco.com/appn/nsmrs:vl3_latest"
+  Normal  Pulled     11m   kubelet            Successfully pulled image "containers.cisco.com/appn/nsmrs:vl3_latest"
+  Normal  Created    11m   kubelet            Created container green
+  Normal  Started    11m   kubelet            Started container green
+

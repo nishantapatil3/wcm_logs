@@ -1,0 +1,70 @@
+Name:         red-app-dns-publisher-85c96d5565-8mhk8
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 12 May 2021 16:12:12 +0000
+Labels:       app=app-dns-publisher-red
+              connectivitydomain=red
+              pod-template-hash=85c96d5565
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/red-app-dns-publisher-85c96d5565
+Containers:
+  red-app-dns-publisher:
+    Container ID:  containerd://9b9f3def51ef3ae01c68577e5d99a40d72c39ed5bd5b9f817fa3d8e2ae3ed1f8
+    Image:         public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller@sha256:717813e805a3f71783ddc525c93d9fc0bf2e511da42abcc75d293bb9de8a168f
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/bin/app-dns-publisher-controller
+    Args:
+      -n
+      wcm-system
+      -s
+      red-wcmd:50051
+      -d
+      red.nispatil-wcm-cisco.com
+      -i
+      false
+    State:          Running
+      Started:      Wed, 12 May 2021 16:12:19 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:    (v1:metadata.uid)
+      INSECURE:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from red-app-dns-publisher-service-account-token-74tgq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  red-app-dns-publisher-service-account-token-74tgq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  red-app-dns-publisher-service-account-token-74tgq
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned wcm-system/red-app-dns-publisher-85c96d5565-8mhk8 to kind-1-control-plane
+  Normal  Pulling    11m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest"
+  Normal  Pulled     11m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest"
+  Normal  Created    11m   kubelet            Created container red-app-dns-publisher
+  Normal  Started    11m   kubelet            Started container red-app-dns-publisher
+

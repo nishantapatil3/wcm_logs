@@ -1,0 +1,36 @@
+Name:         vl3-nse-red-config-map
+Namespace:    wcm-system
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+config.yaml:
+----
+endpoints:
+    - name: red
+      labels:
+        app: vl3-nse-red
+        wcm/nsr.addr: red.nispatil-wcm-cisco.com
+        wcm/nsr.port: "443"
+      nseControl:
+        name: red
+        address: red.nispatil-wcm-cisco.com
+        connectivityDomain: red
+      vl3:
+        ipam:
+            defaultPrefixPool: 192.103.0.0/16
+            serverAddress: wcmd-red.nispatil-wcm-cisco.com:443
+            prefixLength: 22
+            routes: []
+        ifName: endpoint0
+      awsTgwEndpoint:
+        attachToTgw: false
+        region: example-region
+        subnetIDs:
+            - example-subnet-IDs
+        transitGatewayID: example-tgw-ID
+        vpcID: example-vpc-ID
+
+Events:  <none>
+

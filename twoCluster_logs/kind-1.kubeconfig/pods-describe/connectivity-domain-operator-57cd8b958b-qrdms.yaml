@@ -1,0 +1,61 @@
+Name:         connectivity-domain-operator-57cd8b958b-qrdms
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 28 Apr 2021 14:14:39 -0700
+Labels:       name=connectivity-domain-operator
+              pod-template-hash=57cd8b958b
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.13
+IPs:
+  IP:           10.244.0.13
+Controlled By:  ReplicaSet/connectivity-domain-operator-57cd8b958b
+Containers:
+  connectivity-domain-operator:
+    Container ID:  containerd://b5d3590b6cfae874a2e23debe45b8958f1f41cbd89918a9a0c851dd652681687
+    Image:         containers.cisco.com/appn/connectivity-domain-operator:latest
+    Image ID:      sha256:eb18bc529dec44f7a42ccc3a40c639d00196a266d6fe0b10ebcf94ffea4f8f94
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      connectivity-domain-operator
+    State:          Running
+      Started:      Wed, 28 Apr 2021 14:14:39 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         connectivity-domain-operator-57cd8b958b-qrdms (v1:metadata.name)
+      OPERATOR_NAME:    connectivity-domain-operator
+      CONFIG_PATH:      etc/connectivity-domain-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from connectivity-domain-operator-token-dvv5f (ro)
+      etc/connectivity-domain-configmap/config.yaml from config-data-connectivity-domain (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-connectivity-domain:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      connectivity-domain-configmap
+    Optional:  false
+  connectivity-domain-operator-token-dvv5f:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  connectivity-domain-operator-token-dvv5f
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  22m   default-scheduler  Successfully assigned wcm-system/connectivity-domain-operator-57cd8b958b-qrdms to kind-1-control-plane
+  Normal  Pulled     22m   kubelet            Container image "containers.cisco.com/appn/connectivity-domain-operator:latest" already present on machine
+  Normal  Created    22m   kubelet            Created container connectivity-domain-operator
+  Normal  Started    22m   kubelet            Started container connectivity-domain-operator
+

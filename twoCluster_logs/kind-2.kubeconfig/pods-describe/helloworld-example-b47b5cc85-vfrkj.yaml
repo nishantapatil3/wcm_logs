@@ -1,0 +1,167 @@
+Name:         helloworld-example-b47b5cc85-vfrkj
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Fri, 21 May 2021 20:51:24 +0000
+Labels:       app=helloworld-example
+              nsm/servicename=helloworld.cluster2.nispatil-wcm-cisco.com
+              pod-template-hash=b47b5cc85
+              version=v1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/helloworld-example-b47b5cc85
+Init Containers:
+  nsm-dns-init:
+    Container ID:  containerd://4549d93db7b8ba08c9f1ee858da0ae4c495091bbb0ac3d2f35aef3bf56302338
+    Image:         public.ecr.aws/ciscoeti/appn/nsm-dns-init:vl3_latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/nsm-dns-init@sha256:c303147c9ab2721a9ea60b607b588937311bf9a092caf9f50fbf5c912871629e
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/nsm-dns-init
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Fri, 21 May 2021 20:51:25 +0000
+      Finished:     Fri, 21 May 2021 20:51:25 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      NS_NETWORKSERVICEMESH_IO:  example?service=helloworld&port=5000&clusterName=cluster2
+      NSM_NAMESPACE:             nsm-system
+      JAEGER_AGENT_HOST:         wcm-jaeger.nsm-system
+      TRACER_ENABLED:            true
+      JAEGER_AGENT_PORT:         6831
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-nv45r (ro)
+  nsm-init-container:
+    Container ID:   containerd://f4664201ad54b96a0c57e82457b02ec94b765389c0b17118a3a67a416b6e11f6
+    Image:          public.ecr.aws/ciscoeti/appn/nsm-init:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsm-init@sha256:86dda2af1a34eb19896419d2ba988414d695255bd63dbb3adee7876395b56c20
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Fri, 21 May 2021 20:51:26 +0000
+      Finished:     Fri, 21 May 2021 20:51:38 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      NS_NETWORKSERVICEMESH_IO:  example?service=helloworld&port=5000&clusterName=cluster2
+      NSM_NAMESPACE:             nsm-system
+      JAEGER_AGENT_HOST:         wcm-jaeger.nsm-system
+      TRACER_ENABLED:            true
+      JAEGER_AGENT_PORT:         6831
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-nv45r (ro)
+Containers:
+  helloworld:
+    Container ID:   containerd://ee708f6dd9b6c8df3223b41876547c007fe47bf41c4e01326892cdba169008b5
+    Image:          docker.io/istio/examples-helloworld-v1:latest
+    Image ID:       docker.io/istio/examples-helloworld-v1@sha256:c671702b11cbcda103720c2bd3e81a4211012bfef085b7326bb7fbfd8cea4a94
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Fri, 21 May 2021 20:51:39 +0000
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-nv45r (ro)
+  nsm-dns-monitor:
+    Container ID:  containerd://5885657f7ea2813c68f321e2b6e596ec175f0618adf77c43cfbea0e56d891ed2
+    Image:         public.ecr.aws/ciscoeti/appn/nsm-monitor:vl3_latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/nsm-monitor@sha256:f50fecc1d1b360e718e21b902abbc57f167822918af2dcd50479d2639417076c
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/nsm-monitor
+    State:          Running
+      Started:      Fri, 21 May 2021 20:51:39 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      MONITOR_DNS_CONFIGS:       true
+      NS_NETWORKSERVICEMESH_IO:  example?service=helloworld&port=5000&clusterName=cluster2
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-nv45r (ro)
+  coredns:
+    Container ID:  containerd://ac299b6e888206b22d441b99c58e977f81080076b35799f93b0357375ba8def2
+    Image:         public.ecr.aws/ciscoeti/appn/nsm-coredns:vl3_latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/nsm-coredns@sha256:17de0ac5d4640cc9e2c41b5b899c772818fc1715de78c160dfa5d945543d35ce
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      -conf
+      /etc/coredns/Corefile
+    State:          Running
+      Started:      Fri, 21 May 2021 20:51:39 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:                     <none>
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-nv45r (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  nsm-coredns-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  nsc-service-account-token-nv45r:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  nsc-service-account-token-nv45r
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned default/helloworld-example-b47b5cc85-vfrkj to kind-2-control-plane
+  Normal  Pulled     12m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsm-dns-init:vl3_latest" already present on machine
+  Normal  Created    12m   kubelet            Created container nsm-dns-init
+  Normal  Started    12m   kubelet            Started container nsm-dns-init
+  Normal  Pulled     11m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsm-init:vl3_latest" already present on machine
+  Normal  Created    11m   kubelet            Created container nsm-init-container
+  Normal  Started    11m   kubelet            Started container nsm-init-container
+  Normal  Created    11m   kubelet            Created container helloworld
+  Normal  Pulled     11m   kubelet            Container image "docker.io/istio/examples-helloworld-v1:latest" already present on machine
+  Normal  Started    11m   kubelet            Started container helloworld
+  Normal  Pulled     11m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsm-monitor:vl3_latest" already present on machine
+  Normal  Created    11m   kubelet            Created container nsm-dns-monitor
+  Normal  Started    11m   kubelet            Started container nsm-dns-monitor
+  Normal  Pulled     11m   kubelet            Container image "public.ecr.aws/ciscoeti/appn/nsm-coredns:vl3_latest" already present on machine
+  Normal  Created    11m   kubelet            Created container coredns
+  Normal  Started    11m   kubelet            Started container coredns
+

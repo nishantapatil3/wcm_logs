@@ -1,0 +1,68 @@
+Name:         red-cd-info-58bb5df4bd-5qlhj
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 12 May 2021 06:31:38 +0000
+Labels:       app=cd-info-red
+              connectivitydomain=red
+              pod-template-hash=58bb5df4bd
+Annotations:  sidecar.jaegertracing.io/inject: true
+Status:       Running
+IP:           10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/red-cd-info-58bb5df4bd
+Containers:
+  red-cd-info:
+    Container ID:   containerd://09082ebfe23264567bcd2250caccf845b700744c520a25318f9f5d3cece6a279
+    Image:          public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/connectivity-domain-info@sha256:a6800136575b94d9a0587b28cb542001be76e45f5d600c679c6d61cb591ffd68
+    Port:           50071/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 12 May 2021 06:31:43 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                     (v1:metadata.uid)
+      JAEGER_SERVICE_NAME:        status.service.server
+      JAEGER_AGENT_HOST:          localhost
+      JAEGER_AGENT_PORT:          6831
+      JAEGER_REPORTER_LOG_SPANS:  true
+      INSECURE:                   false
+    Mounts:
+      /etc/info-server-config/config.yaml from red-cd-info-config-map (rw,path="./config.yaml")
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from red-cd-info-service-account-token-45w97 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  red-cd-info-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      red-cd-info-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  red-cd-info-service-account-token-45w97:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  red-cd-info-service-account-token-45w97
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned wcm-system/red-cd-info-58bb5df4bd-5qlhj to kind-1-control-plane
+  Normal  Pulling    11m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest"
+  Normal  Pulled     10m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest"
+  Normal  Created    10m   kubelet            Created container red-cd-info
+  Normal  Started    10m   kubelet            Started container red-cd-info
+

@@ -1,0 +1,81 @@
+Name:         vl3-nse-green-754986b89c-bdxrx
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Mon, 10 May 2021 16:17:05 -0700
+Labels:       networkservicemesh.io/app=vl3-nse-green
+              networkservicemesh.io/impl=green
+              pod-template-hash=754986b89c
+              wcm-nse=green
+              wcm/nse.servicename=green
+Annotations:  sidecar.istio.io/inject: false
+              wcm/nsr.address: green.wcm-cisco.com
+              wcm/nsr.port: 80
+Status:       Running
+IP:           10.244.0.14
+IPs:
+  IP:           10.244.0.14
+Controlled By:  ReplicaSet/vl3-nse-green-754986b89c
+Containers:
+  vl3-nse-green:
+    Container ID:   containerd://a7ab7b60ee8b05aad235dcfaea22b9c8f2907f3de3d07c915136145a3b2e3e4a
+    Image:          containers.cisco.com/appn/vl3_ucnf-nse:latest
+    Image ID:       containers.cisco.com/appn/vl3_ucnf-nse@sha256:7c575e079b88a2528844588486aab0075d30e04980e054c62024e3bc70ebe71a
+    Ports:          9191/TCP, 2112/TCP
+    Host Ports:     0/TCP, 0/TCP
+    State:          Running
+      Started:      Mon, 10 May 2021 16:17:09 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      ENDPOINT_NETWORK_SERVICE:    green
+      ENDPOINT_LABELS:             app=vl3-nse-green
+      TRACER_ENABLED:              true
+      JAEGER_SERVICE_HOST:         wcm-jaeger.nsm-system
+      JAEGER_SERVICE_PORT_JAEGER:  6831
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      WORKLOAD_REFRESH_INTERVAL:   2h30m
+      NSREGISTRY_ADDR:             wcm-nsmgr.nsm-system
+      NSREGISTRY_PORT:             5000
+      CLUSTER_NAME:                cluster-1
+      NSE_POD_IP:                   (v1:status.podIP)
+      NSE_POD_NAME:                vl3-nse-green-754986b89c-bdxrx (v1:metadata.name)
+      NSM_REMOTE_NS_IP_LIST:       <set to the key 'remote.ip_list' of config map 'nsm-vl3-green-config-map'>  Optional: false
+      METRICS_PORT:                2112
+      INSECURE:                    true
+    Mounts:
+      /etc/universal-cnf/config.yaml from universal-cnf-config-volume (rw,path="config.yaml")
+      /var/run/secrets/kubernetes.io/serviceaccount from vl3-nse-green-service-account-token-fpx9z (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  universal-cnf-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      vl3-nse-green-config-map
+    Optional:  false
+  vl3-nse-green-service-account-token-fpx9z:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  vl3-nse-green-service-account-token-fpx9z
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  7m31s  default-scheduler  Successfully assigned wcm-system/vl3-nse-green-754986b89c-bdxrx to kind-3-control-plane
+  Normal  Pulling    7m31s  kubelet            Pulling image "containers.cisco.com/appn/vl3_ucnf-nse:latest"
+  Normal  Pulled     7m28s  kubelet            Successfully pulled image "containers.cisco.com/appn/vl3_ucnf-nse:latest"
+  Normal  Created    7m27s  kubelet            Created container vl3-nse-green
+  Normal  Started    7m27s  kubelet            Started container vl3-nse-green
+

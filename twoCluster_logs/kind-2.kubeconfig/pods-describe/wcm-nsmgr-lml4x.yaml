@@ -1,0 +1,132 @@
+Name:         wcm-nsmgr-lml4x
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Fri, 21 May 2021 20:10:58 +0000
+Labels:       app=wcm-nsmgr
+              controller-revision-hash=6b6b57dcd
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  DaemonSet/wcm-nsmgr
+Containers:
+  wcm-nsmgr:
+    Container ID:   containerd://5cf074a2b0c031ca9033c1cffa2ae77086aaed5eff96c8ff53cb3b042dd23aeb
+    Image:          public.ecr.aws/ciscoeti/appn/nsmdp:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmdp@sha256:4c63f10dfc67e35e4d6b2c4f9586dc993a082989bdb95df5dcc72d3edb949901
+    Port:           5001/TCP
+    Host Port:      5001/TCP
+    State:          Running
+      Started:      Fri, 21 May 2021 20:11:15 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                true
+      TRACER_ENABLED:          true
+      JAEGER_AGENT_HOST:       wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:       6831
+      PROXY_NSMD_K8S_ADDRESS:  wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:      wcm-proxy-nsmgr:5006
+    Mounts:
+      /var/lib/kubelet/device-plugins from kubelet-socket (rw)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-mnbrr (ro)
+  nsmd:
+    Container ID:   containerd://a19093347540a3495cd799bd10af821885d96f95ae036bef21f4cda62b7b18ca
+    Image:          public.ecr.aws/ciscoeti/appn/nsmd:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmd@sha256:807217a72f340f9eff77f67aa5a43f7367c4ccd8c5ed3c849693785e389d1d1b
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 21 May 2021 20:11:22 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://127.0.0.1:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://127.0.0.1:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      INSECURE:                    true
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-mnbrr (ro)
+  nsmd-k8s:
+    Container ID:   containerd://f3e66fb6611a2de2985d093b00f0884cf8d0b7a1196be31f84180642efd6db3e
+    Image:          public.ecr.aws/ciscoeti/appn/nsmd-k8s:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmd-k8s@sha256:01ecb409dc8bbb51b25ed6951e2ffd6ca61723b5a40af0db815621a529bd9bfd
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 21 May 2021 20:11:24 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    true
+      POD_NAME:                    wcm-nsmgr-lml4x (v1:metadata.name)
+      POD_UID:                      (v1:metadata.uid)
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-mnbrr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubelet-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/kubelet/device-plugins
+    HostPathType:  DirectoryOrCreate
+  nsm-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-nsm-config-map
+    Optional:  false
+  wcm-nsmgr-service-account-token-mnbrr:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsmgr-service-account-token-mnbrr
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  52m   default-scheduler  Successfully assigned nsm-system/wcm-nsmgr-lml4x to kind-2-control-plane
+  Normal  Pulling    52m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/nsmdp:vl3_latest"
+  Normal  Pulled     52m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/nsmdp:vl3_latest"
+  Normal  Created    52m   kubelet            Created container wcm-nsmgr
+  Normal  Started    52m   kubelet            Started container wcm-nsmgr
+  Normal  Pulling    52m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/nsmd:vl3_latest"
+  Normal  Pulled     52m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/nsmd:vl3_latest"
+  Normal  Created    52m   kubelet            Created container nsmd
+  Normal  Started    52m   kubelet            Started container nsmd
+  Normal  Pulling    52m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/nsmd-k8s:vl3_latest"
+  Normal  Pulled     52m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/nsmd-k8s:vl3_latest"
+  Normal  Created    52m   kubelet            Created container nsmd-k8s
+  Normal  Started    52m   kubelet            Started container nsmd-k8s
+

@@ -10,7 +10,7 @@ config.yaml:
 ----
 pullPolicy: IfNotPresent
 nsr:
-  org: containers.cisco.com/appn
+  org: public.ecr.aws/ciscoeti/appn
   tag: vl3_latest
   imageName: nsmrs
   nodeName: master
@@ -21,7 +21,7 @@ nsr:
      - /registry.NetworkServiceDiscovery
      - /registry.NsmRegistry
 wcmd:
-  org: containers.cisco.com/appn
+  org: public.ecr.aws/ciscoeti/appn
   tag: latest
   imageName: wcmd
   etcdAddresses:
@@ -38,15 +38,15 @@ wcmd:
      - /svreg.Registry
      - /svreg.RegistryState
 app-dns-publisher:
-  org: containers.cisco.com/appn
+  org: public.ecr.aws/ciscoeti/appn
   tag: latest
   imageName: app-dns-publisher-controller
 app-istio-publisher:
-  org: containers.cisco.com/appn
+  org: public.ecr.aws/ciscoeti/appn
   tag: latest
   imageName: app-istio-publisher-controller
 cd-info:
-  org: containers.cisco.com/appn
+  org: public.ecr.aws/ciscoeti/appn
   tag: latest
   imageName: connectivity-domain-info
   infoPort: 50071
@@ -57,7 +57,7 @@ cd-info:
      - /workloads
 gateway:
   httpPort: 80
-  httpsPort: 443
+  httpsPort: -1
   ingressName: ingressgateway
 
 Events:  <none>

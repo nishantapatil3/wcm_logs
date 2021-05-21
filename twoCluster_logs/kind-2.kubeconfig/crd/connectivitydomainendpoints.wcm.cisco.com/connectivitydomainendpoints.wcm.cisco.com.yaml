@@ -6,11 +6,11 @@ Annotations:  meta.helm.sh/release-name: nse-operator-release
 API Version:  apiextensions.k8s.io/v1
 Kind:         CustomResourceDefinition
 Metadata:
-  Creation Timestamp:  2021-04-28T21:16:28Z
+  Creation Timestamp:  2021-05-21T20:11:35Z
   Generation:          1
-  Resource Version:    2704
+  Resource Version:    1092
   Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/connectivitydomainendpoints.wcm.cisco.com
-  UID:                 6571db60-9f3e-4e69-9631-6284c2e91bd9
+  UID:                 3d056fe4-f512-4bad-adbe-e892f0edd2a9
 Spec:
   Conversion:
     Strategy:  None
@@ -46,21 +46,26 @@ Spec:
                 Properties:
                   Aws Tgw Endpoint:
                     Properties:
+                      Add Routes:
+                        Type:  boolean
+                      Attach To Tgw:
+                        Type:  boolean
                       Region:
                         Type:  string
-                      Subnet ID:
-                        Type:  string
+                      Subnet I Ds:
+                        Items:
+                          Type:  string
+                        Type:    array
                       Transit Gateway ID:
-                        Type:  string
-                      Transit Gateway Name:
                         Type:  string
                       Vpc ID:
                         Type:  string
                     Required:
+                      addRoutes
+                      attachToTgw
                       region
-                      subnetID
+                      subnetIDs
                       transitGatewayID
-                      transitGatewayName
                       vpcID
                     Type:  object
                   Cluster Name:
@@ -164,12 +169,12 @@ Status:
     Plural:     connectivitydomainendpoints
     Singular:   connectivitydomainendpoint
   Conditions:
-    Last Transition Time:  2021-04-28T21:16:28Z
+    Last Transition Time:  2021-05-21T20:11:35Z
     Message:               no conflicts found
     Reason:                NoConflicts
     Status:                True
     Type:                  NamesAccepted
-    Last Transition Time:  2021-04-28T21:16:28Z
+    Last Transition Time:  2021-05-21T20:11:35Z
     Message:               the initial names have been accepted
     Reason:                InitialNamesAccepted
     Status:                True

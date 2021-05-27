@@ -1,0 +1,55 @@
+Name:         member-core-operator-55bdfffc85-j5jwg
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 27 May 2021 04:50:12 +0000
+Labels:       name=member-core-operator
+              pod-template-hash=55bdfffc85
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  ReplicaSet/member-core-operator-55bdfffc85
+Containers:
+  member-core-operator:
+    Container ID:  containerd://04e82ee6345d12184ef5b7a92ad5204ed53a19845337b7f802c810e2b4a27ea9
+    Image:         public.ecr.aws/ciscoeti/appn/member-core-operator:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/member-core-operator@sha256:83a814ad8282a4ee67176eb8fac54f1f589ea4672c28b5320859b7c614164d88
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      member-core-operator
+    State:          Running
+      Started:      Thu, 27 May 2021 04:50:21 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  
+      POD_NAME:         member-core-operator-55bdfffc85-j5jwg (v1:metadata.name)
+      OPERATOR_NAME:    member-core-operator
+      CONFIG_PATH:      etc/member-core-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from member-core-operator-token-djg75 (ro)
+      etc/member-core-configmap/config.yaml from config-data-member-core (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-member-core:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      member-core-configmap
+    Optional:  false
+  member-core-operator-token-djg75:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  member-core-operator-token-djg75
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-27T04:50:24Z"
+    labels:
+      app: wcm-spire-server
+    name: wcm-spire-server
+    namespace: spire
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: 7fed2669-a08c-4597-97b9-4bab2bd5f5d6
+    resourceVersion: "1447"
+    selfLink: /api/v1/namespaces/spire/services/wcm-spire-server
+    uid: 0ce53f8b-1f80-47a3-b395-7b28175f15de
+  spec:
+    clusterIP: 10.105.247.22
+    externalTrafficPolicy: Cluster
+    ports:
+    - name: grpc
+      nodePort: 32705
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    selector:
+      app: wcm-spire-server
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "114833"
+  selfLink: /api/v1/namespaces/spire/services

@@ -1,0 +1,53 @@
+Name:         wcm-crossconnect-monitor-5d88f56767-2xf8f
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 27 May 2021 04:50:22 +0000
+Labels:       app=wcm-crossconnect-monitor
+              membercore=wcm
+              pod-template-hash=5d88f56767
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.7
+IPs:
+  IP:           10.244.0.7
+Controlled By:  ReplicaSet/wcm-crossconnect-monitor-5d88f56767
+Containers:
+  crossconnect-monitor:
+    Container ID:   containerd://6462d98d33f40e62f310bf4598bb0ff0c7ee934bed5979c40b185b0bac55a636
+    Image:          public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/crossconnect-monitor@sha256:167f8eca6c90521f748caf4d921075aa413d15452c83a5b88f848cbe281173a6
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 27 May 2021 04:50:30 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                   false
+      METRICS_COLLECTOR_ENABLED:  false
+      PROMETHEUS:                 false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-crossconnect-monitor-service-account-token-2h9d9 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-crossconnect-monitor-service-account-token-2h9d9:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-crossconnect-monitor-service-account-token-2h9d9
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

@@ -1,0 +1,60 @@
+Name:         wcm-nse-operator-6857b7ffbd-jb57r
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 27 May 2021 04:51:33 +0000
+Labels:       name=wcm-nse-operator
+              pod-template-hash=6857b7ffbd
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.14
+IPs:
+  IP:           10.244.0.14
+Controlled By:  ReplicaSet/wcm-nse-operator-6857b7ffbd
+Containers:
+  wcm-nse-operator:
+    Container ID:  containerd://f2a900d8abf6f13c07b2b07f8de2d078358ad6cfb285d81e49d7b94d384e48e1
+    Image:         public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/wcm-nse-operator@sha256:398bb8dc50ddbc543043262e53c795d8f0113f99807f1a7e7cac002ef2a46b4d
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      wcm-nse-operator
+    State:          Running
+      Started:      Thu, 27 May 2021 04:51:37 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         wcm-nse-operator-6857b7ffbd-jb57r (v1:metadata.name)
+      OPERATOR_NAME:    wcm-nse-operator
+      CONFIG_PATH:      etc/wcm-vpp-nse-configmap/config.yaml
+      INSECURE:         false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-operator-service-account-token-ggghb (ro)
+      etc/wcm-vpp-nse-configmap/config.yaml from config-data-wcm-nse (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-wcm-nse:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-vpp-nse-configmap
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nse-operator-service-account-token-ggghb:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-operator-service-account-token-ggghb
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>

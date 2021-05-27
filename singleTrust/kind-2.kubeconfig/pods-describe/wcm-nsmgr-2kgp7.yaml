@@ -1,0 +1,124 @@
+Name:         wcm-nsmgr-2kgp7
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 27 May 2021 04:50:30 +0000
+Labels:       app=wcm-nsmgr
+              controller-revision-hash=5cd64df649
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  DaemonSet/wcm-nsmgr
+Containers:
+  wcm-nsmgr:
+    Container ID:   containerd://a48f45ea97179e19c832e7c0affca1a499960b7b34df9106ff2cdf2c4cb63439
+    Image:          public.ecr.aws/ciscoeti/appn/nsmdp:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmdp@sha256:4c63f10dfc67e35e4d6b2c4f9586dc993a082989bdb95df5dcc72d3edb949901
+    Port:           5001/TCP
+    Host Port:      5001/TCP
+    State:          Running
+      Started:      Thu, 27 May 2021 04:50:52 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                false
+      TRACER_ENABLED:          true
+      JAEGER_AGENT_HOST:       wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:       6831
+      PROXY_NSMD_K8S_ADDRESS:  wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:      wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/kubelet/device-plugins from kubelet-socket (rw)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-shfm4 (ro)
+  nsmd:
+    Container ID:   containerd://5b9d7d0a6f16d59fad15946541c1270f0a9968f06329c31cebfd53871296273b
+    Image:          public.ecr.aws/ciscoeti/appn/nsmd:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmd@sha256:807217a72f340f9eff77f67aa5a43f7367c4ccd8c5ed3c849693785e389d1d1b
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 27 May 2021 04:51:05 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://127.0.0.1:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://127.0.0.1:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-shfm4 (ro)
+  nsmd-k8s:
+    Container ID:   containerd://da65d47d355723158e0357269b542df0b9f3cc56c092c40646b182805ffc8182
+    Image:          public.ecr.aws/ciscoeti/appn/nsmd-k8s:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmd-k8s@sha256:01ecb409dc8bbb51b25ed6951e2ffd6ca61723b5a40af0db815621a529bd9bfd
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 27 May 2021 04:51:09 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      POD_NAME:                    wcm-nsmgr-2kgp7 (v1:metadata.name)
+      POD_UID:                      (v1:metadata.uid)
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-shfm4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubelet-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/kubelet/device-plugins
+    HostPathType:  DirectoryOrCreate
+  nsm-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-nsm-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nsmgr-service-account-token-shfm4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsmgr-service-account-token-shfm4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:          <none>
+

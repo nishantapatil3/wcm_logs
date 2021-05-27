@@ -1,0 +1,600 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    annotations:
+      sidecar.istio.io/inject: "false"
+      wcm/nsr.address: green.nispatil-wcm-cisco.com
+      wcm/nsr.port: "443"
+    creationTimestamp: "2021-05-27T04:52:35Z"
+    generateName: vl3-nse-green-7cff555995-
+    labels:
+      networkservicemesh.io/app: vl3-nse-green
+      networkservicemesh.io/impl: green
+      pod-template-hash: 7cff555995
+      wcm-nse: green
+      wcm/nse.servicename: green
+    name: vl3-nse-green-7cff555995-6h7x6
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: vl3-nse-green-7cff555995
+      uid: e9a684ad-ac48-4f17-9e20-7a1fa26634e7
+    resourceVersion: "2225"
+    selfLink: /api/v1/namespaces/wcm-system/pods/vl3-nse-green-7cff555995-6h7x6
+    uid: 3d398dcf-9ace-494c-a9f5-d4425099c06c
+  spec:
+    containers:
+    - env:
+      - name: ENDPOINT_NETWORK_SERVICE
+        value: green
+      - name: ENDPOINT_LABELS
+        value: app=vl3-nse-green
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_SERVICE_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_SERVICE_PORT_JAEGER
+        value: "6831"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: WORKLOAD_REFRESH_INTERVAL
+        value: 2h30m
+      - name: NSREGISTRY_ADDR
+        value: wcm-nsmgr.nsm-system
+      - name: NSREGISTRY_PORT
+        value: "5000"
+      - name: CLUSTER_NAME
+        value: green-kind-2
+      - name: NSE_POD_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      - name: NSE_POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: NSM_REMOTE_NS_IP_LIST
+        valueFrom:
+          configMapKeyRef:
+            key: remote.ip_list
+            name: nsm-vl3-green-config-map
+      - name: METRICS_PORT
+        value: "2112"
+      - name: WORKLOAD_METRICS_PORT
+        value: "3000"
+      - name: INSECURE
+        value: "false"
+      image: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse:latest
+      imagePullPolicy: IfNotPresent
+      name: vl3-nse-green
+      ports:
+      - containerPort: 9191
+        name: monitoring-vpp
+        protocol: TCP
+      - containerPort: 2112
+        name: monitoring
+        protocol: TCP
+      - containerPort: 3000
+        name: workload
+        protocol: TCP
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      securityContext:
+        capabilities:
+          add:
+          - NET_ADMIN
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/universal-cnf/config.yaml
+        name: universal-cnf-config-volume
+        subPath: config.yaml
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: vl3-nse-green-service-account-token-vpb9m
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: vl3-nse-green-service-account
+    serviceAccountName: vl3-nse-green-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: vl3-nse-green-config-map
+      name: universal-cnf-config-volume
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: vl3-nse-green-service-account-token-vpb9m
+      secret:
+        defaultMode: 420
+        secretName: vl3-nse-green-service-account-token-vpb9m
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:35Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:40Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:40Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:35Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://ae5c99524b45cea31113746491979aec9b2ed84da574393f71592f18f36f650f
+      image: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse:latest
+      imageID: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse@sha256:f707c29ae54428afdd924c2fae5dce4121c62ae71c1c0b0d6e26b266f481b812
+      lastState: {}
+      name: vl3-nse-green
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-27T04:52:39Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.16
+    podIPs:
+    - ip: 10.244.0.16
+    qosClass: BestEffort
+    startTime: "2021-05-27T04:52:35Z"
+- metadata:
+    annotations:
+      sidecar.istio.io/inject: "false"
+      wcm/nsr.address: green.nispatil-wcm-cisco.com
+      wcm/nsr.port: "443"
+    creationTimestamp: "2021-05-27T04:52:35Z"
+    generateName: vl3-nse-green-7cff555995-
+    labels:
+      networkservicemesh.io/app: vl3-nse-green
+      networkservicemesh.io/impl: green
+      pod-template-hash: 7cff555995
+      wcm-nse: green
+      wcm/nse.servicename: green
+    name: vl3-nse-green-7cff555995-qb6kp
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: vl3-nse-green-7cff555995
+      uid: e9a684ad-ac48-4f17-9e20-7a1fa26634e7
+    resourceVersion: "2215"
+    selfLink: /api/v1/namespaces/wcm-system/pods/vl3-nse-green-7cff555995-qb6kp
+    uid: 36807bc2-2c15-4c2d-8bca-a358f1b52d2d
+  spec:
+    containers:
+    - env:
+      - name: ENDPOINT_NETWORK_SERVICE
+        value: green
+      - name: ENDPOINT_LABELS
+        value: app=vl3-nse-green
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_SERVICE_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_SERVICE_PORT_JAEGER
+        value: "6831"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: WORKLOAD_REFRESH_INTERVAL
+        value: 2h30m
+      - name: NSREGISTRY_ADDR
+        value: wcm-nsmgr.nsm-system
+      - name: NSREGISTRY_PORT
+        value: "5000"
+      - name: CLUSTER_NAME
+        value: green-kind-2
+      - name: NSE_POD_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      - name: NSE_POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: NSM_REMOTE_NS_IP_LIST
+        valueFrom:
+          configMapKeyRef:
+            key: remote.ip_list
+            name: nsm-vl3-green-config-map
+      - name: METRICS_PORT
+        value: "2112"
+      - name: WORKLOAD_METRICS_PORT
+        value: "3000"
+      - name: INSECURE
+        value: "false"
+      image: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse:latest
+      imagePullPolicy: IfNotPresent
+      name: vl3-nse-green
+      ports:
+      - containerPort: 9191
+        name: monitoring-vpp
+        protocol: TCP
+      - containerPort: 2112
+        name: monitoring
+        protocol: TCP
+      - containerPort: 3000
+        name: workload
+        protocol: TCP
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      securityContext:
+        capabilities:
+          add:
+          - NET_ADMIN
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/universal-cnf/config.yaml
+        name: universal-cnf-config-volume
+        subPath: config.yaml
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: vl3-nse-green-service-account-token-vpb9m
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: vl3-nse-green-service-account
+    serviceAccountName: vl3-nse-green-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: vl3-nse-green-config-map
+      name: universal-cnf-config-volume
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: vl3-nse-green-service-account-token-vpb9m
+      secret:
+        defaultMode: 420
+        secretName: vl3-nse-green-service-account-token-vpb9m
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:35Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:39Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:39Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:52:35Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://a72f733d89e931a009d81da1b40ae92a574b5ce5ff2c5882c86fd2e6a1d8672c
+      image: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse:latest
+      imageID: public.ecr.aws/ciscoeti/appn/vl3_ucnf-nse@sha256:f707c29ae54428afdd924c2fae5dce4121c62ae71c1c0b0d6e26b266f481b812
+      lastState: {}
+      name: vl3-nse-green
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-27T04:52:39Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.15
+    podIPs:
+    - ip: 10.244.0.15
+    qosClass: BestEffort
+    startTime: "2021-05-27T04:52:35Z"
+- metadata:
+    creationTimestamp: "2021-05-27T04:50:34Z"
+    generateName: wcm-nse-discovery-5b69d8f7f8-
+    labels:
+      app: nse-discovery-wcm
+      membercore: wcm
+      pod-template-hash: 5b69d8f7f8
+    name: wcm-nse-discovery-5b69d8f7f8-j2h58
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: wcm-nse-discovery-5b69d8f7f8
+      uid: ff373461-e526-414b-a831-8f201e3f7a4f
+    resourceVersion: "1814"
+    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-nse-discovery-5b69d8f7f8-j2h58
+    uid: 4362daf4-ebcb-47b9-a93d-29f5175c0ef6
+  spec:
+    containers:
+    - env:
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.uid
+      - name: CLUSTER_NAME
+        value: member1
+      - name: INSECURE
+        value: "false"
+      - name: NSE_NAMESPACE
+        value: wcm-system
+      - name: NSR_ADDRESS
+        value: wcm-proxy-nsmgr.nsm-system:5005
+      - name: METRICS_PORT
+        value: "2112"
+      image: public.ecr.aws/ciscoeti/appn/nse-discovery-operator:latest
+      imagePullPolicy: IfNotPresent
+      name: wcm-nse-discovery
+      ports:
+      - containerPort: 2112
+        name: monitoring
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-nse-discovery-service-account-token-gbx2j
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-nse-discovery-service-account
+    serviceAccountName: wcm-nse-discovery-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: wcm-nse-discovery-service-account-token-gbx2j
+      secret:
+        defaultMode: 420
+        secretName: wcm-nse-discovery-service-account-token-gbx2j
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:34Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:59Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:59Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:34Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://f495211da754d93ccdaf9d65a068dcb2f5a4ca7e5e74e1d9bd5c9b8e3e224871
+      image: public.ecr.aws/ciscoeti/appn/nse-discovery-operator:latest
+      imageID: public.ecr.aws/ciscoeti/appn/nse-discovery-operator@sha256:e799dd4e99061c8b0545056e69986cefd4eea3af04b9bf2ef61c1ba086ada7f1
+      lastState: {}
+      name: wcm-nse-discovery
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-27T04:50:59Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.13
+    podIPs:
+    - ip: 10.244.0.13
+    qosClass: BestEffort
+    startTime: "2021-05-27T04:50:34Z"
+- metadata:
+    creationTimestamp: "2021-05-27T04:51:33Z"
+    generateName: wcm-nse-operator-6857b7ffbd-
+    labels:
+      name: wcm-nse-operator
+      pod-template-hash: 6857b7ffbd
+    name: wcm-nse-operator-6857b7ffbd-jb57r
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: wcm-nse-operator-6857b7ffbd
+      uid: 1ef4c5cc-cd85-4af8-b17c-3c2ad40990b1
+    resourceVersion: "1996"
+    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-nse-operator-6857b7ffbd-jb57r
+    uid: d49319af-eaf3-4275-b2bd-aec835871cda
+  spec:
+    containers:
+    - command:
+      - wcm-nse-operator
+      env:
+      - name: WATCH_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: OPERATOR_NAME
+        value: wcm-nse-operator
+      - name: CONFIG_PATH
+        value: etc/wcm-vpp-nse-configmap/config.yaml
+      - name: INSECURE
+        value: "false"
+      image: public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest
+      imagePullPolicy: IfNotPresent
+      name: wcm-nse-operator
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: etc/wcm-vpp-nse-configmap/config.yaml
+        name: config-data-wcm-nse
+        subPath: config.yaml
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-nse-operator-service-account-token-ggghb
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-nse-operator-service-account
+    serviceAccountName: wcm-nse-operator-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: wcm-vpp-nse-configmap
+      name: config-data-wcm-nse
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: wcm-nse-operator-service-account-token-ggghb
+      secret:
+        defaultMode: 420
+        secretName: wcm-nse-operator-service-account-token-ggghb
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:51:33Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:51:38Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:51:38Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:51:33Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://f2a900d8abf6f13c07b2b07f8de2d078358ad6cfb285d81e49d7b94d384e48e1
+      image: public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest
+      imageID: public.ecr.aws/ciscoeti/appn/wcm-nse-operator@sha256:398bb8dc50ddbc543043262e53c795d8f0113f99807f1a7e7cac002ef2a46b4d
+      lastState: {}
+      name: wcm-nse-operator
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-27T04:51:37Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.14
+    podIPs:
+    - ip: 10.244.0.14
+    qosClass: BestEffort
+    startTime: "2021-05-27T04:51:33Z"
+kind: PodList
+metadata:
+  resourceVersion: "114834"
+  selfLink: /api/v1/namespaces/wcm-system/pods

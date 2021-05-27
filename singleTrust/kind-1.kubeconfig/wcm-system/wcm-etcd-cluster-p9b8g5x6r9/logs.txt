@@ -1,0 +1,197 @@
+==== START logs for container check-dns of pod wcm-system/wcm-etcd-cluster-p9b8g5x6r9 ====
+Server:    10.96.0.10
+Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local
+
+nslookup: can't resolve 'wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc'
+Server:    10.96.0.10
+Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local
+
+Name:      wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc
+Address 1: 10.244.0.7 wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc.cluster.local
+==== END logs for container check-dns of pod wcm-system/wcm-etcd-cluster-p9b8g5x6r9 ====
+==== START logs for container etcd of pod wcm-system/wcm-etcd-cluster-p9b8g5x6r9 ====
+2021-05-27 04:48:14.821643 I | etcdmain: etcd Version: 3.2.13
+2021-05-27 04:48:14.821737 I | etcdmain: Git SHA: 95a726a
+2021-05-27 04:48:14.821741 I | etcdmain: Go Version: go1.8.5
+2021-05-27 04:48:14.821745 I | etcdmain: Go OS/Arch: linux/amd64
+2021-05-27 04:48:14.821749 I | etcdmain: setting maximum number of CPUs to 4, total number of available CPUs is 4
+2021-05-27 04:48:14.821830 I | embed: listening for peers on http://0.0.0.0:2380
+2021-05-27 04:48:14.821864 I | embed: listening for client requests on 0.0.0.0:2379
+2021-05-27 04:48:14.832976 I | pkg/netutil: resolving wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2380 to 10.244.0.7:2380
+2021-05-27 04:48:14.835998 W | pkg/netutil: failed resolving host wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2380 (lookup wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host); retrying in 1s
+2021-05-27 04:48:15.837871 I | pkg/netutil: resolving wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2380 to 10.244.0.7:2380
+2021-05-27 04:48:15.837961 I | etcdserver: name = wcm-etcd-cluster-p9b8g5x6r9
+2021-05-27 04:48:15.837970 I | etcdserver: data dir = /var/etcd/data
+2021-05-27 04:48:15.837977 I | etcdserver: member dir = /var/etcd/data/member
+2021-05-27 04:48:15.837983 I | etcdserver: heartbeat = 100ms
+2021-05-27 04:48:15.837987 I | etcdserver: election = 1000ms
+2021-05-27 04:48:15.837990 I | etcdserver: snapshot count = 100000
+2021-05-27 04:48:15.838001 I | etcdserver: advertise client URLs = http://wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2379
+2021-05-27 04:48:15.838006 I | etcdserver: initial advertise peer URLs = http://wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2380
+2021-05-27 04:48:15.838015 I | etcdserver: initial cluster = wcm-etcd-cluster-p9b8g5x6r9=http://wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2380
+2021-05-27 04:48:15.843316 I | etcdserver: starting member ca7bf658747b74e8 in cluster bf81ccadd788aa8a
+2021-05-27 04:48:15.843388 I | raft: ca7bf658747b74e8 became follower at term 0
+2021-05-27 04:48:15.843401 I | raft: newRaft ca7bf658747b74e8 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+2021-05-27 04:48:15.843408 I | raft: ca7bf658747b74e8 became follower at term 1
+2021-05-27 04:48:15.850776 W | auth: simple token is not cryptographically signed
+2021-05-27 04:48:15.853751 I | etcdserver: starting server... [version: 3.2.13, cluster version: to_be_decided]
+2021-05-27 04:48:15.854972 I | etcdserver/membership: added member ca7bf658747b74e8 [http://wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2380] to cluster bf81ccadd788aa8a
+2021-05-27 04:48:16.443739 I | raft: ca7bf658747b74e8 is starting a new election at term 1
+2021-05-27 04:48:16.443829 I | raft: ca7bf658747b74e8 became candidate at term 2
+2021-05-27 04:48:16.443847 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 2
+2021-05-27 04:48:16.443861 I | raft: ca7bf658747b74e8 became leader at term 2
+2021-05-27 04:48:16.443871 I | raft: raft.node: ca7bf658747b74e8 elected leader ca7bf658747b74e8 at term 2
+2021-05-27 04:48:16.444337 I | etcdserver: published {Name:wcm-etcd-cluster-p9b8g5x6r9 ClientURLs:[http://wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2379]} to cluster bf81ccadd788aa8a
+2021-05-27 04:48:16.444483 I | etcdserver: setting up the initial cluster version to 3.2
+2021-05-27 04:48:16.444551 I | embed: ready to serve client requests
+2021-05-27 04:48:16.444920 N | etcdserver/membership: set the initial cluster version to 3.2
+2021-05-27 04:48:16.445139 I | etcdserver/api: enabled capabilities for version 3.2
+2021-05-27 04:48:16.445302 N | embed: serving insecure client requests on [::]:2379, this is strongly discouraged!
+2021-05-27 04:48:16.446460 I | etcdserver/membership: added member e27129b2eead44af [http://wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc:2380] to cluster bf81ccadd788aa8a
+2021-05-27 04:48:16.446775 I | rafthttp: starting peer e27129b2eead44af...
+2021-05-27 04:48:16.446866 I | rafthttp: started HTTP pipelining with peer e27129b2eead44af
+2021-05-27 04:48:16.448603 I | rafthttp: started streaming with peer e27129b2eead44af (writer)
+2021-05-27 04:48:16.450592 I | rafthttp: started peer e27129b2eead44af
+2021-05-27 04:48:16.450715 I | rafthttp: added peer e27129b2eead44af
+2021-05-27 04:48:16.450877 I | rafthttp: started streaming with peer e27129b2eead44af (writer)
+2021-05-27 04:48:16.451220 I | rafthttp: started streaming with peer e27129b2eead44af (stream MsgApp v2 reader)
+2021-05-27 04:48:16.451776 I | rafthttp: started streaming with peer e27129b2eead44af (stream Message reader)
+2021-05-27 04:48:18.443748 W | raft: ca7bf658747b74e8 stepped down to follower since quorum is not active
+2021-05-27 04:48:18.443805 I | raft: ca7bf658747b74e8 became follower at term 2
+2021-05-27 04:48:18.443818 I | raft: raft.node: ca7bf658747b74e8 lost leader ca7bf658747b74e8 at term 2
+2021-05-27 04:48:19.743704 I | raft: ca7bf658747b74e8 is starting a new election at term 2
+2021-05-27 04:48:19.743742 I | raft: ca7bf658747b74e8 became candidate at term 3
+2021-05-27 04:48:19.743753 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 3
+2021-05-27 04:48:19.743761 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 3
+2021-05-27 04:48:20.943719 I | raft: ca7bf658747b74e8 is starting a new election at term 3
+2021-05-27 04:48:20.943771 I | raft: ca7bf658747b74e8 became candidate at term 4
+2021-05-27 04:48:20.943785 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 4
+2021-05-27 04:48:20.943798 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 4
+2021-05-27 04:48:21.451966 W | rafthttp: health check for peer e27129b2eead44af could not connect: dial tcp: lookup wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:48:22.643714 I | raft: ca7bf658747b74e8 is starting a new election at term 4
+2021-05-27 04:48:22.643759 I | raft: ca7bf658747b74e8 became candidate at term 5
+2021-05-27 04:48:22.643771 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 5
+2021-05-27 04:48:22.643782 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 5
+2021-05-27 04:48:23.943767 I | raft: ca7bf658747b74e8 is starting a new election at term 5
+2021-05-27 04:48:23.943812 I | raft: ca7bf658747b74e8 became candidate at term 6
+2021-05-27 04:48:23.943826 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 6
+2021-05-27 04:48:23.943839 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 6
+2021-05-27 04:48:25.443711 I | raft: ca7bf658747b74e8 is starting a new election at term 6
+2021-05-27 04:48:25.443753 I | raft: ca7bf658747b74e8 became candidate at term 7
+2021-05-27 04:48:25.443767 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 7
+2021-05-27 04:48:25.443780 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 7
+2021-05-27 04:48:26.452140 W | rafthttp: health check for peer e27129b2eead44af could not connect: dial tcp: lookup wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:48:27.043764 I | raft: ca7bf658747b74e8 is starting a new election at term 7
+2021-05-27 04:48:27.043820 I | raft: ca7bf658747b74e8 became candidate at term 8
+2021-05-27 04:48:27.043836 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 8
+2021-05-27 04:48:27.043849 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 8
+2021-05-27 04:48:28.743729 I | raft: ca7bf658747b74e8 is starting a new election at term 8
+2021-05-27 04:48:28.743772 I | raft: ca7bf658747b74e8 became candidate at term 9
+2021-05-27 04:48:28.743784 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 9
+2021-05-27 04:48:28.743796 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 9
+2021-05-27 04:48:30.643774 I | raft: ca7bf658747b74e8 is starting a new election at term 9
+2021-05-27 04:48:30.644102 I | raft: ca7bf658747b74e8 became candidate at term 10
+2021-05-27 04:48:30.644146 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 10
+2021-05-27 04:48:30.644160 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 10
+2021-05-27 04:48:31.452313 W | rafthttp: health check for peer e27129b2eead44af could not connect: dial tcp: lookup wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:48:32.443776 I | raft: ca7bf658747b74e8 is starting a new election at term 10
+2021-05-27 04:48:32.443821 I | raft: ca7bf658747b74e8 became candidate at term 11
+2021-05-27 04:48:32.443837 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 11
+2021-05-27 04:48:32.443846 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 11
+2021-05-27 04:48:33.443711 I | raft: ca7bf658747b74e8 is starting a new election at term 11
+2021-05-27 04:48:33.443756 I | raft: ca7bf658747b74e8 became candidate at term 12
+2021-05-27 04:48:33.443769 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 12
+2021-05-27 04:48:33.443783 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 12
+2021-05-27 04:48:35.343758 I | raft: ca7bf658747b74e8 is starting a new election at term 12
+2021-05-27 04:48:35.343800 I | raft: ca7bf658747b74e8 became candidate at term 13
+2021-05-27 04:48:35.343813 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 13
+2021-05-27 04:48:35.343825 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 13
+2021-05-27 04:48:36.452509 W | rafthttp: health check for peer e27129b2eead44af could not connect: dial tcp: lookup wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:48:36.643738 I | raft: ca7bf658747b74e8 is starting a new election at term 13
+2021-05-27 04:48:36.643780 I | raft: ca7bf658747b74e8 became candidate at term 14
+2021-05-27 04:48:36.643794 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 14
+2021-05-27 04:48:36.643806 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 14
+2021-05-27 04:48:38.043738 I | raft: ca7bf658747b74e8 is starting a new election at term 14
+2021-05-27 04:48:38.043781 I | raft: ca7bf658747b74e8 became candidate at term 15
+2021-05-27 04:48:38.043792 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 15
+2021-05-27 04:48:38.043801 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 15
+2021-05-27 04:48:39.443728 I | raft: ca7bf658747b74e8 is starting a new election at term 15
+2021-05-27 04:48:39.443778 I | raft: ca7bf658747b74e8 became candidate at term 16
+2021-05-27 04:48:39.443792 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 16
+2021-05-27 04:48:39.443806 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 16
+2021-05-27 04:48:40.443725 I | raft: ca7bf658747b74e8 is starting a new election at term 16
+2021-05-27 04:48:40.443776 I | raft: ca7bf658747b74e8 became candidate at term 17
+2021-05-27 04:48:40.443791 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 17
+2021-05-27 04:48:40.443805 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 17
+2021-05-27 04:48:41.452695 W | rafthttp: health check for peer e27129b2eead44af could not connect: dial tcp: lookup wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:48:41.543719 I | raft: ca7bf658747b74e8 is starting a new election at term 17
+2021-05-27 04:48:41.543759 I | raft: ca7bf658747b74e8 became candidate at term 18
+2021-05-27 04:48:41.543769 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 18
+2021-05-27 04:48:41.543778 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 18
+2021-05-27 04:48:43.043818 I | raft: ca7bf658747b74e8 is starting a new election at term 18
+2021-05-27 04:48:43.043864 I | raft: ca7bf658747b74e8 became candidate at term 19
+2021-05-27 04:48:43.043878 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 19
+2021-05-27 04:48:43.043888 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 19
+2021-05-27 04:48:44.343701 I | raft: ca7bf658747b74e8 is starting a new election at term 19
+2021-05-27 04:48:44.343734 I | raft: ca7bf658747b74e8 became candidate at term 20
+2021-05-27 04:48:44.343747 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 20
+2021-05-27 04:48:44.343759 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 20
+2021-05-27 04:48:45.643728 I | raft: ca7bf658747b74e8 is starting a new election at term 20
+2021-05-27 04:48:45.643773 I | raft: ca7bf658747b74e8 became candidate at term 21
+2021-05-27 04:48:45.643787 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 21
+2021-05-27 04:48:45.643799 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 21
+2021-05-27 04:48:46.452869 W | rafthttp: health check for peer e27129b2eead44af could not connect: dial tcp: lookup wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:48:47.443721 I | raft: ca7bf658747b74e8 is starting a new election at term 21
+2021-05-27 04:48:47.443777 I | raft: ca7bf658747b74e8 became candidate at term 22
+2021-05-27 04:48:47.443793 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 22
+2021-05-27 04:48:47.443806 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 22
+2021-05-27 04:48:48.139251 I | rafthttp: peer e27129b2eead44af became active
+2021-05-27 04:48:48.139278 I | rafthttp: established a TCP streaming connection with peer e27129b2eead44af (stream MsgApp v2 reader)
+2021-05-27 04:48:48.139779 I | rafthttp: established a TCP streaming connection with peer e27129b2eead44af (stream Message reader)
+2021-05-27 04:48:48.143457 I | rafthttp: established a TCP streaming connection with peer e27129b2eead44af (stream Message writer)
+2021-05-27 04:48:48.143677 I | rafthttp: established a TCP streaming connection with peer e27129b2eead44af (stream MsgApp v2 writer)
+2021-05-27 04:48:48.743725 I | raft: ca7bf658747b74e8 is starting a new election at term 22
+2021-05-27 04:48:48.743764 I | raft: ca7bf658747b74e8 became candidate at term 23
+2021-05-27 04:48:48.743779 I | raft: ca7bf658747b74e8 received MsgVoteResp from ca7bf658747b74e8 at term 23
+2021-05-27 04:48:48.743792 I | raft: ca7bf658747b74e8 [logterm: 2, index: 5] sent MsgVote request to e27129b2eead44af at term 23
+2021-05-27 04:48:48.746068 I | raft: ca7bf658747b74e8 received MsgVoteResp from e27129b2eead44af at term 23
+2021-05-27 04:48:48.746095 I | raft: ca7bf658747b74e8 [quorum:2] has received 2 MsgVoteResp votes and 0 vote rejections
+2021-05-27 04:48:48.746111 I | raft: ca7bf658747b74e8 became leader at term 23
+2021-05-27 04:48:48.746122 I | raft: raft.node: ca7bf658747b74e8 elected leader ca7bf658747b74e8 at term 23
+2021-05-27 04:48:56.509016 I | etcdserver/membership: added member d1e0eba8082a43c5 [http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380] to cluster bf81ccadd788aa8a
+2021-05-27 04:48:56.509059 I | rafthttp: starting peer d1e0eba8082a43c5...
+2021-05-27 04:48:56.509128 I | rafthttp: started HTTP pipelining with peer d1e0eba8082a43c5
+2021-05-27 04:48:56.511535 I | rafthttp: started streaming with peer d1e0eba8082a43c5 (writer)
+2021-05-27 04:48:56.514993 I | rafthttp: started streaming with peer d1e0eba8082a43c5 (writer)
+2021-05-27 04:48:56.515258 I | rafthttp: started peer d1e0eba8082a43c5
+2021-05-27 04:48:56.515335 I | rafthttp: added peer d1e0eba8082a43c5
+2021-05-27 04:48:56.515387 I | rafthttp: started streaming with peer d1e0eba8082a43c5 (stream MsgApp v2 reader)
+2021-05-27 04:48:56.515470 I | rafthttp: started streaming with peer d1e0eba8082a43c5 (stream Message reader)
+2021-05-27 04:48:56.754228 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:48:56.754273 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:00.757194 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:00.757266 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:01.515546 W | rafthttp: health check for peer d1e0eba8082a43c5 could not connect: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:49:04.763860 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:04.763904 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:06.515721 W | rafthttp: health check for peer d1e0eba8082a43c5 could not connect: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:49:08.767732 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:08.767775 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:11.515896 W | rafthttp: health check for peer d1e0eba8082a43c5 could not connect: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:49:12.772019 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:12.772053 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:16.516120 W | rafthttp: health check for peer d1e0eba8082a43c5 could not connect: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:49:16.774855 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:16.774914 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:20.778296 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:20.778328 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:21.516362 W | rafthttp: health check for peer d1e0eba8082a43c5 could not connect: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:49:24.781772 W | etcdserver: failed to reach the peerURL(http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380) of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:24.781812 W | etcdserver: cannot get the version of member d1e0eba8082a43c5 (Get http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380/version: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host)
+2021-05-27 04:49:26.516532 W | rafthttp: health check for peer d1e0eba8082a43c5 could not connect: dial tcp: lookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc on 10.96.0.10:53: no such host
+2021-05-27 04:49:28.232548 I | rafthttp: peer d1e0eba8082a43c5 became active
+2021-05-27 04:49:28.232683 I | rafthttp: established a TCP streaming connection with peer d1e0eba8082a43c5 (stream MsgApp v2 writer)
+2021-05-27 04:49:28.233310 I | rafthttp: established a TCP streaming connection with peer d1e0eba8082a43c5 (stream Message writer)
+2021-05-27 04:49:28.234524 I | rafthttp: established a TCP streaming connection with peer d1e0eba8082a43c5 (stream Message reader)
+2021-05-27 04:49:28.240487 I | rafthttp: established a TCP streaming connection with peer d1e0eba8082a43c5 (stream MsgApp v2 reader)
+==== END logs for container etcd of pod wcm-system/wcm-etcd-cluster-p9b8g5x6r9 ====

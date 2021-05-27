@@ -1,0 +1,55 @@
+Name:         controller-65895b47d4-m8zz2
+Namespace:    metallb-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 27 May 2021 04:49:34 +0000
+Labels:       app=metallb
+              component=controller
+              pod-template-hash=65895b47d4
+Annotations:  prometheus.io/port: 7472
+              prometheus.io/scrape: true
+Status:       Running
+IP:           10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  ReplicaSet/controller-65895b47d4
+Containers:
+  controller:
+    Container ID:  containerd://d4f57efe7dd5a0898b829ba3cf7d2556bf9ca1b7c98640841aae232f62be5dbc
+    Image:         metallb/controller:v0.8.2
+    Image ID:      docker.io/metallb/controller@sha256:5c050e59074e152711737d2bb9ede96dff67016c80cf25cdf5fc46109718a583
+    Port:          7472/TCP
+    Host Port:     0/TCP
+    Args:
+      --port=7472
+      --config=config
+    State:          Running
+      Started:      Thu, 27 May 2021 04:49:49 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  100Mi
+    Requests:
+      cpu:        100m
+      memory:     100Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from controller-token-zlkkx (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  controller-token-zlkkx:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  controller-token-zlkkx
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

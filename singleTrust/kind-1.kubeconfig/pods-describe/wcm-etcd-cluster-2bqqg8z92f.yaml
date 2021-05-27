@@ -1,0 +1,89 @@
+Name:         wcm-etcd-cluster-2bqqg8z92f
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 27 May 2021 04:48:56 +0000
+Labels:       app=etcd
+              etcd_cluster=wcm-etcd-cluster
+              etcd_node=wcm-etcd-cluster-2bqqg8z92f
+Annotations:  etcd.version: 3.2.13
+Status:       Running
+IP:           10.244.0.9
+IPs:
+  IP:           10.244.0.9
+Controlled By:  EtcdCluster/wcm-etcd-cluster
+Init Containers:
+  check-dns:
+    Container ID:  containerd://48a5f4a650c14f0ca9142f97de68c17bcc9fdbf9bbe1ae2a0f4ff86c7617c38c
+    Image:         busybox:1.28.0-glibc
+    Image ID:      docker.io/library/busybox@sha256:0b55a30394294ab23b9afd58fab94e61a923f5834fba7ddbae7f8e0c11ba85e6
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/sh
+      -c
+      
+                TIMEOUT_READY=0
+                while ( ! nslookup wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc )
+                do
+                  # If TIMEOUT_READY is 0 we should never time out and exit 
+                  TIMEOUT_READY=$(( TIMEOUT_READY-1 ))
+                              if [ $TIMEOUT_READY -eq 0 ];
+                                  then
+                                      echo "Timed out waiting for DNS entry"
+                                      exit 1
+                                  fi
+                              sleep 1
+                            done
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 27 May 2021 04:48:57 +0000
+      Finished:     Thu, 27 May 2021 04:49:27 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:         <none>
+Containers:
+  etcd:
+    Container ID:  containerd://3f31d6cb8a0b66fc04be438e816237aa9530651b8197c216e3b78a9dee49f172
+    Image:         quay.io/coreos/etcd:v3.2.13
+    Image ID:      sha256:cb19d1a6c2a7a7d508fc990facf7cf6b42600537bb38336b5f4f3a697016c0de
+    Ports:         2380/TCP, 2379/TCP
+    Host Ports:    0/TCP, 0/TCP
+    Command:
+      /usr/local/bin/etcd
+      --data-dir=/var/etcd/data
+      --name=wcm-etcd-cluster-2bqqg8z92f
+      --initial-advertise-peer-urls=http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380
+      --listen-peer-urls=http://0.0.0.0:2380
+      --listen-client-urls=http://0.0.0.0:2379
+      --advertise-client-urls=http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2379
+      --initial-cluster=wcm-etcd-cluster-p9b8g5x6r9=http://wcm-etcd-cluster-p9b8g5x6r9.wcm-etcd-cluster.wcm-system.svc:2380,wcm-etcd-cluster-kgl4xpd2dd=http://wcm-etcd-cluster-kgl4xpd2dd.wcm-etcd-cluster.wcm-system.svc:2380,wcm-etcd-cluster-2bqqg8z92f=http://wcm-etcd-cluster-2bqqg8z92f.wcm-etcd-cluster.wcm-system.svc:2380
+      --initial-cluster-state=existing
+    State:          Running
+      Started:      Thu, 27 May 2021 04:49:28 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       exec [/bin/sh -ec ETCDCTL_API=3 etcdctl endpoint status] delay=10s timeout=10s period=60s #success=1 #failure=3
+    Readiness:      exec [/bin/sh -ec ETCDCTL_API=3 etcdctl endpoint status] delay=1s timeout=5s period=5s #success=1 #failure=3
+    Environment:    <none>
+    Mounts:
+      /var/etcd from etcd-data (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  etcd-data:
+    Type:        EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:      
+    SizeLimit:   <unset>
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

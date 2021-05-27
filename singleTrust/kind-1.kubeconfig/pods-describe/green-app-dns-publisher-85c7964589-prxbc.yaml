@@ -1,0 +1,63 @@
+Name:         green-app-dns-publisher-85c7964589-prxbc
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 27 May 2021 04:52:19 +0000
+Labels:       app=app-dns-publisher-green
+              connectivitydomain=green
+              pod-template-hash=85c7964589
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/green-app-dns-publisher-85c7964589
+Containers:
+  green-app-dns-publisher:
+    Container ID:  containerd://e23bb466c4a2262a1828cde7c7bf50912d42968d01f6ce46498555d319d25487
+    Image:         public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller@sha256:58f498b29a8e34c34e1e7b6f13dc4e16202899b00f97f8056be3ee314ab8faaf
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/bin/app-dns-publisher-controller
+    Args:
+      -n
+      wcm-system
+      -s
+      green-wcmd:50051
+      -d
+      green.nispatil-wcm-cisco.com
+      -i
+      false
+    State:          Running
+      Started:      Thu, 27 May 2021 04:52:26 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:    (v1:metadata.uid)
+      INSECURE:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from green-app-dns-publisher-service-account-token-5fct6 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  green-app-dns-publisher-service-account-token-5fct6:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-app-dns-publisher-service-account-token-5fct6
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

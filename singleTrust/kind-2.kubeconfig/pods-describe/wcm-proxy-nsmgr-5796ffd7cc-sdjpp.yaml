@@ -1,0 +1,78 @@
+Name:         wcm-proxy-nsmgr-5796ffd7cc-sdjpp
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 27 May 2021 04:50:28 +0000
+Labels:       app=wcm-proxy-nsmgr
+              membercore=wcm
+              pod-template-hash=5796ffd7cc
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  ReplicaSet/wcm-proxy-nsmgr-5796ffd7cc
+Containers:
+  wcm-proxy-nsmgr:
+    Container ID:   containerd://d93199084c0d34b61164d8646041ba7debf77de1fc1fbc7b023220f6961c7e16
+    Image:          public.ecr.aws/ciscoeti/appn/proxy-nsmd:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/proxy-nsmd@sha256:2e2a504b6dadf45f037f85d0d5edbd4e5e4342a054b726d7d2455ebefb5807d4
+    Port:           5006/TCP
+    Host Port:      5006/TCP
+    State:          Running
+      Started:      Thu, 27 May 2021 04:50:49 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  31505
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-rzjvr (ro)
+  proxy-nsmd-k8s:
+    Container ID:   containerd://f4650cd372396d894873171557011c24bc13e3d7a84456f345e2e9116736664f
+    Image:          public.ecr.aws/ciscoeti/appn/proxy-nsmd-k8s:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/proxy-nsmd-k8s@sha256:b1aa0735a9a45a805438de02b0ab8ff259c9e59849cc1154d06b9e1a2b568cd2
+    Port:           5005/TCP
+    Host Port:      5005/TCP
+    State:          Running
+      Started:      Thu, 27 May 2021 04:51:02 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  443
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-rzjvr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-proxy-nsmgr-service-account-token-rzjvr:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-proxy-nsmgr-service-account-token-rzjvr
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

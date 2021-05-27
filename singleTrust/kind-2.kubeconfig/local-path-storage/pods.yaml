@@ -1,0 +1,123 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-27T04:45:13Z"
+    generateName: local-path-provisioner-58f6947c7-
+    labels:
+      app: local-path-provisioner
+      pod-template-hash: 58f6947c7
+    name: local-path-provisioner-58f6947c7-wv7z8
+    namespace: local-path-storage
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: local-path-provisioner-58f6947c7
+      uid: 284e03b2-57c4-493d-a65f-f3a05b2686bc
+    resourceVersion: "541"
+    selfLink: /api/v1/namespaces/local-path-storage/pods/local-path-provisioner-58f6947c7-wv7z8
+    uid: bf59aff8-d820-4bce-99d0-1521dca41c84
+  spec:
+    containers:
+    - command:
+      - local-path-provisioner
+      - --debug
+      - start
+      - --helper-image
+      - k8s.gcr.io/debian-base:v2.0.0
+      - --config
+      - /etc/config/config.json
+      env:
+      - name: POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      image: rancher/local-path-provisioner:v0.0.12
+      imagePullPolicy: IfNotPresent
+      name: local-path-provisioner
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/config/
+        name: config-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: local-path-provisioner-service-account-token-fgcf7
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    nodeSelector:
+      kubernetes.io/os: linux
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: local-path-provisioner-service-account
+    serviceAccountName: local-path-provisioner-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+      operator: Equal
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: local-path-config
+      name: config-volume
+    - name: local-path-provisioner-service-account-token-fgcf7
+      secret:
+        defaultMode: 420
+        secretName: local-path-provisioner-service-account-token-fgcf7
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:45:56Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:45:58Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:45:58Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:45:56Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://e798a6eb81c08a07027c3a7a7f7df9eb423c51625212efc4caa5f5807b786142
+      image: docker.io/rancher/local-path-provisioner:v0.0.12
+      imageID: sha256:db10073a6f829f72cc09655e92fbc3c74410c647c626b431ecd5257d1f6b59c1
+      lastState: {}
+      name: local-path-provisioner
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-27T04:45:57Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.2
+    podIPs:
+    - ip: 10.244.0.2
+    qosClass: BestEffort
+    startTime: "2021-05-27T04:45:56Z"
+kind: PodList
+metadata:
+  resourceVersion: "114824"
+  selfLink: /api/v1/namespaces/local-path-storage/pods

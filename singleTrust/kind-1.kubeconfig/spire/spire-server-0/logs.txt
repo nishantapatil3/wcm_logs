@@ -1,0 +1,254 @@
+==== START logs for container nsm-spire of pod spire/spire-server-0 ====
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- /spire.api.registration.Registration/FetchEntries()=\"\" span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- request={} span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg="successfully deleted 0 entries"
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- /spire.api.registration.Registration/CreateEntry()=\"\" span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- request={\"selectors\":[{\"type\":\"k8s_sat\",\"value\":\"agent_sa:spire-agent\"}],\"parent_id\":\"spiffe://test.com/spire/server\",\"spiffe_id\":\"spiffe://test.com/spire-agent\"} span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- response={\"id\":\"df1ed3a1-0231-4993-861a-0f59ab3101f2\"} span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg="successfully register entry id:\"df1ed3a1-0231-4993-861a-0f59ab3101f2\" "
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- /spire.api.registration.Registration/CreateEntry()=\"\" span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- request={\"selectors\":[{\"type\":\"k8s\",\"value\":\"sa:connectivity-domain-operator-service-account\"}],\"parent_id\":\"spiffe://test.com/spire-agent\",\"spiffe_id\":\"spiffe://test.com/connectivity-domain-operator\"} span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg=">><<-- response={\"id\":\"1212a398-9d6b-4185-a2c9-8b79a046f781\"} span=<nil>"
+time="2021-05-27T04:48:05Z" level=info msg="successfully register entry id:\"1212a398-9d6b-4185-a2c9-8b79a046f781\" "
+==== END logs for container nsm-spire of pod spire/spire-server-0 ====
+==== START logs for container spire-server of pod spire/spire-server-0 ====
+time="2021-05-27T04:48:04Z" level=warning msg="Current umask 0022 is too permissive; setting umask 0027."
+time="2021-05-27T04:48:04Z" level=info msg="data directory: \"/run/spire/data\""
+time="2021-05-27T04:48:04Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=k8s_sat plugin_services="[]" plugin_type=NodeAttestor subsystem_name=catalog
+time="2021-05-27T04:48:04Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=noop plugin_services="[]" plugin_type=NodeResolver subsystem_name=catalog
+time="2021-05-27T04:48:04Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=disk plugin_services="[]" plugin_type=KeyManager subsystem_name=catalog
+time="2021-05-27T04:48:04Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=disk plugin_services="[]" plugin_type=UpstreamAuthority subsystem_name=catalog
+time="2021-05-27T04:48:04Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=k8sbundle plugin_services="[]" plugin_type=Notifier subsystem_name=catalog
+time="2021-05-27T04:48:04Z" level=info msg="Opening SQL database" db_type=sqlite3 subsystem_name=built-in_plugin.sql
+time="2021-05-27T04:48:04Z" level=info msg="Initializing new database." subsystem_name=built-in_plugin.sql
+time="2021-05-27T04:48:04Z" level=info msg="Connected to SQL database" read_only=false subsystem_name=built-in_plugin.sql type=sqlite3 version=3.25.2
+time="2021-05-27T04:48:04Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=sql plugin_services="[]" plugin_type=DataStore subsystem_name=catalog
+time="2021-05-27T04:48:04Z" level=info msg="plugins started"
+time="2021-05-27T04:48:04Z" level=debug msg="Loading journal" path=/run/spire/data/journal.pem subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=info msg="Journal loaded" jwt_keys=0 subsystem_name=ca_manager x509_cas=0
+time="2021-05-27T04:48:04Z" level=debug msg="Preparing X509 CA" slot=A subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=info msg="X509 CA prepared" expiration="2021-05-28T04:48:04Z" issued_at="2021-05-27T04:48:04Z" self_signed=false slot=A subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=info msg="X509 CA activated" expiration="2021-05-28T04:48:04Z" issued_at="2021-05-27T04:48:04Z" slot=A subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=debug msg="Successfully rotated X.509 CA" subsystem_name=ca_manager trust_domain_id="spiffe://test.com" ttl=86399.278227862
+time="2021-05-27T04:48:04Z" level=debug msg="Preparing JWT key" slot=A subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=warning msg="UpstreamAuthority plugin does not support JWT-SVIDs. Workloads managed by this server may have trouble communicating with workloads outside this cluster when using JWT-SVIDs." plugin_name=disk subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=info msg="JWT key prepared" expiration="2021-05-28T04:48:04Z" issued_at="2021-05-27T04:48:04Z" slot=A subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=info msg="JWT key activated" expiration="2021-05-28T04:48:04Z" issued_at="2021-05-27T04:48:04Z" slot=A subsystem_name=ca_manager
+time="2021-05-27T04:48:04Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T04:48:04Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:48:04Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T04:48:04Z" level=debug msg="Starting checker" name=server subsystem_name=health
+time="2021-05-27T04:48:04Z" level=debug msg="Initializing API endpoints" subsystem_name=endpoints
+time="2021-05-27T04:48:04Z" level=info msg="Starting UDS server" address=/run/spire/sockets/registration.sock subsystem_name=endpoints
+time="2021-05-27T04:48:04Z" level=info msg="Starting TCP server" address="[::]:8081" subsystem_name=endpoints
+time="2021-05-27T04:48:04Z" level=debug msg="Notifier handled event" event="bundle loaded" notifier=k8sbundle subsystem_name=ca_manager
+time="2021-05-27T04:48:08Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:48:08Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T04:48:08Z" level=debug msg="Could not find node resolver" agent_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" caller-addr="10.244.0.1:56058" method=AttestAgent node_attestor_type=k8s_sat service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T04:48:08Z" level=info msg="Agent attestation request completed" address="10.244.0.1:56058" agent_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" caller-addr="10.244.0.1:56058" method=AttestAgent node_attestor_type=k8s_sat service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T04:48:08Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:48:08Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T04:48:08Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:48:08Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T04:52:13Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:52:13Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T04:52:13Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:52:13Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T04:52:13Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:52:13Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T04:52:13Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T05:52:13Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T05:17:59Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T05:17:59Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:17:59Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T05:18:05Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:24466" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T05:18:05Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:18:05Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T05:18:07Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:18:07Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T05:18:07Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:18:07Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T05:22:10Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:22:10Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T05:22:10Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:22:10Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T05:22:10Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:22:10Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T05:22:10Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:22:10Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T05:47:54Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T05:47:54Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:47:54Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T05:48:00Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:7013" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T05:48:00Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:48:00Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T05:48:06Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:48:06Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T05:48:06Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:48:06Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T05:52:09Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:52:09Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T05:52:09Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:52:09Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T05:52:09Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:52:09Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T05:52:09Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T06:52:09Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T06:17:49Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T06:17:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:17:49Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T06:17:57Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:9878" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T06:17:57Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:17:57Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T06:18:04Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:18:04Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T06:18:04Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:18:04Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T06:22:06Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:22:06Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T06:22:06Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:22:06Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T06:22:06Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:22:06Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T06:22:06Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:22:06Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T06:47:44Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T06:47:44Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:47:44Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T06:47:55Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:57435" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T06:47:55Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:47:55Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T06:48:02Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:48:02Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T06:48:02Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:48:02Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T06:52:01Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:52:01Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T06:52:01Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:52:01Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T06:52:01Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:52:01Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T06:52:01Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T07:52:01Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T07:17:39Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T07:17:39Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:17:39Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T07:17:51Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:1859" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T07:17:51Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:17:51Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T07:18:00Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:18:00Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T07:18:00Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:18:00Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T07:21:58Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:21:58Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T07:21:58Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:21:58Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T07:21:58Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:21:58Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T07:21:58Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:21:58Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T07:47:34Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T07:47:34Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:47:34Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T07:47:50Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:21909" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T07:47:50Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:47:50Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T07:47:56Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:47:56Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T07:47:56Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:47:56Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T07:51:53Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:51:53Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T07:51:53Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:51:53Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T07:51:53Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:51:53Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T07:51:53Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T08:51:53Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T08:17:29Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T08:17:29Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:17:29Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T08:17:49Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:1495" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T08:17:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:17:49Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T08:17:51Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:17:51Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T08:17:51Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:17:51Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T08:21:52Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:21:52Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T08:21:52Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:21:52Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T08:21:52Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:21:52Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T08:21:52Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:21:52Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T08:47:24Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T08:47:24Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:47:24Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T08:47:44Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:43782" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T08:47:44Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:47:44Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T08:47:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:47:49Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T08:47:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:47:49Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T08:51:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:51:49Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T08:51:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:51:49Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T08:51:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:51:49Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T08:51:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T09:51:49Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T09:17:19Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T09:17:19Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:17:19Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T09:17:43Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:26810" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T09:17:43Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:17:43Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T09:17:44Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:17:44Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T09:17:44Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:17:44Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T09:21:46Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:21:46Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T09:21:46Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:21:46Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T09:21:46Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:21:46Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T09:21:46Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:21:46Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T09:47:14Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T09:47:14Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:47:14Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T09:47:39Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:46198" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T09:47:39Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:47:39Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T09:47:41Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:47:41Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T09:47:41Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:47:41Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T09:51:43Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:51:43Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T09:51:43Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:51:43Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T09:51:43Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:51:43Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T09:51:43Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T10:51:43Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T10:17:09Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T10:17:09Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:17:09Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T10:17:37Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:17:37Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T10:17:37Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:17:37Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T10:17:38Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:33235" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T10:17:38Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:17:38Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T10:21:39Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:21:39Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T10:21:39Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:21:39Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T10:21:39Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:21:39Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T10:21:39Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:21:39Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T10:47:04Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T10:47:04Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:47:04Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T10:47:33Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:47:33Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T10:47:33Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:47:33Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T10:47:35Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:2288" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T10:47:35Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:47:35Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T10:51:37Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:51:37Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T10:51:37Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:51:37Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T10:51:37Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:51:37Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T10:51:37Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T11:51:37Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T11:16:59Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T11:16:59Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:16:59Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T11:17:31Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:17:31Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T11:17:31Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:17:31Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T11:17:34Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:45068" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T11:17:34Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:17:34Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T11:21:33Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:21:33Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T11:21:33Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:21:33Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T11:21:33Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:21:33Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T11:21:33Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:21:33Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T11:46:54Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T11:46:54Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:46:54Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T11:47:28Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:47:28Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T11:47:28Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:47:28Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T11:47:31Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:43683" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T11:47:31Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:47:31Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T11:51:28Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:51:28Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T11:51:28Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:51:28Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T11:51:28Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:51:28Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T11:51:28Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T12:51:28Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T12:16:49Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T12:16:49Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:16:49Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T12:17:26Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:27352" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T12:17:26Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:17:26Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T12:17:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:17:27Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T12:17:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:17:27Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T12:21:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:21:27Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T12:21:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:21:27Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T12:21:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:21:27Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T12:21:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:21:27Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T12:46:44Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T12:46:44Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:46:44Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T12:47:21Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:2349" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T12:47:21Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:47:21Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T12:47:24Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:47:24Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T12:47:24Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:47:24Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T12:51:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:51:27Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T12:51:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:51:27Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T12:51:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:51:27Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T12:51:27Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T13:51:27Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T13:16:39Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T13:16:39Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:16:39Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T13:17:19Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:17:19Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T13:17:19Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:17:19Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T13:17:19Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:1770" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T13:17:19Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:17:19Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T13:21:26Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:21:26Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T13:21:26Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:21:26Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T13:21:26Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:21:26Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T13:21:26Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:21:26Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T13:46:34Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T13:46:34Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:46:34Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T13:47:15Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:25359" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T13:47:15Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:47:15Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T13:47:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:47:17Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T13:47:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:47:17Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T13:51:22Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:51:22Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T13:51:22Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:51:22Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T13:51:22Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:51:22Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T13:51:22Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T14:51:22Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T14:16:29Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T14:16:29Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:16:29Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T14:17:11Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:55228" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T14:17:11Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:17:11Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T14:17:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:17:17Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T14:17:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:17:17Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T14:21:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:21:17Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-05-27T14:21:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:21:17Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T14:21:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:21:17Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T14:21:17Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:21:17Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T14:46:24Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-05-27T14:46:24Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:46:24Z" spiffe_id="spiffe://test.com/spire/server" subsystem_name=ca
+time="2021-05-27T14:47:10Z" level=debug msg="Renewing agent SVID" caller-addr="10.244.0.1:3298" caller-id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" method=RenewAgent service=agent.v1.Agent subsystem_name=api
+time="2021-05-27T14:47:10Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:47:10Z" spiffe_id="spiffe://test.com/spire/agent/k8s_sat/kubernetes/d755a5d7-cee9-49a8-8821-bf0c2979b15f" subsystem_name=ca
+time="2021-05-27T14:47:13Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:47:13Z" spiffe_id="spiffe://test.com/spire-agent" subsystem_name=ca
+time="2021-05-27T14:47:13Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:47:13Z" spiffe_id="spiffe://test.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-05-27T14:51:14Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:51:14Z" spiffe_id="spiffe://test.com/green-cd-info" subsystem_name=ca
+time="2021-05-27T14:51:14Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:51:14Z" spiffe_id="spiffe://test.com/green-wcmd" subsystem_name=ca
+time="2021-05-27T14:51:14Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:51:14Z" spiffe_id="spiffe://test.com/green" subsystem_name=ca
+time="2021-05-27T14:51:14Z" level=debug msg="Signed X509 SVID" expiration="2021-05-27T15:51:14Z" spiffe_id="spiffe://test.com/green-app-dns-publisher" subsystem_name=ca
+==== END logs for container spire-server of pod spire/spire-server-0 ====

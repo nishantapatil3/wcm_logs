@@ -1,0 +1,118 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-05-27T04:50:12Z"
+    generateName: member-core-operator-55bdfffc85-
+    labels:
+      name: member-core-operator
+      pod-template-hash: 55bdfffc85
+    name: member-core-operator-55bdfffc85-j5jwg
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: member-core-operator-55bdfffc85
+      uid: 464c451c-71b2-4ece-8df8-989644ea7d93
+    resourceVersion: "1360"
+    selfLink: /api/v1/namespaces/default/pods/member-core-operator-55bdfffc85-j5jwg
+    uid: 7c116ef2-79a3-41df-baf7-29cf83a17729
+  spec:
+    containers:
+    - command:
+      - member-core-operator
+      env:
+      - name: WATCH_NAMESPACE
+      - name: POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: OPERATOR_NAME
+        value: member-core-operator
+      - name: CONFIG_PATH
+        value: etc/member-core-configmap/config.yaml
+      image: public.ecr.aws/ciscoeti/appn/member-core-operator:latest
+      imagePullPolicy: IfNotPresent
+      name: member-core-operator
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: etc/member-core-configmap/config.yaml
+        name: config-data-member-core
+        subPath: config.yaml
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: member-core-operator-token-djg75
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: member-core-operator
+    serviceAccountName: member-core-operator
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: member-core-configmap
+      name: config-data-member-core
+    - name: member-core-operator-token-djg75
+      secret:
+        defaultMode: 420
+        secretName: member-core-operator-token-djg75
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:12Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:22Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:22Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-27T04:50:12Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://04e82ee6345d12184ef5b7a92ad5204ed53a19845337b7f802c810e2b4a27ea9
+      image: public.ecr.aws/ciscoeti/appn/member-core-operator:latest
+      imageID: public.ecr.aws/ciscoeti/appn/member-core-operator@sha256:83a814ad8282a4ee67176eb8fac54f1f589ea4672c28b5320859b7c614164d88
+      lastState: {}
+      name: member-core-operator
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-27T04:50:21Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.6
+    podIPs:
+    - ip: 10.244.0.6
+    qosClass: BestEffort
+    startTime: "2021-05-27T04:50:12Z"
+kind: PodList
+metadata:
+  resourceVersion: "114808"
+  selfLink: /api/v1/namespaces/default/pods

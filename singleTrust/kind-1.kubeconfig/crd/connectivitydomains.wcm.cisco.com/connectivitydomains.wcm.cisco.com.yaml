@@ -1,0 +1,219 @@
+Name:         connectivitydomains.wcm.cisco.com
+Namespace:    
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: connectivity-domain-operator-release
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2021-05-27T04:49:35Z
+  Generation:          1
+  Resource Version:    1566
+  Self Link:           /apis/apiextensions.k8s.io/v1/customresourcedefinitions/connectivitydomains.wcm.cisco.com
+  UID:                 9ef20ae3-ef80-4f77-83e5-58320c21044f
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       wcm.cisco.com
+  Names:
+    Kind:                   ConnectivityDomain
+    List Kind:              ConnectivityDomainList
+    Plural:                 connectivitydomains
+    Singular:               connectivitydomain
+  Preserve Unknown Fields:  true
+  Scope:                    Namespaced
+  Versions:
+    Name:  v1alpha1
+    Schema:
+      openAPIV3Schema:
+        Description:  ConnectivityDomain is the Schema for the connectivitydomains API
+        Properties:
+          API Version:
+            Description:  APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            Type:         string
+          Kind:
+            Description:  Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            Type:         string
+          Metadata:
+            Type:  object
+          Spec:
+            Description:  ConnectivityDomainSpec defines the desired state of ConnectivityDomain
+            Properties:
+              Fqdn:
+                Description:  FQDN is the domain name under which network services controlled by the WCM-NSR will be registered with
+                Min Length:   1
+                Type:         string
+              Gateway:
+                Properties:
+                  Secret:
+                    Type:  string
+                  Tls Mode:
+                    Type:  integer
+                Type:      object
+              Insecure:
+                Description:  Insecure specifies whether future connections will be done using a secure connection
+                Type:         string
+              Insecure Info:
+                Description:  InsecureInfo specifies whether future connections to cd-info component will be done using a secure connection
+                Type:         string
+              Ipam:
+                Description:  Specifies the addressing for the NSEs that will register
+                Properties:
+                  Ip Family:
+                    Description:  Type of address pool that will be assigned: IPV4 or IPV6
+                    Type:         string
+                  Prefix Pool:
+                    Description:  Specify the CIDR of the Connectivity Domain
+                    Type:         string
+                  Routes:
+                    Description:  Specify routes to be added to the Connectivity Domain here
+                    Items:
+                      Type:  string
+                    Type:    array
+                Required:
+                  ipFamily
+                  prefixPool
+                Type:  object
+              Istio:
+                Description:  Istio specifies whether necessary istio components should be deployed
+                Type:         string
+              Size:
+                Description:  Size is the size of the deployment
+                Format:       int32
+                Minimum:      1
+                Type:         integer
+            Required:
+              fqdn
+              ipam
+            Type:  object
+          Status:
+            Description:  ConnectivityDomainStatus defines the observed state of ConnectivityDomain
+            Properties:
+              App Dns:
+                Properties:
+                  Deployment:
+                    Description:  AppDnsPublisher component Deployment
+                    Type:         string
+                  Role:
+                    Description:  AppDnsPublisher component Role
+                    Type:         string
+                  Role Binding:
+                    Description:  AppDnsPublisher component RoleBinding
+                    Type:         string
+                  Service Account:
+                    Description:  AppDnsPublisher component ServiceAccount
+                    Type:         string
+                Type:             object
+              Cd Info:
+                Properties:
+                  Config Map:
+                    Description:  ConfigMap is the config map that stores configuration for CDInfo
+                    Type:         string
+                  Deployment:
+                    Description:  Deployment is the CDInfo deployment that creates the CDInfo
+                    Type:         string
+                  Service:
+                    Description:  Service is the service created to connect to the CDInfo
+                    Type:         string
+                  Service Account:
+                    Description:  Service Account is the CDInfo service account
+                    Type:         string
+                  Service Entry:
+                    Description:  ServiceEntry used to add CDInfo into Istio mesh
+                    Type:         string
+                Type:             object
+              Istio Resources:
+                Properties:
+                  Gateway:
+                    Type:  string
+                  Virtual Service:
+                    Type:  string
+                Type:      object
+              Istiopub:
+                Properties:
+                  Deployment:
+                    Description:  Deployment is the app-istio-publisher deployment
+                    Type:         string
+                  Role:
+                    Description:  Role is the app-istio-publisher role
+                    Type:         string
+                  Role Binding:
+                    Description:  Role Binding is the app-istio-publisher role binding
+                    Type:         string
+                  Service Account:
+                    Description:  Service Account is the app-istio-publisher service account
+                    Type:         string
+                Type:             object
+              Nsr:
+                Description:  Represents meta information related to the NSR deployment
+                Properties:
+                  Deployment:
+                    Description:  Deployment is the NSR deployment that creates the NSR
+                    Type:         string
+                  Role:
+                    Description:  Role is the NSR role
+                    Type:         string
+                  Role Binding:
+                    Description:  Role Binding is the NSR role binding
+                    Type:         string
+                  Service:
+                    Description:  Service is the service created to connect to the NSR
+                    Type:         string
+                  Service Account:
+                    Description:  Service Account is the NSR service account
+                    Type:         string
+                  Service Entry:
+                    Description:  ServiceEntry used to add NSR into Istio mesh
+                    Type:         string
+                Type:             object
+              Pods:
+                Items:
+                  Type:  string
+                Type:    array
+              Wcmd:
+                Properties:
+                  Config Map:
+                    Description:  ConfigMap is the config map that stores configuration the WCMD
+                    Type:         string
+                  Deployment:
+                    Description:  Deployment is the WCMD deployment that creates the WCMD
+                    Type:         string
+                  Service:
+                    Description:  Service is the service created to connect to the WCMD
+                    Type:         string
+                  Service Account:
+                    Description:  Service Account is the WCMD service account
+                    Type:         string
+                  Service Entry:
+                    Description:  ServiceEntry used to add WCMD into Istio mesh
+                    Type:         string
+                Type:             object
+            Type:                 object
+        Required:
+          spec
+        Type:  object
+    Served:    true
+    Storage:   true
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Kind:       ConnectivityDomain
+    List Kind:  ConnectivityDomainList
+    Plural:     connectivitydomains
+    Singular:   connectivitydomain
+  Conditions:
+    Last Transition Time:  2021-05-27T04:49:35Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2021-05-27T04:49:35Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1alpha1
+Events:  <none>
+

@@ -1,0 +1,34 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    annotations:
+      meta.helm.sh/release-name: spire-release
+      meta.helm.sh/release-namespace: spire
+    creationTimestamp: "2021-05-27T04:47:52Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: spire-server
+    namespace: spire
+    resourceVersion: "969"
+    selfLink: /api/v1/namespaces/spire/services/spire-server
+    uid: a9d78611-7591-4920-96f3-7245c2080976
+  spec:
+    clusterIP: 10.105.223.74
+    externalTrafficPolicy: Cluster
+    ports:
+    - name: grpc
+      nodePort: 32395
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    selector:
+      app: spire-server
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "154781"
+  selfLink: /api/v1/namespaces/spire/services

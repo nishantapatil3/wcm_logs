@@ -1,0 +1,61 @@
+Name:         connectivity-domain-operator-548bcfbd7-8rvb6
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 27 May 2021 04:49:35 +0000
+Labels:       name=connectivity-domain-operator
+              pod-template-hash=548bcfbd7
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.13
+IPs:
+  IP:           10.244.0.13
+Controlled By:  ReplicaSet/connectivity-domain-operator-548bcfbd7
+Containers:
+  connectivity-domain-operator:
+    Container ID:  containerd://f914b6a8e383e1be6fea3d4e4f6f5470551bebcb888f0956bc9fd0eb8375ea37
+    Image:         public.ecr.aws/ciscoeti/appn/connectivity-domain-operator:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/connectivity-domain-operator@sha256:41375a0d8d734e9f92e1a5bf942bd60f2b53a8575ceb5ea394230e3f161b385a
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      connectivity-domain-operator
+    State:          Running
+      Started:      Thu, 27 May 2021 04:49:52 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         connectivity-domain-operator-548bcfbd7-8rvb6 (v1:metadata.name)
+      OPERATOR_NAME:    connectivity-domain-operator
+      CONFIG_PATH:      etc/connectivity-domain-configmap/config.yaml
+      INSECURE:         false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from connectivity-domain-operator-service-account-token-74p2n (ro)
+      etc/connectivity-domain-configmap/config.yaml from config-data-connectivity-domain (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-connectivity-domain:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      connectivity-domain-configmap
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  connectivity-domain-operator-service-account-token-74p2n:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  connectivity-domain-operator-service-account-token-74p2n
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

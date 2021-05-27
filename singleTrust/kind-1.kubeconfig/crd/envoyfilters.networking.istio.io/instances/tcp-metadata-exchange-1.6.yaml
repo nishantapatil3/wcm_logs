@@ -1,0 +1,68 @@
+Name:         tcp-metadata-exchange-1.6
+Namespace:    istio-system
+Labels:       install.operator.istio.io/owning-resource=istiocontrolplane-default
+              install.operator.istio.io/owning-resource-namespace=istio-system
+              istio.io/rev=default
+              operator.istio.io/component=Pilot
+              operator.istio.io/managed=Reconcile
+              operator.istio.io/version=1.8.3
+Annotations:  <none>
+API Version:  networking.istio.io/v1alpha3
+Kind:         EnvoyFilter
+Metadata:
+  Creation Timestamp:  2021-05-27T04:50:08Z
+  Generation:          1
+  Resource Version:    1828
+  Self Link:           /apis/networking.istio.io/v1alpha3/namespaces/istio-system/envoyfilters/tcp-metadata-exchange-1.6
+  UID:                 ca0af25f-2248-46c4-a538-fc1ffeed9a34
+Spec:
+  Config Patches:
+    Apply To:  NETWORK_FILTER
+    Match:
+      Context:  SIDECAR_INBOUND
+      Listener:
+      Proxy:
+        Proxy Version:  ^1\.6.*
+    Patch:
+      Operation:  INSERT_BEFORE
+      Value:
+        Name:  istio.metadata_exchange
+        typed_config:
+          @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url:  type.googleapis.com/envoy.tcp.metadataexchange.config.MetadataExchange
+          Value:
+            Protocol:  istio-peer-exchange
+    Apply To:          CLUSTER
+    Match:
+      Cluster:
+      Context:  SIDECAR_OUTBOUND
+      Proxy:
+        Proxy Version:  ^1\.6.*
+    Patch:
+      Operation:  MERGE
+      Value:
+        Filters:
+          Name:  istio.metadata_exchange
+          typed_config:
+            @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url:  type.googleapis.com/envoy.tcp.metadataexchange.config.MetadataExchange
+            Value:
+              Protocol:  istio-peer-exchange
+    Apply To:            CLUSTER
+    Match:
+      Cluster:
+      Context:  GATEWAY
+      Proxy:
+        Proxy Version:  ^1\.6.*
+    Patch:
+      Operation:  MERGE
+      Value:
+        Filters:
+          Name:  istio.metadata_exchange
+          typed_config:
+            @type:     type.googleapis.com/udpa.type.v1.TypedStruct
+            type_url:  type.googleapis.com/envoy.tcp.metadataexchange.config.MetadataExchange
+            Value:
+              Protocol:  istio-peer-exchange
+Events:                  <none>
+

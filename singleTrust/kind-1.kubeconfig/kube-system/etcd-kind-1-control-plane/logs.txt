@@ -1,0 +1,363 @@
+==== START logs for container etcd of pod kube-system/etcd-kind-1-control-plane ====
+[WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+2021-05-27 04:44:18.192019 I | etcdmain: etcd Version: 3.4.3
+2021-05-27 04:44:18.192065 I | etcdmain: Git SHA: 3cf2f69b5
+2021-05-27 04:44:18.192071 I | etcdmain: Go Version: go1.12.12
+2021-05-27 04:44:18.192078 I | etcdmain: Go OS/Arch: linux/amd64
+2021-05-27 04:44:18.192084 I | etcdmain: setting maximum number of CPUs to 4, total number of available CPUs is 4
+[WARNING] Deprecated '--logger=capnslog' flag is set; use '--logger=zap' flag instead
+2021-05-27 04:44:18.192177 I | embed: peerTLS: cert = /etc/kubernetes/pki/etcd/peer.crt, key = /etc/kubernetes/pki/etcd/peer.key, trusted-ca = /etc/kubernetes/pki/etcd/ca.crt, client-cert-auth = true, crl-file = 
+2021-05-27 04:44:18.194040 I | embed: name = kind-1-control-plane
+2021-05-27 04:44:18.194056 I | embed: data dir = /var/lib/etcd
+2021-05-27 04:44:18.194063 I | embed: member dir = /var/lib/etcd/member
+2021-05-27 04:44:18.194068 I | embed: heartbeat = 100ms
+2021-05-27 04:44:18.194073 I | embed: election = 1000ms
+2021-05-27 04:44:18.194078 I | embed: snapshot count = 10000
+2021-05-27 04:44:18.194088 I | embed: advertise client URLs = https://172.17.0.2:2379
+2021-05-27 04:44:18.206161 I | etcdserver: starting member b8e14bda2255bc24 in cluster 38b0e74a458e7a1f
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 switched to configuration voters=()
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 became follower at term 0
+raft2021/05/27 04:44:18 INFO: newRaft b8e14bda2255bc24 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 became follower at term 1
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 switched to configuration voters=(13322012572989635620)
+2021-05-27 04:44:18.240324 W | auth: simple token is not cryptographically signed
+2021-05-27 04:44:18.245434 I | etcdserver: starting server... [version: 3.4.3, cluster version: to_be_decided]
+2021-05-27 04:44:18.245863 I | etcdserver: b8e14bda2255bc24 as single-node; fast-forwarding 9 ticks (election ticks 10)
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 switched to configuration voters=(13322012572989635620)
+2021-05-27 04:44:18.246790 I | etcdserver/membership: added member b8e14bda2255bc24 [https://172.17.0.2:2380] to cluster 38b0e74a458e7a1f
+2021-05-27 04:44:18.250128 I | embed: ClientTLS: cert = /etc/kubernetes/pki/etcd/server.crt, key = /etc/kubernetes/pki/etcd/server.key, trusted-ca = /etc/kubernetes/pki/etcd/ca.crt, client-cert-auth = true, crl-file = 
+2021-05-27 04:44:18.250492 I | embed: listening for peers on 172.17.0.2:2380
+2021-05-27 04:44:18.250869 I | embed: listening for metrics on http://127.0.0.1:2381
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 is starting a new election at term 1
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 became candidate at term 2
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 received MsgVoteResp from b8e14bda2255bc24 at term 2
+raft2021/05/27 04:44:18 INFO: b8e14bda2255bc24 became leader at term 2
+raft2021/05/27 04:44:18 INFO: raft.node: b8e14bda2255bc24 elected leader b8e14bda2255bc24 at term 2
+2021-05-27 04:44:18.617176 I | etcdserver: setting up the initial cluster version to 3.4
+2021-05-27 04:44:18.617913 I | etcdserver: published {Name:kind-1-control-plane ClientURLs:[https://172.17.0.2:2379]} to cluster 38b0e74a458e7a1f
+2021-05-27 04:44:18.618216 I | embed: ready to serve client requests
+2021-05-27 04:44:18.620895 I | embed: serving client requests on 172.17.0.2:2379
+2021-05-27 04:44:18.621616 I | embed: ready to serve client requests
+2021-05-27 04:44:18.624801 I | embed: serving client requests on 127.0.0.1:2379
+2021-05-27 04:44:18.628514 N | etcdserver/membership: set the initial cluster version to 3.4
+2021-05-27 04:44:18.629573 I | etcdserver/api: enabled capabilities for version 3.4
+2021-05-27 04:44:30.872700 W | etcdserver: request "header:<ID:13557094558523828939 username:\"kube-apiserver-etcd-client\" auth_revision:1 > txn:<compare:<target:MOD key:\"/registry/serviceaccounts/kube-system/job-controller\" mod_revision:278 > success:<request_put:<key:\"/registry/serviceaccounts/kube-system/job-controller\" value_size:164 >> failure:<request_range:<key:\"/registry/serviceaccounts/kube-system/job-controller\" > >>" with result "size:16" took too long (136.933621ms) to execute
+2021-05-27 04:44:30.873163 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/clusterrole-aggregation-controller\" " with result "range_response_count:0 size:5" took too long (284.60072ms) to execute
+2021-05-27 04:44:31.149354 W | etcdserver: request "header:<ID:13557094558523828950 username:\"kube-apiserver-etcd-client\" auth_revision:1 > txn:<compare:<target:MOD key:\"/registry/serviceaccounts/kube-system/clusterrole-aggregation-controller\" mod_revision:283 > success:<request_put:<key:\"/registry/serviceaccounts/kube-system/clusterrole-aggregation-controller\" value_size:204 >> failure:<request_range:<key:\"/registry/serviceaccounts/kube-system/clusterrole-aggregation-controller\" > >>" with result "size:16" took too long (163.350095ms) to execute
+2021-05-27 04:44:31.150528 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/resourcequota-controller\" " with result "range_response_count:0 size:5" took too long (222.4956ms) to execute
+2021-05-27 04:44:31.628535 W | etcdserver: request "header:<ID:13557094558523828957 username:\"kube-apiserver-etcd-client\" auth_revision:1 > txn:<compare:<target:MOD key:\"/registry/serviceaccounts/kube-system/resourcequota-controller\" mod_revision:288 > success:<request_put:<key:\"/registry/serviceaccounts/kube-system/resourcequota-controller\" value_size:184 >> failure:<request_range:<key:\"/registry/serviceaccounts/kube-system/resourcequota-controller\" > >>" with result "size:16" took too long (299.66816ms) to execute
+2021-05-27 04:44:31.628697 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/ttl-controller\" " with result "range_response_count:0 size:5" took too long (187.618994ms) to execute
+2021-05-27 04:44:31.827650 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/service-account-controller\" " with result "range_response_count:0 size:5" took too long (164.067014ms) to execute
+2021-05-27 04:44:32.019441 W | etcdserver: read-only range request "key:\"/registry/serviceaccounts/kube-system/statefulset-controller\" " with result "range_response_count:0 size:5" took too long (152.064481ms) to execute
+2021-05-27 04:44:33.289685 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-scheduler\" " with result "range_response_count:1 size:293" took too long (128.634332ms) to execute
+2021-05-27 04:44:45.563447 W | etcdserver: read-only range request "key:\"/registry/leases/kube-system/kube-scheduler\" " with result "range_response_count:1 size:293" took too long (131.693079ms) to execute
+2021-05-27 04:44:45.580253 W | etcdserver: read-only range request "key:\"/registry/pods/kube-system/kindnet-5jvqz\" " with result "range_response_count:1 size:2049" took too long (103.19803ms) to execute
+2021-05-27 04:54:18.929390 I | mvcc: store.index: compact 1396
+2021-05-27 04:54:18.954345 I | mvcc: finished scheduled compaction at 1396 (took 24.322313ms)
+2021-05-27 04:59:18.941254 I | mvcc: store.index: compact 3166
+2021-05-27 04:59:18.974113 I | mvcc: finished scheduled compaction at 3166 (took 32.28061ms)
+2021-05-27 05:04:18.946177 I | mvcc: store.index: compact 4395
+2021-05-27 05:04:18.960714 I | mvcc: finished scheduled compaction at 4395 (took 14.014899ms)
+2021-05-27 05:09:18.950662 I | mvcc: store.index: compact 5625
+2021-05-27 05:09:18.965943 I | mvcc: finished scheduled compaction at 5625 (took 14.525082ms)
+2021-05-27 05:14:18.955413 I | mvcc: store.index: compact 6853
+2021-05-27 05:14:18.970399 I | mvcc: finished scheduled compaction at 6853 (took 14.399631ms)
+2021-05-27 05:19:18.959870 I | mvcc: store.index: compact 8083
+2021-05-27 05:19:18.974559 I | mvcc: finished scheduled compaction at 8083 (took 14.071691ms)
+2021-05-27 05:19:24.303631 I | etcdserver: start to snapshot (applied: 10001, lastsnap: 0)
+2021-05-27 05:19:24.309313 I | etcdserver: saved snapshot at index 10001
+2021-05-27 05:19:24.309437 I | etcdserver: compacted raft log at 5001
+2021-05-27 05:24:18.964106 I | mvcc: store.index: compact 9312
+2021-05-27 05:24:18.978943 I | mvcc: finished scheduled compaction at 9312 (took 14.167839ms)
+2021-05-27 05:29:18.968659 I | mvcc: store.index: compact 10541
+2021-05-27 05:29:18.983229 I | mvcc: finished scheduled compaction at 10541 (took 13.785273ms)
+2021-05-27 05:34:18.972811 I | mvcc: store.index: compact 11768
+2021-05-27 05:34:18.987834 I | mvcc: finished scheduled compaction at 11768 (took 14.448201ms)
+2021-05-27 05:39:18.978320 I | mvcc: store.index: compact 12998
+2021-05-27 05:39:18.993265 I | mvcc: finished scheduled compaction at 12998 (took 14.187507ms)
+2021-05-27 05:44:18.985140 I | mvcc: store.index: compact 14227
+2021-05-27 05:44:19.000136 I | mvcc: finished scheduled compaction at 14227 (took 14.275506ms)
+2021-05-27 05:49:18.989975 I | mvcc: store.index: compact 15456
+2021-05-27 05:49:19.004589 I | mvcc: finished scheduled compaction at 15456 (took 13.921617ms)
+2021-05-27 05:54:18.995538 I | mvcc: store.index: compact 16688
+2021-05-27 05:54:19.024273 I | mvcc: finished scheduled compaction at 16688 (took 27.806341ms)
+2021-05-27 05:57:12.848153 I | etcdserver: start to snapshot (applied: 20002, lastsnap: 10001)
+2021-05-27 05:57:12.853935 I | etcdserver: saved snapshot at index 20002
+2021-05-27 05:57:12.854105 I | etcdserver: compacted raft log at 15002
+2021-05-27 05:59:19.001431 I | mvcc: store.index: compact 17921
+2021-05-27 05:59:19.018267 I | mvcc: finished scheduled compaction at 17921 (took 16.200968ms)
+2021-05-27 06:04:19.005694 I | mvcc: store.index: compact 19150
+2021-05-27 06:04:19.021389 I | mvcc: finished scheduled compaction at 19150 (took 15.20559ms)
+2021-05-27 06:09:19.010912 I | mvcc: store.index: compact 20377
+2021-05-27 06:09:19.026181 I | mvcc: finished scheduled compaction at 20377 (took 14.739495ms)
+2021-05-27 06:14:19.015777 I | mvcc: store.index: compact 21607
+2021-05-27 06:14:19.030388 I | mvcc: finished scheduled compaction at 21607 (took 14.117015ms)
+2021-05-27 06:19:19.020445 I | mvcc: store.index: compact 22834
+2021-05-27 06:19:19.044208 I | mvcc: finished scheduled compaction at 22834 (took 23.256431ms)
+2021-05-27 06:24:19.024865 I | mvcc: store.index: compact 24064
+2021-05-27 06:24:19.039523 I | mvcc: finished scheduled compaction at 24064 (took 14.093789ms)
+2021-05-27 06:29:19.029258 I | mvcc: store.index: compact 25292
+2021-05-27 06:29:19.043936 I | mvcc: finished scheduled compaction at 25292 (took 14.160003ms)
+2021-05-27 06:34:19.034288 I | mvcc: store.index: compact 26522
+2021-05-27 06:34:19.050543 I | mvcc: finished scheduled compaction at 26522 (took 15.473191ms)
+2021-05-27 06:35:01.293936 I | etcdserver: start to snapshot (applied: 30003, lastsnap: 20002)
+2021-05-27 06:35:01.307360 I | etcdserver: saved snapshot at index 30003
+2021-05-27 06:35:01.307991 I | etcdserver: compacted raft log at 25003
+2021-05-27 06:39:19.039356 I | mvcc: store.index: compact 27750
+2021-05-27 06:39:19.054149 I | mvcc: finished scheduled compaction at 27750 (took 14.052104ms)
+2021-05-27 06:44:19.045331 I | mvcc: store.index: compact 28978
+2021-05-27 06:44:19.060071 I | mvcc: finished scheduled compaction at 28978 (took 14.21309ms)
+2021-05-27 06:49:19.049933 I | mvcc: store.index: compact 30206
+2021-05-27 06:49:19.064584 I | mvcc: finished scheduled compaction at 30206 (took 14.118655ms)
+2021-05-27 06:54:19.055991 I | mvcc: store.index: compact 31437
+2021-05-27 06:54:19.070722 I | mvcc: finished scheduled compaction at 31437 (took 14.203499ms)
+2021-05-27 06:59:19.061022 I | mvcc: store.index: compact 32666
+2021-05-27 06:59:19.076133 I | mvcc: finished scheduled compaction at 32666 (took 14.460084ms)
+2021-05-27 07:04:19.065671 I | mvcc: store.index: compact 33895
+2021-05-27 07:04:19.080384 I | mvcc: finished scheduled compaction at 33895 (took 14.252364ms)
+2021-05-27 07:09:19.070048 I | mvcc: store.index: compact 35124
+2021-05-27 07:09:19.084784 I | mvcc: finished scheduled compaction at 35124 (took 14.260904ms)
+2021-05-27 07:12:49.343423 I | etcdserver: start to snapshot (applied: 40004, lastsnap: 30003)
+2021-05-27 07:12:49.351097 I | etcdserver: saved snapshot at index 40004
+2021-05-27 07:12:49.351268 I | etcdserver: compacted raft log at 35004
+2021-05-27 07:14:19.074433 I | mvcc: store.index: compact 36353
+2021-05-27 07:14:19.089682 I | mvcc: finished scheduled compaction at 36353 (took 14.765763ms)
+2021-05-27 07:19:19.084438 I | mvcc: store.index: compact 37582
+2021-05-27 07:19:19.099413 I | mvcc: finished scheduled compaction at 37582 (took 14.400727ms)
+2021-05-27 07:24:19.089375 I | mvcc: store.index: compact 38812
+2021-05-27 07:24:19.104452 I | mvcc: finished scheduled compaction at 38812 (took 14.534101ms)
+2021-05-27 07:29:19.093720 I | mvcc: store.index: compact 40041
+2021-05-27 07:29:19.111389 I | mvcc: finished scheduled compaction at 40041 (took 17.090964ms)
+2021-05-27 07:34:19.098398 I | mvcc: store.index: compact 41269
+2021-05-27 07:34:19.113337 I | mvcc: finished scheduled compaction at 41269 (took 14.306121ms)
+2021-05-27 07:39:19.103180 I | mvcc: store.index: compact 42498
+2021-05-27 07:39:19.117717 I | mvcc: finished scheduled compaction at 42498 (took 14.036099ms)
+2021-05-27 07:44:19.108129 I | mvcc: store.index: compact 43727
+2021-05-27 07:44:19.123678 I | mvcc: finished scheduled compaction at 43727 (took 14.945459ms)
+2021-05-27 07:49:19.113414 I | mvcc: store.index: compact 44956
+2021-05-27 07:49:19.127999 I | mvcc: finished scheduled compaction at 44956 (took 14.114856ms)
+2021-05-27 07:50:37.949559 I | etcdserver: start to snapshot (applied: 50005, lastsnap: 40004)
+2021-05-27 07:50:37.955388 I | etcdserver: saved snapshot at index 50005
+2021-05-27 07:50:37.955776 I | etcdserver: compacted raft log at 45005
+2021-05-27 07:54:19.118035 I | mvcc: store.index: compact 46182
+2021-05-27 07:54:19.133065 I | mvcc: finished scheduled compaction at 46182 (took 14.441738ms)
+2021-05-27 07:59:19.122690 I | mvcc: store.index: compact 47411
+2021-05-27 07:59:19.138778 I | mvcc: finished scheduled compaction at 47411 (took 15.54522ms)
+2021-05-27 08:04:19.127322 I | mvcc: store.index: compact 48641
+2021-05-27 08:04:19.142212 I | mvcc: finished scheduled compaction at 48641 (took 14.396216ms)
+2021-05-27 08:09:19.132057 I | mvcc: store.index: compact 49870
+2021-05-27 08:09:19.146905 I | mvcc: finished scheduled compaction at 49870 (took 14.181483ms)
+2021-05-27 08:14:19.136772 I | mvcc: store.index: compact 51099
+2021-05-27 08:14:19.151416 I | mvcc: finished scheduled compaction at 51099 (took 14.107321ms)
+2021-05-27 08:19:19.141426 I | mvcc: store.index: compact 52328
+2021-05-27 08:19:19.156531 I | mvcc: finished scheduled compaction at 52328 (took 14.463408ms)
+2021-05-27 08:24:19.145811 I | mvcc: store.index: compact 53557
+2021-05-27 08:24:19.160895 I | mvcc: finished scheduled compaction at 53557 (took 14.599036ms)
+2021-05-27 08:28:26.462504 I | etcdserver: start to snapshot (applied: 60006, lastsnap: 50005)
+2021-05-27 08:28:26.468467 I | etcdserver: saved snapshot at index 60006
+2021-05-27 08:28:26.468635 I | etcdserver: compacted raft log at 55006
+2021-05-27 08:28:48.371496 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-0000000000002711.snap successfully
+2021-05-27 08:29:19.150041 I | mvcc: store.index: compact 54786
+2021-05-27 08:29:19.164839 I | mvcc: finished scheduled compaction at 54786 (took 14.27732ms)
+2021-05-27 08:34:19.155256 I | mvcc: store.index: compact 56016
+2021-05-27 08:34:19.170197 I | mvcc: finished scheduled compaction at 56016 (took 14.37154ms)
+2021-05-27 08:39:19.160063 I | mvcc: store.index: compact 57242
+2021-05-27 08:39:19.175660 I | mvcc: finished scheduled compaction at 57242 (took 14.989506ms)
+2021-05-27 08:44:19.164934 I | mvcc: store.index: compact 58471
+2021-05-27 08:44:19.179665 I | mvcc: finished scheduled compaction at 58471 (took 14.08747ms)
+2021-05-27 08:49:19.170026 I | mvcc: store.index: compact 59698
+2021-05-27 08:49:19.185134 I | mvcc: finished scheduled compaction at 59698 (took 14.606082ms)
+2021-05-27 08:54:19.174354 I | mvcc: store.index: compact 60928
+2021-05-27 08:54:19.188822 I | mvcc: finished scheduled compaction at 60928 (took 13.922447ms)
+2021-05-27 08:59:19.179059 I | mvcc: store.index: compact 62157
+2021-05-27 08:59:19.194236 I | mvcc: finished scheduled compaction at 62157 (took 14.668627ms)
+2021-05-27 09:04:19.183595 I | mvcc: store.index: compact 63387
+2021-05-27 09:04:19.198719 I | mvcc: finished scheduled compaction at 63387 (took 14.614358ms)
+2021-05-27 09:06:14.482352 I | etcdserver: start to snapshot (applied: 70007, lastsnap: 60006)
+2021-05-27 09:06:14.488123 I | etcdserver: saved snapshot at index 70007
+2021-05-27 09:06:14.488881 I | etcdserver: compacted raft log at 65007
+2021-05-27 09:06:18.392252 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-0000000000004e22.snap successfully
+2021-05-27 09:09:19.188118 I | mvcc: store.index: compact 64615
+2021-05-27 09:09:19.208291 I | mvcc: finished scheduled compaction at 64615 (took 19.272525ms)
+2021-05-27 09:14:19.194270 I | mvcc: store.index: compact 65844
+2021-05-27 09:14:19.209491 I | mvcc: finished scheduled compaction at 65844 (took 14.646309ms)
+2021-05-27 09:19:19.198962 I | mvcc: store.index: compact 67073
+2021-05-27 09:19:19.213996 I | mvcc: finished scheduled compaction at 67073 (took 14.584175ms)
+2021-05-27 09:24:19.203712 I | mvcc: store.index: compact 68304
+2021-05-27 09:24:19.218525 I | mvcc: finished scheduled compaction at 68304 (took 14.284919ms)
+2021-05-27 09:29:19.208813 I | mvcc: store.index: compact 69532
+2021-05-27 09:29:19.223618 I | mvcc: finished scheduled compaction at 69532 (took 14.140766ms)
+2021-05-27 09:34:19.213964 I | mvcc: store.index: compact 70762
+2021-05-27 09:34:19.237712 I | mvcc: finished scheduled compaction at 70762 (took 22.988325ms)
+2021-05-27 09:39:19.218671 I | mvcc: store.index: compact 71990
+2021-05-27 09:39:19.233643 I | mvcc: finished scheduled compaction at 71990 (took 14.297387ms)
+2021-05-27 09:44:04.234699 I | etcdserver: start to snapshot (applied: 80008, lastsnap: 70007)
+2021-05-27 09:44:04.239888 I | etcdserver: saved snapshot at index 80008
+2021-05-27 09:44:04.240029 I | etcdserver: compacted raft log at 75008
+2021-05-27 09:44:18.413034 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-0000000000007533.snap successfully
+2021-05-27 09:44:19.223503 I | mvcc: store.index: compact 73221
+2021-05-27 09:44:19.238594 I | mvcc: finished scheduled compaction at 73221 (took 14.614167ms)
+2021-05-27 09:49:19.229548 I | mvcc: store.index: compact 74448
+2021-05-27 09:49:19.244884 I | mvcc: finished scheduled compaction at 74448 (took 14.762789ms)
+2021-05-27 09:54:19.233727 I | mvcc: store.index: compact 75679
+2021-05-27 09:54:19.248190 I | mvcc: finished scheduled compaction at 75679 (took 14.033271ms)
+2021-05-27 09:59:19.238076 I | mvcc: store.index: compact 76905
+2021-05-27 09:59:19.252743 I | mvcc: finished scheduled compaction at 76905 (took 14.093692ms)
+2021-05-27 10:04:19.242665 I | mvcc: store.index: compact 78135
+2021-05-27 10:04:19.257843 I | mvcc: finished scheduled compaction at 78135 (took 14.594189ms)
+2021-05-27 10:09:19.248603 I | mvcc: store.index: compact 79363
+2021-05-27 10:09:19.264113 I | mvcc: finished scheduled compaction at 79363 (took 14.683471ms)
+2021-05-27 10:14:19.254726 I | mvcc: store.index: compact 80592
+2021-05-27 10:14:19.269288 I | mvcc: finished scheduled compaction at 80592 (took 14.010777ms)
+2021-05-27 10:19:19.258793 I | mvcc: store.index: compact 81819
+2021-05-27 10:19:19.273527 I | mvcc: finished scheduled compaction at 81819 (took 14.178321ms)
+2021-05-27 10:21:52.473056 I | etcdserver: start to snapshot (applied: 90009, lastsnap: 80008)
+2021-05-27 10:21:52.478265 I | etcdserver: saved snapshot at index 90009
+2021-05-27 10:21:52.478433 I | etcdserver: compacted raft log at 85009
+2021-05-27 10:22:18.436710 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-0000000000009c44.snap successfully
+2021-05-27 10:24:19.262955 I | mvcc: store.index: compact 83050
+2021-05-27 10:24:19.277607 I | mvcc: finished scheduled compaction at 83050 (took 14.168391ms)
+2021-05-27 10:29:19.268190 I | mvcc: store.index: compact 84278
+2021-05-27 10:29:19.283655 I | mvcc: finished scheduled compaction at 84278 (took 14.848231ms)
+2021-05-27 10:34:19.273557 I | mvcc: store.index: compact 85507
+2021-05-27 10:34:19.288439 I | mvcc: finished scheduled compaction at 85507 (took 14.293114ms)
+2021-05-27 10:39:19.285611 I | mvcc: store.index: compact 86736
+2021-05-27 10:39:19.308823 I | mvcc: finished scheduled compaction at 86736 (took 19.487749ms)
+2021-05-27 10:44:19.295953 I | mvcc: store.index: compact 87966
+2021-05-27 10:44:19.310428 I | mvcc: finished scheduled compaction at 87966 (took 13.973996ms)
+2021-05-27 10:49:19.301104 I | mvcc: store.index: compact 89192
+2021-05-27 10:49:19.322675 I | mvcc: finished scheduled compaction at 89192 (took 20.801809ms)
+2021-05-27 10:54:19.309407 I | mvcc: store.index: compact 90422
+2021-05-27 10:54:19.324479 I | mvcc: finished scheduled compaction at 90422 (took 14.53397ms)
+2021-05-27 10:59:19.314151 I | mvcc: store.index: compact 91650
+2021-05-27 10:59:19.329868 I | mvcc: finished scheduled compaction at 91650 (took 15.178887ms)
+2021-05-27 10:59:41.825339 I | etcdserver: start to snapshot (applied: 100010, lastsnap: 90009)
+2021-05-27 10:59:41.830929 I | etcdserver: saved snapshot at index 100010
+2021-05-27 10:59:41.831105 I | etcdserver: compacted raft log at 95010
+2021-05-27 10:59:48.462981 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-000000000000c355.snap successfully
+2021-05-27 11:04:19.319054 I | mvcc: store.index: compact 92877
+2021-05-27 11:04:19.336050 I | mvcc: finished scheduled compaction at 92877 (took 16.385252ms)
+2021-05-27 11:07:24.242868 I | wal: segmented wal file /var/lib/etcd/member/wal/0000000000000001-0000000000018ea2.wal is created
+2021-05-27 11:09:19.325403 I | mvcc: store.index: compact 94106
+2021-05-27 11:09:19.341285 I | mvcc: finished scheduled compaction at 94106 (took 15.264397ms)
+2021-05-27 11:14:19.330330 I | mvcc: store.index: compact 95335
+2021-05-27 11:14:19.345694 I | mvcc: finished scheduled compaction at 95335 (took 14.707895ms)
+2021-05-27 11:19:19.335714 I | mvcc: store.index: compact 96565
+2021-05-27 11:19:19.350291 I | mvcc: finished scheduled compaction at 96565 (took 14.047359ms)
+2021-05-27 11:24:19.341726 I | mvcc: store.index: compact 97791
+2021-05-27 11:24:19.357411 I | mvcc: finished scheduled compaction at 97791 (took 15.120133ms)
+2021-05-27 11:29:19.347470 I | mvcc: store.index: compact 99019
+2021-05-27 11:29:19.363900 I | mvcc: finished scheduled compaction at 99019 (took 15.955764ms)
+2021-05-27 11:34:19.353311 I | mvcc: store.index: compact 100249
+2021-05-27 11:34:19.368321 I | mvcc: finished scheduled compaction at 100249 (took 14.377225ms)
+2021-05-27 11:37:29.797397 I | etcdserver: start to snapshot (applied: 110011, lastsnap: 100010)
+2021-05-27 11:37:29.802412 I | etcdserver: saved snapshot at index 110011
+2021-05-27 11:37:29.802624 I | etcdserver: compacted raft log at 105011
+2021-05-27 11:37:48.485986 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-000000000000ea66.snap successfully
+2021-05-27 11:39:19.359628 I | mvcc: store.index: compact 101480
+2021-05-27 11:39:19.375111 I | mvcc: finished scheduled compaction at 101480 (took 14.961393ms)
+2021-05-27 11:44:19.364843 I | mvcc: store.index: compact 102707
+2021-05-27 11:44:19.380578 I | mvcc: finished scheduled compaction at 102707 (took 15.050646ms)
+2021-05-27 11:49:19.372038 I | mvcc: store.index: compact 103938
+2021-05-27 11:49:19.394763 I | mvcc: finished scheduled compaction at 103938 (took 21.590187ms)
+2021-05-27 11:54:19.379780 I | mvcc: store.index: compact 105166
+2021-05-27 11:54:19.395321 I | mvcc: finished scheduled compaction at 105166 (took 14.809148ms)
+2021-05-27 11:59:19.386363 I | mvcc: store.index: compact 106396
+2021-05-27 11:59:19.401833 I | mvcc: finished scheduled compaction at 106396 (took 14.8176ms)
+2021-05-27 12:04:19.392470 I | mvcc: store.index: compact 107624
+2021-05-27 12:04:19.408943 I | mvcc: finished scheduled compaction at 107624 (took 14.84899ms)
+2021-05-27 12:09:19.400576 I | mvcc: store.index: compact 108855
+2021-05-27 12:09:19.416472 I | mvcc: finished scheduled compaction at 108855 (took 15.294976ms)
+2021-05-27 12:14:19.406297 I | mvcc: store.index: compact 110083
+2021-05-27 12:14:19.420831 I | mvcc: finished scheduled compaction at 110083 (took 13.842369ms)
+2021-05-27 12:15:17.606358 I | etcdserver: start to snapshot (applied: 120012, lastsnap: 110011)
+2021-05-27 12:15:17.611985 I | etcdserver: saved snapshot at index 120012
+2021-05-27 12:15:17.612137 I | etcdserver: compacted raft log at 115012
+2021-05-27 12:15:18.508364 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-0000000000011177.snap successfully
+2021-05-27 12:19:19.411395 I | mvcc: store.index: compact 111314
+2021-05-27 12:19:19.426259 I | mvcc: finished scheduled compaction at 111314 (took 14.264074ms)
+2021-05-27 12:24:19.417362 I | mvcc: store.index: compact 112541
+2021-05-27 12:24:19.445020 I | mvcc: finished scheduled compaction at 112541 (took 26.919438ms)
+2021-05-27 12:29:19.430690 I | mvcc: store.index: compact 113770
+2021-05-27 12:29:19.445280 I | mvcc: finished scheduled compaction at 113770 (took 13.94714ms)
+2021-05-27 12:34:19.435747 I | mvcc: store.index: compact 114998
+2021-05-27 12:34:19.450704 I | mvcc: finished scheduled compaction at 114998 (took 14.364605ms)
+2021-05-27 12:39:19.440334 I | mvcc: store.index: compact 116228
+2021-05-27 12:39:19.455349 I | mvcc: finished scheduled compaction at 116228 (took 14.350784ms)
+2021-05-27 12:44:19.445327 I | mvcc: store.index: compact 117456
+2021-05-27 12:44:19.460145 I | mvcc: finished scheduled compaction at 117456 (took 14.25936ms)
+2021-05-27 12:49:19.450316 I | mvcc: store.index: compact 118685
+2021-05-27 12:49:19.464942 I | mvcc: finished scheduled compaction at 118685 (took 13.994708ms)
+2021-05-27 12:53:06.226087 I | etcdserver: start to snapshot (applied: 130013, lastsnap: 120012)
+2021-05-27 12:53:06.231145 I | etcdserver: saved snapshot at index 130013
+2021-05-27 12:53:06.231322 I | etcdserver: compacted raft log at 125013
+2021-05-27 12:53:18.529148 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-0000000000013888.snap successfully
+2021-05-27 12:54:19.455612 I | mvcc: store.index: compact 119912
+2021-05-27 12:54:19.476844 I | mvcc: finished scheduled compaction at 119912 (took 19.330513ms)
+2021-05-27 12:59:19.462002 I | mvcc: store.index: compact 121143
+2021-05-27 12:59:19.477441 I | mvcc: finished scheduled compaction at 121143 (took 14.83686ms)
+2021-05-27 13:04:19.466372 I | mvcc: store.index: compact 122371
+2021-05-27 13:04:19.481526 I | mvcc: finished scheduled compaction at 122371 (took 14.638587ms)
+2021-05-27 13:09:19.471262 I | mvcc: store.index: compact 123601
+2021-05-27 13:09:19.485828 I | mvcc: finished scheduled compaction at 123601 (took 14.0907ms)
+2021-05-27 13:14:19.475583 I | mvcc: store.index: compact 124830
+2021-05-27 13:14:19.499478 I | mvcc: finished scheduled compaction at 124830 (took 23.238935ms)
+2021-05-27 13:19:19.485384 I | mvcc: store.index: compact 126059
+2021-05-27 13:19:19.499909 I | mvcc: finished scheduled compaction at 126059 (took 13.961604ms)
+2021-05-27 13:24:19.489951 I | mvcc: store.index: compact 127288
+2021-05-27 13:24:19.504567 I | mvcc: finished scheduled compaction at 127288 (took 14.049944ms)
+2021-05-27 13:29:19.494377 I | mvcc: store.index: compact 128518
+2021-05-27 13:29:19.509695 I | mvcc: finished scheduled compaction at 128518 (took 14.61728ms)
+2021-05-27 13:30:54.688917 I | etcdserver: start to snapshot (applied: 140014, lastsnap: 130013)
+2021-05-27 13:30:54.694387 I | etcdserver: saved snapshot at index 140014
+2021-05-27 13:30:54.694545 I | etcdserver: compacted raft log at 135014
+2021-05-27 13:31:18.555284 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-0000000000015f99.snap successfully
+2021-05-27 13:34:19.499312 I | mvcc: store.index: compact 129744
+2021-05-27 13:34:19.514250 I | mvcc: finished scheduled compaction at 129744 (took 14.500768ms)
+2021-05-27 13:39:19.503495 I | mvcc: store.index: compact 130971
+2021-05-27 13:39:19.518121 I | mvcc: finished scheduled compaction at 130971 (took 14.071342ms)
+2021-05-27 13:44:19.507656 I | mvcc: store.index: compact 132200
+2021-05-27 13:44:19.522383 I | mvcc: finished scheduled compaction at 132200 (took 14.200656ms)
+2021-05-27 13:49:19.512255 I | mvcc: store.index: compact 133429
+2021-05-27 13:49:19.527219 I | mvcc: finished scheduled compaction at 133429 (took 14.434002ms)
+2021-05-27 13:54:19.516938 I | mvcc: store.index: compact 134658
+2021-05-27 13:54:19.531838 I | mvcc: finished scheduled compaction at 134658 (took 14.312851ms)
+2021-05-27 13:59:19.521385 I | mvcc: store.index: compact 135886
+2021-05-27 13:59:19.539469 I | mvcc: finished scheduled compaction at 135886 (took 17.566331ms)
+2021-05-27 14:04:19.526029 I | mvcc: store.index: compact 137114
+2021-05-27 14:04:19.540408 I | mvcc: finished scheduled compaction at 137114 (took 13.926828ms)
+2021-05-27 14:08:44.353974 I | etcdserver: start to snapshot (applied: 150015, lastsnap: 140014)
+2021-05-27 14:08:44.359972 I | etcdserver: saved snapshot at index 150015
+2021-05-27 14:08:44.360140 I | etcdserver: compacted raft log at 145015
+2021-05-27 14:08:48.584183 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-00000000000186aa.snap successfully
+2021-05-27 14:09:19.530232 I | mvcc: store.index: compact 138344
+2021-05-27 14:09:19.545060 I | mvcc: finished scheduled compaction at 138344 (took 14.316603ms)
+2021-05-27 14:14:19.534380 I | mvcc: store.index: compact 139573
+2021-05-27 14:14:19.548961 I | mvcc: finished scheduled compaction at 139573 (took 13.971593ms)
+2021-05-27 14:19:19.539749 I | mvcc: store.index: compact 140802
+2021-05-27 14:19:19.554589 I | mvcc: finished scheduled compaction at 140802 (took 14.286636ms)
+2021-05-27 14:24:19.544489 I | mvcc: store.index: compact 142031
+2021-05-27 14:24:19.559457 I | mvcc: finished scheduled compaction at 142031 (took 14.476417ms)
+2021-05-27 14:29:19.548998 I | mvcc: store.index: compact 143260
+2021-05-27 14:29:19.572342 I | mvcc: finished scheduled compaction at 143260 (took 16.209527ms)
+2021-05-27 14:34:19.560002 I | mvcc: store.index: compact 144490
+2021-05-27 14:34:19.574961 I | mvcc: finished scheduled compaction at 144490 (took 14.466216ms)
+2021-05-27 14:39:19.565043 I | mvcc: store.index: compact 145721
+2021-05-27 14:39:19.579894 I | mvcc: finished scheduled compaction at 145721 (took 13.96785ms)
+2021-05-27 14:44:19.570296 I | mvcc: store.index: compact 146947
+2021-05-27 14:44:19.584706 I | mvcc: finished scheduled compaction at 146947 (took 13.832293ms)
+2021-05-27 14:46:31.728036 I | etcdserver: start to snapshot (applied: 160016, lastsnap: 150015)
+2021-05-27 14:46:31.733184 I | etcdserver: saved snapshot at index 160016
+2021-05-27 14:46:31.733431 I | etcdserver: compacted raft log at 155016
+2021-05-27 14:46:48.607895 I | pkg/fileutil: purged file /var/lib/etcd/member/snap/0000000000000002-000000000001adbb.snap successfully
+2021-05-27 14:49:19.574939 I | mvcc: store.index: compact 148177
+2021-05-27 14:49:19.589909 I | mvcc: finished scheduled compaction at 148177 (took 14.316667ms)
+2021-05-27 14:54:19.579856 I | mvcc: store.index: compact 149404
+2021-05-27 14:54:19.597010 I | mvcc: finished scheduled compaction at 149404 (took 16.611705ms)
+2021-05-27 14:59:19.584682 I | mvcc: store.index: compact 150633
+2021-05-27 14:59:19.599489 I | mvcc: finished scheduled compaction at 150633 (took 14.345096ms)
+2021-05-27 15:04:19.589680 I | mvcc: store.index: compact 151863
+2021-05-27 15:04:19.605197 I | mvcc: finished scheduled compaction at 151863 (took 14.918292ms)
+2021-05-27 15:09:19.594549 I | mvcc: store.index: compact 153092
+2021-05-27 15:09:19.609417 I | mvcc: finished scheduled compaction at 153092 (took 14.366946ms)
+==== END logs for container etcd of pod kube-system/etcd-kind-1-control-plane ====

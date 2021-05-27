@@ -1,0 +1,60 @@
+Name:         wcm-nsm-admission-webhook-65cfbdd6b9-4rjkr
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 27 May 2021 04:50:25 +0000
+Labels:       app=wcm-nsm-admission-webhook
+              membercore=wcm
+              nsm-cr=wcm
+              pod-template-hash=65cfbdd6b9
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/wcm-nsm-admission-webhook-65cfbdd6b9
+Containers:
+  wcm-nsm-admission-webhook:
+    Container ID:   containerd://b4f7f47c71e12edb3f145d666426e7a4487efb2c32e7b76e2822d38ddd1f3e4a
+    Image:          public.ecr.aws/ciscoeti/appn/admission-webhook:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/admission-webhook@sha256:8b5cf9af4f81da604a53078169efc55339c7d8a6e334f224764557f0d59d95ae
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 27 May 2021 04:50:35 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      REPO:               public.ecr.aws/ciscoeti/appn
+      TAG:                vl3_latest
+      IMAGE_PULL_POLICY:  IfNotPresent
+      NSM_NAMESPACE:      nsm-system
+      TRACER_ENABLED:     true
+      JAEGER_AGENT_HOST:  wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:  6831
+    Mounts:
+      /etc/webhook/certs from webhook-certs (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-wjmhq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  webhook-certs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsm-admission-webhook-secret
+    Optional:    false
+  default-token-wjmhq:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-wjmhq
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

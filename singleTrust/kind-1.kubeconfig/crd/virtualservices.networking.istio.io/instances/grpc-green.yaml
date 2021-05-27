@@ -1,0 +1,47 @@
+Name:         grpc-green
+Namespace:    wcm-system
+Labels:       connectivitydomain=green
+              gateway=green
+Annotations:  <none>
+API Version:  networking.istio.io/v1beta1
+Kind:         VirtualService
+Metadata:
+  Creation Timestamp:  2021-05-27T04:52:18Z
+  Generation:          1
+  Owner References:
+    API Version:           wcm.cisco.com/v1alpha1
+    Block Owner Deletion:  true
+    Controller:            true
+    Kind:                  ConnectivityDomain
+    Name:                  green
+    UID:                   86393cc9-1f62-4328-98cb-d2cfb158f622
+  Resource Version:        2582
+  Self Link:               /apis/networking.istio.io/v1beta1/namespaces/wcm-system/virtualservices/grpc-green
+  UID:                     8f8cdbc6-1c93-438a-83ff-ff7765fe84fe
+Spec:
+  Gateways:
+    grpc-green
+  Hosts:
+    wcmd-green.nispatil-wcm-cisco.com
+    green.nispatil-wcm-cisco.com
+  Tls:
+    Match:
+      Port:  443
+      Sni Hosts:
+        wcmd-green.nispatil-wcm-cisco.com
+    Route:
+      Destination:
+        Host:  green-wcmd
+        Port:
+          Number:  50051
+    Match:
+      Port:  443
+      Sni Hosts:
+        green.nispatil-wcm-cisco.com
+    Route:
+      Destination:
+        Host:  green
+        Port:
+          Number:  31505
+Events:            <none>
+

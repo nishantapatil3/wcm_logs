@@ -1,0 +1,63 @@
+Name:         green-689c6795dd-qbh4c
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Tue, 01 Jun 2021 17:58:15 +0000
+Labels:       app=wcm-nsr-green
+              connectivitydomain=green
+              pod-template-hash=689c6795dd
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.17
+IPs:
+  IP:           10.244.0.17
+Controlled By:  ReplicaSet/green-689c6795dd
+Containers:
+  green:
+    Container ID:   containerd://82de83c6c85ca0991e2a6d9b5efe65f8a2135d095adce88131c9328a7c69dcba
+    Image:          public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/nsmrs@sha256:5a0de4b6ff2c877884338ef6831efb246953133d858660c7e7da4ef849552436
+    Port:           31505/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 01 Jun 2021 17:58:19 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                  (v1:metadata.uid)
+      NODE_NAME:                (v1:spec.nodeName)
+      NSM_NAMESPACE:           wcm-system
+      INSECURE:                false
+      NSMRS_API_ADDRESS:       :31505
+      NSE_EXPIRATION_TIMEOUT:  1h
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from green-service-account-token-4ssgn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  green-service-account-token-4ssgn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-service-account-token-4ssgn
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  5m43s  default-scheduler  Successfully assigned wcm-system/green-689c6795dd-qbh4c to kind-1-control-plane
+  Normal  Pulling    5m42s  kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest"
+  Normal  Pulled     5m39s  kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest"
+  Normal  Created    5m39s  kubelet            Created container green
+  Normal  Started    5m39s  kubelet            Started container green
+

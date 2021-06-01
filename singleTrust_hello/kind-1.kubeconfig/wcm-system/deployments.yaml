@@ -1,0 +1,825 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: connectivity-domain-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-06-01T17:45:36Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: connectivity-domain-operator
+    namespace: wcm-system
+    resourceVersion: "1663"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/connectivity-domain-operator
+    uid: 7a726540-a15f-477f-89bf-76e47752f112
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        name: connectivity-domain-operator
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: connectivity-domain-operator
+      spec:
+        containers:
+        - command:
+          - connectivity-domain-operator
+          env:
+          - name: WATCH_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OPERATOR_NAME
+            value: connectivity-domain-operator
+          - name: CONFIG_PATH
+            value: etc/connectivity-domain-configmap/config.yaml
+          - name: INSECURE
+            value: "false"
+          image: public.ecr.aws/ciscoeti/appn/connectivity-domain-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: connectivity-domain-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: etc/connectivity-domain-configmap/config.yaml
+            name: config-data-connectivity-domain
+            subPath: config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: connectivity-domain-operator-service-account
+        serviceAccountName: connectivity-domain-operator-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: connectivity-domain-configmap
+          name: config-data-connectivity-domain
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:45:54Z"
+      lastUpdateTime: "2021-06-01T17:45:54Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:45:36Z"
+      lastUpdateTime: "2021-06-01T17:45:54Z"
+      message: ReplicaSet "connectivity-domain-operator-548bcfbd7" has successfully
+        progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: etcd-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-06-01T17:43:43Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: etcd-operator
+    namespace: wcm-system
+    resourceVersion: "986"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/etcd-operator
+    uid: 972725fe-519a-414b-84d1-02c7da515173
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: etcd-operator
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: etcd-operator
+      spec:
+        containers:
+        - command:
+          - etcd-operator
+          env:
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          image: quay.io/coreos/etcd-operator:v0.9.4
+          imagePullPolicy: IfNotPresent
+          name: etcd-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:43:53Z"
+      lastUpdateTime: "2021-06-01T17:43:53Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:43:43Z"
+      lastUpdateTime: "2021-06-01T17:43:53Z"
+      message: ReplicaSet "etcd-operator-84cf6bc5d5" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: external-dns-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-06-01T17:45:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: external-dns
+    namespace: wcm-system
+    resourceVersion: "1614"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/external-dns
+    uid: 7dd1bee0-642e-4795-adba-886129550707
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: external-dns
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: external-dns
+      spec:
+        containers:
+        - args:
+          - --log-level=debug
+          - --source=service
+          - --source=crd
+          - --source=istio-virtualservice
+          - --source=istio-gateway
+          - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+          - --crd-source-kind=DNSEndpoint
+          - --publish-internal-services
+          - --registry=noop
+          - --policy=sync
+          - --provider=coredns
+          - --txt-owner-id=kind-1.kubeconfig
+          env:
+          - name: ETCD_URLS
+            value: http://wcm-etcd-cluster-client.wcm-system:2379
+          image: registry.opensource.zalan.do/teapot/external-dns:v0.7.6
+          imagePullPolicy: IfNotPresent
+          name: external-dns
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: external-dns
+        serviceAccountName: external-dns
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:45:45Z"
+      lastUpdateTime: "2021-06-01T17:45:45Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:45:35Z"
+      lastUpdateTime: "2021-06-01T17:45:45Z"
+      message: ReplicaSet "external-dns-849696cb6d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-06-01T17:58:15Z"
+    generation: 1
+    labels:
+      app: wcm-nsr-green
+      connectivitydomain: green
+    name: green
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: green
+      uid: e5e684b1-645d-476f-8376-e0d083c8594e
+    resourceVersion: "5052"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/green
+    uid: 898f883e-e032-41c8-9fef-4a5ce0a209b9
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: wcm-nsr-green
+        connectivitydomain: green
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: wcm-nsr-green
+          connectivitydomain: green
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: NSM_NAMESPACE
+            value: wcm-system
+          - name: INSECURE
+            value: "false"
+          - name: NSMRS_API_ADDRESS
+            value: :31505
+          - name: NSE_EXPIRATION_TIMEOUT
+            value: 1h
+          image: public.ecr.aws/ciscoeti/appn/nsmrs:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: green
+          ports:
+          - containerPort: 31505
+            name: grpc-nsr
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: green-service-account
+        serviceAccountName: green-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:58:19Z"
+      lastUpdateTime: "2021-06-01T17:58:19Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:58:15Z"
+      lastUpdateTime: "2021-06-01T17:58:19Z"
+      message: ReplicaSet "green-689c6795dd" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-06-01T17:58:19Z"
+    generation: 1
+    labels:
+      app: app-dns-publisher-green
+      connectivitydomain: green
+    name: green-app-dns-publisher
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: green
+      uid: e5e684b1-645d-476f-8376-e0d083c8594e
+    resourceVersion: "5116"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/green-app-dns-publisher
+    uid: 67d84ce2-8d21-4450-9ce8-5836eeb0e379
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: app-dns-publisher-green
+        connectivitydomain: green
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: app-dns-publisher-green
+          connectivitydomain: green
+      spec:
+        containers:
+        - args:
+          - -n
+          - wcm-system
+          - -s
+          - green-wcmd:50051
+          - -d
+          - green.nispatil-wcm-cisco.com
+          - -i
+          - "false"
+          command:
+          - /app/bin/app-dns-publisher-controller
+          env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: INSECURE
+            value: "false"
+          image: public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest
+          imagePullPolicy: IfNotPresent
+          name: green-app-dns-publisher
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: green-app-dns-publisher-service-account
+        serviceAccountName: green-app-dns-publisher-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:58:30Z"
+      lastUpdateTime: "2021-06-01T17:58:30Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:58:19Z"
+      lastUpdateTime: "2021-06-01T17:58:30Z"
+      message: ReplicaSet "green-app-dns-publisher-85c7964589" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-06-01T17:58:18Z"
+    generation: 1
+    labels:
+      app: cd-info-green
+      connectivitydomain: green
+    name: green-cd-info
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: green
+      uid: e5e684b1-645d-476f-8376-e0d083c8594e
+    resourceVersion: "5091"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/green-cd-info
+    uid: f60ace98-0031-4ff7-89df-df6b98d085df
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: cd-info-green
+        connectivitydomain: green
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          sidecar.jaegertracing.io/inject: "true"
+        creationTimestamp: null
+        labels:
+          app: cd-info-green
+          connectivitydomain: green
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: JAEGER_SERVICE_NAME
+            value: status.service.server
+          - name: JAEGER_AGENT_HOST
+            value: localhost
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: JAEGER_REPORTER_LOG_SPANS
+            value: "true"
+          - name: INSECURE
+            value: "false"
+          image: public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest
+          imagePullPolicy: IfNotPresent
+          name: green-cd-info
+          ports:
+          - containerPort: 50071
+            name: info-http
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/info-server-config/config.yaml
+            name: green-cd-info-config-map
+            subPath: ./config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: green-cd-info-service-account
+        serviceAccountName: green-cd-info-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: green-cd-info-config-map
+          name: green-cd-info-config-map
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:58:26Z"
+      lastUpdateTime: "2021-06-01T17:58:26Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:58:18Z"
+      lastUpdateTime: "2021-06-01T17:58:26Z"
+      message: ReplicaSet "green-cd-info-669f849cd4" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-06-01T17:58:16Z"
+    generation: 1
+    labels:
+      app: wcmd-green
+      connectivitydomain: green
+    name: green-wcmd
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: green
+      uid: e5e684b1-645d-476f-8376-e0d083c8594e
+    resourceVersion: "5138"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/green-wcmd
+    uid: 9b0e198a-b85c-4d88-883e-80be75f86457
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: wcmd-green
+        connectivitydomain: green
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          sidecar.jaegertracing.io/inject: "true"
+        creationTimestamp: null
+        labels:
+          app: wcmd-green
+          connectivitydomain: green
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: JAEGER_SERVICE_NAME
+            value: wcmd.service.server
+          - name: JAEGER_AGENT_HOST
+            value: localhost
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: JAEGER_REPORTER_LOG_SPANS
+            value: "true"
+          - name: INSECURE
+            value: "false"
+          - name: CONNECTIVITY_DOMAIN_NAME
+            value: green
+          image: public.ecr.aws/ciscoeti/appn/wcmd:latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /probe/alive
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: green-wcmd
+          ports:
+          - containerPort: 50061
+            name: grpc-registry
+            protocol: TCP
+          - containerPort: 50051
+            name: grpc-allocator
+            protocol: TCP
+          - containerPort: 8080
+            name: probes
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /probe/ready
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/wcmd-server-config/config.yaml
+            name: green-wcmd-config-map
+            subPath: ./config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: green-wcmd-service-account
+        serviceAccountName: green-wcmd-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: green-wcmd-config-map
+          name: green-wcmd-config-map
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:58:32Z"
+      lastUpdateTime: "2021-06-01T17:58:32Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:58:16Z"
+      lastUpdateTime: "2021-06-01T17:58:32Z"
+      message: ReplicaSet "green-wcmd-56f648f664" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: coredns-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-06-01T17:45:34Z"
+    generation: 1
+    labels:
+      app: coredns
+      app.kubernetes.io/managed-by: Helm
+      chart: coredns-1.2.4
+      heritage: Tiller
+      release: my-coredns
+    name: my-coredns-coredns
+    namespace: wcm-system
+    resourceVersion: "1583"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/my-coredns-coredns
+    uid: 1583c4d2-3749-4c80-a242-b82dd3566be5
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: coredns
+        release: my-coredns
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          checksum/config: 00754626f8f4e5239ec2382866eacbad725e07e4e8ef778d703597e246a15b2c
+        creationTimestamp: null
+        labels:
+          app: coredns
+          release: my-coredns
+      spec:
+        containers:
+        - args:
+          - -conf
+          - /etc/coredns/Corefile
+          image: coredns/coredns:1.3.1
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          name: coredns
+          ports:
+          - containerPort: 53
+            protocol: UDP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/coredns
+            name: config-volume
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: my-coredns-coredns
+        serviceAccountName: my-coredns-coredns
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+            - key: Corefile
+              path: Corefile
+            name: my-coredns-coredns
+          name: config-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-01T17:45:39Z"
+      lastUpdateTime: "2021-06-01T17:45:39Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-01T17:45:34Z"
+      lastUpdateTime: "2021-06-01T17:45:39Z"
+      message: ReplicaSet "my-coredns-coredns-7d7ccd5547" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: DeploymentList
+metadata:
+  resourceVersion: "6481"
+  selfLink: /apis/apps/v1/namespaces/wcm-system/deployments

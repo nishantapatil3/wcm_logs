@@ -1,0 +1,70 @@
+Name:         green-app-dns-publisher-85c7964589-9dxc6
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Tue, 01 Jun 2021 17:58:19 +0000
+Labels:       app=app-dns-publisher-green
+              connectivitydomain=green
+              pod-template-hash=85c7964589
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/green-app-dns-publisher-85c7964589
+Containers:
+  green-app-dns-publisher:
+    Container ID:  containerd://cf137808a82f022171280df0374ac59d56d8a009dd56f85b885ffe13a2347ddb
+    Image:         public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller@sha256:58f498b29a8e34c34e1e7b6f13dc4e16202899b00f97f8056be3ee314ab8faaf
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/bin/app-dns-publisher-controller
+    Args:
+      -n
+      wcm-system
+      -s
+      green-wcmd:50051
+      -d
+      green.nispatil-wcm-cisco.com
+      -i
+      false
+    State:          Running
+      Started:      Tue, 01 Jun 2021 17:58:29 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:    (v1:metadata.uid)
+      INSECURE:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from green-app-dns-publisher-service-account-token-6jfcn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  green-app-dns-publisher-service-account-token-6jfcn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-app-dns-publisher-service-account-token-6jfcn
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  5m39s  default-scheduler  Successfully assigned wcm-system/green-app-dns-publisher-85c7964589-9dxc6 to kind-1-control-plane
+  Normal  Pulling    5m39s  kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest"
+  Normal  Pulled     5m29s  kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/app-dns-publisher-controller:latest"
+  Normal  Created    5m29s  kubelet            Created container green-app-dns-publisher
+  Normal  Started    5m29s  kubelet            Started container green-app-dns-publisher
+

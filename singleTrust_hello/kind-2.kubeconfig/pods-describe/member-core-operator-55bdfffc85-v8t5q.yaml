@@ -1,0 +1,62 @@
+Name:         member-core-operator-55bdfffc85-v8t5q
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Tue, 01 Jun 2021 17:45:40 +0000
+Labels:       name=member-core-operator
+              pod-template-hash=55bdfffc85
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  ReplicaSet/member-core-operator-55bdfffc85
+Containers:
+  member-core-operator:
+    Container ID:  containerd://5a3ac18b06c9cbd3899e510a2fbb46a07e5bf03df62539b142a6a49f5fd95b3d
+    Image:         public.ecr.aws/ciscoeti/appn/member-core-operator:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/member-core-operator@sha256:fde611e797b088eb823fbf7bcd5da8b306a58bf9d49fea640975e80746784777
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      member-core-operator
+    State:          Running
+      Started:      Tue, 01 Jun 2021 17:45:50 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  
+      POD_NAME:         member-core-operator-55bdfffc85-v8t5q (v1:metadata.name)
+      OPERATOR_NAME:    member-core-operator
+      CONFIG_PATH:      etc/member-core-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from member-core-operator-token-hhwpw (ro)
+      etc/member-core-configmap/config.yaml from config-data-member-core (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-member-core:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      member-core-configmap
+    Optional:  false
+  member-core-operator-token-hhwpw:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  member-core-operator-token-hhwpw
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  18m   default-scheduler  Successfully assigned default/member-core-operator-55bdfffc85-v8t5q to kind-2-control-plane
+  Normal  Pulling    18m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/member-core-operator:latest"
+  Normal  Pulled     18m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/member-core-operator:latest"
+  Normal  Created    18m   kubelet            Created container member-core-operator
+  Normal  Started    18m   kubelet            Started container member-core-operator
+

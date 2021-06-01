@@ -1,0 +1,67 @@
+Name:         wcm-nse-operator-6857b7ffbd-t56tj
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Tue, 01 Jun 2021 17:47:02 +0000
+Labels:       name=wcm-nse-operator
+              pod-template-hash=6857b7ffbd
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.14
+IPs:
+  IP:           10.244.0.14
+Controlled By:  ReplicaSet/wcm-nse-operator-6857b7ffbd
+Containers:
+  wcm-nse-operator:
+    Container ID:  containerd://ac92fe5ab800bd7b98ba8137efcb8e887079ede73811f54cb2c240c12fdb9b50
+    Image:         public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest
+    Image ID:      public.ecr.aws/ciscoeti/appn/wcm-nse-operator@sha256:6a0fe64002b206e6f17b845a129626b78c2edba6c943c24e8df87da4dad52faa
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      wcm-nse-operator
+    State:          Running
+      Started:      Tue, 01 Jun 2021 17:47:06 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         wcm-nse-operator-6857b7ffbd-t56tj (v1:metadata.name)
+      OPERATOR_NAME:    wcm-nse-operator
+      CONFIG_PATH:      etc/wcm-vpp-nse-configmap/config.yaml
+      INSECURE:         false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-operator-service-account-token-fhg66 (ro)
+      etc/wcm-vpp-nse-configmap/config.yaml from config-data-wcm-nse (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-wcm-nse:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-vpp-nse-configmap
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nse-operator-service-account-token-fhg66:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-operator-service-account-token-fhg66
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  17m   default-scheduler  Successfully assigned wcm-system/wcm-nse-operator-6857b7ffbd-t56tj to kind-2-control-plane
+  Normal  Pulling    17m   kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest"
+  Normal  Pulled     17m   kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/wcm-nse-operator:latest"
+  Normal  Created    17m   kubelet            Created container wcm-nse-operator
+  Normal  Started    16m   kubelet            Started container wcm-nse-operator

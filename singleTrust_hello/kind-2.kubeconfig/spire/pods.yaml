@@ -1,0 +1,355 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-06-01T17:45:53Z"
+    generateName: wcm-spire-agent-
+    labels:
+      app: spire-agent
+      controller-revision-hash: 8944446df
+      pod-template-generation: "1"
+    name: wcm-spire-agent-nbx4l
+    namespace: spire
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DaemonSet
+      name: wcm-spire-agent
+      uid: 39f575f0-6297-489f-933c-267153f3f190
+    resourceVersion: "1729"
+    selfLink: /api/v1/namespaces/spire/pods/wcm-spire-agent-nbx4l
+    uid: 7919ce12-4f3d-4e8a-abe5-a458520ccd75
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchFields:
+            - key: metadata.name
+              operator: In
+              values:
+              - kind-2-control-plane
+    containers:
+    - args:
+      - -config
+      - /run/spire/config/agent.conf
+      image: gcr.io/spiffe-io/spire-agent:0.11.0
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -c
+          - /opt/spire/bin/spire-agent api fetch -socketPath /run/spire/sockets/agent.sock
+            2>&1 | grep -vqE 'connection refused|no such file or directory'
+        failureThreshold: 2
+        initialDelaySeconds: 15
+        periodSeconds: 60
+        successThreshold: 1
+        timeoutSeconds: 3
+      name: spire-agent
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/config
+        name: spire-config
+        readOnly: true
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+      - mountPath: /run/spire/bundle
+        name: wcm-spire-bundle-config-map
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-spire-agent-service-account-token-mtgll
+        readOnly: true
+    dnsPolicy: ClusterFirstWithHostNet
+    enableServiceLinks: true
+    hostNetwork: true
+    hostPID: true
+    initContainers:
+    - args:
+      - -t
+      - "30"
+      - wcm-spire-server:8081
+      image: gcr.io/spiffe-io/wait-for-it
+      imagePullPolicy: Always
+      name: init
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-spire-agent-service-account-token-mtgll
+        readOnly: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-spire-agent-service-account
+    serviceAccountName: wcm-spire-agent-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/disk-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/pid-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/unschedulable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/network-unavailable
+      operator: Exists
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: wcm-spire-agent-config-map
+      name: spire-config
+    - configMap:
+        defaultMode: 420
+        name: wcm-spire-bundle-config-map
+      name: wcm-spire-bundle-config-map
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: wcm-spire-agent-service-account-token-mtgll
+      secret:
+        defaultMode: 420
+        secretName: wcm-spire-agent-service-account-token-mtgll
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:46:28Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:46:37Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:46:37Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:45:53Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://9cf619dcdb3c938f5f1c246d7fa3cc012e311c7f017b8b62df35df2720e2c933
+      image: gcr.io/spiffe-io/spire-agent:0.11.0
+      imageID: gcr.io/spiffe-io/spire-agent@sha256:200a32945f2acfc2b7615aa317fad9a4910ddd1489c9ce02b14b17708ac27b27
+      lastState: {}
+      name: spire-agent
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-01T17:46:36Z"
+    hostIP: 172.17.0.3
+    initContainerStatuses:
+    - containerID: containerd://64de00b01812b3c9beca6462fe3efce5bb926ff6dfe5b456958cea15171c6153
+      image: gcr.io/spiffe-io/wait-for-it:latest
+      imageID: gcr.io/spiffe-io/wait-for-it@sha256:d9bdc931e4404237d2fb0ba84db5ece88b236c40eeca570d786ee54fd243f4ae
+      lastState: {}
+      name: init
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://64de00b01812b3c9beca6462fe3efce5bb926ff6dfe5b456958cea15171c6153
+          exitCode: 0
+          finishedAt: "2021-06-01T17:46:27Z"
+          reason: Completed
+          startedAt: "2021-06-01T17:46:03Z"
+    phase: Running
+    podIP: 172.17.0.3
+    podIPs:
+    - ip: 172.17.0.3
+    qosClass: BestEffort
+    startTime: "2021-06-01T17:45:53Z"
+- metadata:
+    creationTimestamp: "2021-06-01T17:45:53Z"
+    generateName: wcm-spire-server-
+    labels:
+      app: wcm-spire-server
+      controller-revision-hash: wcm-spire-server-665467cfdf
+      statefulset.kubernetes.io/pod-name: wcm-spire-server-0
+    name: wcm-spire-server-0
+    namespace: spire
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: StatefulSet
+      name: wcm-spire-server
+      uid: 69ca46e5-f0fb-490f-864f-5b0d10291073
+    resourceVersion: "1623"
+    selfLink: /api/v1/namespaces/spire/pods/wcm-spire-server-0
+    uid: e7d9e736-1268-4387-a7c6-3ad35d1f1b21
+  spec:
+    containers:
+    - image: docker.io/networkservicemesh/nsm-spire:master
+      imagePullPolicy: IfNotPresent
+      name: nsm-spire
+      resources: {}
+      securityContext:
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-server-socket
+        readOnly: true
+      - mountPath: /run/spire/entries
+        name: wcm-spire-entries-config-map
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-spire-server-service-account-token-jvp2n
+        readOnly: true
+    - args:
+      - -config
+      - /run/spire/config/server.conf
+      image: gcr.io/spiffe-io/spire-server:0.11.0
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 2
+        initialDelaySeconds: 15
+        periodSeconds: 60
+        successThreshold: 1
+        tcpSocket:
+          port: 8081
+        timeoutSeconds: 3
+      name: wcm-spire-server
+      ports:
+      - containerPort: 8081
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-server-socket
+      - mountPath: /run/spire/config
+        name: spire-config
+        readOnly: true
+      - mountPath: /run/spire/data
+        name: spire-data
+      - mountPath: /run/spire/secret
+        name: wcm-spire-server-secret
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: wcm-spire-server-service-account-token-jvp2n
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: wcm-spire-server-0
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: wcm-spire-server-service-account
+    serviceAccountName: wcm-spire-server-service-account
+    shareProcessNamespace: true
+    subdomain: wcm-spire-server
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /run/spire/server-sockets
+        type: DirectoryOrCreate
+      name: spire-server-socket
+    - configMap:
+        defaultMode: 420
+        name: wcm-spire-server-config-map
+      name: spire-config
+    - name: wcm-spire-server-secret
+      secret:
+        defaultMode: 420
+        secretName: wcm-spire-server-secret
+    - configMap:
+        defaultMode: 420
+        name: wcm-spire-entries-config-map
+      name: wcm-spire-entries-config-map
+    - hostPath:
+        path: /var/spire-data
+        type: DirectoryOrCreate
+      name: spire-data
+    - name: wcm-spire-server-service-account-token-jvp2n
+      secret:
+        defaultMode: 420
+        secretName: wcm-spire-server-service-account-token-jvp2n
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:45:53Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:46:27Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:46:27Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-01T17:45:53Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://f3ee3c65a1c217362c606c370caf739303f993a0d229c06a1e1de785dce8106f
+      image: docker.io/networkservicemesh/nsm-spire:master
+      imageID: docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
+      lastState: {}
+      name: nsm-spire
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-01T17:46:02Z"
+    - containerID: containerd://ab93757b6ae10f6af996554c887b91fa10f1bf15a8fb8b5300bbf332be533815
+      image: gcr.io/spiffe-io/spire-server:0.11.0
+      imageID: gcr.io/spiffe-io/spire-server@sha256:bc42ea43755b040d6f30fe4245d13b844bd3d60792a3da8ac24e066eee87d76c
+      lastState: {}
+      name: wcm-spire-server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-01T17:46:26Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.9
+    podIPs:
+    - ip: 10.244.0.9
+    qosClass: BestEffort
+    startTime: "2021-06-01T17:45:53Z"
+kind: PodList
+metadata:
+  resourceVersion: "4966"
+  selfLink: /api/v1/namespaces/spire/pods

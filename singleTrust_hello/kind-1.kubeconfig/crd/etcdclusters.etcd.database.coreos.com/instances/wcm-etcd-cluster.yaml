@@ -1,0 +1,41 @@
+Name:         wcm-etcd-cluster
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: etcd-wcm-release
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  etcd.database.coreos.com/v1beta2
+Kind:         EtcdCluster
+Metadata:
+  Creation Timestamp:  2021-06-01T17:43:54Z
+  Generation:          6
+  Resource Version:    1400
+  Self Link:           /apis/etcd.database.coreos.com/v1beta2/namespaces/wcm-system/etcdclusters/wcm-etcd-cluster
+  UID:                 d3402a25-3f08-4ee7-8686-aea22aa7edc4
+Spec:
+  Repository:  quay.io/coreos/etcd
+  Size:        3
+  Version:     3.2.13
+Status:
+  Client Port:  2379
+  Conditions:
+    Last Transition Time:  2021-06-01T17:45:32Z
+    Last Update Time:      2021-06-01T17:45:32Z
+    Reason:                Cluster available
+    Status:                True
+    Type:                  Available
+  Current Version:         3.2.13
+  Members:
+    Ready:
+      wcm-etcd-cluster-95nztf8gns
+      wcm-etcd-cluster-ffb5sphj52
+      wcm-etcd-cluster-xspddnbbcf
+  Phase:           Running
+  Service Name:    wcm-etcd-cluster-client
+  Size:            3
+  Target Version:  
+Events:
+  Type    Reason            Age   From                            Message
+  ----    ------            ----  ----                            -------
+  Normal  New Member Added  20m   etcd-operator-84cf6bc5d5-5w4ll  New member wcm-etcd-cluster-xspddnbbcf added to cluster
+  Normal  New Member Added  19m   etcd-operator-84cf6bc5d5-5w4ll  New member wcm-etcd-cluster-ffb5sphj52 added to cluster
+  Normal  New Member Added  19m   etcd-operator-84cf6bc5d5-5w4ll  New member wcm-etcd-cluster-95nztf8gns added to cluster

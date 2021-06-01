@@ -1,0 +1,52 @@
+Name:         green
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: cd-release-green
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  wcm.cisco.com/v1alpha1
+Kind:         ConnectivityDomainEndpoint
+Metadata:
+  Creation Timestamp:  2021-06-01T17:58:35Z
+  Finalizers:
+    finalizer.cache.wcm-cisco.com
+  Generation:        1
+  Resource Version:  3960
+  Self Link:         /apis/wcm.cisco.com/v1alpha1/namespaces/wcm-system/connectivitydomainendpoints/green
+  UID:               624f7ac5-bc91-4738-bd57-ad67a88f94ec
+Spec:
+  Insecure:  false
+  Nse:
+    Aws Tgw Endpoint:
+      Add Routes:     false
+      Attach To Tgw:  false
+      Region:         example-region
+      Subnet I Ds:
+        example-subnet-IDs
+      Transit Gateway ID:  example-tgw-ID
+      Vpc ID:              example-vpc-ID
+    Cluster Name:          green-kind-2
+    Ipam:
+      Prefix Length:   22
+      Prefix Pool:     170.100.0.0/16
+      Server Address:  wcmd-green.nispatil-wcm-cisco.com:443
+    Nsr:
+      Address:              green.nispatil-wcm-cisco.com
+      Connectivity Domain:  green
+      Port:                 443
+  Nsm:
+    Jaeger Service Name:  wcm-jaeger.nsm-system
+    Nsmgr Service Name:   wcm-nsmgr.nsm-system
+    Service Name:         green
+  Size:                   2
+Status:
+  Nse:
+    Deployment:              vl3-nse-green
+    Service:                 vl3-nse-green
+    Service Account:         vl3-nse-green-service-account
+    Service Monitoring Vpp:  vl3-nse-green-vpp
+  Nsm:
+    Config Map:  nsm-vl3-green-config-map
+  Pods:
+    vl3-nse-green-7cff555995-8x7xb
+    vl3-nse-green-7cff555995-5cmrk
+Events:  <none>

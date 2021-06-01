@@ -1,0 +1,66 @@
+Name:         wcm-crossconnect-monitor-5d88f56767-cnpbn
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Tue, 01 Jun 2021 17:45:51 +0000
+Labels:       app=wcm-crossconnect-monitor
+              membercore=wcm
+              pod-template-hash=5d88f56767
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.7
+IPs:
+  IP:           10.244.0.7
+Controlled By:  ReplicaSet/wcm-crossconnect-monitor-5d88f56767
+Containers:
+  crossconnect-monitor:
+    Container ID:   containerd://111993711489368b902a970031e597516cedd3d1f9a5de363d8832f15ca9fa6d
+    Image:          public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/crossconnect-monitor@sha256:167f8eca6c90521f748caf4d921075aa413d15452c83a5b88f848cbe281173a6
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 01 Jun 2021 17:45:56 +0000
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Tue, 01 Jun 2021 17:45:56 +0000
+      Finished:     Tue, 01 Jun 2021 17:45:56 +0000
+    Ready:          True
+    Restart Count:  1
+    Environment:
+      INSECURE:                   false
+      METRICS_COLLECTOR_ENABLED:  false
+      PROMETHEUS:                 false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-crossconnect-monitor-service-account-token-zxh2v (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-crossconnect-monitor-service-account-token-zxh2v:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-crossconnect-monitor-service-account-token-zxh2v
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age                From               Message
+  ----    ------     ----               ----               -------
+  Normal  Scheduled  18m                default-scheduler  Successfully assigned nsm-system/wcm-crossconnect-monitor-5d88f56767-cnpbn to kind-2-control-plane
+  Normal  Pulling    18m                kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest"
+  Normal  Pulled     18m                kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest"
+  Normal  Created    18m (x2 over 18m)  kubelet            Created container crossconnect-monitor
+  Normal  Started    18m (x2 over 18m)  kubelet            Started container crossconnect-monitor
+  Normal  Pulled     18m                kubelet            Container image "public.ecr.aws/ciscoeti/appn/crossconnect-monitor:vl3_latest" already present on machine
+

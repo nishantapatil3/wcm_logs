@@ -1,0 +1,68 @@
+Name:         green-cd-info-669f849cd4-fx6hq
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Tue, 01 Jun 2021 17:58:18 +0000
+Labels:       app=cd-info-green
+              connectivitydomain=green
+              pod-template-hash=669f849cd4
+Annotations:  sidecar.jaegertracing.io/inject: true
+Status:       Running
+IP:           10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/green-cd-info-669f849cd4
+Containers:
+  green-cd-info:
+    Container ID:   containerd://f2581d217ddcfcb6f6dbc2150300e17aea77214a422aa4a189ece83559bf801e
+    Image:          public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest
+    Image ID:       public.ecr.aws/ciscoeti/appn/connectivity-domain-info@sha256:12050746cc98ab1c7b9ff67998eb4168fe0dc022811001f571f9cdb481a1aa78
+    Port:           50071/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 01 Jun 2021 17:58:25 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                     (v1:metadata.uid)
+      JAEGER_SERVICE_NAME:        status.service.server
+      JAEGER_AGENT_HOST:          localhost
+      JAEGER_AGENT_PORT:          6831
+      JAEGER_REPORTER_LOG_SPANS:  true
+      INSECURE:                   false
+    Mounts:
+      /etc/info-server-config/config.yaml from green-cd-info-config-map (rw,path="./config.yaml")
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from green-cd-info-service-account-token-cvgvj (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  green-cd-info-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      green-cd-info-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  green-cd-info-service-account-token-cvgvj:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-cd-info-service-account-token-cvgvj
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  5m40s  default-scheduler  Successfully assigned wcm-system/green-cd-info-669f849cd4-fx6hq to kind-1-control-plane
+  Normal  Pulling    5m40s  kubelet            Pulling image "public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest"
+  Normal  Pulled     5m34s  kubelet            Successfully pulled image "public.ecr.aws/ciscoeti/appn/connectivity-domain-info:latest"
+  Normal  Created    5m33s  kubelet            Created container green-cd-info
+  Normal  Started    5m33s  kubelet            Started container green-cd-info
+

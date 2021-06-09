@@ -1,0 +1,70 @@
+prepare: make k8s-load-images
+ENV={
+KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+
+}
+Loading image admission-webhook.tar to kind
+Delegated to kind-admission-webhook-load-images
+Loading image crossconnect-monitor.tar to kind
+Delegated to kind-crossconnect-monitor-load-images
+Loading image kernel-forwarder.tar to kind
+Delegated to kind-kernel-forwarder-load-images
+Loading image nsm-dns-init.tar to kind
+Delegated to kind-nsm-dns-init-load-images
+Loading image nsm-init.tar to kind
+Delegated to kind-nsm-init-load-images
+Loading image nsm-monitor.tar to kind
+Delegated to kind-nsm-monitor-load-images
+Loading image nsm-spire.tar to kind
+Delegated to kind-nsm-spire-load-images
+Loading image nsmd-k8s.tar to kind
+Delegated to kind-nsmd-k8s-load-images
+Loading image nsmd.tar to kind
+Delegated to kind-nsmd-load-images
+Loading image nsmdp.tar to kind
+Delegated to kind-nsmdp-load-images
+Loading image nsmrs.tar to kind
+Delegated to kind-nsmrs-load-images
+Loading image prefix-service.tar to kind
+Delegated to kind-prefix-service-load-images
+Loading image proxy-nsmd-k8s.tar to kind
+Delegated to kind-proxy-nsmd-k8s-load-images
+Loading image proxy-nsmd.tar to kind
+Delegated to kind-proxy-nsmd-load-images
+Loading image test-common.tar to kind
+Delegated to kind-test-common-load-images
+Loading image vpp-test-common.tar to kind
+Delegated to kind-vpp-test-common-load-images
+Loading image vppagent-forwarder.tar to kind
+Delegated to kind-vppagent-forwarder-load-images
+prepare: make spire-install
+ENV={
+KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+
+}
+Self Signed CA = true
+namespace/spire created
+if ! helm install spire --namespace spire --atomic  --set org=""containers.cisco.com/appn"",tag=""vl3_latest"" --set selfSignedCA="true",caDir="" deployments/helm/nsm/charts/spire ; then echo "ERROR: Failed to deploy spire"; kubectl get pods --all-namespaces; kubectl describe pod spire --namespace spire; fi
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+NAME: spire
+LAST DEPLOYED: Tue Jun  8 17:26:02 2021
+NAMESPACE: spire
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+prepare: make k8s-config
+ENV={
+KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+
+}
+namespace/nsm-system created
+helm --namespace nsm-system install config deployments/helm/nsm/charts/config
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+NAME: config
+LAST DEPLOYED: Tue Jun  8 17:26:22 2021
+NAMESPACE: nsm-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None

@@ -1,0 +1,43 @@
+Starting TestExec on kind-1
+Command line go test . -test.timeout 10m0s -count 1 --run "^(TestExec)$\\z" --tags "basic" --test.v
+env==[KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config ARTIFACTS_DIR=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestExec] 
+
+=== RUN   TestExec
+time="2021-06-08T17:59:58-07:00" level=info msg="Using Kubeconfig: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config"
+time="2021-06-08T17:59:58-07:00" level=info msg="FORWARDING_PLANE not set, using default forwarder - vpp"
+time="2021-06-08T17:59:58-07:00" level=info msg="Creating artifact manager with config: &{4 false /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestExec}"
+time="2021-06-08T17:59:58-07:00" level=error msg="Error during create of test namespace failed to create a namespace: object is being deleted: namespaces \"nsm-system\" already exists"
+time="2021-06-08T17:59:58-07:00" level=info msg="Checking availability of API server on 127.0.0.1"
+time="2021-06-08T18:00:02-07:00" level=info msg="PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.047 ms\n64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.095 ms\n64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.088 ms\n64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.063 ms\n64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.126 ms\n\n--- 127.0.0.1 ping statistics ---\n5 packets transmitted, 5 packets received, 0.0%!p(MISSING)acket loss\nround-trip min/avg/max/stddev = 0.047/0.084/0.126/0.027 ms\n"
+time="2021-06-08T18:00:02-07:00" level=info msg="Will try to create namespace again after 20 seconds"
+time="2021-06-08T18:00:22-07:00" level=info msg="namespace nsm-system is created"
+time="2021-06-08T18:00:22-07:00" level=info msg="USE_IPV6 not set, using default false"
+time="2021-06-08T18:00:22-07:00" level=error msg="serviceaccounts \"nsc-acc\" not found"
+time="2021-06-08T18:00:22-07:00" level=error msg="serviceaccounts \"nse-acc\" not found"
+time="2021-06-08T18:00:22-07:00" level=error msg="serviceaccounts \"nsmgr-acc\" not found"
+time="2021-06-08T18:00:22-07:00" level=error msg="serviceaccounts \"nsmrs-acc\" not found"
+time="2021-06-08T18:00:23-07:00" level=error msg="serviceaccounts \"forward-plane-acc\" not found"
+time="2021-06-08T18:00:23-07:00" level=error msg="serviceaccounts \"crossconnect-monitor-acc\" not found"
+time="2021-06-08T18:00:23-07:00" level=error msg="serviceaccounts \"proxy-nsmgr-acc\" not found"
+time="2021-06-08T18:00:23-07:00" level=info msg="Cleanup done: 820.312189ms"
+time="2021-06-08T18:00:23-07:00" level=info msg="&ServiceAccount{ObjectMeta:{default  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/default 0b3926db-eb12-4f3f-8d9d-507557221d01 13081 0 2021-06-08 18:00:22 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:default-token-qk8kc,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+I0608 18:00:24.720794    6957 request.go:621] Throttling request took 1.180847965s, request: POST:https://127.0.0.1:55080/api/v1/namespaces/nsm-system/serviceaccounts
+time="2021-06-08T18:00:25-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmrs-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmrs-acc eaf74811-0a50-4603-b0ea-ee4851eeca09 13085 0 2021-06-08 18:00:23 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmrs-acc-token-mqjlz,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T18:00:25-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsc-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsc-acc e21d13da-dade-4c80-8c63-3b5cccec0617 13090 0 2021-06-08 18:00:24 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsc-acc-token-2s9cp,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T18:00:25-07:00" level=info msg="&ServiceAccount{ObjectMeta:{forward-plane-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/forward-plane-acc add68216-72a5-4dbb-b552-e950dbb21899 13095 0 2021-06-08 18:00:24 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:forward-plane-acc-token-9rtgw,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T18:00:25-07:00" level=info msg="&ServiceAccount{ObjectMeta:{crossconnect-monitor-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/crossconnect-monitor-acc dce94778-af03-4c48-8933-05c98e12c6b4 13098 0 2021-06-08 18:00:24 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:crossconnect-monitor-acc-token-xlgz8,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T18:00:26-07:00" level=info msg="&ServiceAccount{ObjectMeta:{proxy-nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/proxy-nsmgr-acc 05795b6a-299e-42a6-a7d0-038ed2571143 13103 0 2021-06-08 18:00:24 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:proxy-nsmgr-acc-token-g6b5n,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T18:00:26-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmgr-acc c5275759-38eb-4f6f-bafb-830db86120f4 13108 0 2021-06-08 18:00:24 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmgr-acc-token-sl45w,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T18:00:26-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nse-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nse-acc c0db1d2d-8bef-4752-869f-14802b9f6b3b 13111 0 2021-06-08 18:00:25 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nse-acc-token-jxqdd,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T18:00:26-07:00" level=info msg="Creating ConfigMap 'nsm-config' in namespace'nsm-system'..."
+time="2021-06-08T18:00:26-07:00" level=info msg="Using image: alpine:latest"
+time="2021-06-08T18:00:29-07:00" level=info msg="Executing: [ip addr] in pod alpine-pod:alpine-img"
+time="2021-06-08T18:00:29-07:00" level=info msg="NSC IP status:1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000\n    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n    inet6 ::1/128 scope host \n       valid_lft forever preferred_lft forever\n2: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN qlen 1000\n    link/ipip 0.0.0.0 brd 0.0.0.0\n3: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN qlen 1000\n    link/tunnel6 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 brd 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00\n5: eth0@if4: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP \n    link/ether de:bb:8f:6f:9e:b3 brd ff:ff:ff:ff:ff:ff\n    inet 10.244.2.128/24 brd 10.244.2.255 scope global eth0\n       valid_lft forever preferred_lft forever\n    inet6 fe80::dcbb:8fff:fe6f:9eb3/64 scope link \n       valid_lft forever preferred_lft forever\n"
+time="2021-06-08T18:00:29-07:00" level=info msg="End of test"
+time="2021-06-08T18:00:29-07:00" level=info msg="Deleting alpine-pod"
+time="2021-06-08T18:00:29-07:00" level=warning msg="The POD 'alpine-pod' Deleted 310.28835ms"
+time="2021-06-08T18:00:31-07:00" level=info msg="namespace nsm-system is deleted"
+time="2021-06-08T18:00:31-07:00" level=info msg="Cleanup time: 2.003717613s"
+--- PASS: TestExec (32.85s)
+PASS
+ok  	github.com/networkservicemesh/networkservicemesh/test/integration	33.303s

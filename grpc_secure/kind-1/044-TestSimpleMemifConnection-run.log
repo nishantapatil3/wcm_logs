@@ -1,0 +1,165 @@
+Starting TestSimpleMemifConnection on kind-1
+Command line go test . -test.timeout 10m0s -count 1 --run "^(TestSimpleMemifConnection)$\\z" --tags "basic" --test.v
+env==[KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config ARTIFACTS_DIR=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestSimpleMemifConnection] 
+
+=== RUN   TestSimpleMemifConnection
+time="2021-06-08T20:31:05-07:00" level=info msg="Using Kubeconfig: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config"
+time="2021-06-08T20:31:05-07:00" level=info msg="FORWARDING_PLANE not set, using default forwarder - vpp"
+time="2021-06-08T20:31:05-07:00" level=info msg="Creating artifact manager with config: &{4 false /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestSimpleMemifConnection}"
+time="2021-06-08T20:31:05-07:00" level=error msg="Error during create of test namespace failed to create a namespace: namespaces \"nsm-system\" already exists"
+time="2021-06-08T20:31:05-07:00" level=info msg="Checking availability of API server on 127.0.0.1"
+time="2021-06-08T20:31:09-07:00" level=info msg="PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.041 ms\n64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.071 ms\n64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.062 ms\n64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.086 ms\n64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.061 ms\n\n--- 127.0.0.1 ping statistics ---\n5 packets transmitted, 5 packets received, 0.0%!p(MISSING)acket loss\nround-trip min/avg/max/stddev = 0.041/0.064/0.086/0.015 ms\n"
+time="2021-06-08T20:31:09-07:00" level=info msg="USE_IPV6 not set, using default false"
+time="2021-06-08T20:31:09-07:00" level=error msg="serviceaccounts \"nsc-acc\" not found"
+time="2021-06-08T20:31:09-07:00" level=error msg="serviceaccounts \"nse-acc\" not found"
+time="2021-06-08T20:31:09-07:00" level=error msg="serviceaccounts \"nsmgr-acc\" not found"
+time="2021-06-08T20:31:09-07:00" level=error msg="serviceaccounts \"nsmrs-acc\" not found"
+time="2021-06-08T20:31:10-07:00" level=error msg="serviceaccounts \"forward-plane-acc\" not found"
+time="2021-06-08T20:31:10-07:00" level=error msg="serviceaccounts \"crossconnect-monitor-acc\" not found"
+time="2021-06-08T20:31:10-07:00" level=error msg="serviceaccounts \"proxy-nsmgr-acc\" not found"
+time="2021-06-08T20:31:10-07:00" level=info msg="Cleanup done: 848.676905ms"
+time="2021-06-08T20:31:10-07:00" level=info msg="&ServiceAccount{ObjectMeta:{default  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/default c27597ea-b0e6-4305-a4ce-01d9dec83dea 22000 0 2021-06-08 20:30:57 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:default-token-q2b9r,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+I0608 20:31:11.596309   37992 request.go:621] Throttling request took 1.153030721s, request: POST:https://127.0.0.1:55081/api/v1/namespaces/nsm-system/serviceaccounts
+time="2021-06-08T20:31:12-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsc-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsc-acc a00ac570-1dc8-42c3-986a-c1542fcd624d 22065 0 2021-06-08 20:31:10 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsc-acc-token-fx4zx,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T20:31:12-07:00" level=info msg="&ServiceAccount{ObjectMeta:{crossconnect-monitor-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/crossconnect-monitor-acc e56481de-6fa2-4dfa-99e8-e5f5c147f43e 22068 0 2021-06-08 20:31:11 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:crossconnect-monitor-acc-token-69tnm,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T20:31:12-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmrs-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmrs-acc ff957350-cfbb-4ed4-bd3e-d5061fc535e5 22071 0 2021-06-08 20:31:11 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmrs-acc-token-mcxdl,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T20:31:12-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmgr-acc a7287c50-fb05-472e-bc78-8d743d63d4f9 22074 0 2021-06-08 20:31:11 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmgr-acc-token-rpbfd,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T20:31:12-07:00" level=info msg="&ServiceAccount{ObjectMeta:{proxy-nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/proxy-nsmgr-acc d13cca08-c3c3-4567-bead-b2d7907d052e 22077 0 2021-06-08 20:31:11 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:proxy-nsmgr-acc-token-f65vp,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T20:31:13-07:00" level=info msg="&ServiceAccount{ObjectMeta:{forward-plane-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/forward-plane-acc 0e47d4b7-b0cc-4084-b5bf-59baed6d3ffb 22080 0 2021-06-08 20:31:11 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:forward-plane-acc-token-frx2s,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T20:31:13-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nse-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nse-acc e4756533-41d3-4822-bf06-53d97a62e4d7 22083 0 2021-06-08 20:31:12 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nse-acc-token-bltqw,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T20:31:13-07:00" level=info msg="Creating ConfigMap 'nsm-config' in namespace'nsm-system'..."
+time="2021-06-08T20:31:13-07:00" level=info msg="Using image: containers.cisco.com/appn/prefix-service:vl3_latest"
+time="2021-06-08T20:31:13-07:00" level=info msg="Using image: containers.cisco.com/appn/test-common:vl3_latest"
+time="2021-06-08T20:31:13-07:00" level=info msg="role is created: &ClusterRoleBinding{ObjectMeta:{nsm-role-binding      0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[] map[] [] []  []},Subjects:[]Subject{Subject{Kind:ServiceAccount,APIGroup:,Name:nsmgr-acc,Namespace:nsm-system,},Subject{Kind:ServiceAccount,APIGroup:,Name:proxy-nsmgr-acc,Namespace:nsm-system,},Subject{Kind:ServiceAccount,APIGroup:,Name:crossconnect-monitor-acc,Namespace:nsm-system,},},RoleRef:RoleRef{APIGroup:rbac.authorization.k8s.io,Kind:ClusterRole,Name:nsm-role,},}"
+time="2021-06-08T20:31:13-07:00" level=info msg="role is created: &ClusterRole{ObjectMeta:{aggregate-network-services-view  nsm-system    0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[rbac.authorization.k8s.io/aggregate-to-view:true] map[] [] []  []},Rules:[]PolicyRule{PolicyRule{Verbs:[get list watch],APIGroups:[networkservicemesh.io],Resources:[networkservices],ResourceNames:[],NonResourceURLs:[],},},AggregationRule:nil,}"
+time="2021-06-08T20:31:13-07:00" level=info msg="role is created: &ClusterRole{ObjectMeta:{nsm-role  nsm-system    0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[rbac.authorization.k8s.io/aggregate-to-admin:true rbac.authorization.k8s.io/aggregate-to-edit:true] map[] [] []  []},Rules:[]PolicyRule{PolicyRule{Verbs:[*],APIGroups:[networkservicemesh.io],Resources:[networkservices networkserviceendpoints networkservicemanagers],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[*],APIGroups:[apiextensions.k8s.io],Resources:[customresourcedefinitions],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[get update],APIGroups:[],Resources:[configmaps],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[get list watch],APIGroups:[],Resources:[nodes services namespaces],ResourceNames:[],NonResourceURLs:[],},},AggregationRule:nil,}"
+time="2021-06-08T20:31:17-07:00" level=info msg="Trying to establish connection with the spire provider at address:tcp://127.0.0.1:52801"
+time="2021-06-08T20:31:17-07:00" level=info msg="Created the todo context:tcp://127.0.0.1:52801"
+time="2021-06-08T20:31:17-07:00" level=info msg="Got x509:&{0xc000619320 <nil> {{0 0} 0 0 0 0} 0xc000113590 0xc0002daee0 {{0 0} 0 0 0 0} false} <nil>"
+time="2021-06-08T20:31:17-07:00" level=info msg="Started goroutine"
+time="2021-06-08T20:31:17-07:00" level=info msg="Returning provider"
+time="2021-06-08T20:31:17-07:00" level=info msg="Issued identity:spiffe://test.com/nsmgr"
+time="2021-06-08T20:31:17-07:00" level=info msg="Checking node: kind-1-control-plane"
+time="2021-06-08T20:31:17-07:00" level=info msg="Checking node: kind-1-worker"
+time="2021-06-08T20:31:17-07:00" level=info msg="Checking node: kind-1-worker2"
+time="2021-06-08T20:31:17-07:00" level=info msg="Using image: jaegertracing/all-in-one:1.14.0"
+time="2021-06-08T20:31:20-07:00" level=info msg="getting logs without container jaeger=none"
+time="2021-06-08T20:31:20-07:00" level=info msg="Using image: containers.cisco.com/appn/nsmdp:vl3_latest"
+time="2021-06-08T20:31:20-07:00" level=info msg="Using image: containers.cisco.com/appn/nsmd:vl3_latest"
+time="2021-06-08T20:31:20-07:00" level=info msg="Using image: containers.cisco.com/appn/nsmd-k8s:vl3_latest"
+time="2021-06-08T20:31:20-07:00" level=info msg="Using image: containers.cisco.com/appn/vppagent-forwarder:vl3_latest"
+time="2021-06-08T20:31:31-07:00" level=info msg="Started NSMgr/Forwarder: 10.856849686s on node kind-1-worker"
+time="2021-06-08T20:31:31-07:00" level=info msg="Using image: containers.cisco.com/appn/test-common:vl3_latest"
+time="2021-06-08T20:31:31-07:00" level=info msg="Starting ICMP Responder NSE on node: kind-1-worker "
+time="2021-06-08T20:34:31-07:00" level=error msg="createAndBlock with pods: icmp-responder Timeout in waitTimeout"
+time="2021-06-08T20:34:31-07:00" level=error msg="Failed to deploy pod, trying to get any information"
+time="2021-06-08T20:34:31-07:00" level=info msg="Pod container information: icmp-responder"
+time="2021-06-08T20:34:31-07:00" level=info msg="Pod icmp-responder: container: icmp-responder-nse status: false: Logs: /bin/sh: /bin/test-common: not found\n\n\n\n\n\n\n\n"
+time="2021-06-08T20:34:31-07:00" level=info msg="pod icmp-responder object:\n>>>>>>>>>>>{\"metadata\":{\"name\":\"icmp-responder\",\"namespace\":\"nsm-system\",\"selfLink\":\"/api/v1/namespaces/nsm-system/pods/icmp-responder\",\"uid\":\"df37738e-c03a-49f9-a2a5-f84dfad1b179\",\"resourceVersion\":\"22561\",\"creationTimestamp\":\"2021-06-09T03:31:31Z\"},\"spec\":{\"volumes\":[{\"name\":\"nse-acc-token-bltqw\",\"secret\":{\"secretName\":\"nse-acc-token-bltqw\",\"defaultMode\":420}}],\"containers\":[{\"name\":\"icmp-responder-nse\",\"image\":\"containers.cisco.com/appn/test-common:vl3_latest\",\"env\":[{\"name\":\"TEST_APPLICATION\",\"value\":\"vppagent-icmp-responder-nse\"},{\"name\":\"ENDPOINT_NETWORK_SERVICE\",\"value\":\"icmp-responder\"},{\"name\":\"ENDPOINT_LABELS\",\"value\":\"app=icmp\"},{\"name\":\"IP_ADDRESS\",\"value\":\"172.16.1.0/24\"}],\"resources\":{\"limits\":{\"networkservicemesh.io/socket\":\"1\"},\"requests\":{\"networkservicemesh.io/socket\":\"1\"}},\"volumeMounts\":[{\"name\":\"nse-acc-token-bltqw\",\"readOnly\":true,\"mountPath\":\"/var/run/secrets/kubernetes.io/serviceaccount\"}],\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"IfNotPresent\"}],\"restartPolicy\":\"Always\",\"terminationGracePeriodSeconds\":0,\"dnsPolicy\":\"ClusterFirst\",\"nodeSelector\":{\"kubernetes.io/hostname\":\"kind-1-worker\"},\"serviceAccountName\":\"nse-acc\",\"serviceAccount\":\"nse-acc\",\"nodeName\":\"kind-1-worker\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\",\"tolerations\":[{\"key\":\"node.kubernetes.io/not-ready\",\"operator\":\"Exists\",\"effect\":\"NoExecute\",\"tolerationSeconds\":300},{\"key\":\"node.kubernetes.io/unreachable\",\"operator\":\"Exists\",\"effect\":\"NoExecute\",\"tolerationSeconds\":300}],\"priority\":0,\"enableServiceLinks\":true},\"status\":{\"phase\":\"Running\",\"conditions\":[{\"type\":\"Initialized\",\"status\":\"True\",\"lastProbeTime\":null,\"lastTransitionTime\":\"2021-06-09T03:31:34Z\"},{\"type\":\"Ready\",\"status\":\"False\",\"lastProbeTime\":null,\"lastTransitionTime\":\"2021-06-09T03:31:34Z\",\"reason\":\"ContainersNotReady\",\"message\":\"containers with unready status: [icmp-responder-nse]\"},{\"type\":\"ContainersReady\",\"status\":\"False\",\"lastProbeTime\":null,\"lastTransitionTime\":\"2021-06-09T03:31:34Z\",\"reason\":\"ContainersNotReady\",\"message\":\"containers with unready status: [icmp-responder-nse]\"},{\"type\":\"PodScheduled\",\"status\":\"True\",\"lastProbeTime\":null,\"lastTransitionTime\":\"2021-06-09T03:31:34Z\"}],\"hostIP\":\"172.17.0.4\",\"podIP\":\"10.244.2.86\",\"podIPs\":[{\"ip\":\"10.244.2.86\"}],\"startTime\":\"2021-06-09T03:31:34Z\",\"containerStatuses\":[{\"name\":\"icmp-responder-nse\",\"state\":{\"waiting\":{\"reason\":\"CrashLoopBackOff\",\"message\":\"back-off 1m20s restarting failed container=icmp-responder-nse pod=icmp-responder_nsm-system(df37738e-c03a-49f9-a2a5-f84dfad1b179)\"}},\"lastState\":{\"terminated\":{\"exitCode\":127,\"reason\":\"Error\",\"startedAt\":\"2021-06-09T03:33:12Z\",\"finishedAt\":\"2021-06-09T03:33:12Z\",\"containerID\":\"containerd://ebd86e489c60b9d0595689789d52bf6fe70766d19f0e1bfd518841d9eed579fc\"}},\"ready\":false,\"restartCount\":4,\"image\":\"containers.cisco.com/appn/test-common:vl3_latest\",\"imageID\":\"sha256:a54dea95b34be00b0177934e91a9e6b62f6cee035fbb5cbfb2c6f27c03f4b110\",\"containerID\":\"containerd://ebd86e489c60b9d0595689789d52bf6fe70766d19f0e1bfd518841d9eed579fc\",\"started\":false}],\"qosClass\":\"BestEffort\"}}\n<<<<<<<<<<"
+time="2021-06-08T20:34:31-07:00" level=error msg="Error Creating Pod: icmp-responder Failed to deploy pod"
+    k8s.go:904: 
+        goroutine 34 [running]:
+        runtime/debug.Stack(0x231a3c0, 0xc0009e6ee0, 0x30b6488)
+        	/usr/local/go/src/runtime/debug/stack.go:24 +0x9f
+        github.com/networkservicemesh/networkservicemesh/test/kubetest.(*K8s).CreatePodsRaw(0xc00034e300, 0x29e8d60800, 0xc000023a01, 0xc00086bad0, 0x1, 0x1, 0x0, 0x0, 0x0, 0x0, ...)
+        	/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/test/kubetest/k8s.go:904 +0x8cc
+        github.com/networkservicemesh/networkservicemesh/test/kubetest.(*K8s).CreatePod(0xc00034e300, 0xc000af0000, 0x24f0af3)
+        	/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/test/kubetest/k8s.go:920 +0x72
+        github.com/networkservicemesh/networkservicemesh/test/kubetest.deployICMP(0xc00034e300, 0xc000587df0, 0xd, 0x24cbc22, 0xe, 0x1bf08eb000, 0xc000af0000, 0xc00008ac40)
+        	/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/test/kubetest/utils.go:513 +0x105
+        github.com/networkservicemesh/networkservicemesh/test/kubetest.DeployVppAgentICMP(0xc00034e300, 0xc0008d6600, 0x24cbc22, 0xe, 0x1bf08eb000, 0x0)
+        	/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/test/kubetest/vpp_utils.go:19 +0x293
+        github.com/networkservicemesh/networkservicemesh/test/integration.TestSimpleMemifConnection(0xc000102780)
+        	/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/test/integration/basic_memif_test.go:30 +0x2ee
+        testing.tRunner(0xc000102780, 0x25772d8)
+        	/usr/local/go/src/testing/testing.go:1123 +0xef
+        created by testing.(*T).Run
+        	/usr/local/go/src/testing/testing.go:1168 +0x2b3
+        
+        Expected
+            <int>: 1
+        to equal
+            <int>: 0
+E0608 20:34:31.406074   37992 portforward.go:409] error closing listener: close tcp4 127.0.0.1:52815: use of closed network connection
+E0608 20:34:31.406134   37992 portforward.go:409] error closing listener: close tcp6 [::1]:52815: use of closed network connection
+time="2021-06-08T20:34:31-07:00" level=error msg="Failed to get logs from jaeger err: previous terminated container \"jaeger\" in pod \"jaeger\" not found"
+time="2021-06-08T20:34:31-07:00" level=warning msg="Can not get logs for container: jaeger, Error: previous terminated container \"jaeger\" in pod \"jaeger\" not found"
+time="2021-06-08T20:34:31-07:00" level=error msg="Failed to get logs from nsmd-forwarder-kind-1-worker err: previous terminated container \"vppagent-forwarder\" in pod \"nsmd-forwarder-kind-1-worker\" not found"
+time="2021-06-08T20:34:31-07:00" level=warning msg="Can not get logs for container: vppagent-forwarder, Error: previous terminated container \"vppagent-forwarder\" in pod \"nsmd-forwarder-kind-1-worker\" not found"
+time="2021-06-08T20:34:32-07:00" level=error msg="Failed to get logs from prefix-service err: previous terminated container \"prefix-service\" in pod \"prefix-service\" not found"
+time="2021-06-08T20:34:32-07:00" level=warning msg="Can not get logs for container: prefix-service, Error: previous terminated container \"prefix-service\" in pod \"prefix-service\" not found"
+time="2021-06-08T20:34:32-07:00" level=error msg="Failed to get logs from spire-proxy err: previous terminated container \"spire-proxy\" in pod \"spire-proxy\" not found"
+time="2021-06-08T20:34:32-07:00" level=warning msg="Can not get logs for container: spire-proxy, Error: previous terminated container \"spire-proxy\" in pod \"spire-proxy\" not found"
+time="2021-06-08T20:34:33-07:00" level=error msg="Failed to get logs from nsmgr-kind-1-worker err: previous terminated container \"nsmdp\" in pod \"nsmgr-kind-1-worker\" not found"
+time="2021-06-08T20:34:33-07:00" level=warning msg="Can not get logs for container: nsmdp, Error: previous terminated container \"nsmdp\" in pod \"nsmgr-kind-1-worker\" not found"
+time="2021-06-08T20:34:33-07:00" level=info msg="artifacts: [0xc00058cd80 0xc00058ce80 0xc000baeb00 0xc00057c640 0xc00042c080 0xc00058c640 0xc000bae0c0 0xc000bae1c0 0xc0007b01c0]"
+time="2021-06-08T20:34:33-07:00" level=info msg="Deleting icmp-responder"
+time="2021-06-08T20:34:33-07:00" level=info msg="Deleting spire-proxy"
+time="2021-06-08T20:34:33-07:00" level=info msg="Deleting prefix-service"
+time="2021-06-08T20:34:33-07:00" level=info msg="Deleting jaeger"
+time="2021-06-08T20:34:33-07:00" level=info msg="Deleting nsmgr-kind-1-worker"
+E0608 20:34:33.095229   37992 portforward.go:409] error closing listener: close tcp4 127.0.0.1:52801: use of closed network connection
+time="2021-06-08T20:34:33-07:00" level=info msg="Deleting nsmd-forwarder-kind-1-worker"
+E0608 20:34:33.095243   37992 portforward.go:409] error closing listener: close tcp6 [::1]:52801: use of closed network connection
+I0608 20:34:34.283617   37992 request.go:621] Throttling request took 1.188325082s, request: DELETE:https://127.0.0.1:55081/api/v1/namespaces/nsm-system/pods/jaeger
+time="2021-06-08T20:34:35-07:00" level=warning msg="The POD 'icmp-responder' Deleted 2.193107836s"
+time="2021-06-08T20:34:35-07:00" level=warning msg="The POD 'spire-proxy' Deleted 2.592894141s"
+time="2021-06-08T20:34:35-07:00" level=warning msg="The POD 'prefix-service' Deleted 2.790328525s"
+time="2021-06-08T20:34:36-07:00" level=warning msg="The POD 'nsmd-forwarder-kind-1-worker' Deleted 3.392335375s"
+time="2021-06-08T20:34:42-07:00" level=warning msg="The POD 'nsmgr-kind-1-worker' Deleted 8.993716186s"
+time="2021-06-08T20:34:42-07:00" level=warning msg="The POD 'jaeger' Deleted 9.192497829s"
+time="2021-06-08T20:34:42-07:00" level=info msg="namespace nsm-system is deleted"
+time="2021-06-08T20:34:42-07:00" level=info msg="Cleanup time: 9.396708517s"
+--- FAIL: TestSimpleMemifConnection (216.93s)
+FAIL
+FAIL	github.com/networkservicemesh/networkservicemesh/test/integration	217.459s
+FAIL
+TestSimpleMemifConnection: OnFail: running on fail script operations with KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config on cloud kind-1
+make -i k8s-deconfig helm-delete k8s-terminating-cleanup k8s-delete-nsm-namespaces || true
+helm uninstall config --namespace nsm-system || true
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+release "config" uninstalled
+./scripts/helm-nsm-uninstall.sh --nsm_namespace nsm-system --all
+
+Helm version detected: v3.3.4
+Cleaning up NSM
+xargs: illegal option -- -
+usage: xargs [-0opt] [-E eofstr] [-I replstr [-R replacements] [-S replsize]]
+             [-J replstr] [-L number] [-n number [-x]] [-P maxprocs]
+             [-s size] [utility [argument ...]]
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+make[1]: [helm-delete] Error 1 (ignored)
+xargs: illegal option -- -
+usage: xargs [-0opt] [-E eofstr] [-I replstr [-R replacements] [-S replsize]]
+             [-J replstr] [-L number] [-n number [-x]] [-P maxprocs]
+             [-s size] [utility [argument ...]]
+No resources found in nsm-system namespace.
+make[1]: [k8s-terminating-cleanup] Error 1 (ignored)
+Running delete-nsm-namespaces script
+NSM_NAMESPACE=nsm-system
+Checking ns: default
+Checking ns: kube-node-lease
+Checking ns: kube-public
+Checking ns: kube-system
+Checking ns: local-path-storage
+Checking ns: nsm-system
+Deleting ns: nsm-system
+warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+No resources found
+namespace "nsm-system" deleted
+Checking ns: spire
+make k8s-config && echo "Cluster reset successfull"
+namespace/nsm-system created
+helm --namespace nsm-system install config deployments/helm/nsm/charts/config
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+NAME: config
+LAST DEPLOYED: Tue Jun  8 20:34:51 2021
+NAMESPACE: nsm-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+Cluster reset successfull
+failed to run go test . -test.timeout 10m0s -count 1 --run "^(TestSimpleMemifConnection)\\z" --tags "basic" --test.v ExitCode: 1

@@ -1,0 +1,982 @@
+Starting TestForwarderCrossConnectBasic on kind-1
+Command line go test . -test.timeout 10m0s -count 1 --run "^(TestForwarderCrossConnectBasic)$\\z" --tags "basic" --test.v
+env==[KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config ARTIFACTS_DIR=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestForwarderCrossConnectBasic] 
+
+=== RUN   TestForwarderCrossConnectBasic
+time="2021-06-08T19:19:11-07:00" level=info msg="Using Kubeconfig: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config"
+time="2021-06-08T19:19:11-07:00" level=info msg="FORWARDING_PLANE not set, using default forwarder - vpp"
+time="2021-06-08T19:19:11-07:00" level=info msg="Creating artifact manager with config: &{4 false /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestForwarderCrossConnectBasic}"
+time="2021-06-08T19:19:11-07:00" level=error msg="Error during create of test namespace failed to create a namespace: namespaces \"nsm-system\" already exists"
+time="2021-06-08T19:19:11-07:00" level=info msg="Checking availability of API server on 127.0.0.1"
+time="2021-06-08T19:19:15-07:00" level=info msg="PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.040 ms\n64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.193 ms\n64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.131 ms\n64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.162 ms\n64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.167 ms\n\n--- 127.0.0.1 ping statistics ---\n5 packets transmitted, 5 packets received, 0.0%!p(MISSING)acket loss\nround-trip min/avg/max/stddev = 0.040/0.139/0.193/0.053 ms\n"
+time="2021-06-08T19:19:15-07:00" level=info msg="USE_IPV6 not set, using default false"
+time="2021-06-08T19:19:15-07:00" level=error msg="serviceaccounts \"nsc-acc\" not found"
+time="2021-06-08T19:19:15-07:00" level=error msg="serviceaccounts \"nse-acc\" not found"
+time="2021-06-08T19:19:15-07:00" level=error msg="serviceaccounts \"nsmgr-acc\" not found"
+time="2021-06-08T19:19:15-07:00" level=error msg="serviceaccounts \"nsmrs-acc\" not found"
+time="2021-06-08T19:19:15-07:00" level=error msg="serviceaccounts \"forward-plane-acc\" not found"
+time="2021-06-08T19:19:15-07:00" level=error msg="serviceaccounts \"crossconnect-monitor-acc\" not found"
+time="2021-06-08T19:19:16-07:00" level=error msg="serviceaccounts \"proxy-nsmgr-acc\" not found"
+time="2021-06-08T19:19:16-07:00" level=info msg="Cleanup done: 845.415514ms"
+time="2021-06-08T19:19:16-07:00" level=info msg="&ServiceAccount{ObjectMeta:{default  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/default aaa7a7f2-69bf-4309-a32f-9b130f562b14 2424 0 2021-06-08 19:19:03 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:default-token-hsfm8,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+I0608 19:19:17.393458   22332 request.go:621] Throttling request took 1.155419401s, request: POST:https://127.0.0.1:55081/api/v1/namespaces/nsm-system/serviceaccounts
+time="2021-06-08T19:19:17-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nse-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nse-acc 8e68560a-c9b6-4ec3-9ae6-368aa27f0d81 2487 0 2021-06-08 19:19:16 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nse-acc-token-96wj2,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:19:18-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmgr-acc 401ca336-0170-4817-8954-eb41ce85507c 2490 0 2021-06-08 19:19:16 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmgr-acc-token-zwqfq,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:19:18-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsc-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsc-acc 077fc31e-1c6b-4c70-9050-778698ea5191 2494 0 2021-06-08 19:19:17 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsc-acc-token-v2zmg,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:19:18-07:00" level=info msg="&ServiceAccount{ObjectMeta:{forward-plane-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/forward-plane-acc 843dc65e-62bf-48c9-832c-fec5f5316b36 2497 0 2021-06-08 19:19:17 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:forward-plane-acc-token-w8tk5,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:19:18-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmrs-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmrs-acc 0478ac6e-524b-4d96-a517-efd8b08b7853 2500 0 2021-06-08 19:19:17 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmrs-acc-token-xkbcw,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:19:19-07:00" level=info msg="&ServiceAccount{ObjectMeta:{proxy-nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/proxy-nsmgr-acc a27edfd2-3779-4bba-9fb4-e62f998574f5 2503 0 2021-06-08 19:19:17 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:proxy-nsmgr-acc-token-m7hzk,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:19:19-07:00" level=info msg="&ServiceAccount{ObjectMeta:{crossconnect-monitor-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/crossconnect-monitor-acc 688312f4-ebfb-4888-abb9-3e201d7cd0a8 2506 0 2021-06-08 19:19:17 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:crossconnect-monitor-acc-token-kphp5,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:19:19-07:00" level=info msg="Creating ConfigMap 'nsm-config' in namespace'nsm-system'..."
+time="2021-06-08T19:19:19-07:00" level=info msg="Using image: containers.cisco.com/appn/prefix-service:vl3_latest"
+time="2021-06-08T19:19:19-07:00" level=info msg="Using image: containers.cisco.com/appn/test-common:vl3_latest"
+time="2021-06-08T19:19:19-07:00" level=info msg="role is created: &ClusterRole{ObjectMeta:{aggregate-network-services-view  nsm-system    0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[rbac.authorization.k8s.io/aggregate-to-view:true] map[] [] []  []},Rules:[]PolicyRule{PolicyRule{Verbs:[get list watch],APIGroups:[networkservicemesh.io],Resources:[networkservices],ResourceNames:[],NonResourceURLs:[],},},AggregationRule:nil,}"
+time="2021-06-08T19:19:19-07:00" level=info msg="role is created: &ClusterRole{ObjectMeta:{nsm-role  nsm-system    0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[rbac.authorization.k8s.io/aggregate-to-admin:true rbac.authorization.k8s.io/aggregate-to-edit:true] map[] [] []  []},Rules:[]PolicyRule{PolicyRule{Verbs:[*],APIGroups:[networkservicemesh.io],Resources:[networkservices networkserviceendpoints networkservicemanagers],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[*],APIGroups:[apiextensions.k8s.io],Resources:[customresourcedefinitions],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[get update],APIGroups:[],Resources:[configmaps],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[get list watch],APIGroups:[],Resources:[nodes services namespaces],ResourceNames:[],NonResourceURLs:[],},},AggregationRule:nil,}"
+time="2021-06-08T19:19:19-07:00" level=info msg="role is created: &ClusterRoleBinding{ObjectMeta:{nsm-role-binding      0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[] map[] [] []  []},Subjects:[]Subject{Subject{Kind:ServiceAccount,APIGroup:,Name:nsmgr-acc,Namespace:nsm-system,},Subject{Kind:ServiceAccount,APIGroup:,Name:proxy-nsmgr-acc,Namespace:nsm-system,},Subject{Kind:ServiceAccount,APIGroup:,Name:crossconnect-monitor-acc,Namespace:nsm-system,},},RoleRef:RoleRef{APIGroup:rbac.authorization.k8s.io,Kind:ClusterRole,Name:nsm-role,},}"
+time="2021-06-08T19:19:22-07:00" level=info msg="Trying to establish connection with the spire provider at address:tcp://127.0.0.1:50466"
+time="2021-06-08T19:19:22-07:00" level=info msg="Created the todo context:tcp://127.0.0.1:50466"
+time="2021-06-08T19:19:22-07:00" level=info msg="Got x509:&{0xc0007fea20 <nil> {{0 0} 0 0 0 0} 0xc00063a8c0 0xc000110fa0 {{0 0} 0 0 0 0} false} <nil>"
+time="2021-06-08T19:19:22-07:00" level=info msg="Started goroutine"
+time="2021-06-08T19:19:22-07:00" level=info msg="Returning provider"
+time="2021-06-08T19:19:22-07:00" level=info msg="Issued identity:spiffe://test.com/nsmgr"
+time="2021-06-08T19:19:23-07:00" level=info msg="Checking node: kind-1-control-plane"
+time="2021-06-08T19:19:23-07:00" level=info msg="Checking node: kind-1-worker"
+time="2021-06-08T19:19:23-07:00" level=info msg="Checking node: kind-1-worker2"
+time="2021-06-08T19:19:23-07:00" level=info msg="Using image: containers.cisco.com/appn/vppagent-forwarder:vl3_latest"
+time="2021-06-08T19:19:24-07:00" level=info msg="getting logs without container vppagent-forwarder=none"
+time="2021-06-08T19:19:25-07:00" level=info msg="Using image: alpine:latest"
+time="2021-06-08T19:19:29-07:00" level=info msg="Using image: alpine:latest"
+time="2021-06-08T19:19:31-07:00" level=info msg="Forwarded port: pod=nsmd-forwarder-kind-1-worker, remote=9500 local=50477\n"
+time="2021-06-08T19:19:31-07:00" level=info msg="Trying to establish connection to target: localhost:50477"
+time="2021-06-08T19:19:31-07:00" level=info msg="func insecure: false, env insecure: false"
+time="2021-06-08T19:19:31-07:00" level=info msg="Connecting to the workload api at:tcp://127.0.0.1:50466"
+time="2021-06-08T19:19:31-07:00" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{test.com}:0xc0007c63c0]}"
+time="2021-06-08T19:19:31-07:00" level=info msg="defaultTrustDomain:test.com"
+time="2021-06-08T19:19:31-07:00" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-08T19:19:31-07:00" level=info msg="Fetch tlsConfig for Trust Domain: test.com"
+time="2021-06-08T19:19:31-07:00" level=info msg="Found 1 tlsconfigs."
+time="2021-06-08T19:19:31-07:00" level=info msg="Found the right tls certificate:&{<nil> <nil> [] map[] <nil> 0x1a28f80 <nil> 0x1a29000 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-08T19:19:31-07:00" level=info msg="Trying to establish connection using tlsConfig:&{<nil> <nil> [] map[] <nil> 0x1a28f80 <nil> 0x1a29000 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+E0608 19:19:31.872045   22332 portforward.go:385] error copying from local connection to remote stream: read tcp6 [::1]:50477->[::1]:50480: read: connection reset by peer
+time="2021-06-08T19:19:31-07:00" level=info msg="Executing: [readlink /proc/self/ns/net] in pod source-pod-kind-1-worker:alpine-img"
+time="2021-06-08T19:19:31-07:00" level=info msg="Executing: [readlink /proc/self/ns/net] in pod dest-pod-kind-1-worker:alpine-img"
+    basic_forwarder_standalone_test.go:201: 
+        Expected
+            <*status.Error | 0xc0006ee068>: {
+                e: {
+                    state: {
+                        NoUnkeyedLiterals: {},
+                        DoNotCompare: [],
+                        DoNotCopy: [],
+                        atomicMessageInfo: {
+                            GoReflectType: {size: 0x8, ptrdata: 0x8, hash: 2058361438, tflag: 9, align: 8, fieldAlign: 8, kind: 54, equal: 0x10051e0, gcdata: 1, str: 110736, ptrToThis: 0},
+                            Desc: {
+                                Base: {
+                                    L0: {
+                                        FullName: "google.rpc.Status",
+                                        ParentFile: {
+                                            fileRaw: {
+                                                builder: {GoPackagePath: ..., RawDescriptor: ..., NumEnums: ..., NumMessages: ..., NumExtensions: ..., NumServices: ..., TypeResolver: ..., FileRegistry: ...},
+                                                allEnums: [],
+                                                allMessages: [...],
+                                                allExtensions: [],
+                                                allServices: [],
+                                            },
+                                            L1: {
+                                                Syntax: 3,
+                                                Path: "google/rpc/status.proto",
+                                                Package: "google.rpc",
+                                                Enums: {List: ..., once: ..., byName: ...},
+                                                Messages: {List: ..., once: ..., byName: ...},
+                                                Extensions: {List: ..., once: ..., byName: ...},
+                                                Services: {List: ..., once: ..., byName: ...},
+                                            },
+                                            once: 1,
+                                            mu: {state: 0, sema: 0},
+                                            L2: {
+                                                Options: 0x18d14e0,
+                                                Imports: [...],
+                                                Locations: {List: ...},
+                                            },
+                                        },
+                                        Parent: {
+                                            fileRaw: {
+                                                builder: {GoPackagePath: ..., RawDescriptor: ..., NumEnums: ..., NumMessages: ..., NumExtensions: ..., NumServices: ..., TypeResolver: ..., FileRegistry: ...},
+                                                allEnums: [],
+                                                allMessages: [...],
+                                                allExtensions: [],
+                                                allServices: [],
+                                            },
+                                            L1: {
+                                                Syntax: 3,
+                                                Path: "google/rpc/status.proto",
+                                                Package: "google.rpc",
+                                                Enums: {List: ..., once: ..., byName: ...},
+                                                Messages: {List: ..., once: ..., byName: ...},
+                                                Extensions: {List: ..., once: ..., byName: ...},
+                                                Services: {List: ..., once: ..., byName: ...},
+                                            },
+                                            once: 1,
+                                            mu: {state: 0, sema: 0},
+                                            L2: {
+                                                Options: 0x18d14e0,
+                                                Imports: [...],
+                                                Locations: {List: ...},
+                                            },
+                                        },
+                                        Index: 0,
+                                    },
+                                },
+                                L1: {
+                                    Enums: {
+                                        List: nil,
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        byName: nil,
+                                    },
+                                    Messages: {
+                                        List: nil,
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        byName: nil,
+                                    },
+                                    Extensions: {
+                                        List: nil,
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        byName: nil,
+                                    },
+                                    IsMapEntry: false,
+                                    IsMessageSet: false,
+                                },
+                                L2: {
+                                    Options: nil,
+                                    Fields: {
+                                        List: [
+                                            {
+                                                Base: {L0: ...},
+                                                L1: {
+                                                    Options: ...,
+                                                    Number: ...,
+                                                    Cardinality: ...,
+                                                    Kind: ...,
+                                                    JSONName: ...,
+                                                    IsProto3Optional: ...,
+                                                    IsWeak: ...,
+                                                    HasPacked: ...,
+                                                    IsPacked: ...,
+                                                    HasEnforceUTF8: ...,
+                                                    EnforceUTF8: ...,
+                                                    Default: ...,
+                                                    ContainingOneof: ...,
+                                                    Enum: ...,
+                                                    Message: ...,
+                                                },
+                                            },
+                                            {
+                                                Base: {L0: ...},
+                                                L1: {
+                                                    Options: ...,
+                                                    Number: ...,
+                                                    Cardinality: ...,
+                                                    Kind: ...,
+                                                    JSONName: ...,
+                                                    IsProto3Optional: ...,
+                                                    IsWeak: ...,
+                                                    HasPacked: ...,
+                                                    IsPacked: ...,
+                                                    HasEnforceUTF8: ...,
+                                                    EnforceUTF8: ...,
+                                                    Default: ...,
+                                                    ContainingOneof: ...,
+                                                    Enum: ...,
+                                                    Message: ...,
+                                                },
+                                            },
+                                            {
+                                                Base: {L0: ...},
+                                                L1: {
+                                                    Options: ...,
+                                                    Number: ...,
+                                                    Cardinality: ...,
+                                                    Kind: ...,
+                                                    JSONName: ...,
+                                                    IsProto3Optional: ...,
+                                                    IsWeak: ...,
+                                                    HasPacked: ...,
+                                                    IsPacked: ...,
+                                                    HasEnforceUTF8: ...,
+                                                    EnforceUTF8: ...,
+                                                    Default: ...,
+                                                    ContainingOneof: ...,
+                                                    Enum: ...,
+                                                    Message: ...,
+                                                },
+                                            },
+                                        ],
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        byName: nil,
+                                        byJSON: nil,
+                                        byNum: nil,
+                                    },
+                                    Oneofs: {
+                                        List: [],
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        byName: nil,
+                                    },
+                                    ReservedNames: {
+                                        List: nil,
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        has: nil,
+                                    },
+                                    ReservedRanges: {
+                                        List: nil,
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        sorted: nil,
+                                    },
+                                    RequiredNumbers: {
+                                        List: nil,
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        has: nil,
+                                    },
+                                    ExtensionRanges: {
+                                        List: nil,
+                                        once: {
+                                            done: 0,
+                                            m: {state: 0, sema: 0},
+                                        },
+                                        sorted: nil,
+                                    },
+                                    ExtensionRangeOptions: nil,
+                                },
+                            },
+                            Exporter: nil,
+                            OneofWrappers: nil,
+                            initMu: {state: 0, sema: 0},
+                            initDone: 1,
+                            reflectMessageInfo: {
+                                fields: {
+                                    1: {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 1,
+                                                Cardinality: 1,
+                                                Kind: 5,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: nil,
+                                            },
+                                        },
+                                        has: 0x1936d20,
+                                        clear: 0x1937160,
+                                        get: 0x19372a0,
+                                        set: 0x1937520,
+                                        mutable: nil,
+                                        newMessage: nil,
+                                        newField: 0x19378c0,
+                                    },
+                                    2: {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 2,
+                                                Cardinality: 1,
+                                                Kind: 9,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: nil,
+                                            },
+                                        },
+                                        has: 0x1936d20,
+                                        clear: 0x1937160,
+                                        get: 0x19372a0,
+                                        set: 0x1937520,
+                                        mutable: nil,
+                                        newMessage: nil,
+                                        newField: 0x19378c0,
+                                    },
+                                    3: {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 3,
+                                                Cardinality: 3,
+                                                Kind: 11,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: {Base: ..., L1: ..., L2: ...},
+                                            },
+                                        },
+                                        has: 0x1936500,
+                                        clear: 0x19365c0,
+                                        get: 0x1936700,
+                                        set: 0x19368c0,
+                                        mutable: 0x1936bc0,
+                                        newMessage: nil,
+                                        newField: 0x1936cc0,
+                                    },
+                                },
+                                oneofs: {},
+                                denseFields: [
+                                    nil,
+                                    {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 1,
+                                                Cardinality: 1,
+                                                Kind: 5,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: nil,
+                                            },
+                                        },
+                                        has: 0x1936d20,
+                                        clear: 0x1937160,
+                                        get: 0x19372a0,
+                                        set: 0x1937520,
+                                        mutable: nil,
+                                        newMessage: nil,
+                                        newField: 0x19378c0,
+                                    },
+                                    {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 2,
+                                                Cardinality: 1,
+                                                Kind: 9,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: nil,
+                                            },
+                                        },
+                                        has: 0x1936d20,
+                                        clear: 0x1937160,
+                                        get: 0x19372a0,
+                                        set: 0x1937520,
+                                        mutable: nil,
+                                        newMessage: nil,
+                                        newField: 0x19378c0,
+                                    },
+                                    {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 3,
+                                                Cardinality: 3,
+                                                Kind: 11,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: {Base: ..., L1: ..., L2: ...},
+                                            },
+                                        },
+                                        has: 0x1936500,
+                                        clear: 0x19365c0,
+                                        get: 0x1936700,
+                                        set: 0x19368c0,
+                                        mutable: 0x1936bc0,
+                                        newMessage: nil,
+                                        newField: 0x1936cc0,
+                                    },
+                                    nil,
+                                    nil,
+                                ],
+                                rangeInfos: [
+                                    {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 1,
+                                                Cardinality: 1,
+                                                Kind: 5,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: nil,
+                                            },
+                                        },
+                                        has: 0x1936d20,
+                                        clear: 0x1937160,
+                                        get: 0x19372a0,
+                                        set: 0x1937520,
+                                        mutable: nil,
+                                        newMessage: nil,
+                                        newField: 0x19378c0,
+                                    },
+                                    {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 2,
+                                                Cardinality: 1,
+                                                Kind: 9,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: nil,
+                                            },
+                                        },
+                                        has: 0x1936d20,
+                                        clear: 0x1937160,
+                                        get: 0x19372a0,
+                                        set: 0x1937520,
+                                        mutable: nil,
+                                        newMessage: nil,
+                                        newField: 0x19378c0,
+                                    },
+                                    {
+                                        fieldDesc: {
+                                            Base: {
+                                                L0: {FullName: ..., ParentFile: ..., Parent: ..., Index: ...},
+                                            },
+                                            L1: {
+                                                Options: nil,
+                                                Number: 3,
+                                                Cardinality: 3,
+                                                Kind: 11,
+                                                JSONName: {has: ..., once: ..., name: ...},
+                                                IsProto3Optional: false,
+                                                IsWeak: false,
+                                                HasPacked: false,
+                                                IsPacked: false,
+                                                HasEnforceUTF8: false,
+                                                EnforceUTF8: false,
+                                                Default: {has: ..., val: ..., enum: ..., bytes: ...},
+                                                ContainingOneof: nil,
+                                                Enum: nil,
+                                                Message: {Base: ..., L1: ..., L2: ...},
+                                            },
+                                        },
+                                        has: 0x1936500,
+                                        clear: 0x19365c0,
+                                        get: 0x1936700,
+                                        set: 0x19368c0,
+                                        mutable: 0x1936bc0,
+                                        newMessage: nil,
+                                        newField: 0x1936cc0,
+                                    },
+                                ],
+                                getUnknown: 0x1934080,
+                                setUnknown: 0x1934180,
+                                extensionMap: 0x1934400,
+                                nilMessage: {
+                                    p: (unsafe.Pointer)(nil),
+                                },
+                            },
+                            coderMessageInfo: {
+                                methods: {
+                                    NoUnkeyedLiterals: {},
+                                    Flags: 3,
+                                    Size: 0x193ee80,
+                                    Marshal: 0x193edc0,
+                                    Unmarshal: 0x193ef00,
+                                    Merge: 0x193f020,
+                                    CheckInitialized: 0x193efa0,
+                                },
+                                orderedCoderFields: [
+                                    {
+                                        funcs: {mi: nil, size: 0x18e4f20, marshal: 0x18e4f80, unmarshal: 0x18e4d40, isInit: nil, merge: 0x1923f20},
+                                        mi: nil,
+                                        ft: {size: 0x4, ptrdata: 0x0, hash: 3148693762, tflag: 15, align: 4, fieldAlign: 4, kind: 5, equal: 0x10051c0, gcdata: 1, str: 18959, ptrToThis: 551488},
+                                        validation: {mi: nil, typ: 7, keyType: 0, valType: 0, requiredBit: 0},
+                                        num: 1,
+                                        offset: 0x28,
+                                        wiretag: 8,
+                                        tagsize: 1,
+                                        isPointer: false,
+                                        isRequired: false,
+                                    },
+                                    {
+                                        funcs: {mi: nil, size: 0x18ffe00, marshal: 0x1900040, unmarshal: 0x18ffba0, isInit: nil, merge: 0x1924aa0},
+                                        mi: nil,
+                                        ft: {size: 0x10, ptrdata: 0x8, hash: 3774831796, tflag: 7, align: 8, fieldAlign: 8, kind: 24, equal: 0x1005340, gcdata: 1, str: 25418, ptrToThis: 625920},
+                                        validation: {mi: nil, typ: 11, keyType: 0, valType: 0, requiredBit: 0},
+                                        num: 2,
+                                        offset: 0x30,
+                                        wiretag: 18,
+                                        tagsize: 1,
+                                        isPointer: false,
+                                        isRequired: false,
+                                    },
+                                    {
+                                        funcs: {mi: nil, size: 0x18dd9a0, marshal: 0x18dda80, unmarshal: 0x18ddc80, isInit: nil, merge: 0x1923640},
+                                        mi: {
+                                            GoReflectType: {size: 0x8, ptrdata: 0x8, hash: 1943536767, tflag: 9, align: 8, fieldAlign: 8, kind: 54, equal: 0x10051e0, gcdata: 1, str: 54876, ptrToThis: 0},
+                                            Desc: {
+                                                Base: {L0: ...},
+                                                L1: {Enums: ..., Messages: ..., Extensions: ..., IsMapEntry: ..., IsMessageSet: ...},
+                                                L2: {
+                                                    Options: ...,
+                                                    Fields: ...,
+                                                    Oneofs: ...,
+                                                    ReservedNames: ...,
+                                                    ReservedRanges: ...,
+                                                    RequiredNumbers: ...,
+                                                    ExtensionRanges: ...,
+                                                    ExtensionRangeOptions: ...,
+                                                },
+                                            },
+                                            Exporter: nil,
+                                            OneofWrappers: nil,
+                                            initMu: {state: 0, sema: 0},
+                                            initDone: 0,
+                                            reflectMessageInfo: {fields: nil, oneofs: nil, denseFields: nil, rangeInfos: nil, getUnknown: nil, setUnknown: nil, extensionMap: nil, nilMessage: {p: ...}},
+                                            coderMessageInfo: {
+                                                methods: {
+                                                    NoUnkeyedLiterals: ...,
+                                                    Flags: ...,
+                                                    Size: ...,
+                                                    Marshal: ...,
+                                                    Unmarshal: ...,
+                                                    Merge: ...,
+                                                    CheckInitialized: ...,
+                                                },
+                                                orderedCoderFields: nil,
+                                                denseCoderFields: nil,
+                                                coderFields: nil,
+                                                sizecacheOffset: 0x0,
+                                                unknownOffset: 0x0,
+                                                extensionOffset: 0x0,
+                                                needsInitCheck: false,
+                                                isMessageSet: false,
+                                                numRequiredFields: 0,
+                                            },
+                                        },
+                                        ft: {size: 0x18, ptrdata: 0x8, hash: 2850056585, tflag: 2, align: 8, fieldAlign: 8, kind: 23, equal: nil, gcdata: 1, str: 95312, ptrToThis: 0},
+                                        validation: {
+                                            mi: {
+                                                GoReflectType: {size: ..., ptrdata: ..., hash: ..., tflag: ..., align: ..., fieldAlign: ..., kind: ..., equal: ..., gcdata: ..., str: ..., ptrToThis: ...},
+                                                Desc: {Base: ..., L1: ..., L2: ...},
+                                                Exporter: nil,
+                                                OneofWrappers: nil,
+                                                initMu: {state: ..., sema: ...},
+                                                initDone: 0,
+                                                reflectMessageInfo: {fields: ..., oneofs: ..., denseFields: ..., rangeInfos: ..., getUnknown: ..., setUnknown: ..., extensionMap: ..., nilMessage: ...},
+                                                coderMessageInfo: {
+                                                    methods: ...,
+                                                    orderedCoderFields: ...,
+                                                    denseCoderFields: ...,
+                                                    coderFields: ...,
+                                                    sizecacheOffset: ...,
+                                                    unknownOffset: ...,
+                                                    extensionOffset: ...,
+                                                    needsInitCheck: ...,
+                                                    isMessageSet: ...,
+                                                    numRequiredFields: ...,
+                                                },
+                                            },
+                                            typ: 1,
+                                            keyType: 0,
+                                            valType: 0,
+                                            requiredBit: 0,
+                                        },
+                                        num: 3,
+                                        offset: 0x40,
+                                        wiretag: 26,
+                                        tagsize: 1,
+                                        isPointer: true,
+                                        isRequired: false,
+                                    },
+                                ],
+                                denseCoderFields: [
+                                    nil,
+                                    {
+                                        funcs: {mi: nil, size: 0x18e4f20, marshal: 0x18e4f80, unmarshal: 0x18e4d40, isInit: nil, merge: 0x1923f20},
+                                        mi: nil,
+                                        ft: {size: 0x4, ptrdata: 0x0, hash: 3148693762, tflag: 15, align: 4, fieldAlign: 4, kind: 5, equal: 0x10051c0, gcdata: 1, str: 18959, ptrToThis: 551488},
+                                        validation: {mi: nil, typ: 7, keyType: 0, valType: 0, requiredBit: 0},
+                                        num: 1,
+                                        offset: 0x28,
+                                        wiretag: 8,
+                                        tagsize: 1,
+                                        isPointer: false,
+                                        isRequired: false,
+                                    },
+                                    {
+                                        funcs: {mi: nil, size: 0x18ffe00, marshal: 0x1900040, unmarshal: 0x18ffba0, isInit: nil, merge: 0x1924aa0},
+                                        mi: nil,
+                                        ft: {size: 0x10, ptrdata: 0x8, hash: 3774831796, tflag: 7, align: 8, fieldAlign: 8, kind: 24, equal: 0x1005340, gcdata: 1, str: 25418, ptrToThis: 625920},
+                                        validation: {mi: nil, typ: 11, keyType: 0, valType: 0, requiredBit: 0},
+                                        num: 2,
+                                        offset: 0x30,
+                                        wiretag: 18,
+                                        tagsize: 1,
+                                        isPointer: false,
+                                        isRequired: false,
+                                    },
+                                    {
+                                        funcs: {mi: nil, size: 0x18dd9a0, marshal: 0x18dda80, unmarshal: 0x18ddc80, isInit: nil, merge: 0x1923640},
+                                        mi: {
+                                            GoReflectType: {size: 0x8, ptrdata: 0x8, hash: 1943536767, tflag: 9, align: 8, fieldAlign: 8, kind: 54, equal: 0x10051e0, gcdata: 1, str: 54876, ptrToThis: 0},
+                                            Desc: {
+                                                Base: {L0: ...},
+                                                L1: {Enums: ..., Messages: ..., Extensions: ..., IsMapEntry: ..., IsMessageSet: ...},
+                                                L2: {
+                                                    Options: ...,
+                                                    Fields: ...,
+                                                    Oneofs: ...,
+                                                    ReservedNames: ...,
+                                                    ReservedRanges: ...,
+                                                    RequiredNumbers: ...,
+                                                    ExtensionRanges: ...,
+                                                    ExtensionRangeOptions: ...,
+                                                },
+                                            },
+                                            Exporter: nil,
+                                            OneofWrappers: nil,
+                                            initMu: {state: 0, sema: 0},
+                                            initDone: 0,
+                                            reflectMessageInfo: {fields: nil, oneofs: nil, denseFields: nil, rangeInfos: nil, getUnknown: nil, setUnknown: nil, extensionMap: nil, nilMessage: {p: ...}},
+                                            coderMessageInfo: {
+                                                methods: {
+                                                    NoUnkeyedLiterals: ...,
+                                                    Flags: ...,
+                                                    Size: ...,
+                                                    Marshal: ...,
+                                                    Unmarshal: ...,
+                                                    Merge: ...,
+                                                    CheckInitialized: ...,
+                                                },
+                                                orderedCoderFields: nil,
+                                                denseCoderFields: nil,
+                                                coderFields: nil,
+                                                sizecacheOffset: 0x0,
+                                                unknownOffset: 0x0,
+                                                extensionOffset: 0x0,
+                                                needsInitCheck: false,
+                                                isMessageSet: false,
+                                                numRequiredFields: 0,
+                                            },
+                                        },
+                                        ft: {size: 0x18, ptrdata: 0x8, hash: 2850056585, tflag: 2, align: 8, fieldAlign: 8, kind: 23, equal: nil, gcdata: 1, str: 95312, ptrToThis: 0},
+                                        validation: {
+                                            mi: {
+                                                GoReflectType: {size: ..., ptrdata: ..., hash: ..., tflag: ..., align: ..., fieldAlign: ..., kind: ..., equal: ..., gcdata: ..., str: ..., ptrToThis: ...},
+                                                Desc: {Base: ..., L1: ..., L2: ...},
+                                                Exporter: nil,
+                                                OneofWrappers: nil,
+                                                initMu: {state: ..., sema: ...},
+                                                initDone: 0,
+                                                reflectMessageInfo: {fields: ..., oneofs: ..., denseFields: ..., rangeInfos: ..., getUnknown: ..., setUnknown: ..., extensionMap: ..., nilMessage: ...},
+                                                coderMessageInfo: {
+                                                    methods: ...,
+                                                    orderedCoderFields: ...,
+                                                    denseCoderFields: ...,
+                                                    coderFields: ...,
+                                                    sizecacheOffset: ...,
+                                                    unknownOffset: ...,
+                                                    extensionOffset: ...,
+                                                    needsInitCheck: ...,
+                                                    isMessageSet: ...,
+                                                    numRequiredFields: ...,
+                                                },
+                                            },
+                                            typ: 1,
+                                            keyType: 0,
+                                            valType: 0,
+                                            requiredBit: 0,
+                                        },
+                                        num: 3,
+                                        offset: 0x40,
+                                        wiretag: 26,
+                                        tagsize: 1,
+                                        isPointer: true,
+                                        isRequired: false,
+                                    },
+                                ],
+                                coderFields: {
+                                    1: {
+                                        funcs: {mi: nil, size: 0x18e4f20, marshal: 0x18e4f80, unmarshal: 0x18e4d40, isInit: nil, merge: 0x1923f20},
+                                        mi: nil,
+                                        ft: {size: 0x4, ptrdata: 0x0, hash: 3148693762, tflag: 15, align: 4, fieldAlign: 4, kind: 5, equal: 0x10051c0, gcdata: 1, str: 18959, ptrToThis: 551488},
+                                        validation: {mi: nil, typ: 7, keyType: 0, valType: 0, requiredBit: 0},
+                                        num: 1,
+                                        offset: 0x28,
+                                        wiretag: 8,
+                                        tagsize: 1,
+                                        isPointer: false,
+                                        isRequired: false,
+                                    },
+                                    2: {
+                                        funcs: {mi: nil, size: 0x18ffe00, marshal: 0x1900040, unmarshal: 0x18ffba0, isInit: nil, merge: 0x1924aa0},
+                                        mi: nil,
+                                        ft: {size: 0x10, ptrdata: 0x8, hash: 3774831796, tflag: 7, align: 8, fieldAlign: 8, kind: 24, equal: 0x1005340, gcdata: 1, str: 25418, ptrToThis: 625920},
+                                        validation: {mi: nil, typ: 11, keyType: 0, valType: 0, requiredBit: 0},
+                                        num: 2,
+                                        offset: 0x30,
+                                        wiretag: 18,
+                                        tagsize: 1,
+                                        isPointer: false,
+                                        isRequired: false,
+                                    },
+                                    3: {
+                                        funcs: {mi: nil, size: 0x18dd9a0, marshal: 0x18dda80, unmarshal: 0x18ddc80, isInit: nil, merge: 0x1923640},
+                                        mi: {
+                                            GoReflectType: {size: 0x8, ptrdata: 0x8, hash: 1943536767, tflag: 9, align: 8, fieldAlign: 8, kind: 54, equal: 0x10051e0, gcdata: 1, str: 54876, ptrToThis: 0},
+                                            Desc: {
+                                                Base: {L0: ...},
+                                                L1: {Enums: ..., Messages: ..., Extensions: ..., IsMapEntry: ..., IsMessageSet: ...},
+                                                L2: {
+                                                    Options: ...,
+                                                    Fields: ...,
+                                                    Oneofs: ...,
+                                                    ReservedNames: ...,
+                                                    ReservedRanges: ...,
+                                                    RequiredNumbers: ...,
+                                                    ExtensionRanges: ...,
+                                                    ExtensionRangeOptions: ...,
+                                                },
+                                            },
+                                            Exporter: nil,
+                                            OneofWrappers: nil,
+                                            initMu: {state: 0, sema: 0},
+                                            initDone: 0,
+                                            reflectMessageInfo: {fields: nil, oneofs: nil, denseFields: nil, rangeInfos: nil, getUnknown: nil, setUnknown: nil, extensionMap: nil, nilMessage: {p: ...}},
+                                            coderMessageInfo: {
+                                                methods: {
+                                                    NoUnkeyedLiterals: ...,
+                                                    Flags: ...,
+                                                    Size: ...,
+                                                    Marshal: ...,
+                                                    Unmarshal: ...,
+                                                    Merge: ...,
+                                                    CheckInitialized: ...,
+                                                },
+                                                orderedCoderFields: nil,
+                                                denseCoderFields: nil,
+                                                coderFields: nil,
+                                                sizecacheOffset: 0x0,
+                                                unknownOffset: 0x0,
+                                                extensionOffset: 0x0,
+                                                needsInitCheck: false,
+                                                isMessageSet: false,
+                                                numRequiredFields: 0,
+                                            },
+                                        },
+                                        ft: {size: 0x18, ptrdata: 0x8, hash: 2850056585, tflag: 2, align: 8, fieldAlign: 8, kind: 23, equal: nil, gcdata: 1, str: 95312, ptrToThis: 0},
+                                        validation: {
+                                            mi: {
+                                                GoReflectType: {size: ..., ptrdata: ..., hash: ..., tflag: ..., align: ..., fieldAlign: ..., kind: ..., equal: ..., gcdata: ..., str: ..., ptrToThis: ...},
+                                                Desc: {Base: ..., L1: ..., L2: ...},
+                                                Exporter: nil,
+                                                OneofWrappers: nil,
+                                                initMu: {state: ..., sema: ...},
+                                                initDone: 0,
+                                                reflectMessageInfo: {fields: ..., oneofs: ..., denseFields: ..., rangeInfos: ..., getUnknown: ..., setUnknown: ..., extensionMap: ..., nilMessage: ...},
+                                                coderMessageInfo: {
+                                                    methods: ...,
+                                                    orderedCoderFields: ...,
+                                                    denseCoderFields: ...,
+                                                    coderFields: ...,
+                                                    sizecacheOffset: ...,
+                                                    unknownOffset: ...,
+                                                    extensionOffset: ...,
+                                                    needsInitCheck: ...,
+                                                    isMessageSet: ...,
+                                                    numRequiredFields: ...,
+                                                },
+                                            },
+                                            typ: 1,
+                                            keyType: 0,
+                                            valType: 0,
+                                            requiredBit: 0,
+                                        },
+                                        num: 3,
+                                        offset: 0x40,
+                                        wiretag: 26,
+                                        tagsize: 1,
+                                        isPointer: true,
+                                        isRequired: false,
+                                    },
+                                },
+                                sizecacheOffset: 0x8,
+                                unknownOffset: 0x10,
+                                extensionOffset: 0xffffffffffffffff,
+                                needsInitCheck: false,
+                                isMessageSet: false,
+                                numRequiredFields: 0,
+                            },
+                        },
+                    },
+                    sizeCache: 0,
+                    unknownFields: nil,
+                    Code: 4,
+                    Message: "context deadline exceeded",
+                    Details: nil,
+                },
+            }
+        to be nil
+E0608 19:21:32.052803   22332 portforward.go:409] error closing listener: close tcp4 127.0.0.1:50477: use of closed network connection
+E0608 19:21:32.052827   22332 portforward.go:409] error closing listener: close tcp6 [::1]:50477: use of closed network connection
+time="2021-06-08T19:21:32-07:00" level=info msg="Deleting nsmd-forwarder-kind-1-worker"
+time="2021-06-08T19:21:32-07:00" level=info msg="Deleting spire-proxy"
+time="2021-06-08T19:21:32-07:00" level=info msg="Deleting prefix-service"
+E0608 19:21:32.109531   22332 portforward.go:409] error closing listener: close tcp4 127.0.0.1:50466: use of closed network connection
+E0608 19:21:32.109546   22332 portforward.go:409] error closing listener: close tcp6 [::1]:50466: use of closed network connection
+time="2021-06-08T19:21:32-07:00" level=warning msg="The POD 'nsmd-forwarder-kind-1-worker' Deleted 351.945326ms"
+time="2021-06-08T19:21:32-07:00" level=warning msg="The POD 'spire-proxy' Deleted 552.470335ms"
+time="2021-06-08T19:21:32-07:00" level=warning msg="The POD 'prefix-service' Deleted 747.465557ms"
+time="2021-06-08T19:21:34-07:00" level=info msg="namespace nsm-system is deleted"
+time="2021-06-08T19:21:34-07:00" level=info msg="Cleanup time: 1.95536559s"
+--- FAIL: TestForwarderCrossConnectBasic (142.71s)
+FAIL
+FAIL	github.com/networkservicemesh/networkservicemesh/test/integration	143.154s
+FAIL
+TestForwarderCrossConnectBasic: OnFail: running on fail script operations with KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config on cloud kind-1
+make -i k8s-deconfig helm-delete k8s-terminating-cleanup k8s-delete-nsm-namespaces || true
+helm uninstall config --namespace nsm-system || true
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+release "config" uninstalled
+./scripts/helm-nsm-uninstall.sh --nsm_namespace nsm-system --all
+
+Helm version detected: v3.3.4
+Cleaning up NSM
+xargs: illegal option -- -
+usage: xargs [-0opt] [-E eofstr] [-I replstr [-R replacements] [-S replsize]]
+             [-J replstr] [-L number] [-n number [-x]] [-P maxprocs]
+             [-s size] [utility [argument ...]]
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+make[1]: [helm-delete] Error 1 (ignored)
+xargs: illegal option -- -
+usage: xargs [-0opt] [-E eofstr] [-I replstr [-R replacements] [-S replsize]]
+             [-J replstr] [-L number] [-n number [-x]] [-P maxprocs]
+             [-s size] [utility [argument ...]]
+No resources found in nsm-system namespace.
+make[1]: [k8s-terminating-cleanup] Error 1 (ignored)
+Running delete-nsm-namespaces script
+NSM_NAMESPACE=nsm-system
+Checking ns: default
+Checking ns: kube-node-lease
+Checking ns: kube-public
+Checking ns: kube-system
+Checking ns: local-path-storage
+Checking ns: nsm-system
+Deleting ns: nsm-system
+warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+No resources found
+namespace "nsm-system" deleted
+Checking ns: spire
+make k8s-config && echo "Cluster reset successfull"
+namespace/nsm-system created
+helm --namespace nsm-system install config deployments/helm/nsm/charts/config
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config
+NAME: config
+LAST DEPLOYED: Tue Jun  8 19:21:42 2021
+NAMESPACE: nsm-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+Cluster reset successfull
+failed to run go test . -test.timeout 10m0s -count 1 --run "^(TestForwarderCrossConnectBasic)\\z" --tags "basic" --test.v ExitCode: 1

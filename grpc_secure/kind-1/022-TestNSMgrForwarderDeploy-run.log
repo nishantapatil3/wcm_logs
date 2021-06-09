@@ -1,0 +1,76 @@
+Starting TestNSMgrForwarderDeploy on kind-1
+Command line go test . -test.timeout 10m0s -count 1 --run "^(TestNSMgrForwarderDeploy)$\\z" --tags "basic" --test.v
+env==[KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config ARTIFACTS_DIR=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestNSMgrForwarderDeploy] 
+
+=== RUN   TestNSMgrForwarderDeploy
+time="2021-06-08T19:50:56-07:00" level=info msg="Running NSMgr Deploy test"
+time="2021-06-08T19:50:56-07:00" level=info msg="Using Kubeconfig: /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config"
+time="2021-06-08T19:50:56-07:00" level=info msg="FORWARDING_PLANE not set, using default forwarder - vpp"
+time="2021-06-08T19:50:56-07:00" level=info msg="Creating artifact manager with config: &{4 false /Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestNSMgrForwarderDeploy}"
+time="2021-06-08T19:50:56-07:00" level=error msg="Error during create of test namespace failed to create a namespace: namespaces \"nsm-system\" already exists"
+time="2021-06-08T19:50:56-07:00" level=info msg="Checking availability of API server on 127.0.0.1"
+time="2021-06-08T19:51:01-07:00" level=info msg="PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.043 ms\n64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.105 ms\n64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.087 ms\n64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.115 ms\n64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.128 ms\n\n--- 127.0.0.1 ping statistics ---\n5 packets transmitted, 5 packets received, 0.0%!p(MISSING)acket loss\nround-trip min/avg/max/stddev = 0.043/0.096/0.128/0.030 ms\n"
+time="2021-06-08T19:51:01-07:00" level=info msg="USE_IPV6 not set, using default false"
+time="2021-06-08T19:51:01-07:00" level=error msg="serviceaccounts \"nsc-acc\" not found"
+time="2021-06-08T19:51:01-07:00" level=error msg="serviceaccounts \"nse-acc\" not found"
+time="2021-06-08T19:51:01-07:00" level=error msg="serviceaccounts \"nsmgr-acc\" not found"
+time="2021-06-08T19:51:01-07:00" level=error msg="serviceaccounts \"nsmrs-acc\" not found"
+time="2021-06-08T19:51:01-07:00" level=error msg="serviceaccounts \"forward-plane-acc\" not found"
+time="2021-06-08T19:51:01-07:00" level=error msg="serviceaccounts \"crossconnect-monitor-acc\" not found"
+time="2021-06-08T19:51:01-07:00" level=error msg="serviceaccounts \"proxy-nsmgr-acc\" not found"
+time="2021-06-08T19:51:01-07:00" level=info msg="Cleanup done: 849.177359ms"
+time="2021-06-08T19:51:02-07:00" level=info msg="&ServiceAccount{ObjectMeta:{default  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/default 0de2ef9b-618a-47d4-9e69-16e54303f15b 10958 0 2021-06-08 19:50:51 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:default-token-422qb,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+I0608 19:51:03.031509   29214 request.go:621] Throttling request took 1.158460693s, request: POST:https://127.0.0.1:55081/api/v1/namespaces/nsm-system/serviceaccounts
+time="2021-06-08T19:51:03-07:00" level=info msg="&ServiceAccount{ObjectMeta:{crossconnect-monitor-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/crossconnect-monitor-acc ec009db1-cf30-4a57-a3d2-c0f16ac66da1 11025 0 2021-06-08 19:51:02 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:crossconnect-monitor-acc-token-zxrqv,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:51:03-07:00" level=info msg="&ServiceAccount{ObjectMeta:{proxy-nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/proxy-nsmgr-acc 170e1086-76f9-4981-ab6b-31829cd405e6 11028 0 2021-06-08 19:51:02 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:proxy-nsmgr-acc-token-t9vf2,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:51:04-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nse-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nse-acc 0627c356-b5cd-4391-90b9-4f1c32eeb65e 11031 0 2021-06-08 19:51:02 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nse-acc-token-rmn9j,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:51:04-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmrs-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmrs-acc 4ad162e4-be21-4b30-8608-4dca37167566 11034 0 2021-06-08 19:51:02 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmrs-acc-token-vx6ck,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:51:04-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsc-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsc-acc df6ab50f-c52e-4f11-8b84-71200331d48a 11037 0 2021-06-08 19:51:03 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsc-acc-token-7pplc,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:51:04-07:00" level=info msg="&ServiceAccount{ObjectMeta:{nsmgr-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/nsmgr-acc eb9b630a-f049-46bc-b95e-4e6c81a8f05b 11040 0 2021-06-08 19:51:03 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:nsmgr-acc-token-kjc8w,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:51:04-07:00" level=info msg="&ServiceAccount{ObjectMeta:{forward-plane-acc  nsm-system /api/v1/namespaces/nsm-system/serviceaccounts/forward-plane-acc 646192b7-94af-44cb-996c-e17bb27ae13d 11044 0 2021-06-08 19:51:03 -0700 PDT <nil> <nil> map[] map[] [] []  []},Secrets:[]ObjectReference{ObjectReference{Kind:,Namespace:,Name:forward-plane-acc-token-mdjdd,UID:,APIVersion:,ResourceVersion:,FieldPath:,},},ImagePullSecrets:[]LocalObjectReference{},AutomountServiceAccountToken:nil,}"
+time="2021-06-08T19:51:04-07:00" level=info msg="Creating ConfigMap 'nsm-config' in namespace'nsm-system'..."
+time="2021-06-08T19:51:05-07:00" level=info msg="Using image: containers.cisco.com/appn/prefix-service:vl3_latest"
+time="2021-06-08T19:51:05-07:00" level=info msg="Using image: containers.cisco.com/appn/test-common:vl3_latest"
+time="2021-06-08T19:51:05-07:00" level=info msg="role is created: &ClusterRoleBinding{ObjectMeta:{nsm-role-binding      0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[] map[] [] []  []},Subjects:[]Subject{Subject{Kind:ServiceAccount,APIGroup:,Name:nsmgr-acc,Namespace:nsm-system,},Subject{Kind:ServiceAccount,APIGroup:,Name:proxy-nsmgr-acc,Namespace:nsm-system,},Subject{Kind:ServiceAccount,APIGroup:,Name:crossconnect-monitor-acc,Namespace:nsm-system,},},RoleRef:RoleRef{APIGroup:rbac.authorization.k8s.io,Kind:ClusterRole,Name:nsm-role,},}"
+time="2021-06-08T19:51:05-07:00" level=info msg="role is created: &ClusterRole{ObjectMeta:{aggregate-network-services-view  nsm-system    0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[rbac.authorization.k8s.io/aggregate-to-view:true] map[] [] []  []},Rules:[]PolicyRule{PolicyRule{Verbs:[get list watch],APIGroups:[networkservicemesh.io],Resources:[networkservices],ResourceNames:[],NonResourceURLs:[],},},AggregationRule:nil,}"
+time="2021-06-08T19:51:05-07:00" level=info msg="role is created: &ClusterRole{ObjectMeta:{nsm-role  nsm-system    0 0001-01-01 00:00:00 +0000 UTC <nil> <nil> map[rbac.authorization.k8s.io/aggregate-to-admin:true rbac.authorization.k8s.io/aggregate-to-edit:true] map[] [] []  []},Rules:[]PolicyRule{PolicyRule{Verbs:[*],APIGroups:[networkservicemesh.io],Resources:[networkservices networkserviceendpoints networkservicemanagers],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[*],APIGroups:[apiextensions.k8s.io],Resources:[customresourcedefinitions],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[get update],APIGroups:[],Resources:[configmaps],ResourceNames:[],NonResourceURLs:[],},PolicyRule{Verbs:[get list watch],APIGroups:[],Resources:[nodes services namespaces],ResourceNames:[],NonResourceURLs:[],},},AggregationRule:nil,}"
+time="2021-06-08T19:51:08-07:00" level=info msg="Trying to establish connection with the spire provider at address:tcp://127.0.0.1:51073"
+time="2021-06-08T19:51:08-07:00" level=info msg="Created the todo context:tcp://127.0.0.1:51073"
+time="2021-06-08T19:51:08-07:00" level=info msg="Got x509:&{0xc0002b5b00 <nil> {{0 0} 0 0 0 0} 0xc00055af50 0xc00052ece0 {{0 0} 0 0 0 0} false} <nil>"
+time="2021-06-08T19:51:08-07:00" level=info msg="Started goroutine"
+time="2021-06-08T19:51:08-07:00" level=info msg="Returning provider"
+time="2021-06-08T19:51:08-07:00" level=info msg="Issued identity:spiffe://test.com/nsmgr"
+time="2021-06-08T19:51:08-07:00" level=info msg="Checking node: kind-1-control-plane"
+time="2021-06-08T19:51:08-07:00" level=info msg="Checking node: kind-1-worker"
+time="2021-06-08T19:51:08-07:00" level=info msg="Checking node: kind-1-worker2"
+time="2021-06-08T19:51:08-07:00" level=info msg="Using image: containers.cisco.com/appn/nsmdp:vl3_latest"
+time="2021-06-08T19:51:08-07:00" level=info msg="Using image: containers.cisco.com/appn/nsmd:vl3_latest"
+time="2021-06-08T19:51:08-07:00" level=info msg="Using image: containers.cisco.com/appn/nsmd-k8s:vl3_latest"
+time="2021-06-08T19:51:08-07:00" level=info msg="Using image: containers.cisco.com/appn/vppagent-forwarder:vl3_latest"
+time="2021-06-08T19:51:20-07:00" level=info msg="Deleting nsmd-forwarder-kind-1-worker"
+time="2021-06-08T19:51:20-07:00" level=info msg="Deleting prefix-service"
+time="2021-06-08T19:51:20-07:00" level=info msg="Deleting nsmgr-kind-1-worker"
+time="2021-06-08T19:51:20-07:00" level=info msg="Deleting spire-proxy"
+E0608 19:51:20.063686   29214 portforward.go:409] error closing listener: close tcp4 127.0.0.1:51073: use of closed network connection
+E0608 19:51:20.063699   29214 portforward.go:409] error closing listener: close tcp6 [::1]:51073: use of closed network connection
+I0608 19:51:21.232120   29214 request.go:621] Throttling request took 1.168460718s, request: DELETE:https://127.0.0.1:55081/api/v1/namespaces/nsm-system/pods/spire-proxy
+time="2021-06-08T19:51:21-07:00" level=warning msg="The POD 'nsmd-forwarder-kind-1-worker' Deleted 1.77201856s"
+time="2021-06-08T19:51:22-07:00" level=warning msg="The POD 'prefix-service' Deleted 1.972425842s"
+time="2021-06-08T19:51:22-07:00" level=warning msg="The POD 'spire-proxy' Deleted 2.371968684s"
+time="2021-06-08T19:51:24-07:00" level=warning msg="The POD 'nsmgr-kind-1-worker' Deleted 4.772740444s"
+time="2021-06-08T19:51:25-07:00" level=info msg="namespace nsm-system is deleted"
+time="2021-06-08T19:51:25-07:00" level=info msg="Cleanup time: 4.974145876s"
+E0608 19:51:25.231860   29214 portforward.go:409] error closing listener: close tcp4 127.0.0.1:51073: use of closed network connection
+E0608 19:51:25.231877   29214 portforward.go:409] error closing listener: close tcp6 [::1]:51073: use of closed network connection
+time="2021-06-08T19:51:25-07:00" level=error msg="serviceaccounts \"nsc-acc\" not found"
+time="2021-06-08T19:51:25-07:00" level=error msg="serviceaccounts \"nse-acc\" not found"
+time="2021-06-08T19:51:26-07:00" level=error msg="serviceaccounts \"nsmgr-acc\" not found"
+time="2021-06-08T19:51:26-07:00" level=error msg="serviceaccounts \"nsmrs-acc\" not found"
+time="2021-06-08T19:51:26-07:00" level=error msg="serviceaccounts \"forward-plane-acc\" not found"
+time="2021-06-08T19:51:26-07:00" level=error msg="serviceaccounts \"crossconnect-monitor-acc\" not found"
+time="2021-06-08T19:51:26-07:00" level=error msg="serviceaccounts \"proxy-nsmgr-acc\" not found"
+time="2021-06-08T19:51:27-07:00" level=info msg="namespace nsm-system is deleted"
+time="2021-06-08T19:51:27-07:00" level=info msg="Cleanup time: 1.806414573s"
+--- PASS: TestNSMgrForwarderDeploy (30.06s)
+PASS
+ok  	github.com/networkservicemesh/networkservicemesh/test/integration	30.517s

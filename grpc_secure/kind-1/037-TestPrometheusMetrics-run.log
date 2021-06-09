@@ -1,0 +1,29 @@
+Starting TestPrometheusMetrics on kind-1
+Command line go test . -test.timeout 10m0s -count 1 --run "^(TestPrometheusMetrics)$\\z" --tags "basic" --test.v
+env==[KUBECONFIG=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/shell/kind-1/config ARTIFACTS_DIR=/Users/nispatil/go/src/github.com/cisco-app-networking/nsm_publish/networkservicemesh/.tests/cloud_test/single-cluster/kind-1/TestPrometheusMetrics] 
+
+=== RUN   TestPrometheusMetrics
+    basic_monitor_crossconnect_metrics_test.go:166: finished reading response from prometheus metrics
+    basic_monitor_crossconnect_metrics_test.go:175: done receiving prometheus metrics
+    basic_monitor_crossconnect_metrics_test.go:186: metrics triggered: 
+        # HELP rx_bytes rx_bytes transmissed
+        # TYPE rx_bytes gauge
+        rx_bytes{dst_pod_name="icmp-responder-nse-5cdf65d447-ft4k5",dst_pod_namespace="nsm-system",src_pod_name="alpine-nsc-8485cb6857-jk8d2",src_pod_namespace="nsm-system"} 140
+        # HELP rx_error_packets rx_error_packets transmissed
+        # TYPE rx_error_packets gauge
+        rx_error_packets{dst_pod_name="icmp-responder-nse-5cdf65d447-ft4k5",dst_pod_namespace="nsm-system",src_pod_name="alpine-nsc-8485cb6857-jk8d2",src_pod_namespace="nsm-system"} 0
+        # HELP rx_packets rx_packets transmissed
+        # TYPE rx_packets gauge
+        rx_packets{dst_pod_name="icmp-responder-nse-5cdf65d447-ft4k5",dst_pod_namespace="nsm-system",src_pod_name="alpine-nsc-8485cb6857-jk8d2",src_pod_namespace="nsm-system"} 3
+        # HELP tx_bytes tx_bytes transmissed
+        # TYPE tx_bytes gauge
+        tx_bytes{dst_pod_name="icmp-responder-nse-5cdf65d447-ft4k5",dst_pod_namespace="nsm-system",src_pod_name="alpine-nsc-8485cb6857-jk8d2",src_pod_namespace="nsm-system"} 140
+        # HELP tx_error_packets tx_error_packets transmissed
+        # TYPE tx_error_packets gauge
+        tx_error_packets{dst_pod_name="icmp-responder-nse-5cdf65d447-ft4k5",dst_pod_namespace="nsm-system",src_pod_name="alpine-nsc-8485cb6857-jk8d2",src_pod_namespace="nsm-system"} 0
+        # HELP tx_packets tx_packets transmissed
+        # TYPE tx_packets gauge
+        tx_packets{dst_pod_name="icmp-responder-nse-5cdf65d447-ft4k5",dst_pod_namespace="nsm-system",src_pod_name="alpine-nsc-8485cb6857-jk8d2",src_pod_namespace="nsm-system"} 3
+--- PASS: TestPrometheusMetrics (10.00s)
+PASS
+ok  	github.com/networkservicemesh/networkservicemesh/test/integration	10.465s

@@ -1,0 +1,55 @@
+Name:         spire-proxy
+Namespace:    nsm-system
+Priority:     0
+Node:         cloudtest-kind-16b381ca64-worker2/172.17.0.3
+Start Time:   Fri, 11 Jun 2021 09:16:18 -0700
+Labels:       <none>
+Annotations:  <none>
+Status:       Running
+IP:           10.244.2.11
+IPs:
+  IP:  10.244.2.11
+Containers:
+  spire-proxy:
+    Container ID:  containerd://bdf9f91f5fea932266484167611246ac93046e37baaa6568880ee228a5025e0a
+    Image:         containers.cisco.com/appn/test-common:vl3_latest
+    Image ID:      sha256:d8157f03ea0b4a4fd4e58fd19bb3224e4d4be3742ee11f6be8d0425bd2ffb852
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/spire-proxy
+    State:          Running
+      Started:      Fri, 11 Jun 2021 09:16:19 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsmgr-acc-token-vqckm (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  nsmgr-acc-token-vqckm:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  nsmgr-acc-token-vqckm
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  5m1s  default-scheduler  Successfully assigned nsm-system/spire-proxy to cloudtest-kind-16b381ca64-worker2
+  Normal  Pulled     5m    kubelet            Container image "containers.cisco.com/appn/test-common:vl3_latest" already present on machine
+  Normal  Created    5m    kubelet            Created container spire-proxy
+  Normal  Started    5m    kubelet            Started container spire-proxy
+

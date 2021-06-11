@@ -1,0 +1,63 @@
+Name:         icmp-responder-nse-3
+Namespace:    nsm-system
+Priority:     0
+Node:         cloudtest-kind-16b381ca64-worker/172.17.0.4
+Start Time:   Fri, 11 Jun 2021 09:16:45 -0700
+Labels:       <none>
+Annotations:  <none>
+Status:       Running
+IP:           10.244.1.10
+IPs:
+  IP:  10.244.1.10
+Containers:
+  icmp-responder-nse-3:
+    Container ID:  containerd://7b2803bc4e336d0a16a24fd6eb36d041bd38d600e775762fceb50cfcbe62329a
+    Image:         containers.cisco.com/appn/test-common:vl3_latest
+    Image ID:      sha256:d8157f03ea0b4a4fd4e58fd19bb3224e4d4be3742ee11f6be8d0425bd2ffb852
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/icmp-responder-nse
+      -routes
+    State:          Running
+      Started:      Fri, 11 Jun 2021 09:16:46 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      ENDPOINT_LABELS:           app=icmp
+      IP_ADDRESS:                172.16.1.0/24
+      ENDPOINT_NETWORK_SERVICE:  icmp-responder
+    Mounts:
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nse-acc-token-nrtvh (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      nsm-config
+    Optional:  false
+  nse-acc-token-nrtvh:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  nse-acc-token-nrtvh
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  kubernetes.io/hostname=cloudtest-kind-16b381ca64-worker
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  4m34s  default-scheduler  Successfully assigned nsm-system/icmp-responder-nse-3 to cloudtest-kind-16b381ca64-worker
+  Normal  Pulled     4m33s  kubelet            Container image "containers.cisco.com/appn/test-common:vl3_latest" already present on machine
+  Normal  Created    4m33s  kubelet            Created container icmp-responder-nse-3
+  Normal  Started    4m33s  kubelet            Started container icmp-responder-nse-3
+

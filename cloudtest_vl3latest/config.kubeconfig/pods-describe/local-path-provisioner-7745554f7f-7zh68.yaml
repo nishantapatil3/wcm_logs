@@ -1,0 +1,68 @@
+Name:         local-path-provisioner-7745554f7f-7zh68
+Namespace:    local-path-storage
+Priority:     0
+Node:         cloudtest-kind-16b381ca64-control-plane/172.17.0.2
+Start Time:   Fri, 11 Jun 2021 09:10:24 -0700
+Labels:       app=local-path-provisioner
+              pod-template-hash=7745554f7f
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.2
+IPs:
+  IP:           10.244.0.2
+Controlled By:  ReplicaSet/local-path-provisioner-7745554f7f
+Containers:
+  local-path-provisioner:
+    Container ID:  containerd://cb3ea237f5c825b7847ca1ef2174fc08a949ce1c5ffc5c3c92c976dc4cc6c87f
+    Image:         rancher/local-path-provisioner:v0.0.11
+    Image ID:      sha256:9d12f9848b99f4e5f5271b7cac02790de44ec12014762a83987cfff7f3c26106
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      local-path-provisioner
+      --debug
+      start
+      --helper-image
+      k8s.gcr.io/debian-base:v2.0.0
+      --config
+      /etc/config/config.json
+    State:          Running
+      Started:      Fri, 11 Jun 2021 09:10:27 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_NAMESPACE:  local-path-storage (v1:metadata.namespace)
+    Mounts:
+      /etc/config/ from config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from local-path-provisioner-service-account-token-kzn6d (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      local-path-config
+    Optional:  false
+  local-path-provisioner-service-account-token-kzn6d:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  local-path-provisioner-service-account-token-kzn6d
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  node-role.kubernetes.io/master=
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                From               Message
+  ----     ------            ----               ----               -------
+  Warning  FailedScheduling  11m (x3 over 11m)  default-scheduler  0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Warning  FailedScheduling  11m                default-scheduler  0/2 nodes are available: 1 node(s) didn't match node selector, 1 node(s) had taints that the pod didn't tolerate.
+  Warning  FailedScheduling  11m (x3 over 11m)  default-scheduler  0/3 nodes are available: 1 node(s) had taints that the pod didn't tolerate, 2 node(s) didn't match node selector.
+  Normal   Scheduled         10m                default-scheduler  Successfully assigned local-path-storage/local-path-provisioner-7745554f7f-7zh68 to cloudtest-kind-16b381ca64-control-plane
+  Normal   Pulled            10m                kubelet            Container image "rancher/local-path-provisioner:v0.0.11" already present on machine
+  Normal   Created           10m                kubelet            Created container local-path-provisioner
+  Normal   Started           10m                kubelet            Started container local-path-provisioner
+

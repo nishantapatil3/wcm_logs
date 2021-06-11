@@ -1,0 +1,48 @@
+Name:         jaeger
+Namespace:    nsm-system
+Priority:     0
+Node:         cloudtest-kind-16b381ca64-worker2/172.17.0.3
+Start Time:   Fri, 11 Jun 2021 09:14:57 -0700
+Labels:       run=jaeger
+Annotations:  <none>
+Status:       Running
+IP:           10.244.2.9
+IPs:
+  IP:  10.244.2.9
+Containers:
+  jaeger:
+    Container ID:   containerd://c2035bfb0604d26feb6048ad3f5a61f8e1d428b57005fb6ba69c3109f7e56b3f
+    Image:          jaegertracing/all-in-one:1.14.0
+    Image ID:       docker.io/jaegertracing/all-in-one@sha256:021aefafecbb5559078206996f1f4e8fc5907debab047f4fcc5c837689a66cfa
+    Ports:          16686/TCP, 6831/UDP
+    Host Ports:     0/TCP, 0/UDP
+    State:          Running
+      Started:      Fri, 11 Jun 2021 09:14:57 -0700
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-g4szg (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-g4szg:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-g4szg
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  6m22s  default-scheduler  Successfully assigned nsm-system/jaeger to cloudtest-kind-16b381ca64-worker2
+  Normal  Pulled     6m22s  kubelet            Container image "jaegertracing/all-in-one:1.14.0" already present on machine
+  Normal  Created    6m22s  kubelet            Created container jaeger
+  Normal  Started    6m22s  kubelet            Started container jaeger
+

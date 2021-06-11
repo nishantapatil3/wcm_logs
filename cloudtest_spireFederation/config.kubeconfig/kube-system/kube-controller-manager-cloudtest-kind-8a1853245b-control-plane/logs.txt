@@ -1,0 +1,225 @@
+==== START logs for container kube-controller-manager of pod kube-system/kube-controller-manager-cloudtest-kind-8a1853245b-control-plane ====
+I0611 16:34:48.763456       1 serving.go:312] Generated self-signed cert in-memory
+I0611 16:34:49.285611       1 controllermanager.go:161] Version: v1.17.0
+I0611 16:34:49.287116       1 dynamic_cafile_content.go:166] Starting request-header::/etc/kubernetes/pki/front-proxy-ca.crt
+I0611 16:34:49.287116       1 dynamic_cafile_content.go:166] Starting client-ca-bundle::/etc/kubernetes/pki/ca.crt
+I0611 16:34:49.287733       1 secure_serving.go:178] Serving securely on 127.0.0.1:10257
+I0611 16:34:49.287776       1 tlsconfig.go:219] Starting DynamicServingCertificateController
+I0611 16:34:49.289104       1 deprecated_insecure_serving.go:53] Serving insecurely on [::]:10252
+I0611 16:34:49.289283       1 leaderelection.go:242] attempting to acquire leader lease  kube-system/kube-controller-manager...
+E0611 16:34:53.164552       1 leaderelection.go:331] error retrieving resource lock kube-system/kube-controller-manager: endpoints "kube-controller-manager" is forbidden: User "system:kube-controller-manager" cannot get resource "endpoints" in API group "" in the namespace "kube-system"
+I0611 16:34:56.559975       1 leaderelection.go:252] successfully acquired lease kube-system/kube-controller-manager
+I0611 16:34:56.560542       1 event.go:281] Event(v1.ObjectReference{Kind:"Endpoints", Namespace:"kube-system", Name:"kube-controller-manager", UID:"8e9906b2-d082-4ee6-8d19-9fab16d3ab6f", APIVersion:"v1", ResourceVersion:"181", FieldPath:""}): type: 'Normal' reason: 'LeaderElection' cloudtest-kind-8a1853245b-control-plane_fd082114-e342-4ce9-ad00-de3327fd5f8f became leader
+I0611 16:34:56.560625       1 event.go:281] Event(v1.ObjectReference{Kind:"Lease", Namespace:"kube-system", Name:"kube-controller-manager", UID:"21ff2c62-c4e0-4c47-92dd-88ac30cb3e82", APIVersion:"coordination.k8s.io/v1", ResourceVersion:"183", FieldPath:""}): type: 'Normal' reason: 'LeaderElection' cloudtest-kind-8a1853245b-control-plane_fd082114-e342-4ce9-ad00-de3327fd5f8f became leader
+I0611 16:34:56.845222       1 plugins.go:100] No cloud provider specified.
+I0611 16:34:56.847995       1 shared_informer.go:197] Waiting for caches to sync for tokens
+I0611 16:34:56.948530       1 shared_informer.go:204] Caches are synced for tokens 
+I0611 16:34:56.978343       1 controllermanager.go:533] Started "serviceaccount"
+I0611 16:34:56.978788       1 serviceaccounts_controller.go:116] Starting service account controller
+I0611 16:34:56.979336       1 shared_informer.go:197] Waiting for caches to sync for service account
+I0611 16:34:57.016583       1 controllermanager.go:533] Started "job"
+I0611 16:34:57.017248       1 job_controller.go:143] Starting job controller
+I0611 16:34:57.017413       1 shared_informer.go:197] Waiting for caches to sync for job
+I0611 16:34:57.048291       1 controllermanager.go:533] Started "replicationcontroller"
+I0611 16:34:57.048354       1 replica_set.go:180] Starting replicationcontroller controller
+I0611 16:34:57.048382       1 shared_informer.go:197] Waiting for caches to sync for ReplicationController
+I0611 16:34:57.081663       1 controllermanager.go:533] Started "podgc"
+I0611 16:34:57.082035       1 gc_controller.go:88] Starting GC controller
+I0611 16:34:57.082172       1 shared_informer.go:197] Waiting for caches to sync for GC
+I0611 16:34:57.372474       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for horizontalpodautoscalers.autoscaling
+I0611 16:34:57.372586       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for podtemplates
+I0611 16:34:57.372661       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for leases.coordination.k8s.io
+I0611 16:34:57.372809       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for statefulsets.apps
+I0611 16:34:57.372913       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for limitranges
+I0611 16:34:57.373369       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for deployments.apps
+I0611 16:34:57.373471       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for controllerrevisions.apps
+I0611 16:34:57.373598       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for daemonsets.apps
+I0611 16:34:57.373855       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for events.events.k8s.io
+I0611 16:34:57.374034       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for poddisruptionbudgets.policy
+W0611 16:34:57.374120       1 shared_informer.go:415] resyncPeriod 58315866518373 is smaller than resyncCheckPeriod 61688954894655 and the informer has already started. Changing it to 61688954894655
+I0611 16:34:57.374352       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for serviceaccounts
+I0611 16:34:57.374591       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for jobs.batch
+I0611 16:34:57.374769       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for ingresses.networking.k8s.io
+I0611 16:34:57.375042       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkpolicies.networking.k8s.io
+I0611 16:34:57.375146       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for endpoints
+I0611 16:34:57.375284       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for replicasets.apps
+I0611 16:34:57.375360       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for roles.rbac.authorization.k8s.io
+I0611 16:34:57.375508       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for endpointslices.discovery.k8s.io
+I0611 16:34:57.375763       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for ingresses.extensions
+I0611 16:34:57.375840       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for cronjobs.batch
+I0611 16:34:57.376078       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for rolebindings.rbac.authorization.k8s.io
+I0611 16:34:57.376190       1 controllermanager.go:533] Started "resourcequota"
+I0611 16:34:57.376929       1 resource_quota_controller.go:271] Starting resource quota controller
+I0611 16:34:57.376995       1 shared_informer.go:197] Waiting for caches to sync for resource quota
+I0611 16:34:57.377626       1 resource_quota_monitor.go:303] QuotaMonitor running
+I0611 16:34:57.893736       1 garbagecollector.go:129] Starting garbage collector controller
+I0611 16:34:57.893800       1 shared_informer.go:197] Waiting for caches to sync for garbage collector
+I0611 16:34:57.893870       1 graph_builder.go:282] GraphBuilder running
+I0611 16:34:57.893942       1 controllermanager.go:533] Started "garbagecollector"
+I0611 16:34:57.968731       1 controllermanager.go:533] Started "horizontalpodautoscaling"
+I0611 16:34:57.969152       1 horizontal.go:156] Starting HPA controller
+I0611 16:34:57.969207       1 shared_informer.go:197] Waiting for caches to sync for HPA
+I0611 16:34:57.999020       1 controllermanager.go:533] Started "csrapproving"
+W0611 16:34:57.999091       1 core.go:246] configure-cloud-routes is set, but no cloud provider specified. Will not configure cloud provider routes.
+W0611 16:34:57.999119       1 controllermanager.go:525] Skipping "route"
+W0611 16:34:57.999146       1 controllermanager.go:525] Skipping "ttl-after-finished"
+W0611 16:34:57.999181       1 controllermanager.go:525] Skipping "endpointslice"
+I0611 16:34:57.999704       1 certificate_controller.go:118] Starting certificate controller "csrapproving"
+I0611 16:34:57.999796       1 shared_informer.go:197] Waiting for caches to sync for certificate-csrapproving
+I0611 16:34:58.168896       1 controllermanager.go:533] Started "bootstrapsigner"
+I0611 16:34:58.169140       1 shared_informer.go:197] Waiting for caches to sync for bootstrap_signer
+I0611 16:34:58.418748       1 controllermanager.go:533] Started "tokencleaner"
+I0611 16:34:58.418892       1 tokencleaner.go:117] Starting token cleaner controller
+I0611 16:34:58.419191       1 shared_informer.go:197] Waiting for caches to sync for token_cleaner
+I0611 16:34:58.419215       1 shared_informer.go:204] Caches are synced for token_cleaner 
+E0611 16:34:58.668337       1 core.go:91] Failed to start service controller: WARNING: no cloud provider provided, services of type LoadBalancer will fail
+W0611 16:34:58.668385       1 controllermanager.go:525] Skipping "service"
+I0611 16:34:58.918732       1 controllermanager.go:533] Started "clusterrole-aggregation"
+I0611 16:34:58.918928       1 clusterroleaggregation_controller.go:148] Starting ClusterRoleAggregator
+I0611 16:34:58.918955       1 shared_informer.go:197] Waiting for caches to sync for ClusterRoleAggregator
+I0611 16:34:59.168993       1 controllermanager.go:533] Started "endpoint"
+I0611 16:34:59.169219       1 endpoints_controller.go:181] Starting endpoint controller
+I0611 16:34:59.169277       1 shared_informer.go:197] Waiting for caches to sync for endpoint
+I0611 16:34:59.419487       1 node_lifecycle_controller.go:77] Sending events to api server
+E0611 16:34:59.419597       1 core.go:232] failed to start cloud node lifecycle controller: no cloud provider provided
+W0611 16:34:59.419655       1 controllermanager.go:525] Skipping "cloud-node-lifecycle"
+I0611 16:34:59.670098       1 controllermanager.go:533] Started "persistentvolume-expander"
+I0611 16:34:59.670269       1 expand_controller.go:319] Starting expand controller
+I0611 16:34:59.670297       1 shared_informer.go:197] Waiting for caches to sync for expand
+I0611 16:34:59.919528       1 controllermanager.go:533] Started "pv-protection"
+I0611 16:34:59.919667       1 pv_protection_controller.go:81] Starting PV protection controller
+I0611 16:34:59.919757       1 shared_informer.go:197] Waiting for caches to sync for PV protection
+I0611 16:35:00.168955       1 controllermanager.go:533] Started "daemonset"
+I0611 16:35:00.168996       1 daemon_controller.go:255] Starting daemon sets controller
+I0611 16:35:00.169560       1 shared_informer.go:197] Waiting for caches to sync for daemon sets
+I0611 16:35:00.419109       1 controllermanager.go:533] Started "deployment"
+I0611 16:35:00.419254       1 deployment_controller.go:152] Starting deployment controller
+I0611 16:35:00.419278       1 shared_informer.go:197] Waiting for caches to sync for deployment
+I0611 16:35:00.817706       1 controllermanager.go:533] Started "disruption"
+I0611 16:35:00.817816       1 disruption.go:330] Starting disruption controller
+I0611 16:35:00.817845       1 shared_informer.go:197] Waiting for caches to sync for disruption
+I0611 16:35:01.072152       1 controllermanager.go:533] Started "statefulset"
+I0611 16:35:01.072274       1 stateful_set.go:145] Starting stateful set controller
+I0611 16:35:01.072910       1 shared_informer.go:197] Waiting for caches to sync for stateful set
+I0611 16:35:01.322598       1 controllermanager.go:533] Started "ttl"
+I0611 16:35:01.322780       1 ttl_controller.go:116] Starting TTL controller
+I0611 16:35:01.322806       1 shared_informer.go:197] Waiting for caches to sync for TTL
+I0611 16:35:01.568614       1 controllermanager.go:533] Started "persistentvolume-binder"
+I0611 16:35:01.568780       1 pv_controller_base.go:294] Starting persistent volume controller
+I0611 16:35:01.568807       1 shared_informer.go:197] Waiting for caches to sync for persistent volume
+I0611 16:35:01.820351       1 controllermanager.go:533] Started "attachdetach"
+I0611 16:35:01.820553       1 attach_detach_controller.go:342] Starting attach detach controller
+I0611 16:35:01.820577       1 shared_informer.go:197] Waiting for caches to sync for attach detach
+I0611 16:35:02.082421       1 controllermanager.go:533] Started "namespace"
+I0611 16:35:02.082656       1 namespace_controller.go:200] Starting namespace controller
+I0611 16:35:02.082683       1 shared_informer.go:197] Waiting for caches to sync for namespace
+I0611 16:35:02.318772       1 controllermanager.go:533] Started "cronjob"
+I0611 16:35:02.318939       1 cronjob_controller.go:97] Starting CronJob Manager
+I0611 16:35:02.468476       1 node_lifecycle_controller.go:388] Sending events to api server.
+I0611 16:35:02.468663       1 node_lifecycle_controller.go:423] Controller is using taint based evictions.
+I0611 16:35:02.468753       1 taint_manager.go:162] Sending events to api server.
+I0611 16:35:02.468919       1 node_lifecycle_controller.go:520] Controller will reconcile labels.
+I0611 16:35:02.469057       1 controllermanager.go:533] Started "nodelifecycle"
+W0611 16:35:02.469109       1 controllermanager.go:525] Skipping "root-ca-cert-publisher"
+I0611 16:35:02.469161       1 node_lifecycle_controller.go:554] Starting node controller
+I0611 16:35:02.469250       1 shared_informer.go:197] Waiting for caches to sync for taint
+I0611 16:35:02.719723       1 controllermanager.go:533] Started "replicaset"
+I0611 16:35:02.719764       1 replica_set.go:180] Starting replicaset controller
+I0611 16:35:02.719921       1 shared_informer.go:197] Waiting for caches to sync for ReplicaSet
+I0611 16:35:02.868200       1 node_ipam_controller.go:94] Sending events to api server.
+I0611 16:35:12.872500       1 range_allocator.go:82] Sending events to api server.
+I0611 16:35:12.872791       1 range_allocator.go:116] No Secondary Service CIDR provided. Skipping filtering out secondary service addresses.
+I0611 16:35:12.872922       1 controllermanager.go:533] Started "nodeipam"
+I0611 16:35:12.873066       1 node_ipam_controller.go:162] Starting ipam controller
+I0611 16:35:12.873165       1 shared_informer.go:197] Waiting for caches to sync for node
+I0611 16:35:12.898349       1 controllermanager.go:533] Started "pvc-protection"
+I0611 16:35:12.898622       1 pvc_protection_controller.go:100] Starting PVC protection controller
+I0611 16:35:12.898668       1 shared_informer.go:197] Waiting for caches to sync for PVC protection
+I0611 16:35:12.908372       1 controllermanager.go:533] Started "csrsigning"
+I0611 16:35:12.908620       1 certificate_controller.go:118] Starting certificate controller "csrsigning"
+I0611 16:35:12.908663       1 shared_informer.go:197] Waiting for caches to sync for certificate-csrsigning
+I0611 16:35:12.918759       1 controllermanager.go:533] Started "csrcleaner"
+I0611 16:35:12.920628       1 shared_informer.go:197] Waiting for caches to sync for resource quota
+I0611 16:35:12.922541       1 cleaner.go:81] Starting CSR cleaner controller
+I0611 16:35:12.924829       1 shared_informer.go:197] Waiting for caches to sync for garbage collector
+I0611 16:35:12.947114       1 shared_informer.go:204] Caches are synced for service account 
+I0611 16:35:12.969521       1 shared_informer.go:204] Caches are synced for HPA 
+I0611 16:35:12.969584       1 shared_informer.go:204] Caches are synced for endpoint 
+I0611 16:35:12.971215       1 shared_informer.go:204] Caches are synced for expand 
+I0611 16:35:12.983143       1 shared_informer.go:204] Caches are synced for namespace 
+I0611 16:35:12.984610       1 shared_informer.go:204] Caches are synced for job 
+I0611 16:35:12.999145       1 shared_informer.go:204] Caches are synced for PVC protection 
+I0611 16:35:13.000313       1 shared_informer.go:204] Caches are synced for certificate-csrapproving 
+I0611 16:35:13.009344       1 shared_informer.go:204] Caches are synced for certificate-csrsigning 
+I0611 16:35:13.019367       1 shared_informer.go:204] Caches are synced for ClusterRoleAggregator 
+I0611 16:35:13.019611       1 shared_informer.go:204] Caches are synced for deployment 
+I0611 16:35:13.020523       1 shared_informer.go:204] Caches are synced for ReplicaSet 
+I0611 16:35:13.020523       1 shared_informer.go:204] Caches are synced for PV protection 
+I0611 16:35:13.031055       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"local-path-storage", Name:"local-path-provisioner", UID:"a5b898d2-71d2-4cb4-a8de-116daaef1c97", APIVersion:"apps/v1", ResourceVersion:"274", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set local-path-provisioner-7745554f7f to 1
+I0611 16:35:13.032589       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"kube-system", Name:"coredns", UID:"2b5ea654-79ae-4dbb-a580-2b919edf6a02", APIVersion:"apps/v1", ResourceVersion:"179", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set coredns-6955765f44 to 2
+I0611 16:35:13.043832       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"local-path-storage", Name:"local-path-provisioner-7745554f7f", UID:"eb4a36d3-731f-4d7e-91fb-b4a72ee30677", APIVersion:"apps/v1", ResourceVersion:"345", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: local-path-provisioner-7745554f7f-6g5d7
+I0611 16:35:13.047721       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"kube-system", Name:"coredns-6955765f44", UID:"3af54094-7f7e-4518-92bb-36d40cd878b8", APIVersion:"apps/v1", ResourceVersion:"346", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: coredns-6955765f44-sqns8
+I0611 16:35:13.057839       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"kube-system", Name:"coredns-6955765f44", UID:"3af54094-7f7e-4518-92bb-36d40cd878b8", APIVersion:"apps/v1", ResourceVersion:"346", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: coredns-6955765f44-cj7ks
+I0611 16:35:13.074165       1 shared_informer.go:204] Caches are synced for stateful set 
+I0611 16:35:13.215247       1 shared_informer.go:204] Caches are synced for ReplicationController 
+I0611 16:35:13.218228       1 shared_informer.go:204] Caches are synced for disruption 
+I0611 16:35:13.218347       1 disruption.go:338] Sending events to api server.
+I0611 16:35:13.369604       1 shared_informer.go:204] Caches are synced for bootstrap_signer 
+W0611 16:35:13.968458       1 actual_state_of_world.go:506] Failed to update statusUpdateNeeded field in actual state of world: Failed to set statusUpdateNeeded to needed true, because nodeName="cloudtest-kind-8a1853245b-control-plane" does not exist
+I0611 16:35:13.970044       1 shared_informer.go:204] Caches are synced for persistent volume 
+I0611 16:35:13.970000       1 shared_informer.go:204] Caches are synced for daemon sets 
+I0611 16:35:13.970247       1 shared_informer.go:204] Caches are synced for taint 
+I0611 16:35:13.970443       1 node_lifecycle_controller.go:1443] Initializing eviction metric for zone: 
+I0611 16:35:13.970547       1 taint_manager.go:186] Starting NoExecuteTaintManager
+W0611 16:35:13.970572       1 node_lifecycle_controller.go:1058] Missing timestamp for Node cloudtest-kind-8a1853245b-control-plane. Assuming now as a timestamp.
+I0611 16:35:13.970902       1 node_lifecycle_controller.go:1209] Controller detected that all Nodes are not-Ready. Entering master disruption mode.
+I0611 16:35:13.971318       1 event.go:281] Event(v1.ObjectReference{Kind:"Node", Namespace:"", Name:"cloudtest-kind-8a1853245b-control-plane", UID:"6dfc4b8e-894c-41d0-836f-5c110d452a82", APIVersion:"", ResourceVersion:"", FieldPath:""}): type: 'Normal' reason: 'RegisteredNode' Node cloudtest-kind-8a1853245b-control-plane event: Registered Node cloudtest-kind-8a1853245b-control-plane in Controller
+I0611 16:35:13.973686       1 shared_informer.go:204] Caches are synced for node 
+I0611 16:35:13.973748       1 range_allocator.go:172] Starting range CIDR allocator
+I0611 16:35:13.973765       1 shared_informer.go:197] Waiting for caches to sync for cidrallocator
+I0611 16:35:13.973782       1 shared_informer.go:204] Caches are synced for cidrallocator 
+I0611 16:35:13.988915       1 range_allocator.go:373] Set node cloudtest-kind-8a1853245b-control-plane PodCIDR to [10.244.0.0/24]
+I0611 16:35:13.994329       1 shared_informer.go:204] Caches are synced for garbage collector 
+I0611 16:35:13.994383       1 garbagecollector.go:138] Garbage collector: all resource monitors have synced. Proceeding to collect garbage
+I0611 16:35:14.000600       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kindnet", UID:"2aa1a8ce-263c-447a-94f0-dc3ad7978fa4", APIVersion:"apps/v1", ResourceVersion:"243", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kindnet-c6rs2
+I0611 16:35:14.007803       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kube-proxy", UID:"302a5b80-e8cc-4b4e-8cd4-936352209d1d", APIVersion:"apps/v1", ResourceVersion:"189", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kube-proxy-jkh8f
+I0611 16:35:14.021473       1 shared_informer.go:204] Caches are synced for attach detach 
+I0611 16:35:14.021496       1 shared_informer.go:204] Caches are synced for resource quota 
+I0611 16:35:14.023407       1 shared_informer.go:204] Caches are synced for TTL 
+I0611 16:35:14.026488       1 shared_informer.go:204] Caches are synced for garbage collector 
+I0611 16:35:14.043943       1 shared_informer.go:204] Caches are synced for resource quota 
+I0611 16:35:14.049257       1 shared_informer.go:204] Caches are synced for GC 
+W0611 16:35:38.533861       1 actual_state_of_world.go:506] Failed to update statusUpdateNeeded field in actual state of world: Failed to set statusUpdateNeeded to needed true, because nodeName="cloudtest-kind-8a1853245b-worker2" does not exist
+I0611 16:35:38.541913       1 range_allocator.go:373] Set node cloudtest-kind-8a1853245b-worker2 PodCIDR to [10.244.1.0/24]
+I0611 16:35:38.552063       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kube-proxy", UID:"302a5b80-e8cc-4b4e-8cd4-936352209d1d", APIVersion:"apps/v1", ResourceVersion:"443", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kube-proxy-rrt9l
+I0611 16:35:38.557271       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kindnet", UID:"2aa1a8ce-263c-447a-94f0-dc3ad7978fa4", APIVersion:"apps/v1", ResourceVersion:"447", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kindnet-gnvzd
+W0611 16:35:38.763046       1 actual_state_of_world.go:506] Failed to update statusUpdateNeeded field in actual state of world: Failed to set statusUpdateNeeded to needed true, because nodeName="cloudtest-kind-8a1853245b-worker" does not exist
+I0611 16:35:38.774209       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kube-proxy", UID:"302a5b80-e8cc-4b4e-8cd4-936352209d1d", APIVersion:"apps/v1", ResourceVersion:"498", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kube-proxy-m8k8q
+I0611 16:35:38.774313       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kindnet", UID:"2aa1a8ce-263c-447a-94f0-dc3ad7978fa4", APIVersion:"apps/v1", ResourceVersion:"500", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kindnet-sk257
+I0611 16:35:38.784260       1 range_allocator.go:373] Set node cloudtest-kind-8a1853245b-worker PodCIDR to [10.244.2.0/24]
+E0611 16:35:38.822341       1 daemon_controller.go:290] kube-system/kube-proxy failed with : error storing status for daemon set &v1.DaemonSet{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"kube-proxy", GenerateName:"", Namespace:"kube-system", SelfLink:"/apis/apps/v1/namespaces/kube-system/daemonsets/kube-proxy", UID:"302a5b80-e8cc-4b4e-8cd4-936352209d1d", ResourceVersion:"524", Generation:1, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63759026096, loc:(*time.Location)(0x3992980)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"k8s-app":"kube-proxy"}, Annotations:map[string]string{"deprecated.daemonset.template.generation":"1"}, OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.DaemonSetSpec{Selector:(*v1.LabelSelector)(0xc001d2d2c0), Template:v1.PodTemplateSpec{ObjectMeta:v1.ObjectMeta{Name:"", GenerateName:"", Namespace:"", SelfLink:"", UID:"", ResourceVersion:"", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:0, loc:(*time.Location)(nil)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"k8s-app":"kube-proxy"}, Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.PodSpec{Volumes:[]v1.Volume{v1.Volume{Name:"kube-proxy", VolumeSource:v1.VolumeSource{HostPath:(*v1.HostPathVolumeSource)(nil), EmptyDir:(*v1.EmptyDirVolumeSource)(nil), GCEPersistentDisk:(*v1.GCEPersistentDiskVolumeSource)(nil), AWSElasticBlockStore:(*v1.AWSElasticBlockStoreVolumeSource)(nil), GitRepo:(*v1.GitRepoVolumeSource)(nil), Secret:(*v1.SecretVolumeSource)(nil), NFS:(*v1.NFSVolumeSource)(nil), ISCSI:(*v1.ISCSIVolumeSource)(nil), Glusterfs:(*v1.GlusterfsVolumeSource)(nil), PersistentVolumeClaim:(*v1.PersistentVolumeClaimVolumeSource)(nil), RBD:(*v1.RBDVolumeSource)(nil), FlexVolume:(*v1.FlexVolumeSource)(nil), Cinder:(*v1.CinderVolumeSource)(nil), CephFS:(*v1.CephFSVolumeSource)(nil), Flocker:(*v1.FlockerVolumeSource)(nil), DownwardAPI:(*v1.DownwardAPIVolumeSource)(nil), FC:(*v1.FCVolumeSource)(nil), AzureFile:(*v1.AzureFileVolumeSource)(nil), ConfigMap:(*v1.ConfigMapVolumeSource)(0xc001d20800), VsphereVolume:(*v1.VsphereVirtualDiskVolumeSource)(nil), Quobyte:(*v1.QuobyteVolumeSource)(nil), AzureDisk:(*v1.AzureDiskVolumeSource)(nil), PhotonPersistentDisk:(*v1.PhotonPersistentDiskVolumeSource)(nil), Projected:(*v1.ProjectedVolumeSource)(nil), PortworxVolume:(*v1.PortworxVolumeSource)(nil), ScaleIO:(*v1.ScaleIOVolumeSource)(nil), StorageOS:(*v1.StorageOSVolumeSource)(nil), CSI:(*v1.CSIVolumeSource)(nil)}}, v1.Volume{Name:"xtables-lock", VolumeSource:v1.VolumeSource{HostPath:(*v1.HostPathVolumeSource)(0xc001d2d2e0), EmptyDir:(*v1.EmptyDirVolumeSource)(nil), GCEPersistentDisk:(*v1.GCEPersistentDiskVolumeSource)(nil), AWSElasticBlockStore:(*v1.AWSElasticBlockStoreVolumeSource)(nil), GitRepo:(*v1.GitRepoVolumeSource)(nil), Secret:(*v1.SecretVolumeSource)(nil), NFS:(*v1.NFSVolumeSource)(nil), ISCSI:(*v1.ISCSIVolumeSource)(nil), Glusterfs:(*v1.GlusterfsVolumeSource)(nil), PersistentVolumeClaim:(*v1.PersistentVolumeClaimVolumeSource)(nil), RBD:(*v1.RBDVolumeSource)(nil), FlexVolume:(*v1.FlexVolumeSource)(nil), Cinder:(*v1.CinderVolumeSource)(nil), CephFS:(*v1.CephFSVolumeSource)(nil), Flocker:(*v1.FlockerVolumeSource)(nil), DownwardAPI:(*v1.DownwardAPIVolumeSource)(nil), FC:(*v1.FCVolumeSource)(nil), AzureFile:(*v1.AzureFileVolumeSource)(nil), ConfigMap:(*v1.ConfigMapVolumeSource)(nil), VsphereVolume:(*v1.VsphereVirtualDiskVolumeSource)(nil), Quobyte:(*v1.QuobyteVolumeSource)(nil), AzureDisk:(*v1.AzureDiskVolumeSource)(nil), PhotonPersistentDisk:(*v1.PhotonPersistentDiskVolumeSource)(nil), Projected:(*v1.ProjectedVolumeSource)(nil), PortworxVolume:(*v1.PortworxVolumeSource)(nil), ScaleIO:(*v1.ScaleIOVolumeSource)(nil), StorageOS:(*v1.StorageOSVolumeSource)(nil), CSI:(*v1.CSIVolumeSource)(nil)}}, v1.Volume{Name:"lib-modules", VolumeSource:v1.VolumeSource{HostPath:(*v1.HostPathVolumeSource)(0xc001d2d300), EmptyDir:(*v1.EmptyDirVolumeSource)(nil), GCEPersistentDisk:(*v1.GCEPersistentDiskVolumeSource)(nil), AWSElasticBlockStore:(*v1.AWSElasticBlockStoreVolumeSource)(nil), GitRepo:(*v1.GitRepoVolumeSource)(nil), Secret:(*v1.SecretVolumeSource)(nil), NFS:(*v1.NFSVolumeSource)(nil), ISCSI:(*v1.ISCSIVolumeSource)(nil), Glusterfs:(*v1.GlusterfsVolumeSource)(nil), PersistentVolumeClaim:(*v1.PersistentVolumeClaimVolumeSource)(nil), RBD:(*v1.RBDVolumeSource)(nil), FlexVolume:(*v1.FlexVolumeSource)(nil), Cinder:(*v1.CinderVolumeSource)(nil), CephFS:(*v1.CephFSVolumeSource)(nil), Flocker:(*v1.FlockerVolumeSource)(nil), DownwardAPI:(*v1.DownwardAPIVolumeSource)(nil), FC:(*v1.FCVolumeSource)(nil), AzureFile:(*v1.AzureFileVolumeSource)(nil), ConfigMap:(*v1.ConfigMapVolumeSource)(nil), VsphereVolume:(*v1.VsphereVirtualDiskVolumeSource)(nil), Quobyte:(*v1.QuobyteVolumeSource)(nil), AzureDisk:(*v1.AzureDiskVolumeSource)(nil), PhotonPersistentDisk:(*v1.PhotonPersistentDiskVolumeSource)(nil), Projected:(*v1.ProjectedVolumeSource)(nil), PortworxVolume:(*v1.PortworxVolumeSource)(nil), ScaleIO:(*v1.ScaleIOVolumeSource)(nil), StorageOS:(*v1.StorageOSVolumeSource)(nil), CSI:(*v1.CSIVolumeSource)(nil)}}}, InitContainers:[]v1.Container(nil), Containers:[]v1.Container{v1.Container{Name:"kube-proxy", Image:"k8s.gcr.io/kube-proxy:v1.17.0", Command:[]string{"/usr/local/bin/kube-proxy", "--config=/var/lib/kube-proxy/config.conf", "--hostname-override=$(NODE_NAME)"}, Args:[]string(nil), WorkingDir:"", Ports:[]v1.ContainerPort(nil), EnvFrom:[]v1.EnvFromSource(nil), Env:[]v1.EnvVar{v1.EnvVar{Name:"NODE_NAME", Value:"", ValueFrom:(*v1.EnvVarSource)(0xc001d2d340)}}, Resources:v1.ResourceRequirements{Limits:v1.ResourceList(nil), Requests:v1.ResourceList(nil)}, VolumeMounts:[]v1.VolumeMount{v1.VolumeMount{Name:"kube-proxy", ReadOnly:false, MountPath:"/var/lib/kube-proxy", SubPath:"", MountPropagation:(*v1.MountPropagationMode)(nil), SubPathExpr:""}, v1.VolumeMount{Name:"xtables-lock", ReadOnly:false, MountPath:"/run/xtables.lock", SubPath:"", MountPropagation:(*v1.MountPropagationMode)(nil), SubPathExpr:""}, v1.VolumeMount{Name:"lib-modules", ReadOnly:true, MountPath:"/lib/modules", SubPath:"", MountPropagation:(*v1.MountPropagationMode)(nil), SubPathExpr:""}}, VolumeDevices:[]v1.VolumeDevice(nil), LivenessProbe:(*v1.Probe)(nil), ReadinessProbe:(*v1.Probe)(nil), StartupProbe:(*v1.Probe)(nil), Lifecycle:(*v1.Lifecycle)(nil), TerminationMessagePath:"/dev/termination-log", TerminationMessagePolicy:"File", ImagePullPolicy:"IfNotPresent", SecurityContext:(*v1.SecurityContext)(0xc001c519a0), Stdin:false, StdinOnce:false, TTY:false}}, EphemeralContainers:[]v1.EphemeralContainer(nil), RestartPolicy:"Always", TerminationGracePeriodSeconds:(*int64)(0xc001d447d8), ActiveDeadlineSeconds:(*int64)(nil), DNSPolicy:"ClusterFirst", NodeSelector:map[string]string{"beta.kubernetes.io/os":"linux"}, ServiceAccountName:"kube-proxy", DeprecatedServiceAccount:"kube-proxy", AutomountServiceAccountToken:(*bool)(nil), NodeName:"", HostNetwork:true, HostPID:false, HostIPC:false, ShareProcessNamespace:(*bool)(nil), SecurityContext:(*v1.PodSecurityContext)(0xc001d92000), ImagePullSecrets:[]v1.LocalObjectReference(nil), Hostname:"", Subdomain:"", Affinity:(*v1.Affinity)(nil), SchedulerName:"default-scheduler", Tolerations:[]v1.Toleration{v1.Toleration{Key:"CriticalAddonsOnly", Operator:"Exists", Value:"", Effect:"", TolerationSeconds:(*int64)(nil)}, v1.Toleration{Key:"", Operator:"Exists", Value:"", Effect:"", TolerationSeconds:(*int64)(nil)}}, HostAliases:[]v1.HostAlias(nil), PriorityClassName:"system-node-critical", Priority:(*int32)(nil), DNSConfig:(*v1.PodDNSConfig)(nil), ReadinessGates:[]v1.PodReadinessGate(nil), RuntimeClassName:(*string)(nil), EnableServiceLinks:(*bool)(nil), PreemptionPolicy:(*v1.PreemptionPolicy)(nil), Overhead:v1.ResourceList(nil), TopologySpreadConstraints:[]v1.TopologySpreadConstraint(nil)}}, UpdateStrategy:v1.DaemonSetUpdateStrategy{Type:"RollingUpdate", RollingUpdate:(*v1.RollingUpdateDaemonSet)(0xc000089268)}, MinReadySeconds:0, RevisionHistoryLimit:(*int32)(0xc001d44818)}, Status:v1.DaemonSetStatus{CurrentNumberScheduled:2, NumberMisscheduled:0, DesiredNumberScheduled:3, NumberReady:1, ObservedGeneration:1, UpdatedNumberScheduled:2, NumberAvailable:1, NumberUnavailable:2, CollisionCount:(*int32)(nil), Conditions:[]v1.DaemonSetCondition(nil)}}: Operation cannot be fulfilled on daemonsets.apps "kube-proxy": the object has been modified; please apply your changes to the latest version and try again
+W0611 16:35:38.940189       1 node_lifecycle_controller.go:1058] Missing timestamp for Node cloudtest-kind-8a1853245b-worker2. Assuming now as a timestamp.
+W0611 16:35:38.940320       1 node_lifecycle_controller.go:1058] Missing timestamp for Node cloudtest-kind-8a1853245b-worker. Assuming now as a timestamp.
+I0611 16:35:38.940430       1 event.go:281] Event(v1.ObjectReference{Kind:"Node", Namespace:"", Name:"cloudtest-kind-8a1853245b-worker2", UID:"a8c2dbe9-650e-4bd1-bb9e-ac796c64e983", APIVersion:"", ResourceVersion:"", FieldPath:""}): type: 'Normal' reason: 'RegisteredNode' Node cloudtest-kind-8a1853245b-worker2 event: Registered Node cloudtest-kind-8a1853245b-worker2 in Controller
+I0611 16:35:38.940490       1 event.go:281] Event(v1.ObjectReference{Kind:"Node", Namespace:"", Name:"cloudtest-kind-8a1853245b-worker", UID:"1493e82c-a636-436b-88ee-8b87fd853f19", APIVersion:"", ResourceVersion:"", FieldPath:""}): type: 'Normal' reason: 'RegisteredNode' Node cloudtest-kind-8a1853245b-worker event: Registered Node cloudtest-kind-8a1853245b-worker in Controller
+I0611 16:35:58.925339       1 node_lifecycle_controller.go:1236] Controller detected that some Nodes are Ready. Exiting master disruption mode.
+I0611 16:38:04.277523       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"spire", Name:"spire-agent", UID:"0ae1c9f3-b97b-437d-a4a1-f2b7808a1c5e", APIVersion:"apps/v1", ResourceVersion:"1056", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: spire-agent-vc6zj
+I0611 16:38:04.283548       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"spire", Name:"spire-agent", UID:"0ae1c9f3-b97b-437d-a4a1-f2b7808a1c5e", APIVersion:"apps/v1", ResourceVersion:"1056", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: spire-agent-t72wk
+I0611 16:38:04.286361       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"spire", Name:"spire-agent", UID:"0ae1c9f3-b97b-437d-a4a1-f2b7808a1c5e", APIVersion:"apps/v1", ResourceVersion:"1056", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: spire-agent-vp6pj
+I0611 16:38:04.304296       1 event.go:281] Event(v1.ObjectReference{Kind:"StatefulSet", Namespace:"spire", Name:"spire-server", UID:"300fe860-b79f-4c6e-a189-ef4535bca2b6", APIVersion:"apps/v1", ResourceVersion:"1057", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' create Pod spire-server-0 in StatefulSet spire-server successful
+E0611 16:38:23.609999       1 clusterroleaggregation_controller.go:180] edit failed with : Operation cannot be fulfilled on clusterroles.rbac.authorization.k8s.io "edit": the object has been modified; please apply your changes to the latest version and try again
+E0611 16:38:23.641210       1 clusterroleaggregation_controller.go:180] admin failed with : Operation cannot be fulfilled on clusterroles.rbac.authorization.k8s.io "admin": the object has been modified; please apply your changes to the latest version and try again
+E0611 16:38:33.660250       1 clusterroleaggregation_controller.go:180] admin failed with : Operation cannot be fulfilled on clusterroles.rbac.authorization.k8s.io "admin": the object has been modified; please apply your changes to the latest version and try again
+I0611 16:38:45.730541       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkservices.networkservicemesh.io
+I0611 16:38:45.730638       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkservicemanagers.networkservicemesh.io
+I0611 16:38:45.730694       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkserviceendpoints.networkservicemesh.io
+I0611 16:38:45.730754       1 shared_informer.go:197] Waiting for caches to sync for resource quota
+I0611 16:38:45.831347       1 shared_informer.go:204] Caches are synced for resource quota 
+I0611 16:38:46.076921       1 shared_informer.go:197] Waiting for caches to sync for garbage collector
+I0611 16:38:46.077021       1 shared_informer.go:204] Caches are synced for garbage collector 
+E0611 16:39:54.142649       1 tokens_controller.go:260] error synchronizing serviceaccount nsm-system/default: secrets "default-token-rh7np" is forbidden: unable to create new content in namespace nsm-system because it is being terminated
+I0611 16:39:59.232588       1 namespace_controller.go:185] Namespace has been deleted nsm-system
+E0611 16:40:12.703956       1 clusterroleaggregation_controller.go:180] edit failed with : Operation cannot be fulfilled on clusterroles.rbac.authorization.k8s.io "edit": the object has been modified; please apply your changes to the latest version and try again
+E0611 16:40:12.715980       1 clusterroleaggregation_controller.go:180] edit failed with : Operation cannot be fulfilled on clusterroles.rbac.authorization.k8s.io "edit": the object has been modified; please apply your changes to the latest version and try again
+E0611 16:42:51.581949       1 clusterroleaggregation_controller.go:180] admin failed with : Operation cannot be fulfilled on clusterroles.rbac.authorization.k8s.io "admin": the object has been modified; please apply your changes to the latest version and try again
+==== END logs for container kube-controller-manager of pod kube-system/kube-controller-manager-cloudtest-kind-8a1853245b-control-plane ====

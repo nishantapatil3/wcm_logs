@@ -1,0 +1,699 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-06-11T16:43:21Z"
+    name: icmp-responder-nse-2
+    namespace: nsm-system
+    resourceVersion: "2612"
+    selfLink: /api/v1/namespaces/nsm-system/pods/icmp-responder-nse-2
+    uid: 78c36fb0-e382-487e-846e-41203aaeb827
+  spec:
+    containers:
+    - command:
+      - /bin/icmp-responder-nse
+      - -routes
+      env:
+      - name: ENDPOINT_NETWORK_SERVICE
+        value: icmp-responder
+      - name: ENDPOINT_LABELS
+        value: app=icmp
+      - name: IP_ADDRESS
+        value: 172.16.1.0/24
+      image: containers.cisco.com/appn/test-common:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: icmp-responder-nse-2
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/networkservicemesh/config
+        name: nsm-config-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nse-acc-token-qt82d
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: cloudtest-kind-8a1853245b-worker
+    nodeSelector:
+      kubernetes.io/hostname: cloudtest-kind-8a1853245b-worker
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: nse-acc
+    serviceAccountName: nse-acc
+    terminationGracePeriodSeconds: 0
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: nsm-config
+      name: nsm-config-volume
+    - name: nse-acc-token-qt82d
+      secret:
+        defaultMode: 420
+        secretName: nse-acc-token-qt82d
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:21Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:22Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:22Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:21Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://9a2c8195395bb5c7284b37993a286fbd0ad404cb4620671ac08a1bd48a9fc81e
+      image: containers.cisco.com/appn/test-common:vl3_latest
+      imageID: sha256:28353865264bbeab297eae64ca0fcf6abd5debb1d04b71349c51ecaa5e24c0ff
+      lastState: {}
+      name: icmp-responder-nse-2
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:43:22Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.2.19
+    podIPs:
+    - ip: 10.244.2.19
+    qosClass: BestEffort
+    startTime: "2021-06-11T16:43:21Z"
+- metadata:
+    creationTimestamp: "2021-06-11T16:43:24Z"
+    name: icmp-responder-nse-3
+    namespace: nsm-system
+    resourceVersion: "2633"
+    selfLink: /api/v1/namespaces/nsm-system/pods/icmp-responder-nse-3
+    uid: 595cde0b-86b6-48ba-aa25-049bfec5132d
+  spec:
+    containers:
+    - command:
+      - /bin/icmp-responder-nse
+      - -routes
+      env:
+      - name: ENDPOINT_NETWORK_SERVICE
+        value: icmp-responder
+      - name: ENDPOINT_LABELS
+        value: app=icmp
+      - name: IP_ADDRESS
+        value: 172.16.1.0/24
+      image: containers.cisco.com/appn/test-common:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: icmp-responder-nse-3
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/networkservicemesh/config
+        name: nsm-config-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nse-acc-token-qt82d
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: cloudtest-kind-8a1853245b-worker
+    nodeSelector:
+      kubernetes.io/hostname: cloudtest-kind-8a1853245b-worker
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: nse-acc
+    serviceAccountName: nse-acc
+    terminationGracePeriodSeconds: 0
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: nsm-config
+      name: nsm-config-volume
+    - name: nse-acc-token-qt82d
+      secret:
+        defaultMode: 420
+        secretName: nse-acc-token-qt82d
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:24Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:26Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:26Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:24Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://e95d3babcbe39ed38f78b006df0537fe1ed267f1d71935b2a29d894d63bbd525
+      image: containers.cisco.com/appn/test-common:vl3_latest
+      imageID: sha256:28353865264bbeab297eae64ca0fcf6abd5debb1d04b71349c51ecaa5e24c0ff
+      lastState: {}
+      name: icmp-responder-nse-3
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:43:26Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.2.20
+    podIPs:
+    - ip: 10.244.2.20
+    qosClass: BestEffort
+    startTime: "2021-06-11T16:43:24Z"
+- metadata:
+    creationTimestamp: "2021-06-11T16:42:58Z"
+    name: nsmd-forwarder-cloudtest-kind-8a1853245b-worker
+    namespace: nsm-system
+    resourceVersion: "2519"
+    selfLink: /api/v1/namespaces/nsm-system/pods/nsmd-forwarder-cloudtest-kind-8a1853245b-worker
+    uid: d3ca2681-8709-4f87-acd6-d8431ac0f733
+  spec:
+    containers:
+    - env:
+      - name: NSM_FORWARDER_SRC_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      - name: INITIAL_LOGLVL
+        value: debug
+      - name: METRICS_COLLECTOR_ENABLED
+        value: "false"
+      image: containers.cisco.com/appn/vppagent-forwarder:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: vppagent-forwarder
+      resources:
+        limits:
+          cpu: "1"
+        requests:
+          cpu: 1m
+      securityContext:
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/networkservicemesh/
+        mountPropagation: Bidirectional
+        name: workspace
+      - mountPath: /var/tmp/nsm-postmortem/
+        mountPropagation: Bidirectional
+        name: postmortem
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: forward-plane-acc-token-m96vh
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostNetwork: true
+    hostPID: true
+    nodeName: cloudtest-kind-8a1853245b-worker
+    nodeSelector:
+      kubernetes.io/hostname: cloudtest-kind-8a1853245b-worker
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: forward-plane-acc
+    serviceAccountName: forward-plane-acc
+    terminationGracePeriodSeconds: 0
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /var/lib/networkservicemesh
+        type: DirectoryOrCreate
+      name: workspace
+    - hostPath:
+        path: /var/tmp/nsm-postmortem
+        type: DirectoryOrCreate
+      name: postmortem
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: forward-plane-acc-token-m96vh
+      secret:
+        defaultMode: 420
+        secretName: forward-plane-acc-token-m96vh
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:58Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:00Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:00Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:58Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://6378e50fb4b732c721ddc97d5c24fc0f0bed6d0e43c5a9a8cb95b4c3712451bf
+      image: containers.cisco.com/appn/vppagent-forwarder:vl3_latest
+      imageID: sha256:5314689af1b8300b960f1b00052d5578b38a8e9ee11b561ae8c639006d3c08cd
+      lastState: {}
+      name: vppagent-forwarder
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:43:00Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 172.17.0.2
+    podIPs:
+    - ip: 172.17.0.2
+    qosClass: Burstable
+    startTime: "2021-06-11T16:42:58Z"
+- metadata:
+    creationTimestamp: "2021-06-11T16:43:40Z"
+    name: nsmgr-cloudtest-kind-8a1853245b-worker
+    namespace: nsm-system
+    resourceVersion: "2737"
+    selfLink: /api/v1/namespaces/nsm-system/pods/nsmgr-cloudtest-kind-8a1853245b-worker
+    uid: e29b54e9-9bda-4481-b7cb-a83714011466
+  spec:
+    containers:
+    - env:
+      - name: NSMD_LOCAL_REGISTRY_DELETE
+        value: "false"
+      image: containers.cisco.com/appn/nsmdp:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsmdp
+      ports:
+      - containerPort: 5001
+        hostPort: 5001
+        protocol: TCP
+      resources:
+        limits:
+          cpu: "1"
+        requests:
+          cpu: 1m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/kubelet/device-plugins
+        name: kubelet-socket
+      - mountPath: /var/lib/networkservicemesh
+        name: nsm-socket
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsmgr-acc-token-2vd6d
+        readOnly: true
+    - env:
+      - name: NSMD_LOCAL_REGISTRY_DELETE
+        value: "false"
+      image: containers.cisco.com/appn/nsmd:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsmd
+      resources:
+        limits:
+          cpu: "1"
+        requests:
+          cpu: 1m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/networkservicemesh
+        name: nsm-socket
+      - mountPath: /var/lib/networkservicemesh/config
+        name: nsm-config-volume
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsmgr-acc-token-2vd6d
+        readOnly: true
+    - env:
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.uid
+      - name: POD_NAME
+        value: nsmgr-cloudtest-kind-8a1853245b-worker
+      - name: NODE_NAME
+        value: cloudtest-kind-8a1853245b-worker
+      - name: NSM_NAMESPACE
+        value: nsm-system
+      - name: NSMD_LOCAL_REGISTRY_DELETE
+        value: "false"
+      image: containers.cisco.com/appn/nsmd-k8s:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsmd-k8s
+      resources:
+        limits:
+          cpu: "1"
+        requests:
+          cpu: 1m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsmgr-acc-token-2vd6d
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: cloudtest-kind-8a1853245b-worker
+    nodeSelector:
+      kubernetes.io/hostname: cloudtest-kind-8a1853245b-worker
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: nsmgr-acc
+    serviceAccountName: nsmgr-acc
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /var/lib/kubelet/device-plugins
+        type: DirectoryOrCreate
+      name: kubelet-socket
+    - hostPath:
+        path: /var/lib/networkservicemesh
+        type: DirectoryOrCreate
+      name: nsm-socket
+    - configMap:
+        defaultMode: 420
+        name: nsm-config
+      name: nsm-config-volume
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: nsmgr-acc-token-2vd6d
+      secret:
+        defaultMode: 420
+        secretName: nsmgr-acc-token-2vd6d
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:40Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:51Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:51Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:43:40Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://3ffa236b405f85ab103d8eba0a88f4dac4a8704ba31a89cc15563af77ebfa7b7
+      image: containers.cisco.com/appn/nsmd:vl3_latest
+      imageID: sha256:7e1cc25bacd092869a0b886873e3ebd7de39f42830254a04ccde59ba4f72435d
+      lastState: {}
+      name: nsmd
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:43:50Z"
+    - containerID: containerd://db3bc45e60157e0c8d3dc3321fec0a1950c2bc93f1d53cd054fd99867b3d14c4
+      image: containers.cisco.com/appn/nsmd-k8s:vl3_latest
+      imageID: sha256:faa33f015b445af96605b5354064c574326d3fb56db5cc80b03d8ee4f49896d2
+      lastState: {}
+      name: nsmd-k8s
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:43:50Z"
+    - containerID: containerd://e43fa1f3a33d6d1736b0b40f769e42fc0be3711f16be32f4905da26efea1b52f
+      image: containers.cisco.com/appn/nsmdp:vl3_latest
+      imageID: sha256:618e291cc1766919b9baaa2762b3aeba165db54a92b4c8b7d00f95d0e4a2fe55
+      lastState: {}
+      name: nsmdp
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:43:50Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.2.21
+    podIPs:
+    - ip: 10.244.2.21
+    qosClass: Burstable
+    startTime: "2021-06-11T16:43:40Z"
+- metadata:
+    creationTimestamp: "2021-06-11T16:42:55Z"
+    name: prefix-service
+    namespace: nsm-system
+    resourceVersion: "2494"
+    selfLink: /api/v1/namespaces/nsm-system/pods/prefix-service
+    uid: cf9f8bae-6803-4b35-9a3d-029354474d35
+  spec:
+    containers:
+    - command:
+      - /bin/prefix-service
+      env:
+      - name: NSM_NAMESPACE
+        value: nsm-system
+      image: containers.cisco.com/appn/prefix-service:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: prefix-service
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsmgr-acc-token-2vd6d
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: cloudtest-kind-8a1853245b-worker
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: nsmgr-acc
+    serviceAccountName: nsmgr-acc
+    terminationGracePeriodSeconds: 0
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: nsmgr-acc-token-2vd6d
+      secret:
+        defaultMode: 420
+        secretName: nsmgr-acc-token-2vd6d
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:56Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:56Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://7fbd47312be16fe279ebc6aad03d318cfd869007dad58a76602d5b2e2a038d70
+      image: containers.cisco.com/appn/prefix-service:vl3_latest
+      imageID: sha256:a17d30dd9cc8fc2a77bc8489000a5c6649387854fa073611e328486e799e6228
+      lastState: {}
+      name: prefix-service
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:42:55Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.2.16
+    podIPs:
+    - ip: 10.244.2.16
+    qosClass: BestEffort
+    startTime: "2021-06-11T16:42:55Z"
+- metadata:
+    creationTimestamp: "2021-06-11T16:42:54Z"
+    name: spire-proxy
+    namespace: nsm-system
+    resourceVersion: "2488"
+    selfLink: /api/v1/namespaces/nsm-system/pods/spire-proxy
+    uid: f0aa1fa2-2aa8-40a4-948f-99f7d8a444ce
+  spec:
+    containers:
+    - command:
+      - /bin/spire-proxy
+      image: containers.cisco.com/appn/test-common:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: spire-proxy
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsmgr-acc-token-2vd6d
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: cloudtest-kind-8a1853245b-worker
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: nsmgr-acc
+    serviceAccountName: nsmgr-acc
+    terminationGracePeriodSeconds: 0
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: nsmgr-acc-token-2vd6d
+      secret:
+        defaultMode: 420
+        secretName: nsmgr-acc-token-2vd6d
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:54Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:55Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:55Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-11T16:42:54Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://ddf5aef462018b02254c55cba01528ff86025d36a82ff23012527986660de0bb
+      image: containers.cisco.com/appn/test-common:vl3_latest
+      imageID: sha256:28353865264bbeab297eae64ca0fcf6abd5debb1d04b71349c51ecaa5e24c0ff
+      lastState: {}
+      name: spire-proxy
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-11T16:42:55Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.2.15
+    podIPs:
+    - ip: 10.244.2.15
+    qosClass: BestEffort
+    startTime: "2021-06-11T16:42:54Z"
+kind: PodList
+metadata:
+  resourceVersion: "3273"
+  selfLink: /api/v1/namespaces/nsm-system/pods

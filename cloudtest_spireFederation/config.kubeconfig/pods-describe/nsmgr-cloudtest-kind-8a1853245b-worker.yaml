@@ -1,0 +1,122 @@
+Name:         nsmgr-cloudtest-kind-8a1853245b-worker
+Namespace:    nsm-system
+Priority:     0
+Node:         cloudtest-kind-8a1853245b-worker/172.17.0.2
+Start Time:   Fri, 11 Jun 2021 09:43:40 -0700
+Labels:       <none>
+Annotations:  <none>
+Status:       Running
+IP:           10.244.2.21
+IPs:
+  IP:  10.244.2.21
+Containers:
+  nsmdp:
+    Container ID:   containerd://e43fa1f3a33d6d1736b0b40f769e42fc0be3711f16be32f4905da26efea1b52f
+    Image:          containers.cisco.com/appn/nsmdp:vl3_latest
+    Image ID:       sha256:618e291cc1766919b9baaa2762b3aeba165db54a92b4c8b7d00f95d0e4a2fe55
+    Port:           5001/TCP
+    Host Port:      5001/TCP
+    State:          Running
+      Started:      Fri, 11 Jun 2021 09:43:50 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:  1
+    Requests:
+      cpu:  1m
+    Environment:
+      NSMD_LOCAL_REGISTRY_DELETE:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/kubelet/device-plugins from kubelet-socket (rw)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsmgr-acc-token-2vd6d (ro)
+  nsmd:
+    Container ID:   containerd://3ffa236b405f85ab103d8eba0a88f4dac4a8704ba31a89cc15563af77ebfa7b7
+    Image:          containers.cisco.com/appn/nsmd:vl3_latest
+    Image ID:       sha256:7e1cc25bacd092869a0b886873e3ebd7de39f42830254a04ccde59ba4f72435d
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 11 Jun 2021 09:43:50 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:  1
+    Requests:
+      cpu:  1m
+    Environment:
+      NSMD_LOCAL_REGISTRY_DELETE:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsmgr-acc-token-2vd6d (ro)
+  nsmd-k8s:
+    Container ID:   containerd://db3bc45e60157e0c8d3dc3321fec0a1950c2bc93f1d53cd054fd99867b3d14c4
+    Image:          containers.cisco.com/appn/nsmd-k8s:vl3_latest
+    Image ID:       sha256:faa33f015b445af96605b5354064c574326d3fb56db5cc80b03d8ee4f49896d2
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 11 Jun 2021 09:43:50 -0700
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:  1
+    Requests:
+      cpu:  1m
+    Environment:
+      POD_UID:                      (v1:metadata.uid)
+      POD_NAME:                    nsmgr-cloudtest-kind-8a1853245b-worker
+      NODE_NAME:                   cloudtest-kind-8a1853245b-worker
+      NSM_NAMESPACE:               nsm-system
+      NSMD_LOCAL_REGISTRY_DELETE:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsmgr-acc-token-2vd6d (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubelet-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/kubelet/device-plugins
+    HostPathType:  DirectoryOrCreate
+  nsm-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      nsm-config
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  nsmgr-acc-token-2vd6d:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  nsmgr-acc-token-2vd6d
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  kubernetes.io/hostname=cloudtest-kind-8a1853245b-worker
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  3m17s  default-scheduler  Successfully assigned nsm-system/nsmgr-cloudtest-kind-8a1853245b-worker to cloudtest-kind-8a1853245b-worker
+  Normal  Pulled     3m7s   kubelet            Container image "containers.cisco.com/appn/nsmdp:vl3_latest" already present on machine
+  Normal  Created    3m7s   kubelet            Created container nsmdp
+  Normal  Started    3m7s   kubelet            Started container nsmdp
+  Normal  Pulled     3m7s   kubelet            Container image "containers.cisco.com/appn/nsmd:vl3_latest" already present on machine
+  Normal  Created    3m7s   kubelet            Created container nsmd
+  Normal  Started    3m7s   kubelet            Started container nsmd
+  Normal  Pulled     3m7s   kubelet            Container image "containers.cisco.com/appn/nsmd-k8s:vl3_latest" already present on machine
+  Normal  Created    3m7s   kubelet            Created container nsmd-k8s
+  Normal  Started    3m7s   kubelet            Started container nsmd-k8s
+

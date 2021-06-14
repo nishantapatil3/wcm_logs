@@ -1,0 +1,1485 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-06-14T14:49:23Z"
+    generateName: connectivity-domain-operator-7cb485f58d-
+    labels:
+      name: connectivity-domain-operator
+      pod-template-hash: 7cb485f58d
+    name: connectivity-domain-operator-7cb485f58d-hzf92
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: connectivity-domain-operator-7cb485f58d
+      uid: bbb9a985-1dfc-40e2-bd56-ab4fff1e04cd
+    resourceVersion: "1855"
+    selfLink: /api/v1/namespaces/wcm-system/pods/connectivity-domain-operator-7cb485f58d-hzf92
+    uid: 69837af6-87e2-4331-a1f0-a24b2998564d
+  spec:
+    containers:
+    - command:
+      - connectivity-domain-operator
+      env:
+      - name: WATCH_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: OPERATOR_NAME
+        value: connectivity-domain-operator
+      - name: CONFIG_PATH
+        value: etc/connectivity-domain-configmap/config.yaml
+      - name: INSECURE
+        value: "false"
+      image: nishantapatil3/connectivity-domain-operator:latest
+      imagePullPolicy: IfNotPresent
+      name: connectivity-domain-operator
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: etc/connectivity-domain-configmap/config.yaml
+        name: config-data-connectivity-domain
+        subPath: config.yaml
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: connectivity-domain-operator-service-account-token-zdvjn
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: connectivity-domain-operator-service-account
+    serviceAccountName: connectivity-domain-operator-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: connectivity-domain-configmap
+      name: config-data-connectivity-domain
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: connectivity-domain-operator-service-account-token-zdvjn
+      secret:
+        defaultMode: 420
+        secretName: connectivity-domain-operator-service-account-token-zdvjn
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:23Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:24Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:24Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:23Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://5c2f1023c050725e1874e9156c129455afe6321256058ac312c9bcfc1089ce83
+      image: docker.io/nishantapatil3/connectivity-domain-operator:latest
+      imageID: sha256:29cce4d874b7bc169a2fcc3ebba2ae953288c1573660fb3003f29b0e1c4a3e9b
+      lastState: {}
+      name: connectivity-domain-operator
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:49:24Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.11
+    podIPs:
+    - ip: 10.244.0.11
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:49:23Z"
+- metadata:
+    creationTimestamp: "2021-06-14T14:49:00Z"
+    generateName: etcd-operator-84cf6bc5d5-
+    labels:
+      app: etcd-operator
+      pod-template-hash: 84cf6bc5d5
+    name: etcd-operator-84cf6bc5d5-qdtmf
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: etcd-operator-84cf6bc5d5
+      uid: 41261db3-35c8-490f-82c4-aa860f976372
+    resourceVersion: "1612"
+    selfLink: /api/v1/namespaces/wcm-system/pods/etcd-operator-84cf6bc5d5-qdtmf
+    uid: 1d28b919-57cb-49d4-bd50-14354af6d79a
+  spec:
+    containers:
+    - command:
+      - etcd-operator
+      env:
+      - name: MY_POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: MY_POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      image: quay.io/coreos/etcd-operator:v0.9.4
+      imagePullPolicy: IfNotPresent
+      name: etcd-operator
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-4vb6m
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-4vb6m
+      secret:
+        defaultMode: 420
+        secretName: default-token-4vb6m
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:00Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:11Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:11Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:00Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://fa02a4e2802eae81f2aa64eb7428f4c84c3e68e748236baf43a791025281cfb2
+      image: quay.io/coreos/etcd-operator:v0.9.4
+      imageID: sha256:4ba8776e692759fc9aa75ecc2eadd8771802a43cde72cb45df1c0a561ca38bca
+      lastState: {}
+      name: etcd-operator
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:49:11Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.6
+    podIPs:
+    - ip: 10.244.0.6
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:49:00Z"
+- metadata:
+    creationTimestamp: "2021-06-14T14:49:21Z"
+    generateName: external-dns-849696cb6d-
+    labels:
+      app: external-dns
+      pod-template-hash: 849696cb6d
+    name: external-dns-849696cb6d-dl4pm
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: external-dns-849696cb6d
+      uid: 52d0c997-550b-436e-b658-6087199d7e33
+    resourceVersion: "1833"
+    selfLink: /api/v1/namespaces/wcm-system/pods/external-dns-849696cb6d-dl4pm
+    uid: 58c91539-3b08-4458-a1c2-3dd4b1b6235a
+  spec:
+    containers:
+    - args:
+      - --log-level=debug
+      - --source=service
+      - --source=crd
+      - --source=istio-virtualservice
+      - --source=istio-gateway
+      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      - --crd-source-kind=DNSEndpoint
+      - --publish-internal-services
+      - --registry=noop
+      - --policy=sync
+      - --provider=coredns
+      - --txt-owner-id=kind-1.kubeconfig
+      env:
+      - name: ETCD_URLS
+        value: http://wcm-etcd-cluster-client.wcm-system:2379
+      image: registry.opensource.zalan.do/teapot/external-dns:v0.7.6
+      imagePullPolicy: IfNotPresent
+      name: external-dns
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: external-dns-token-h9bq8
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: external-dns
+    serviceAccountName: external-dns
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: external-dns-token-h9bq8
+      secret:
+        defaultMode: 420
+        secretName: external-dns-token-h9bq8
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:22Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:23Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:23Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:22Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://cd1478665286409dc841457be9ba23e5756967309d13e6ae447b6f143505a17c
+      image: registry.opensource.zalan.do/teapot/external-dns:v0.7.6
+      imageID: sha256:914d04e1dce41c3fc415ea0e91fa2bfd41d37374793d4dacba9fbfdeffcfbaee
+      lastState: {}
+      name: external-dns
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:49:23Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.9
+    podIPs:
+    - ip: 10.244.0.9
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:49:22Z"
+- metadata:
+    creationTimestamp: "2021-06-14T14:55:39Z"
+    generateName: green-app-dns-publisher-77755dcc55-
+    labels:
+      app: app-dns-publisher-green
+      connectivitydomain: green
+      pod-template-hash: 77755dcc55
+    name: green-app-dns-publisher-77755dcc55-6k7hr
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: green-app-dns-publisher-77755dcc55
+      uid: 9b092196-9407-4ba9-a690-711b793367b6
+    resourceVersion: "3825"
+    selfLink: /api/v1/namespaces/wcm-system/pods/green-app-dns-publisher-77755dcc55-6k7hr
+    uid: 3039cc92-398e-45a4-8c94-47014146566f
+  spec:
+    containers:
+    - args:
+      - -n
+      - wcm-system
+      - -s
+      - green-wcmd:50051
+      - -d
+      - green.nispatil-wcm-cisco.com
+      - -i
+      - "false"
+      command:
+      - /app/bin/app-dns-publisher-controller
+      env:
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.uid
+      - name: INSECURE
+        value: "false"
+      - name: TRACER_ENABLED
+        value: "false"
+      image: nishantapatil3/app-dns-publisher-controller:latest
+      imagePullPolicy: IfNotPresent
+      name: green-app-dns-publisher
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: green-app-dns-publisher-service-account-token-qpg2l
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: green-app-dns-publisher-service-account
+    serviceAccountName: green-app-dns-publisher-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: green-app-dns-publisher-service-account-token-qpg2l
+      secret:
+        defaultMode: 420
+        secretName: green-app-dns-publisher-service-account-token-qpg2l
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:39Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:40Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:40Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:39Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://6c1e09abe61e77923a3f14895d3d2d383e9813bf75d8fb343d70332ad90d30b4
+      image: docker.io/nishantapatil3/app-dns-publisher-controller:latest
+      imageID: sha256:ddcefbc1a9ff6516bdfd517d75c5641a97ea987a85f1f20bb219e2c86449843b
+      lastState: {}
+      name: green-app-dns-publisher
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:55:40Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.20
+    podIPs:
+    - ip: 10.244.0.20
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:55:39Z"
+- metadata:
+    creationTimestamp: "2021-06-14T14:55:29Z"
+    generateName: green-bfd874d66-
+    labels:
+      app: wcm-nsr-green
+      connectivitydomain: green
+      pod-template-hash: bfd874d66
+    name: green-bfd874d66-9xj9n
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: green-bfd874d66
+      uid: f00ed583-02d6-4987-ab6f-baa66fa55144
+    resourceVersion: "3683"
+    selfLink: /api/v1/namespaces/wcm-system/pods/green-bfd874d66-9xj9n
+    uid: a10acdf0-3b37-4b45-9687-f773e07d4166
+  spec:
+    containers:
+    - env:
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.uid
+      - name: NODE_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: spec.nodeName
+      - name: NSM_NAMESPACE
+        value: wcm-system
+      - name: INSECURE
+        value: "false"
+      - name: TRUST_SVIDS
+        value: spiffe://member2.com/wcm-proxy-nsmgr,spiffe://member1.com/wcm-proxy-nsmgr,spiffe://member1.com/wcm-nse-discovery,spiffe://member2.com/wcm-nse-discovery
+      - name: NSMRS_API_ADDRESS
+        value: :31505
+      - name: NSE_EXPIRATION_TIMEOUT
+        value: 1h
+      image: nishantapatil3/nsmrs:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: green
+      ports:
+      - containerPort: 31505
+        name: grpc-nsr
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: green-service-account-token-rsbgs
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: green-service-account
+    serviceAccountName: green-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: green-service-account-token-rsbgs
+      secret:
+        defaultMode: 420
+        secretName: green-service-account-token-rsbgs
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:29Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:30Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:30Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:29Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://b75745b78d678be0d91bed922d495c4032f6edbaddc422b5bbc942e9b6b3902e
+      image: docker.io/nishantapatil3/nsmrs:vl3_latest
+      imageID: sha256:e272cfaa3680a6634c2368c4a4969ea2f33e47eafcc84ce6a263cf4ec3cef00b
+      lastState: {}
+      name: green
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:55:30Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.17
+    podIPs:
+    - ip: 10.244.0.17
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:55:29Z"
+- metadata:
+    annotations:
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-06-14T14:55:31Z"
+    generateName: green-cd-info-7bb7d547cf-
+    labels:
+      app: cd-info-green
+      connectivitydomain: green
+      pod-template-hash: 7bb7d547cf
+    name: green-cd-info-7bb7d547cf-6sh82
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: green-cd-info-7bb7d547cf
+      uid: fab64e62-716c-403c-beba-3613670bd0d2
+    resourceVersion: "3752"
+    selfLink: /api/v1/namespaces/wcm-system/pods/green-cd-info-7bb7d547cf-6sh82
+    uid: c1d8a04c-538a-4a61-9d43-ad92678ba0e3
+  spec:
+    containers:
+    - env:
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.uid
+      - name: JAEGER_SERVICE_NAME
+        value: status.service.server
+      - name: JAEGER_AGENT_HOST
+        value: localhost
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: JAEGER_REPORTER_LOG_SPANS
+        value: "true"
+      - name: INSECURE
+        value: "false"
+      image: nishantapatil3/connectivity-domain-info:latest
+      imagePullPolicy: IfNotPresent
+      name: green-cd-info
+      ports:
+      - containerPort: 50071
+        name: info-http
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/info-server-config/config.yaml
+        name: green-cd-info-config-map
+        subPath: ./config.yaml
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: green-cd-info-service-account-token-wwcrh
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: green-cd-info-service-account
+    serviceAccountName: green-cd-info-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: green-cd-info-config-map
+      name: green-cd-info-config-map
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: green-cd-info-service-account-token-wwcrh
+      secret:
+        defaultMode: 420
+        secretName: green-cd-info-service-account-token-wwcrh
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:31Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:33Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:33Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:31Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://38641e4d18acf1818c6754f85c2dcb98c2a39d0125533c6f93216238b41873a1
+      image: docker.io/nishantapatil3/connectivity-domain-info:latest
+      imageID: sha256:996436e1446055c209071dd106fed70344e4261a5aa37348546f936968555789
+      lastState: {}
+      name: green-cd-info
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:55:32Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.19
+    podIPs:
+    - ip: 10.244.0.19
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:55:31Z"
+- metadata:
+    annotations:
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-06-14T14:55:31Z"
+    generateName: green-wcmd-5db775cb4c-
+    labels:
+      app: wcmd-green
+      connectivitydomain: green
+      pod-template-hash: 5db775cb4c
+    name: green-wcmd-5db775cb4c-l74r4
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: green-wcmd-5db775cb4c
+      uid: 3d2beae2-df73-4ed3-84f6-686be33f36b5
+    resourceVersion: "3787"
+    selfLink: /api/v1/namespaces/wcm-system/pods/green-wcmd-5db775cb4c-l74r4
+    uid: 0dd6fed5-f893-4ad4-8998-442a373761f2
+  spec:
+    containers:
+    - env:
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.uid
+      - name: JAEGER_SERVICE_NAME
+        value: wcmd.service.server
+      - name: JAEGER_AGENT_HOST
+        value: localhost
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: JAEGER_REPORTER_LOG_SPANS
+        value: "true"
+      - name: INSECURE
+        value: "false"
+      - name: CONNECTIVITY_DOMAIN_NAME
+        value: green
+      - name: TRACER_ENABLED
+        value: "false"
+      - name: TRUST_SVIDS
+        value: spiffe://member1.com/vl3-nse-example,spiffe://member2.com/vl3-nse-example,spiffe://central.com/example-connectivity-domain-app-dns-publisher,spiffe://member1.com/wcm-proxy-nsmgr,spiffe://member2.com/wcm-proxy-nsmgr
+      image: nishantapatil3/wcmd:latest
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /probe/alive
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: green-wcmd
+      ports:
+      - containerPort: 50061
+        name: grpc-registry
+        protocol: TCP
+      - containerPort: 50051
+        name: grpc-allocator
+        protocol: TCP
+      - containerPort: 8080
+        name: probes
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /probe/ready
+          port: 8080
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/wcmd-server-config/config.yaml
+        name: green-wcmd-config-map
+        subPath: ./config.yaml
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: green-wcmd-service-account-token-gsr6l
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: green-wcmd-service-account
+    serviceAccountName: green-wcmd-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: green-wcmd-config-map
+      name: green-wcmd-config-map
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: green-wcmd-service-account-token-gsr6l
+      secret:
+        defaultMode: 420
+        secretName: green-wcmd-service-account-token-gsr6l
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:31Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:39Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:39Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:55:31Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://b83b0e12797ae4512e246336a7823203b8797fc754f33459620fed93a98c3576
+      image: docker.io/nishantapatil3/wcmd:latest
+      imageID: sha256:4240aa9ec826dad764515a35bd39b0d37ff3d17f36044b10f16daf17ba1343ae
+      lastState: {}
+      name: green-wcmd
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:55:32Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.18
+    podIPs:
+    - ip: 10.244.0.18
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:55:31Z"
+- metadata:
+    annotations:
+      checksum/config: 00754626f8f4e5239ec2382866eacbad725e07e4e8ef778d703597e246a15b2c
+    creationTimestamp: "2021-06-14T14:49:21Z"
+    generateName: my-coredns-coredns-7d7ccd5547-
+    labels:
+      app: coredns
+      pod-template-hash: 7d7ccd5547
+      release: my-coredns
+    name: my-coredns-coredns-7d7ccd5547-zdks9
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: my-coredns-coredns-7d7ccd5547
+      uid: e2b23b74-2eeb-4ec8-b46f-8753fcb1d63e
+    resourceVersion: "1894"
+    selfLink: /api/v1/namespaces/wcm-system/pods/my-coredns-coredns-7d7ccd5547-zdks9
+    uid: 5df26475-0f73-4478-a1dc-9335dfd310c0
+  spec:
+    containers:
+    - args:
+      - -conf
+      - /etc/coredns/Corefile
+      image: coredns/coredns:1.3.1
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /health
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 60
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 5
+      name: coredns
+      ports:
+      - containerPort: 53
+        protocol: UDP
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: config-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: my-coredns-coredns-token-wmf6j
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: my-coredns-coredns
+    serviceAccountName: my-coredns-coredns
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: Corefile
+          path: Corefile
+        name: my-coredns-coredns
+      name: config-volume
+    - name: my-coredns-coredns-token-wmf6j
+      secret:
+        defaultMode: 420
+        secretName: my-coredns-coredns-token-wmf6j
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:21Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:25Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:25Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:21Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://0a89d6e85a052b698ca21269751e8aecf702ef9f32c53acd6d087e1e16ed297d
+      image: docker.io/coredns/coredns:1.3.1
+      imageID: docker.io/coredns/coredns@sha256:02382353821b12c21b062c59184e227e001079bb13ebd01f9d3270ba0fcbf1e4
+      lastState: {}
+      name: coredns
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:49:25Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.8
+    podIPs:
+    - ip: 10.244.0.8
+    qosClass: Guaranteed
+    startTime: "2021-06-14T14:49:21Z"
+- metadata:
+    annotations:
+      etcd.version: 3.2.13
+    creationTimestamp: "2021-06-14T14:49:53Z"
+    labels:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+      etcd_node: wcm-etcd-cluster-86f5qwcp5v
+    name: wcm-etcd-cluster-86f5qwcp5v
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: etcd.database.coreos.com/v1beta2
+      controller: true
+      kind: EtcdCluster
+      name: wcm-etcd-cluster
+      uid: 0efb37c0-0702-49cb-9f94-0a5d3701fd18
+    resourceVersion: "2367"
+    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-etcd-cluster-86f5qwcp5v
+    uid: 66826c63-b25e-4dff-95c0-5a48fa428693
+  spec:
+    automountServiceAccountToken: false
+    containers:
+    - command:
+      - /usr/local/bin/etcd
+      - --data-dir=/var/etcd/data
+      - --name=wcm-etcd-cluster-86f5qwcp5v
+      - --initial-advertise-peer-urls=http://wcm-etcd-cluster-86f5qwcp5v.wcm-etcd-cluster.wcm-system.svc:2380
+      - --listen-peer-urls=http://0.0.0.0:2380
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://wcm-etcd-cluster-86f5qwcp5v.wcm-etcd-cluster.wcm-system.svc:2379
+      - --initial-cluster=wcm-etcd-cluster-wjgxlzslq6=http://wcm-etcd-cluster-wjgxlzslq6.wcm-etcd-cluster.wcm-system.svc:2380,wcm-etcd-cluster-bf7p57ndf5=http://wcm-etcd-cluster-bf7p57ndf5.wcm-etcd-cluster.wcm-system.svc:2380,wcm-etcd-cluster-86f5qwcp5v=http://wcm-etcd-cluster-86f5qwcp5v.wcm-etcd-cluster.wcm-system.svc:2380
+      - --initial-cluster-state=existing
+      image: quay.io/coreos/etcd:v3.2.13
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -ec
+          - ETCDCTL_API=3 etcdctl endpoint status
+        failureThreshold: 3
+        initialDelaySeconds: 10
+        periodSeconds: 60
+        successThreshold: 1
+        timeoutSeconds: 10
+      name: etcd
+      ports:
+      - containerPort: 2380
+        name: server
+        protocol: TCP
+      - containerPort: 2379
+        name: client
+        protocol: TCP
+      readinessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -ec
+          - ETCDCTL_API=3 etcdctl endpoint status
+        failureThreshold: 3
+        initialDelaySeconds: 1
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 5
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/etcd
+        name: etcd-data
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: wcm-etcd-cluster-86f5qwcp5v
+    initContainers:
+    - command:
+      - /bin/sh
+      - -c
+      - "\n\t\t\t\t\tTIMEOUT_READY=0\n\t\t\t\t\twhile ( ! nslookup wcm-etcd-cluster-86f5qwcp5v.wcm-etcd-cluster.wcm-system.svc
+        )\n\t\t\t\t\tdo\n\t\t\t\t\t\t# If TIMEOUT_READY is 0 we should never time
+        out and exit \n\t\t\t\t\t\tTIMEOUT_READY=$(( TIMEOUT_READY-1 ))\n                        if
+        [ $TIMEOUT_READY -eq 0 ];\n\t\t\t\t        then\n\t\t\t\t            echo
+        \"Timed out waiting for DNS entry\"\n\t\t\t\t            exit 1\n\t\t\t\t
+        \       fi\n\t\t\t\t\t\tsleep 1\n\t\t\t\t\tdone"
+      image: busybox:1.28.0-glibc
+      imagePullPolicy: IfNotPresent
+      name: check-dns
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    subdomain: wcm-etcd-cluster
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: etcd-data
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:50:23Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:50:29Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:50:29Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:53Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://0d157a066ac735311f1da609e5185194d7794c20fbbd090b725bf55675395534
+      image: quay.io/coreos/etcd:v3.2.13
+      imageID: sha256:30d9f8842f2656c3042197622504db788a659081b5e83ad74e608d6721830c63
+      lastState: {}
+      name: etcd
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:50:24Z"
+    hostIP: 172.17.0.2
+    initContainerStatuses:
+    - containerID: containerd://c7eb7d6e9f3d9486c171ced6939dd7feabc7a274a35662e3103b341404847947
+      image: docker.io/library/busybox:1.28.0-glibc
+      imageID: sha256:2bbf44aed9f866d88c0e7d006d4ffe8d53186a12ffd6dca5e1baa59ba3024b85
+      lastState: {}
+      name: check-dns
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://c7eb7d6e9f3d9486c171ced6939dd7feabc7a274a35662e3103b341404847947
+          exitCode: 0
+          finishedAt: "2021-06-14T14:50:23Z"
+          reason: Completed
+          startedAt: "2021-06-14T14:49:54Z"
+    phase: Running
+    podIP: 10.244.0.16
+    podIPs:
+    - ip: 10.244.0.16
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:49:53Z"
+- metadata:
+    annotations:
+      etcd.version: 3.2.13
+    creationTimestamp: "2021-06-14T14:49:29Z"
+    labels:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+      etcd_node: wcm-etcd-cluster-bf7p57ndf5
+    name: wcm-etcd-cluster-bf7p57ndf5
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: etcd.database.coreos.com/v1beta2
+      controller: true
+      kind: EtcdCluster
+      name: wcm-etcd-cluster
+      uid: 0efb37c0-0702-49cb-9f94-0a5d3701fd18
+    resourceVersion: "2110"
+    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-etcd-cluster-bf7p57ndf5
+    uid: 229b635d-6572-4884-8e05-816b837ac5c4
+  spec:
+    automountServiceAccountToken: false
+    containers:
+    - command:
+      - /usr/local/bin/etcd
+      - --data-dir=/var/etcd/data
+      - --name=wcm-etcd-cluster-bf7p57ndf5
+      - --initial-advertise-peer-urls=http://wcm-etcd-cluster-bf7p57ndf5.wcm-etcd-cluster.wcm-system.svc:2380
+      - --listen-peer-urls=http://0.0.0.0:2380
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://wcm-etcd-cluster-bf7p57ndf5.wcm-etcd-cluster.wcm-system.svc:2379
+      - --initial-cluster=wcm-etcd-cluster-wjgxlzslq6=http://wcm-etcd-cluster-wjgxlzslq6.wcm-etcd-cluster.wcm-system.svc:2380,wcm-etcd-cluster-bf7p57ndf5=http://wcm-etcd-cluster-bf7p57ndf5.wcm-etcd-cluster.wcm-system.svc:2380
+      - --initial-cluster-state=existing
+      image: quay.io/coreos/etcd:v3.2.13
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -ec
+          - ETCDCTL_API=3 etcdctl endpoint status
+        failureThreshold: 3
+        initialDelaySeconds: 10
+        periodSeconds: 60
+        successThreshold: 1
+        timeoutSeconds: 10
+      name: etcd
+      ports:
+      - containerPort: 2380
+        name: server
+        protocol: TCP
+      - containerPort: 2379
+        name: client
+        protocol: TCP
+      readinessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -ec
+          - ETCDCTL_API=3 etcdctl endpoint status
+        failureThreshold: 3
+        initialDelaySeconds: 1
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 5
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/etcd
+        name: etcd-data
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: wcm-etcd-cluster-bf7p57ndf5
+    initContainers:
+    - command:
+      - /bin/sh
+      - -c
+      - "\n\t\t\t\t\tTIMEOUT_READY=0\n\t\t\t\t\twhile ( ! nslookup wcm-etcd-cluster-bf7p57ndf5.wcm-etcd-cluster.wcm-system.svc
+        )\n\t\t\t\t\tdo\n\t\t\t\t\t\t# If TIMEOUT_READY is 0 we should never time
+        out and exit \n\t\t\t\t\t\tTIMEOUT_READY=$(( TIMEOUT_READY-1 ))\n                        if
+        [ $TIMEOUT_READY -eq 0 ];\n\t\t\t\t        then\n\t\t\t\t            echo
+        \"Timed out waiting for DNS entry\"\n\t\t\t\t            exit 1\n\t\t\t\t
+        \       fi\n\t\t\t\t\t\tsleep 1\n\t\t\t\t\tdone"
+      image: busybox:1.28.0-glibc
+      imagePullPolicy: IfNotPresent
+      name: check-dns
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    subdomain: wcm-etcd-cluster
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: etcd-data
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:47Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:29Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://b7fab1fae70b64fc36a75da9f61eea6e0b6ab5f89c2c6c00bc35e4e16facd28f
+      image: quay.io/coreos/etcd:v3.2.13
+      imageID: sha256:30d9f8842f2656c3042197622504db788a659081b5e83ad74e608d6721830c63
+      lastState: {}
+      name: etcd
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:49:48Z"
+    hostIP: 172.17.0.2
+    initContainerStatuses:
+    - containerID: containerd://98eca01d588754f9edab2e56dfedb09d5b45a802432e9b75f8efb7500b52bf5a
+      image: docker.io/library/busybox:1.28.0-glibc
+      imageID: sha256:2bbf44aed9f866d88c0e7d006d4ffe8d53186a12ffd6dca5e1baa59ba3024b85
+      lastState: {}
+      name: check-dns
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://98eca01d588754f9edab2e56dfedb09d5b45a802432e9b75f8efb7500b52bf5a
+          exitCode: 0
+          finishedAt: "2021-06-14T14:49:47Z"
+          reason: Completed
+          startedAt: "2021-06-14T14:49:29Z"
+    phase: Running
+    podIP: 10.244.0.13
+    podIPs:
+    - ip: 10.244.0.13
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:49:29Z"
+- metadata:
+    annotations:
+      etcd.version: 3.2.13
+    creationTimestamp: "2021-06-14T14:49:21Z"
+    labels:
+      app: etcd
+      etcd_cluster: wcm-etcd-cluster
+      etcd_node: wcm-etcd-cluster-wjgxlzslq6
+    name: wcm-etcd-cluster-wjgxlzslq6
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: etcd.database.coreos.com/v1beta2
+      controller: true
+      kind: EtcdCluster
+      name: wcm-etcd-cluster
+      uid: 0efb37c0-0702-49cb-9f94-0a5d3701fd18
+    resourceVersion: "1923"
+    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-etcd-cluster-wjgxlzslq6
+    uid: 3c4561d6-4792-4802-a53d-2a55172f8994
+  spec:
+    automountServiceAccountToken: false
+    containers:
+    - command:
+      - /usr/local/bin/etcd
+      - --data-dir=/var/etcd/data
+      - --name=wcm-etcd-cluster-wjgxlzslq6
+      - --initial-advertise-peer-urls=http://wcm-etcd-cluster-wjgxlzslq6.wcm-etcd-cluster.wcm-system.svc:2380
+      - --listen-peer-urls=http://0.0.0.0:2380
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://wcm-etcd-cluster-wjgxlzslq6.wcm-etcd-cluster.wcm-system.svc:2379
+      - --initial-cluster=wcm-etcd-cluster-wjgxlzslq6=http://wcm-etcd-cluster-wjgxlzslq6.wcm-etcd-cluster.wcm-system.svc:2380
+      - --initial-cluster-state=new
+      - --initial-cluster-token=eee3fdd4-32bc-486b-a996-b487ddf759c2
+      image: quay.io/coreos/etcd:v3.2.13
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -ec
+          - ETCDCTL_API=3 etcdctl endpoint status
+        failureThreshold: 3
+        initialDelaySeconds: 10
+        periodSeconds: 60
+        successThreshold: 1
+        timeoutSeconds: 10
+      name: etcd
+      ports:
+      - containerPort: 2380
+        name: server
+        protocol: TCP
+      - containerPort: 2379
+        name: client
+        protocol: TCP
+      readinessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -ec
+          - ETCDCTL_API=3 etcdctl endpoint status
+        failureThreshold: 3
+        initialDelaySeconds: 1
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 5
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/etcd
+        name: etcd-data
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: wcm-etcd-cluster-wjgxlzslq6
+    initContainers:
+    - command:
+      - /bin/sh
+      - -c
+      - "\n\t\t\t\t\tTIMEOUT_READY=0\n\t\t\t\t\twhile ( ! nslookup wcm-etcd-cluster-wjgxlzslq6.wcm-etcd-cluster.wcm-system.svc
+        )\n\t\t\t\t\tdo\n\t\t\t\t\t\t# If TIMEOUT_READY is 0 we should never time
+        out and exit \n\t\t\t\t\t\tTIMEOUT_READY=$(( TIMEOUT_READY-1 ))\n                        if
+        [ $TIMEOUT_READY -eq 0 ];\n\t\t\t\t        then\n\t\t\t\t            echo
+        \"Timed out waiting for DNS entry\"\n\t\t\t\t            exit 1\n\t\t\t\t
+        \       fi\n\t\t\t\t\t\tsleep 1\n\t\t\t\t\tdone"
+      image: busybox:1.28.0-glibc
+      imagePullPolicy: IfNotPresent
+      name: check-dns
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+    nodeName: kind-1-control-plane
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    subdomain: wcm-etcd-cluster
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: etcd-data
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:23Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:29Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:29Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-14T14:49:21Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://c58dd7929558a9230a8939e11efbc37c5d2e8e169cf61a411e53f4237644a2d4
+      image: quay.io/coreos/etcd:v3.2.13
+      imageID: sha256:30d9f8842f2656c3042197622504db788a659081b5e83ad74e608d6721830c63
+      lastState: {}
+      name: etcd
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-14T14:49:24Z"
+    hostIP: 172.17.0.2
+    initContainerStatuses:
+    - containerID: containerd://321acaadeb9da10814b3d23a69f7382a3d67a47306b50cfb979d65a4290222b2
+      image: docker.io/library/busybox:1.28.0-glibc
+      imageID: sha256:2bbf44aed9f866d88c0e7d006d4ffe8d53186a12ffd6dca5e1baa59ba3024b85
+      lastState: {}
+      name: check-dns
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://321acaadeb9da10814b3d23a69f7382a3d67a47306b50cfb979d65a4290222b2
+          exitCode: 0
+          finishedAt: "2021-06-14T14:49:23Z"
+          reason: Completed
+          startedAt: "2021-06-14T14:49:21Z"
+    phase: Running
+    podIP: 10.244.0.7
+    podIPs:
+    - ip: 10.244.0.7
+    qosClass: BestEffort
+    startTime: "2021-06-14T14:49:21Z"
+kind: PodList
+metadata:
+  resourceVersion: "4772"
+  selfLink: /api/v1/namespaces/wcm-system/pods

@@ -1,0 +1,64 @@
+Name:         connectivity-domain-configmap
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: connectivity-domain-operator-release
+              meta.helm.sh/release-namespace: wcm-system
+
+Data
+====
+config.yaml:
+----
+pullPolicy: IfNotPresent
+nsr:
+  org: nishantapatil3
+  tag: vl3_latest
+  imageName: nsmrs
+  nodeName: master
+  serviceType: ClusterIP
+  publicNsrPort: 31505
+  routes:
+     - /registry.NetworkServiceRegistry
+     - /registry.NetworkServiceDiscovery
+     - /registry.NsmRegistry
+wcmd:
+  org: nishantapatil3
+  tag: latest
+  imageName: wcmd
+  etcdAddresses:
+    - wcm-etcd-cluster-client:2379
+  allocatorServerPort: 50051
+  poolRegistryServerPort: 50061
+  leaseTimeout: 24
+  leaseCheckPeriod: 12
+  nodePort: 31153
+  routes:
+     - /ippool.Allocator
+     - /ippool.PrefixRangeAllocator
+     - /ippool.IpamStateInterrogator
+     - /svreg.Registry
+     - /svreg.RegistryState
+app-dns-publisher:
+  org: nishantapatil3
+  tag: latest
+  imageName: app-dns-publisher-controller
+app-istio-publisher:
+  org: nishantapatil3
+  tag: latest
+  imageName: app-istio-publisher-controller
+cd-info:
+  org: nishantapatil3
+  tag: latest
+  imageName: connectivity-domain-info
+  infoPort: 50071
+  routes:
+     - /nses
+     - /subnets
+     - /ranges
+     - /workloads
+gateway:
+  httpPort: 80
+  httpsPort: 443
+  ingressName: ingressgateway
+
+Events:  <none>
+

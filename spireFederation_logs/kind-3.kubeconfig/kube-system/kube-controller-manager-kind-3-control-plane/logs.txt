@@ -1,0 +1,229 @@
+==== START logs for container kube-controller-manager of pod kube-system/kube-controller-manager-kind-3-control-plane ====
+I0614 14:43:05.179135       1 serving.go:312] Generated self-signed cert in-memory
+I0614 14:43:06.255867       1 controllermanager.go:161] Version: v1.17.5
+I0614 14:43:06.256679       1 dynamic_cafile_content.go:166] Starting request-header::/etc/kubernetes/pki/front-proxy-ca.crt
+I0614 14:43:06.256791       1 dynamic_cafile_content.go:166] Starting client-ca-bundle::/etc/kubernetes/pki/ca.crt
+I0614 14:43:06.257330       1 secure_serving.go:178] Serving securely on 127.0.0.1:10257
+I0614 14:43:06.257550       1 tlsconfig.go:219] Starting DynamicServingCertificateController
+I0614 14:43:06.257803       1 deprecated_insecure_serving.go:53] Serving insecurely on [::]:10252
+I0614 14:43:06.257871       1 leaderelection.go:242] attempting to acquire leader lease  kube-system/kube-controller-manager...
+E0614 14:43:09.233844       1 leaderelection.go:331] error retrieving resource lock kube-system/kube-controller-manager: endpoints "kube-controller-manager" is forbidden: User "system:kube-controller-manager" cannot get resource "endpoints" in API group "" in the namespace "kube-system"
+I0614 14:43:11.297184       1 leaderelection.go:252] successfully acquired lease kube-system/kube-controller-manager
+I0614 14:43:11.297977       1 event.go:281] Event(v1.ObjectReference{Kind:"Endpoints", Namespace:"kube-system", Name:"kube-controller-manager", UID:"13b88f86-408b-4e94-b939-827bf47df04d", APIVersion:"v1", ResourceVersion:"158", FieldPath:""}): type: 'Normal' reason: 'LeaderElection' kind-3-control-plane_7eb300bc-2cf4-436b-98bc-fab105d76902 became leader
+I0614 14:43:11.298186       1 event.go:281] Event(v1.ObjectReference{Kind:"Lease", Namespace:"kube-system", Name:"kube-controller-manager", UID:"dbaf913c-c96d-442f-a4d8-70f5a4bcd288", APIVersion:"coordination.k8s.io/v1", ResourceVersion:"159", FieldPath:""}): type: 'Normal' reason: 'LeaderElection' kind-3-control-plane_7eb300bc-2cf4-436b-98bc-fab105d76902 became leader
+I0614 14:43:11.556628       1 plugins.go:100] No cloud provider specified.
+I0614 14:43:11.557553       1 shared_informer.go:197] Waiting for caches to sync for tokens
+I0614 14:43:11.657909       1 shared_informer.go:204] Caches are synced for tokens 
+I0614 14:43:11.686095       1 controllermanager.go:533] Started "horizontalpodautoscaling"
+I0614 14:43:11.686130       1 horizontal.go:156] Starting HPA controller
+I0614 14:43:11.686142       1 shared_informer.go:197] Waiting for caches to sync for HPA
+I0614 14:43:11.709297       1 controllermanager.go:533] Started "disruption"
+I0614 14:43:11.709447       1 disruption.go:330] Starting disruption controller
+I0614 14:43:11.709459       1 shared_informer.go:197] Waiting for caches to sync for disruption
+I0614 14:43:11.729876       1 node_lifecycle_controller.go:388] Sending events to api server.
+I0614 14:43:11.730419       1 node_lifecycle_controller.go:423] Controller is using taint based evictions.
+I0614 14:43:11.730762       1 taint_manager.go:162] Sending events to api server.
+I0614 14:43:11.730864       1 node_lifecycle_controller.go:520] Controller will reconcile labels.
+I0614 14:43:11.730917       1 controllermanager.go:533] Started "nodelifecycle"
+I0614 14:43:11.731098       1 node_lifecycle_controller.go:554] Starting node controller
+I0614 14:43:11.731176       1 shared_informer.go:197] Waiting for caches to sync for taint
+I0614 14:43:11.748467       1 controllermanager.go:533] Started "clusterrole-aggregation"
+I0614 14:43:11.748759       1 clusterroleaggregation_controller.go:148] Starting ClusterRoleAggregator
+I0614 14:43:11.748834       1 shared_informer.go:197] Waiting for caches to sync for ClusterRoleAggregator
+I0614 14:43:11.909965       1 controllermanager.go:533] Started "endpoint"
+W0614 14:43:11.910195       1 controllermanager.go:525] Skipping "endpointslice"
+I0614 14:43:11.910021       1 endpoints_controller.go:181] Starting endpoint controller
+I0614 14:43:11.910333       1 shared_informer.go:197] Waiting for caches to sync for endpoint
+I0614 14:43:12.159678       1 controllermanager.go:533] Started "replicaset"
+I0614 14:43:12.159709       1 replica_set.go:180] Starting replicaset controller
+I0614 14:43:12.159722       1 shared_informer.go:197] Waiting for caches to sync for ReplicaSet
+I0614 14:43:12.411423       1 controllermanager.go:533] Started "cronjob"
+W0614 14:43:12.411451       1 controllermanager.go:525] Skipping "root-ca-cert-publisher"
+I0614 14:43:12.411457       1 cronjob_controller.go:97] Starting CronJob Manager
+I0614 14:43:12.662359       1 controllermanager.go:533] Started "daemonset"
+I0614 14:43:12.662458       1 daemon_controller.go:255] Starting daemon sets controller
+I0614 14:43:12.662468       1 shared_informer.go:197] Waiting for caches to sync for daemon sets
+I0614 14:43:12.910866       1 controllermanager.go:533] Started "deployment"
+I0614 14:43:12.911417       1 deployment_controller.go:152] Starting deployment controller
+I0614 14:43:12.911431       1 shared_informer.go:197] Waiting for caches to sync for deployment
+I0614 14:43:13.160185       1 controllermanager.go:533] Started "csrsigning"
+I0614 14:43:13.160283       1 certificate_controller.go:118] Starting certificate controller "csrsigning"
+I0614 14:43:13.160490       1 shared_informer.go:197] Waiting for caches to sync for certificate-csrsigning
+I0614 14:43:13.416119       1 controllermanager.go:533] Started "ttl"
+I0614 14:43:13.416155       1 ttl_controller.go:116] Starting TTL controller
+I0614 14:43:13.416168       1 shared_informer.go:197] Waiting for caches to sync for TTL
+I0614 14:43:13.660092       1 controllermanager.go:533] Started "bootstrapsigner"
+I0614 14:43:13.660175       1 shared_informer.go:197] Waiting for caches to sync for bootstrap_signer
+I0614 14:43:13.809835       1 node_ipam_controller.go:94] Sending events to api server.
+I0614 14:43:23.814041       1 range_allocator.go:82] Sending events to api server.
+I0614 14:43:23.814242       1 range_allocator.go:116] No Secondary Service CIDR provided. Skipping filtering out secondary service addresses.
+I0614 14:43:23.814319       1 controllermanager.go:533] Started "nodeipam"
+W0614 14:43:23.814337       1 core.go:246] configure-cloud-routes is set, but no cloud provider specified. Will not configure cloud provider routes.
+W0614 14:43:23.814348       1 controllermanager.go:525] Skipping "route"
+I0614 14:43:23.814401       1 node_ipam_controller.go:162] Starting ipam controller
+I0614 14:43:23.814410       1 shared_informer.go:197] Waiting for caches to sync for node
+I0614 14:43:23.834709       1 controllermanager.go:533] Started "podgc"
+I0614 14:43:23.834827       1 gc_controller.go:88] Starting GC controller
+I0614 14:43:23.834839       1 shared_informer.go:197] Waiting for caches to sync for GC
+I0614 14:43:24.375212       1 garbagecollector.go:129] Starting garbage collector controller
+I0614 14:43:24.375261       1 shared_informer.go:197] Waiting for caches to sync for garbage collector
+I0614 14:43:24.375287       1 graph_builder.go:282] GraphBuilder running
+I0614 14:43:24.375564       1 controllermanager.go:533] Started "garbagecollector"
+I0614 14:43:24.400760       1 controllermanager.go:533] Started "persistentvolume-expander"
+I0614 14:43:24.401008       1 expand_controller.go:319] Starting expand controller
+I0614 14:43:24.401017       1 shared_informer.go:197] Waiting for caches to sync for expand
+I0614 14:43:24.424264       1 controllermanager.go:533] Started "attachdetach"
+I0614 14:43:24.424429       1 attach_detach_controller.go:342] Starting attach detach controller
+I0614 14:43:24.424439       1 shared_informer.go:197] Waiting for caches to sync for attach detach
+I0614 14:43:24.450550       1 controllermanager.go:533] Started "pvc-protection"
+I0614 14:43:24.450729       1 pvc_protection_controller.go:100] Starting PVC protection controller
+I0614 14:43:24.450738       1 shared_informer.go:197] Waiting for caches to sync for PVC protection
+E0614 14:43:24.482291       1 core.go:91] Failed to start service controller: WARNING: no cloud provider provided, services of type LoadBalancer will fail
+W0614 14:43:24.482331       1 controllermanager.go:525] Skipping "service"
+I0614 14:43:24.489968       1 node_lifecycle_controller.go:77] Sending events to api server
+E0614 14:43:24.490196       1 core.go:232] failed to start cloud node lifecycle controller: no cloud provider provided
+W0614 14:43:24.490225       1 controllermanager.go:525] Skipping "cloud-node-lifecycle"
+I0614 14:43:24.513090       1 controllermanager.go:533] Started "persistentvolume-binder"
+I0614 14:43:24.513139       1 pv_controller_base.go:294] Starting persistent volume controller
+I0614 14:43:24.513148       1 shared_informer.go:197] Waiting for caches to sync for persistent volume
+I0614 14:43:24.625594       1 controllermanager.go:533] Started "namespace"
+I0614 14:43:24.625654       1 namespace_controller.go:200] Starting namespace controller
+I0614 14:43:24.625663       1 shared_informer.go:197] Waiting for caches to sync for namespace
+I0614 14:43:24.866983       1 controllermanager.go:533] Started "serviceaccount"
+I0614 14:43:24.867057       1 serviceaccounts_controller.go:116] Starting service account controller
+I0614 14:43:24.867065       1 shared_informer.go:197] Waiting for caches to sync for service account
+I0614 14:43:25.117076       1 controllermanager.go:533] Started "statefulset"
+I0614 14:43:25.117157       1 stateful_set.go:145] Starting stateful set controller
+I0614 14:43:25.117167       1 shared_informer.go:197] Waiting for caches to sync for stateful set
+I0614 14:43:25.267280       1 controllermanager.go:533] Started "csrapproving"
+I0614 14:43:25.267358       1 certificate_controller.go:118] Starting certificate controller "csrapproving"
+I0614 14:43:25.267369       1 shared_informer.go:197] Waiting for caches to sync for certificate-csrapproving
+I0614 14:43:25.516531       1 controllermanager.go:533] Started "tokencleaner"
+W0614 14:43:25.516575       1 controllermanager.go:525] Skipping "ttl-after-finished"
+I0614 14:43:25.516632       1 tokencleaner.go:117] Starting token cleaner controller
+I0614 14:43:25.516640       1 shared_informer.go:197] Waiting for caches to sync for token_cleaner
+I0614 14:43:25.516647       1 shared_informer.go:204] Caches are synced for token_cleaner 
+I0614 14:43:25.773807       1 controllermanager.go:533] Started "replicationcontroller"
+I0614 14:43:25.773880       1 replica_set.go:180] Starting replicationcontroller controller
+I0614 14:43:25.774116       1 shared_informer.go:197] Waiting for caches to sync for ReplicationController
+I0614 14:43:26.017388       1 controllermanager.go:533] Started "job"
+I0614 14:43:26.017465       1 job_controller.go:143] Starting job controller
+I0614 14:43:26.017473       1 shared_informer.go:197] Waiting for caches to sync for job
+I0614 14:43:26.267207       1 controllermanager.go:533] Started "pv-protection"
+I0614 14:43:26.267287       1 pv_protection_controller.go:81] Starting PV protection controller
+I0614 14:43:26.267296       1 shared_informer.go:197] Waiting for caches to sync for PV protection
+I0614 14:43:26.768525       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for rolebindings.rbac.authorization.k8s.io
+I0614 14:43:26.768680       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for daemonsets.apps
+I0614 14:43:26.768737       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for events.events.k8s.io
+I0614 14:43:26.768785       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for controllerrevisions.apps
+I0614 14:43:26.768818       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for statefulsets.apps
+W0614 14:43:26.768834       1 shared_informer.go:415] resyncPeriod 45361273744982 is smaller than resyncCheckPeriod 68888141192614 and the informer has already started. Changing it to 68888141192614
+I0614 14:43:26.768914       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for serviceaccounts
+I0614 14:43:26.768962       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkpolicies.networking.k8s.io
+I0614 14:43:26.768987       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for ingresses.networking.k8s.io
+I0614 14:43:26.769009       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for roles.rbac.authorization.k8s.io
+I0614 14:43:26.769047       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for endpointslices.discovery.k8s.io
+I0614 14:43:26.769078       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for endpoints
+I0614 14:43:26.769126       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for ingresses.extensions
+I0614 14:43:26.769173       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for deployments.apps
+I0614 14:43:26.769198       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for horizontalpodautoscalers.autoscaling
+I0614 14:43:26.769275       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for limitranges
+I0614 14:43:26.769319       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for jobs.batch
+I0614 14:43:26.769347       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for leases.coordination.k8s.io
+I0614 14:43:26.769383       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for replicasets.apps
+I0614 14:43:26.769408       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for cronjobs.batch
+I0614 14:43:26.769437       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for poddisruptionbudgets.policy
+I0614 14:43:26.769463       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for podtemplates
+W0614 14:43:26.769487       1 shared_informer.go:415] resyncPeriod 65194556010241 is smaller than resyncCheckPeriod 68888141192614 and the informer has already started. Changing it to 68888141192614
+I0614 14:43:26.769568       1 controllermanager.go:533] Started "resourcequota"
+I0614 14:43:26.769832       1 resource_quota_controller.go:271] Starting resource quota controller
+I0614 14:43:26.769856       1 shared_informer.go:197] Waiting for caches to sync for resource quota
+I0614 14:43:26.769878       1 resource_quota_monitor.go:303] QuotaMonitor running
+I0614 14:43:26.776840       1 controllermanager.go:533] Started "csrcleaner"
+I0614 14:43:26.777805       1 shared_informer.go:197] Waiting for caches to sync for garbage collector
+I0614 14:43:26.777865       1 cleaner.go:81] Starting CSR cleaner controller
+W0614 14:43:26.801805       1 actual_state_of_world.go:506] Failed to update statusUpdateNeeded field in actual state of world: Failed to set statusUpdateNeeded to needed true, because nodeName="kind-3-control-plane" does not exist
+I0614 14:43:26.810505       1 shared_informer.go:204] Caches are synced for endpoint 
+I0614 14:43:26.814656       1 shared_informer.go:204] Caches are synced for deployment 
+I0614 14:43:26.814697       1 shared_informer.go:204] Caches are synced for node 
+I0614 14:43:26.814725       1 range_allocator.go:172] Starting range CIDR allocator
+I0614 14:43:26.814731       1 shared_informer.go:197] Waiting for caches to sync for cidrallocator
+I0614 14:43:26.814737       1 shared_informer.go:204] Caches are synced for cidrallocator 
+I0614 14:43:26.817547       1 shared_informer.go:204] Caches are synced for stateful set 
+I0614 14:43:26.817701       1 shared_informer.go:204] Caches are synced for job 
+I0614 14:43:26.817845       1 shared_informer.go:204] Caches are synced for TTL 
+I0614 14:43:26.826332       1 shared_informer.go:204] Caches are synced for namespace 
+I0614 14:43:26.828951       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"kube-system", Name:"coredns", UID:"093194e4-389a-4a99-99af-633a4a94388b", APIVersion:"apps/v1", ResourceVersion:"206", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set coredns-6955765f44 to 2
+I0614 14:43:26.830376       1 range_allocator.go:373] Set node kind-3-control-plane PodCIDR to [10.244.0.0/24]
+I0614 14:43:26.835571       1 shared_informer.go:204] Caches are synced for GC 
+I0614 14:43:26.841123       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"local-path-storage", Name:"local-path-provisioner", UID:"e2e49bf5-cdcb-4b0c-801d-ed53d67f4603", APIVersion:"apps/v1", ResourceVersion:"265", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set local-path-provisioner-58f6947c7 to 1
+I0614 14:43:26.858320       1 shared_informer.go:204] Caches are synced for ClusterRoleAggregator 
+I0614 14:43:26.858548       1 shared_informer.go:204] Caches are synced for PVC protection 
+I0614 14:43:26.859872       1 shared_informer.go:204] Caches are synced for ReplicaSet 
+I0614 14:43:26.867188       1 shared_informer.go:204] Caches are synced for bootstrap_signer 
+I0614 14:43:26.867708       1 shared_informer.go:204] Caches are synced for service account 
+E0614 14:43:26.882564       1 clusterroleaggregation_controller.go:180] admin failed with : Operation cannot be fulfilled on clusterroles.rbac.authorization.k8s.io "admin": the object has been modified; please apply your changes to the latest version and try again
+I0614 14:43:26.885765       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"kube-system", Name:"coredns-6955765f44", UID:"ab5cd867-49e7-4b81-82d8-939a4a7dc463", APIVersion:"apps/v1", ResourceVersion:"343", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: coredns-6955765f44-gf66l
+I0614 14:43:26.885899       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"local-path-storage", Name:"local-path-provisioner-58f6947c7", UID:"1857e6aa-6a0e-41d6-acd1-9e2a79c8044f", APIVersion:"apps/v1", ResourceVersion:"347", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: local-path-provisioner-58f6947c7-bcxd6
+I0614 14:43:26.886482       1 shared_informer.go:204] Caches are synced for HPA 
+I0614 14:43:26.904946       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"kube-system", Name:"coredns-6955765f44", UID:"ab5cd867-49e7-4b81-82d8-939a4a7dc463", APIVersion:"apps/v1", ResourceVersion:"343", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: coredns-6955765f44-ngfw6
+I0614 14:43:26.974386       1 shared_informer.go:204] Caches are synced for ReplicationController 
+I0614 14:43:27.031332       1 shared_informer.go:204] Caches are synced for taint 
+I0614 14:43:27.031475       1 node_lifecycle_controller.go:1443] Initializing eviction metric for zone: 
+W0614 14:43:27.031544       1 node_lifecycle_controller.go:1058] Missing timestamp for Node kind-3-control-plane. Assuming now as a timestamp.
+I0614 14:43:27.031608       1 node_lifecycle_controller.go:1209] Controller detected that all Nodes are not-Ready. Entering master disruption mode.
+I0614 14:43:27.031937       1 taint_manager.go:186] Starting NoExecuteTaintManager
+I0614 14:43:27.034199       1 event.go:281] Event(v1.ObjectReference{Kind:"Node", Namespace:"", Name:"kind-3-control-plane", UID:"e97134cb-d520-42bf-8fd5-75b21ff98c91", APIVersion:"", ResourceVersion:"", FieldPath:""}): type: 'Normal' reason: 'RegisteredNode' Node kind-3-control-plane event: Registered Node kind-3-control-plane in Controller
+I0614 14:43:27.062704       1 shared_informer.go:204] Caches are synced for daemon sets 
+I0614 14:43:27.076755       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kindnet", UID:"b49311ce-6050-4f99-b3b2-bae338ba4583", APIVersion:"apps/v1", ResourceVersion:"255", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kindnet-mzh7w
+I0614 14:43:27.079805       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"kube-system", Name:"kube-proxy", UID:"fd30c327-60cc-4f42-8fcf-81be32edab16", APIVersion:"apps/v1", ResourceVersion:"216", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: kube-proxy-9nplv
+E0614 14:43:27.107014       1 daemon_controller.go:290] kube-system/kube-proxy failed with : error storing status for daemon set &v1.DaemonSet{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"kube-proxy", GenerateName:"", Namespace:"kube-system", SelfLink:"/apis/apps/v1/namespaces/kube-system/daemonsets/kube-proxy", UID:"fd30c327-60cc-4f42-8fcf-81be32edab16", ResourceVersion:"216", Generation:1, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63759278592, loc:(*time.Location)(0x399e9e0)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"k8s-app":"kube-proxy"}, Annotations:map[string]string{"deprecated.daemonset.template.generation":"1"}, OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.DaemonSetSpec{Selector:(*v1.LabelSelector)(0xc00059ce40), Template:v1.PodTemplateSpec{ObjectMeta:v1.ObjectMeta{Name:"", GenerateName:"", Namespace:"", SelfLink:"", UID:"", ResourceVersion:"", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:0, loc:(*time.Location)(nil)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"k8s-app":"kube-proxy"}, Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.PodSpec{Volumes:[]v1.Volume{v1.Volume{Name:"kube-proxy", VolumeSource:v1.VolumeSource{HostPath:(*v1.HostPathVolumeSource)(nil), EmptyDir:(*v1.EmptyDirVolumeSource)(nil), GCEPersistentDisk:(*v1.GCEPersistentDiskVolumeSource)(nil), AWSElasticBlockStore:(*v1.AWSElasticBlockStoreVolumeSource)(nil), GitRepo:(*v1.GitRepoVolumeSource)(nil), Secret:(*v1.SecretVolumeSource)(nil), NFS:(*v1.NFSVolumeSource)(nil), ISCSI:(*v1.ISCSIVolumeSource)(nil), Glusterfs:(*v1.GlusterfsVolumeSource)(nil), PersistentVolumeClaim:(*v1.PersistentVolumeClaimVolumeSource)(nil), RBD:(*v1.RBDVolumeSource)(nil), FlexVolume:(*v1.FlexVolumeSource)(nil), Cinder:(*v1.CinderVolumeSource)(nil), CephFS:(*v1.CephFSVolumeSource)(nil), Flocker:(*v1.FlockerVolumeSource)(nil), DownwardAPI:(*v1.DownwardAPIVolumeSource)(nil), FC:(*v1.FCVolumeSource)(nil), AzureFile:(*v1.AzureFileVolumeSource)(nil), ConfigMap:(*v1.ConfigMapVolumeSource)(0xc0013ae040), VsphereVolume:(*v1.VsphereVirtualDiskVolumeSource)(nil), Quobyte:(*v1.QuobyteVolumeSource)(nil), AzureDisk:(*v1.AzureDiskVolumeSource)(nil), PhotonPersistentDisk:(*v1.PhotonPersistentDiskVolumeSource)(nil), Projected:(*v1.ProjectedVolumeSource)(nil), PortworxVolume:(*v1.PortworxVolumeSource)(nil), ScaleIO:(*v1.ScaleIOVolumeSource)(nil), StorageOS:(*v1.StorageOSVolumeSource)(nil), CSI:(*v1.CSIVolumeSource)(nil)}}, v1.Volume{Name:"xtables-lock", VolumeSource:v1.VolumeSource{HostPath:(*v1.HostPathVolumeSource)(0xc00059ce60), EmptyDir:(*v1.EmptyDirVolumeSource)(nil), GCEPersistentDisk:(*v1.GCEPersistentDiskVolumeSource)(nil), AWSElasticBlockStore:(*v1.AWSElasticBlockStoreVolumeSource)(nil), GitRepo:(*v1.GitRepoVolumeSource)(nil), Secret:(*v1.SecretVolumeSource)(nil), NFS:(*v1.NFSVolumeSource)(nil), ISCSI:(*v1.ISCSIVolumeSource)(nil), Glusterfs:(*v1.GlusterfsVolumeSource)(nil), PersistentVolumeClaim:(*v1.PersistentVolumeClaimVolumeSource)(nil), RBD:(*v1.RBDVolumeSource)(nil), FlexVolume:(*v1.FlexVolumeSource)(nil), Cinder:(*v1.CinderVolumeSource)(nil), CephFS:(*v1.CephFSVolumeSource)(nil), Flocker:(*v1.FlockerVolumeSource)(nil), DownwardAPI:(*v1.DownwardAPIVolumeSource)(nil), FC:(*v1.FCVolumeSource)(nil), AzureFile:(*v1.AzureFileVolumeSource)(nil), ConfigMap:(*v1.ConfigMapVolumeSource)(nil), VsphereVolume:(*v1.VsphereVirtualDiskVolumeSource)(nil), Quobyte:(*v1.QuobyteVolumeSource)(nil), AzureDisk:(*v1.AzureDiskVolumeSource)(nil), PhotonPersistentDisk:(*v1.PhotonPersistentDiskVolumeSource)(nil), Projected:(*v1.ProjectedVolumeSource)(nil), PortworxVolume:(*v1.PortworxVolumeSource)(nil), ScaleIO:(*v1.ScaleIOVolumeSource)(nil), StorageOS:(*v1.StorageOSVolumeSource)(nil), CSI:(*v1.CSIVolumeSource)(nil)}}, v1.Volume{Name:"lib-modules", VolumeSource:v1.VolumeSource{HostPath:(*v1.HostPathVolumeSource)(0xc00059ce80), EmptyDir:(*v1.EmptyDirVolumeSource)(nil), GCEPersistentDisk:(*v1.GCEPersistentDiskVolumeSource)(nil), AWSElasticBlockStore:(*v1.AWSElasticBlockStoreVolumeSource)(nil), GitRepo:(*v1.GitRepoVolumeSource)(nil), Secret:(*v1.SecretVolumeSource)(nil), NFS:(*v1.NFSVolumeSource)(nil), ISCSI:(*v1.ISCSIVolumeSource)(nil), Glusterfs:(*v1.GlusterfsVolumeSource)(nil), PersistentVolumeClaim:(*v1.PersistentVolumeClaimVolumeSource)(nil), RBD:(*v1.RBDVolumeSource)(nil), FlexVolume:(*v1.FlexVolumeSource)(nil), Cinder:(*v1.CinderVolumeSource)(nil), CephFS:(*v1.CephFSVolumeSource)(nil), Flocker:(*v1.FlockerVolumeSource)(nil), DownwardAPI:(*v1.DownwardAPIVolumeSource)(nil), FC:(*v1.FCVolumeSource)(nil), AzureFile:(*v1.AzureFileVolumeSource)(nil), ConfigMap:(*v1.ConfigMapVolumeSource)(nil), VsphereVolume:(*v1.VsphereVirtualDiskVolumeSource)(nil), Quobyte:(*v1.QuobyteVolumeSource)(nil), AzureDisk:(*v1.AzureDiskVolumeSource)(nil), PhotonPersistentDisk:(*v1.PhotonPersistentDiskVolumeSource)(nil), Projected:(*v1.ProjectedVolumeSource)(nil), PortworxVolume:(*v1.PortworxVolumeSource)(nil), ScaleIO:(*v1.ScaleIOVolumeSource)(nil), StorageOS:(*v1.StorageOSVolumeSource)(nil), CSI:(*v1.CSIVolumeSource)(nil)}}}, InitContainers:[]v1.Container(nil), Containers:[]v1.Container{v1.Container{Name:"kube-proxy", Image:"k8s.gcr.io/kube-proxy:v1.17.5", Command:[]string{"/usr/local/bin/kube-proxy", "--config=/var/lib/kube-proxy/config.conf", "--hostname-override=$(NODE_NAME)"}, Args:[]string(nil), WorkingDir:"", Ports:[]v1.ContainerPort(nil), EnvFrom:[]v1.EnvFromSource(nil), Env:[]v1.EnvVar{v1.EnvVar{Name:"NODE_NAME", Value:"", ValueFrom:(*v1.EnvVarSource)(0xc00059cec0)}}, Resources:v1.ResourceRequirements{Limits:v1.ResourceList(nil), Requests:v1.ResourceList(nil)}, VolumeMounts:[]v1.VolumeMount{v1.VolumeMount{Name:"kube-proxy", ReadOnly:false, MountPath:"/var/lib/kube-proxy", SubPath:"", MountPropagation:(*v1.MountPropagationMode)(nil), SubPathExpr:""}, v1.VolumeMount{Name:"xtables-lock", ReadOnly:false, MountPath:"/run/xtables.lock", SubPath:"", MountPropagation:(*v1.MountPropagationMode)(nil), SubPathExpr:""}, v1.VolumeMount{Name:"lib-modules", ReadOnly:true, MountPath:"/lib/modules", SubPath:"", MountPropagation:(*v1.MountPropagationMode)(nil), SubPathExpr:""}}, VolumeDevices:[]v1.VolumeDevice(nil), LivenessProbe:(*v1.Probe)(nil), ReadinessProbe:(*v1.Probe)(nil), StartupProbe:(*v1.Probe)(nil), Lifecycle:(*v1.Lifecycle)(nil), TerminationMessagePath:"/dev/termination-log", TerminationMessagePolicy:"File", ImagePullPolicy:"IfNotPresent", SecurityContext:(*v1.SecurityContext)(0xc0000c9e50), Stdin:false, StdinOnce:false, TTY:false}}, EphemeralContainers:[]v1.EphemeralContainer(nil), RestartPolicy:"Always", TerminationGracePeriodSeconds:(*int64)(0xc000661048), ActiveDeadlineSeconds:(*int64)(nil), DNSPolicy:"ClusterFirst", NodeSelector:map[string]string{"beta.kubernetes.io/os":"linux"}, ServiceAccountName:"kube-proxy", DeprecatedServiceAccount:"kube-proxy", AutomountServiceAccountToken:(*bool)(nil), NodeName:"", HostNetwork:true, HostPID:false, HostIPC:false, ShareProcessNamespace:(*bool)(nil), SecurityContext:(*v1.PodSecurityContext)(0xc0010baae0), ImagePullSecrets:[]v1.LocalObjectReference(nil), Hostname:"", Subdomain:"", Affinity:(*v1.Affinity)(nil), SchedulerName:"default-scheduler", Tolerations:[]v1.Toleration{v1.Toleration{Key:"CriticalAddonsOnly", Operator:"Exists", Value:"", Effect:"", TolerationSeconds:(*int64)(nil)}, v1.Toleration{Key:"", Operator:"Exists", Value:"", Effect:"", TolerationSeconds:(*int64)(nil)}}, HostAliases:[]v1.HostAlias(nil), PriorityClassName:"system-node-critical", Priority:(*int32)(nil), DNSConfig:(*v1.PodDNSConfig)(nil), ReadinessGates:[]v1.PodReadinessGate(nil), RuntimeClassName:(*string)(nil), EnableServiceLinks:(*bool)(nil), PreemptionPolicy:(*v1.PreemptionPolicy)(nil), Overhead:v1.ResourceList(nil), TopologySpreadConstraints:[]v1.TopologySpreadConstraint(nil)}}, UpdateStrategy:v1.DaemonSetUpdateStrategy{Type:"RollingUpdate", RollingUpdate:(*v1.RollingUpdateDaemonSet)(0xc00026eac0)}, MinReadySeconds:0, RevisionHistoryLimit:(*int32)(0xc0006610b8)}, Status:v1.DaemonSetStatus{CurrentNumberScheduled:0, NumberMisscheduled:0, DesiredNumberScheduled:0, NumberReady:0, ObservedGeneration:0, UpdatedNumberScheduled:0, NumberAvailable:0, NumberUnavailable:0, CollisionCount:(*int32)(nil), Conditions:[]v1.DaemonSetCondition(nil)}}: Operation cannot be fulfilled on daemonsets.apps "kube-proxy": the object has been modified; please apply your changes to the latest version and try again
+I0614 14:43:27.167469       1 shared_informer.go:204] Caches are synced for PV protection 
+I0614 14:43:27.201391       1 shared_informer.go:204] Caches are synced for expand 
+I0614 14:43:27.213382       1 shared_informer.go:204] Caches are synced for persistent volume 
+I0614 14:43:27.224934       1 shared_informer.go:204] Caches are synced for attach detach 
+I0614 14:43:27.260950       1 shared_informer.go:204] Caches are synced for certificate-csrsigning 
+I0614 14:43:27.267583       1 shared_informer.go:204] Caches are synced for certificate-csrapproving 
+I0614 14:43:27.309760       1 shared_informer.go:204] Caches are synced for disruption 
+I0614 14:43:27.309851       1 disruption.go:338] Sending events to api server.
+I0614 14:43:27.370102       1 shared_informer.go:204] Caches are synced for resource quota 
+I0614 14:43:27.375568       1 shared_informer.go:204] Caches are synced for garbage collector 
+I0614 14:43:27.375610       1 garbagecollector.go:138] Garbage collector: all resource monitors have synced. Proceeding to collect garbage
+I0614 14:43:27.378061       1 shared_informer.go:204] Caches are synced for garbage collector 
+I0614 14:43:28.518644       1 shared_informer.go:197] Waiting for caches to sync for resource quota
+I0614 14:43:28.518699       1 shared_informer.go:204] Caches are synced for resource quota 
+I0614 14:44:17.034664       1 node_lifecycle_controller.go:1236] Controller detected that some Nodes are Ready. Exiting master disruption mode.
+I0614 14:49:40.438669       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"metallb-system", Name:"controller", UID:"0a1c4784-a121-474c-9b34-02e7b058417e", APIVersion:"apps/v1", ResourceVersion:"1475", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set controller-65895b47d4 to 1
+I0614 14:49:40.438929       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"metallb-system", Name:"speaker", UID:"7173b33e-41fa-42dc-8b12-4984187a9806", APIVersion:"apps/v1", ResourceVersion:"1472", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: speaker-pxstn
+I0614 14:49:40.482025       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"metallb-system", Name:"controller-65895b47d4", UID:"ce1dd9f4-16a1-42d8-bdf9-f019bdaf2e5a", APIVersion:"apps/v1", ResourceVersion:"1478", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: controller-65895b47d4-cv4lt
+E0614 14:49:40.629740       1 daemon_controller.go:290] metallb-system/speaker failed with : error storing status for daemon set &v1.DaemonSet{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"speaker", GenerateName:"", Namespace:"metallb-system", SelfLink:"/apis/apps/v1/namespaces/metallb-system/daemonsets/speaker", UID:"7173b33e-41fa-42dc-8b12-4984187a9806", ResourceVersion:"1472", Generation:1, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63759278980, loc:(*time.Location)(0x399e9e0)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"app":"metallb", "app.kubernetes.io/managed-by":"Helm", "component":"speaker"}, Annotations:map[string]string{"deprecated.daemonset.template.generation":"1", "meta.helm.sh/release-name":"metallb-system-release", "meta.helm.sh/release-namespace":"default"}, OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.DaemonSetSpec{Selector:(*v1.LabelSelector)(0xc000522bc0), Template:v1.PodTemplateSpec{ObjectMeta:v1.ObjectMeta{Name:"", GenerateName:"", Namespace:"", SelfLink:"", UID:"", ResourceVersion:"", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:0, loc:(*time.Location)(nil)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string{"app":"metallb", "component":"speaker"}, Annotations:map[string]string{"prometheus.io/port":"7472", "prometheus.io/scrape":"true"}, OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.PodSpec{Volumes:[]v1.Volume(nil), InitContainers:[]v1.Container(nil), Containers:[]v1.Container{v1.Container{Name:"speaker", Image:"metallb/speaker:v0.8.2", Command:[]string(nil), Args:[]string{"--port=7472", "--config=config"}, WorkingDir:"", Ports:[]v1.ContainerPort{v1.ContainerPort{Name:"monitoring", HostPort:7472, ContainerPort:7472, Protocol:"TCP", HostIP:""}}, EnvFrom:[]v1.EnvFromSource(nil), Env:[]v1.EnvVar{v1.EnvVar{Name:"METALLB_NODE_NAME", Value:"", ValueFrom:(*v1.EnvVarSource)(0xc000522c00)}, v1.EnvVar{Name:"METALLB_HOST", Value:"", ValueFrom:(*v1.EnvVarSource)(0xc000522cc0)}}, Resources:v1.ResourceRequirements{Limits:v1.ResourceList{"cpu":resource.Quantity{i:resource.int64Amount{value:100, scale:-3}, d:resource.infDecAmount{Dec:(*inf.Dec)(nil)}, s:"100m", Format:"DecimalSI"}, "memory":resource.Quantity{i:resource.int64Amount{value:104857600, scale:0}, d:resource.infDecAmount{Dec:(*inf.Dec)(nil)}, s:"100Mi", Format:"BinarySI"}}, Requests:v1.ResourceList(nil)}, VolumeMounts:[]v1.VolumeMount(nil), VolumeDevices:[]v1.VolumeDevice(nil), LivenessProbe:(*v1.Probe)(nil), ReadinessProbe:(*v1.Probe)(nil), StartupProbe:(*v1.Probe)(nil), Lifecycle:(*v1.Lifecycle)(nil), TerminationMessagePath:"/dev/termination-log", TerminationMessagePolicy:"File", ImagePullPolicy:"IfNotPresent", SecurityContext:(*v1.SecurityContext)(0xc001284d70), Stdin:false, StdinOnce:false, TTY:false}}, EphemeralContainers:[]v1.EphemeralContainer(nil), RestartPolicy:"Always", TerminationGracePeriodSeconds:(*int64)(0xc000a04d90), ActiveDeadlineSeconds:(*int64)(nil), DNSPolicy:"ClusterFirst", NodeSelector:map[string]string{"beta.kubernetes.io/os":"linux"}, ServiceAccountName:"speaker", DeprecatedServiceAccount:"speaker", AutomountServiceAccountToken:(*bool)(nil), NodeName:"", HostNetwork:true, HostPID:false, HostIPC:false, ShareProcessNamespace:(*bool)(nil), SecurityContext:(*v1.PodSecurityContext)(0xc000619680), ImagePullSecrets:[]v1.LocalObjectReference(nil), Hostname:"", Subdomain:"", Affinity:(*v1.Affinity)(nil), SchedulerName:"default-scheduler", Tolerations:[]v1.Toleration{v1.Toleration{Key:"node-role.kubernetes.io/master", Operator:"", Value:"", Effect:"NoSchedule", TolerationSeconds:(*int64)(nil)}}, HostAliases:[]v1.HostAlias(nil), PriorityClassName:"", Priority:(*int32)(nil), DNSConfig:(*v1.PodDNSConfig)(nil), ReadinessGates:[]v1.PodReadinessGate(nil), RuntimeClassName:(*string)(nil), EnableServiceLinks:(*bool)(nil), PreemptionPolicy:(*v1.PreemptionPolicy)(nil), Overhead:v1.ResourceList(nil), TopologySpreadConstraints:[]v1.TopologySpreadConstraint(nil)}}, UpdateStrategy:v1.DaemonSetUpdateStrategy{Type:"RollingUpdate", RollingUpdate:(*v1.RollingUpdateDaemonSet)(0xc0016c6bc8)}, MinReadySeconds:0, RevisionHistoryLimit:(*int32)(0xc000a04dec)}, Status:v1.DaemonSetStatus{CurrentNumberScheduled:0, NumberMisscheduled:0, DesiredNumberScheduled:0, NumberReady:0, ObservedGeneration:0, UpdatedNumberScheduled:0, NumberAvailable:0, NumberUnavailable:0, CollisionCount:(*int32)(nil), Conditions:[]v1.DaemonSetCondition(nil)}}: Operation cannot be fulfilled on daemonsets.apps "speaker": the object has been modified; please apply your changes to the latest version and try again
+I0614 14:49:41.170735       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"default", Name:"member-core-operator", UID:"d742d58e-5a25-4c42-9499-35901a8ee4ce", APIVersion:"apps/v1", ResourceVersion:"1510", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set member-core-operator-d598d4888 to 1
+I0614 14:49:41.291635       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"default", Name:"member-core-operator-d598d4888", UID:"3efc099b-0880-44e8-b569-21c600be2032", APIVersion:"apps/v1", ResourceVersion:"1511", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: member-core-operator-d598d4888-x9zhs
+I0614 14:49:43.094559       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"wcm-system", Name:"wcm-nse-operator", UID:"e3690d5d-e33f-4d6c-821f-693b982b64ad", APIVersion:"apps/v1", ResourceVersion:"1555", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set wcm-nse-operator-6fb5b6fb4c to 1
+I0614 14:49:43.122959       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"wcm-system", Name:"wcm-nse-operator-6fb5b6fb4c", UID:"28dd9966-afa0-4e03-891a-1711d8665096", APIVersion:"apps/v1", ResourceVersion:"1557", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-nse-operator-6fb5b6fb4c-5rllm
+I0614 14:49:47.175581       1 event.go:281] Event(v1.ObjectReference{Kind:"StatefulSet", Namespace:"spire", Name:"wcm-spire-server", UID:"f0cd5123-2a7a-4b02-9da4-994f2125570f", APIVersion:"apps/v1", ResourceVersion:"1627", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' create Pod wcm-spire-server-0 in StatefulSet wcm-spire-server successful
+I0614 14:49:47.408059       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"spire", Name:"wcm-spire-agent", UID:"ae3a6214-ed09-4538-8b78-5f7185278f2b", APIVersion:"apps/v1", ResourceVersion:"1646", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-spire-agent-x96z4
+I0614 14:50:00.789345       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"nsm-system", Name:"wcm-crossconnect-monitor", UID:"d60f3a16-65b7-45c4-a766-3ae8007cb65c", APIVersion:"apps/v1", ResourceVersion:"1751", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set wcm-crossconnect-monitor-c4db96966 to 1
+I0614 14:50:00.850776       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"nsm-system", Name:"wcm-crossconnect-monitor-c4db96966", UID:"22e48cc8-8b4f-4180-87e7-b323df4dc7dc", APIVersion:"apps/v1", ResourceVersion:"1752", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-crossconnect-monitor-c4db96966-wqgns
+I0614 14:50:00.891053       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"nsm-system", Name:"wcm-jaeger", UID:"c1031d27-3f23-41a5-8233-c9e3a18a3308", APIVersion:"apps/v1", ResourceVersion:"1757", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set wcm-jaeger-86c548cd44 to 1
+I0614 14:50:00.916542       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"nsm-system", Name:"wcm-jaeger-86c548cd44", UID:"af33ecc3-438c-408f-a837-72ddb556188f", APIVersion:"apps/v1", ResourceVersion:"1761", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-jaeger-86c548cd44-fbfqn
+I0614 14:50:01.114644       1 shared_informer.go:197] Waiting for caches to sync for garbage collector
+I0614 14:50:01.416674       1 shared_informer.go:204] Caches are synced for garbage collector 
+I0614 14:50:01.899573       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkservicemanagers.networkservicemesh.io
+I0614 14:50:01.899628       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkservices.networkservicemesh.io
+I0614 14:50:01.899675       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for networkserviceendpoints.networkservicemesh.io
+I0614 14:50:01.899731       1 resource_quota_monitor.go:228] QuotaMonitor created object count evaluator for connectivitydomainendpoints.wcm.cisco.com
+I0614 14:50:01.899793       1 shared_informer.go:197] Waiting for caches to sync for resource quota
+I0614 14:50:01.899822       1 shared_informer.go:204] Caches are synced for resource quota 
+I0614 14:50:02.519482       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"nsm-system", Name:"wcm-nsm-admission-webhook", UID:"f57faf16-9b22-4c8e-84bf-a5af1b095870", APIVersion:"apps/v1", ResourceVersion:"1792", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set wcm-nsm-admission-webhook-684d7fd7b5 to 1
+I0614 14:50:02.566308       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"nsm-system", Name:"wcm-nsm-admission-webhook-684d7fd7b5", UID:"2baabf36-1f2a-40eb-b9e7-267ef78ad84c", APIVersion:"apps/v1", ResourceVersion:"1793", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-nsm-admission-webhook-684d7fd7b5-xtq72
+I0614 14:50:04.049661       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"nsm-system", Name:"wcm-nsm-vpp-forwarder", UID:"3c4c5311-c286-4b44-a7d8-d4694baeb7b8", APIVersion:"apps/v1", ResourceVersion:"1822", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-nsm-vpp-forwarder-c4fzl
+I0614 14:50:04.149421       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"nsm-system", Name:"wcm-proxy-nsmgr", UID:"6ae4e261-156c-4120-b433-07d7e362e75d", APIVersion:"apps/v1", ResourceVersion:"1849", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set wcm-proxy-nsmgr-7599b46ff to 1
+I0614 14:50:05.168902       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"nsm-system", Name:"wcm-proxy-nsmgr-7599b46ff", UID:"9ac5cdd5-c9c7-4f63-af04-5aeac242b0b2", APIVersion:"apps/v1", ResourceVersion:"1850", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-proxy-nsmgr-7599b46ff-bhsgz
+I0614 14:50:06.410482       1 event.go:281] Event(v1.ObjectReference{Kind:"DaemonSet", Namespace:"nsm-system", Name:"wcm-nsmgr", UID:"5e1e24be-9382-46bd-a978-4004dd03a1e8", APIVersion:"apps/v1", ResourceVersion:"1876", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-nsmgr-rgtqv
+I0614 14:50:09.690631       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"wcm-system", Name:"wcm-nse-discovery", UID:"89e755bf-678a-4a7e-b0cc-b3a262c5c18a", APIVersion:"apps/v1", ResourceVersion:"1938", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set wcm-nse-discovery-5f68d85698 to 1
+I0614 14:50:10.705867       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"wcm-system", Name:"wcm-nse-discovery-5f68d85698", UID:"9082ffb4-d667-4dae-920f-5614bf9257b6", APIVersion:"apps/v1", ResourceVersion:"1939", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: wcm-nse-discovery-5f68d85698-2cc2k
+I0614 14:56:00.749791       1 event.go:281] Event(v1.ObjectReference{Kind:"Deployment", Namespace:"wcm-system", Name:"vl3-nse-green", UID:"4781c5af-805b-4861-be53-3e57148e854a", APIVersion:"apps/v1", ResourceVersion:"3020", FieldPath:""}): type: 'Normal' reason: 'ScalingReplicaSet' Scaled up replica set vl3-nse-green-7555496c4c to 2
+I0614 14:56:00.777944       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"wcm-system", Name:"vl3-nse-green-7555496c4c", UID:"8a83ebe4-f15f-43ba-ad04-b99e8fcc7bda", APIVersion:"apps/v1", ResourceVersion:"3021", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: vl3-nse-green-7555496c4c-blkt5
+I0614 14:56:00.796866       1 event.go:281] Event(v1.ObjectReference{Kind:"ReplicaSet", Namespace:"wcm-system", Name:"vl3-nse-green-7555496c4c", UID:"8a83ebe4-f15f-43ba-ad04-b99e8fcc7bda", APIVersion:"apps/v1", ResourceVersion:"3021", FieldPath:""}): type: 'Normal' reason: 'SuccessfulCreate' Created pod: vl3-nse-green-7555496c4c-xvfj4
+==== END logs for container kube-controller-manager of pod kube-system/kube-controller-manager-kind-3-control-plane ====

@@ -1,0 +1,136 @@
+Name:         wcm-nsmgr-wk2j2
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Mon, 14 Jun 2021 14:50:08 +0000
+Labels:       app=wcm-nsmgr
+              controller-revision-hash=894c98c8b
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.13
+IPs:
+  IP:           10.244.0.13
+Controlled By:  DaemonSet/wcm-nsmgr
+Containers:
+  wcm-nsmgr:
+    Container ID:   containerd://7deb55cc10a4b5bd65ba61ec51dc05200ba95d9f3135d1b9a0ce54f16cabc74e
+    Image:          nishantapatil3/nsmdp:vl3_latest
+    Image ID:       sha256:529d47164e332fbfb8000c9517122c9522acb5caa3e9407b614d2a5cd444b2ee
+    Port:           5001/TCP
+    Host Port:      5001/TCP
+    State:          Running
+      Started:      Mon, 14 Jun 2021 14:50:09 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                false
+      TRACER_ENABLED:          true
+      JAEGER_AGENT_HOST:       wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:       6831
+      PROXY_NSMD_K8S_ADDRESS:  wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:      wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/kubelet/device-plugins from kubelet-socket (rw)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-bvcnt (ro)
+  nsmd:
+    Container ID:   containerd://4a92fec3202f7c328b4f7ac104c4b9e638201322bd406357489cb8bdd6e9c530
+    Image:          nishantapatil3/nsmd:vl3_latest
+    Image ID:       sha256:d5ec63305aec3e300092698426af7e91461c179bcbc304afb29125eb8d13620e
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 14 Jun 2021 14:50:09 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://127.0.0.1:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://127.0.0.1:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-bvcnt (ro)
+  nsmd-k8s:
+    Container ID:   containerd://c720e2f1edc004f07618109d046180809571f9f68662538d1d94f9c06ce43025
+    Image:          nishantapatil3/nsmd-k8s:vl3_latest
+    Image ID:       sha256:3c3ad197dcab16df0c138060a6b4816da03b304834353bddd4f883d3b6b9fd4a
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 14 Jun 2021 14:50:09 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      POD_NAME:                    wcm-nsmgr-wk2j2 (v1:metadata.name)
+      POD_UID:                      (v1:metadata.uid)
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-bvcnt (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubelet-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/kubelet/device-plugins
+    HostPathType:  DirectoryOrCreate
+  nsm-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-nsm-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nsmgr-service-account-token-bvcnt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsmgr-service-account-token-bvcnt
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  9m29s  default-scheduler  Successfully assigned nsm-system/wcm-nsmgr-wk2j2 to kind-2-control-plane
+  Normal  Pulled     9m28s  kubelet            Container image "nishantapatil3/nsmdp:vl3_latest" already present on machine
+  Normal  Created    9m28s  kubelet            Created container wcm-nsmgr
+  Normal  Started    9m28s  kubelet            Started container wcm-nsmgr
+  Normal  Pulled     9m28s  kubelet            Container image "nishantapatil3/nsmd:vl3_latest" already present on machine
+  Normal  Created    9m28s  kubelet            Created container nsmd
+  Normal  Started    9m28s  kubelet            Started container nsmd
+  Normal  Pulled     9m28s  kubelet            Container image "nishantapatil3/nsmd-k8s:vl3_latest" already present on machine
+  Normal  Created    9m28s  kubelet            Created container nsmd-k8s
+  Normal  Started    9m28s  kubelet            Started container nsmd-k8s
+

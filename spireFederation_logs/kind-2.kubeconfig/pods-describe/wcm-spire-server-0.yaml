@@ -1,0 +1,99 @@
+Name:         wcm-spire-server-0
+Namespace:    spire
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Mon, 14 Jun 2021 14:49:45 +0000
+Labels:       app=wcm-spire-server
+              controller-revision-hash=wcm-spire-server-665467cfdf
+              statefulset.kubernetes.io/pod-name=wcm-spire-server-0
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  StatefulSet/wcm-spire-server
+Containers:
+  nsm-spire:
+    Container ID:   containerd://1202e463006c2a8ec1503b647e83a0d764fdcad6508057cb427c36c236cdae0a
+    Image:          docker.io/networkservicemesh/nsm-spire:master
+    Image ID:       docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 14 Jun 2021 14:49:48 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /run/spire/entries from wcm-spire-entries-config-map (ro)
+      /run/spire/sockets from spire-server-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-spire-server-service-account-token-4r6rj (ro)
+  wcm-spire-server:
+    Container ID:  containerd://ecdd3aaf584f204f1515bafcf90e6edec7ab2824856ea4fcbdf2d932dcc605b7
+    Image:         gcr.io/spiffe-io/spire-server:0.11.0
+    Image ID:      gcr.io/spiffe-io/spire-server@sha256:bc42ea43755b040d6f30fe4245d13b844bd3d60792a3da8ac24e066eee87d76c
+    Port:          8081/TCP
+    Host Port:     0/TCP
+    Args:
+      -config
+      /run/spire/config/server.conf
+    State:          Running
+      Started:      Mon, 14 Jun 2021 14:49:52 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       tcp-socket :8081 delay=15s timeout=3s period=60s #success=1 #failure=2
+    Environment:    <none>
+    Mounts:
+      /run/spire/config from spire-config (ro)
+      /run/spire/data from spire-data (rw)
+      /run/spire/secret from wcm-spire-server-secret (rw)
+      /run/spire/sockets from spire-server-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-spire-server-service-account-token-4r6rj (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-server-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/server-sockets
+    HostPathType:  DirectoryOrCreate
+  spire-config:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-spire-server-config-map
+    Optional:  false
+  wcm-spire-server-secret:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-spire-server-secret
+    Optional:    false
+  wcm-spire-entries-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-spire-entries-config-map
+    Optional:  false
+  spire-data:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/spire-data
+    HostPathType:  DirectoryOrCreate
+  wcm-spire-server-service-account-token-4r6rj:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-spire-server-service-account-token-4r6rj
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  9m52s  default-scheduler  Successfully assigned spire/wcm-spire-server-0 to kind-2-control-plane
+  Normal  Pulling    9m51s  kubelet            Pulling image "docker.io/networkservicemesh/nsm-spire:master"
+  Normal  Pulled     9m49s  kubelet            Successfully pulled image "docker.io/networkservicemesh/nsm-spire:master"
+  Normal  Created    9m49s  kubelet            Created container nsm-spire
+  Normal  Started    9m49s  kubelet            Started container nsm-spire
+  Normal  Pulling    9m49s  kubelet            Pulling image "gcr.io/spiffe-io/spire-server:0.11.0"
+  Normal  Pulled     9m45s  kubelet            Successfully pulled image "gcr.io/spiffe-io/spire-server:0.11.0"
+  Normal  Created    9m45s  kubelet            Created container wcm-spire-server
+  Normal  Started    9m45s  kubelet            Started container wcm-spire-server
+

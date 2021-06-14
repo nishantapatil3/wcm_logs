@@ -1,0 +1,133 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-06-14T14:56:00Z"
+    labels:
+      wcm/monitoring: vl3
+    name: vl3-nse-green
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomainEndpoint
+      name: green
+      uid: 752c9881-dea6-4a34-99df-8ff16b56bd11
+    resourceVersion: "3038"
+    selfLink: /api/v1/namespaces/wcm-system/services/vl3-nse-green
+    uid: eb6917d9-0f28-41a1-aa9f-0c6cf6dca0b8
+  spec:
+    clusterIP: 10.103.105.166
+    ports:
+    - name: monitoring
+      port: 2112
+      protocol: TCP
+      targetPort: 2112
+    - name: http-workload
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+    selector:
+      wcm/nse.servicename: green
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-06-14T14:56:00Z"
+    labels:
+      wcm/monitoring: vpp
+    name: vl3-nse-green-vpp
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomainEndpoint
+      name: green
+      uid: 752c9881-dea6-4a34-99df-8ff16b56bd11
+    resourceVersion: "3044"
+    selfLink: /api/v1/namespaces/wcm-system/services/vl3-nse-green-vpp
+    uid: e8bd1e53-6eb0-423e-a576-0d13aa6ee12a
+  spec:
+    clusterIP: 10.98.86.133
+    ports:
+    - name: monitoring
+      port: 9191
+      protocol: TCP
+      targetPort: 9191
+    selector:
+      wcm/nse.servicename: green
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-06-14T14:50:10Z"
+    labels:
+      app: nse-discovery-wcm
+      membercore: wcm
+    name: wcm-nse-discovery
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: 85697d19-d8d4-4840-869f-360bdfb6e152
+    resourceVersion: "1956"
+    selfLink: /api/v1/namespaces/wcm-system/services/wcm-nse-discovery
+    uid: 1b63a6ed-5288-496c-8306-e5236af757a9
+  spec:
+    clusterIP: 10.105.98.68
+    ports:
+    - name: monitoring
+      port: 2112
+      protocol: TCP
+      targetPort: 2112
+    selector:
+      app: nse-discovery-wcm
+      membercore: wcm
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-06-14T14:49:46Z"
+    labels:
+      name: wcm-nse-operator
+    name: wcm-nse-operator-metrics
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-nse-operator
+      uid: e3690d5d-e33f-4d6c-821f-693b982b64ad
+    resourceVersion: "1610"
+    selfLink: /api/v1/namespaces/wcm-system/services/wcm-nse-operator-metrics
+    uid: cd70fbb1-23cd-4b38-8716-da1530042001
+  spec:
+    clusterIP: 10.101.129.222
+    ports:
+    - name: http-metrics
+      port: 8383
+      protocol: TCP
+      targetPort: 8383
+    - name: cr-metrics
+      port: 8686
+      protocol: TCP
+      targetPort: 8686
+    selector:
+      name: wcm-nse-operator
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "3771"
+  selfLink: /api/v1/namespaces/wcm-system/services

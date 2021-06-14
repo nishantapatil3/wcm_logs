@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-06-14T14:49:44Z"
+    labels:
+      app: wcm-spire-server
+    name: wcm-spire-server
+    namespace: spire
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: 74ff6219-bbb6-43c2-8e5c-ca30beb64736
+    resourceVersion: "1695"
+    selfLink: /api/v1/namespaces/spire/services/wcm-spire-server
+    uid: 020eb6fc-afbf-4a5f-ab2a-f346f41b8423
+  spec:
+    clusterIP: 10.97.85.196
+    externalTrafficPolicy: Cluster
+    ports:
+    - name: grpc
+      nodePort: 30611
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    - name: federation-endpoint
+      nodePort: 31320
+      port: 8443
+      protocol: TCP
+      targetPort: 8443
+    selector:
+      app: wcm-spire-server
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 172.17.254.1
+kind: ServiceList
+metadata:
+  resourceVersion: "3741"
+  selfLink: /api/v1/namespaces/spire/services

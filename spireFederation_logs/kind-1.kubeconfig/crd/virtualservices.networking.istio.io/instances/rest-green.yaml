@@ -1,0 +1,41 @@
+Name:         rest-green
+Namespace:    wcm-system
+Labels:       connectivitydomain=green
+              gateway=green
+Annotations:  <none>
+API Version:  networking.istio.io/v1beta1
+Kind:         VirtualService
+Metadata:
+  Creation Timestamp:  2021-06-14T14:55:39Z
+  Generation:          1
+  Owner References:
+    API Version:           wcm.cisco.com/v1alpha1
+    Block Owner Deletion:  true
+    Controller:            true
+    Kind:                  ConnectivityDomain
+    Name:                  green
+    UID:                   baaa1a1a-e01b-49e0-8de9-015485b859bd
+  Resource Version:        3791
+  Self Link:               /apis/networking.istio.io/v1beta1/namespaces/wcm-system/virtualservices/rest-green
+  UID:                     e84c99f6-a151-4796-b2b4-aa65f9d57748
+Spec:
+  Gateways:
+    rest-green
+  Hosts:
+    info-green.nispatil-wcm-cisco.com
+  Http:
+    Match:
+      Uri:
+        Prefix:  /nses
+      Uri:
+        Prefix:  /subnets
+      Uri:
+        Prefix:  /ranges
+      Uri:
+        Prefix:  /workloads
+    Route:
+      Destination:
+        Host:  green-cd-info
+        Port:
+          Number:  50071
+Events:            <none>

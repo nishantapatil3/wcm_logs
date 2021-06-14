@@ -1,0 +1,93 @@
+Name:         vl3-nse-green-7555496c4c-blkt5
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Mon, 14 Jun 2021 14:56:00 +0000
+Labels:       networkservicemesh.io/app=vl3-nse-green
+              networkservicemesh.io/impl=green
+              pod-template-hash=7555496c4c
+              wcm-nse=green
+              wcm/nse.servicename=green
+Annotations:  sidecar.istio.io/inject: false
+              wcm/nsr.address: green.nispatil-wcm-cisco.com
+              wcm/nsr.port: 443
+Status:       Running
+IP:           10.244.0.15
+IPs:
+  IP:           10.244.0.15
+Controlled By:  ReplicaSet/vl3-nse-green-7555496c4c
+Containers:
+  vl3-nse-green:
+    Container ID:   containerd://bf3046e2bd43f244dd13b21721c08d9e99a12260018c3a2801648ef182388745
+    Image:          nishantapatil3/vl3_ucnf-nse:latest
+    Image ID:       sha256:68ffa859d391d7c58c5c29126bbc0ba5348202a548865a1f69e2da76f4bb4a62
+    Ports:          9191/TCP, 2112/TCP, 3000/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Mon, 14 Jun 2021 14:58:55 +0000
+    Last State:     Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Mon, 14 Jun 2021 14:57:35 +0000
+      Finished:     Mon, 14 Jun 2021 14:58:38 +0000
+    Ready:          True
+    Restart Count:  2
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      ENDPOINT_NETWORK_SERVICE:    green
+      ENDPOINT_LABELS:             app=vl3-nse-green
+      TRACER_ENABLED:              true
+      JAEGER_SERVICE_HOST:         wcm-jaeger.nsm-system
+      JAEGER_SERVICE_PORT_JAEGER:  6831
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      WORKLOAD_REFRESH_INTERVAL:   2h30m
+      NSREGISTRY_ADDR:             wcm-nsmgr.nsm-system
+      NSREGISTRY_PORT:             5000
+      CLUSTER_NAME:                green-kind-3
+      NSE_POD_IP:                   (v1:status.podIP)
+      NSE_POD_NAME:                vl3-nse-green-7555496c4c-blkt5 (v1:metadata.name)
+      NSM_REMOTE_NS_IP_LIST:       <set to the key 'remote.ip_list' of config map 'nsm-vl3-green-config-map'>  Optional: false
+      METRICS_PORT:                2112
+      WORKLOAD_METRICS_PORT:       3000
+      INSECURE:                    false
+      TRUST_SVIDS:                 spiffe://central.com/example-connectivity-domain-app-dns-publisher,spiffe://central.com/example-connectivity-domain-wcmd,spiffe://member1.com/wcm-nsmgr,spiffe://member2.com/wcm-nsmgr,spiffe://member1.com/wcm-nsm-vpp-forwarder,spiffe://member2.com/wcm-nsm-vpp-forwarder
+    Mounts:
+      /etc/universal-cnf/config.yaml from universal-cnf-config-volume (rw,path="config.yaml")
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from vl3-nse-green-service-account-token-mgwjd (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  universal-cnf-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      vl3-nse-green-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  vl3-nse-green-service-account-token-mgwjd:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  vl3-nse-green-service-account-token-mgwjd
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From               Message
+  ----     ------     ----                 ----               -------
+  Normal   Scheduled  3m44s                default-scheduler  Successfully assigned wcm-system/vl3-nse-green-7555496c4c-blkt5 to kind-3-control-plane
+  Warning  BackOff    65s                  kubelet            Back-off restarting failed container
+  Normal   Pulled     50s (x3 over 3m43s)  kubelet            Container image "nishantapatil3/vl3_ucnf-nse:latest" already present on machine
+  Normal   Created    50s (x3 over 3m43s)  kubelet            Created container vl3-nse-green
+  Normal   Started    49s (x3 over 3m43s)  kubelet            Started container vl3-nse-green
+

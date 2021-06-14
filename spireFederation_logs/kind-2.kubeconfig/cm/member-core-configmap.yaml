@@ -1,0 +1,59 @@
+Name:         member-core-configmap
+Namespace:    default
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: member-core-operator-release
+              meta.helm.sh/release-namespace: default
+
+Data
+====
+config.yaml:
+----
+pullPolicy: IfNotPresent
+nsm:
+  org: nishantapatil3
+  tag: vl3_latest
+  namespace: nsm-system
+  publicNsrPort: 31505
+  remoteNsrPort: 443
+  vpp:
+    image: vppagent-forwarder
+    mtuOverride: 1400
+  secretName: 
+nseDiscovery:
+  org: nishantapatil3
+  tag: latest
+  clusterName: member1
+  metricsPort: 2112
+monitoring:
+  org: nishantapatil3
+  tag: vl3_latest
+  namespace: nsm-system
+  prometheus: false
+  metricsCollectorEnabled: false
+jaeger:
+  image: jaegertracing/all-in-one:1.14.0
+  namespace: nsm-system
+  serviceType: NodePort
+skydive:
+  image: matrohon/skydive:latest
+  namespace: nsm-system
+spire:
+  agentImage: gcr.io/spiffe-io/spire-agent:0.11.0
+  serverImage: gcr.io/spiffe-io/spire-server:0.11.0
+  nsmSpireImage: docker.io/networkservicemesh/nsm-spire:master
+  nsmSpireName: nsm-spire
+  namespace: spire
+  selfSignedCA: true
+  cert:     
+  key:     
+  trustDomain: member1.com
+  federates: true
+  azure: false
+prefixService:
+  org: nishantapatil3
+  tag: vl3_latest
+  namespace: nsm-system
+domainName: wcm-cisco.com
+
+Events:  <none>
+

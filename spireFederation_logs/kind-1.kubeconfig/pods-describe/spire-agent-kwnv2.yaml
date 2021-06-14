@@ -1,0 +1,101 @@
+Name:         spire-agent-kwnv2
+Namespace:    spire
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Mon, 14 Jun 2021 19:38:07 +0000
+Labels:       app=spire-agent
+              controller-revision-hash=568f64bdc7
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.2
+IPs:
+  IP:           172.17.0.2
+Controlled By:  DaemonSet/spire-agent
+Init Containers:
+  init:
+    Container ID:  containerd://f64c15e69b518ec08ac2abd00b935a640f94d8be9323636581d46f1f45a3f9b5
+    Image:         gcr.io/spiffe-io/wait-for-it
+    Image ID:      gcr.io/spiffe-io/wait-for-it@sha256:d9bdc931e4404237d2fb0ba84db5ece88b236c40eeca570d786ee54fd243f4ae
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      -t
+      30
+      spire-server:8081
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Mon, 14 Jun 2021 19:38:09 +0000
+      Finished:     Mon, 14 Jun 2021 19:38:20 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from spire-agent-token-bk88n (ro)
+Containers:
+  spire-agent:
+    Container ID:  containerd://79d63034f134acb55b79c9ec1bf7ca4566f74638ad97a4d45a21ef4a0dafdc5b
+    Image:         gcr.io/spiffe-io/spire-agent:0.11.3
+    Image ID:      gcr.io/spiffe-io/spire-agent@sha256:0185a98dd527c448ee997f0f4830078b05eafa8c5810ec58d45380207f2e811c
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      -config
+      /run/spire/config/agent.conf
+    State:          Running
+      Started:      Mon, 14 Jun 2021 19:38:24 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       exec [/bin/sh -c /opt/spire/bin/spire-agent api fetch -socketPath /run/spire/sockets/agent.sock 2>&1 | grep -vqE 'connection refused|no such file or directory'] delay=15s timeout=3s period=60s #success=1 #failure=2
+    Environment:    <none>
+    Mounts:
+      /run/spire/bundle from spire-bundle (ro)
+      /run/spire/config from spire-config (ro)
+      /run/spire/sockets from spire-agent-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from spire-agent-token-bk88n (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-config:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      spire-agent
+    Optional:  false
+  spire-bundle:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      spire-bundle
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  spire-agent-token-bk88n:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  spire-agent-token-bk88n
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  22m   default-scheduler  Successfully assigned spire/spire-agent-kwnv2 to kind-1-control-plane
+  Normal  Pulling    22m   kubelet            Pulling image "gcr.io/spiffe-io/wait-for-it"
+  Normal  Pulled     22m   kubelet            Successfully pulled image "gcr.io/spiffe-io/wait-for-it"
+  Normal  Created    22m   kubelet            Created container init
+  Normal  Started    22m   kubelet            Started container init
+  Normal  Pulling    22m   kubelet            Pulling image "gcr.io/spiffe-io/spire-agent:0.11.3"
+  Normal  Pulled     22m   kubelet            Successfully pulled image "gcr.io/spiffe-io/spire-agent:0.11.3"
+  Normal  Created    22m   kubelet            Created container spire-agent
+  Normal  Started    22m   kubelet            Started container spire-agent
+

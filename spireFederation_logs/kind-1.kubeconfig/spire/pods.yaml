@@ -2,13 +2,13 @@
 apiVersion: v1
 items:
 - metadata:
-    creationTimestamp: "2021-06-14T14:49:00Z"
+    creationTimestamp: "2021-06-14T19:38:07Z"
     generateName: spire-agent-
     labels:
       app: spire-agent
       controller-revision-hash: 568f64bdc7
       pod-template-generation: "1"
-    name: spire-agent-jlz48
+    name: spire-agent-kwnv2
     namespace: spire
     ownerReferences:
     - apiVersion: apps/v1
@@ -16,10 +16,10 @@ items:
       controller: true
       kind: DaemonSet
       name: spire-agent
-      uid: 2555c79b-94e9-42f3-aa7c-d10fe39f2ab0
-    resourceVersion: "1643"
-    selfLink: /api/v1/namespaces/spire/pods/spire-agent-jlz48
-    uid: a402843f-aade-48d3-87ee-7106b428b945
+      uid: a64016a9-fbbb-4b6b-96eb-501217bc908e
+    resourceVersion: "1905"
+    selfLink: /api/v1/namespaces/spire/pods/spire-agent-kwnv2
+    uid: 66f0329c-75d7-4487-b263-82ca8e574dbd
   spec:
     affinity:
       nodeAffinity:
@@ -62,7 +62,7 @@ items:
         name: spire-bundle
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: spire-agent-token-8f8fb
+        name: spire-agent-token-bk88n
         readOnly: true
     dnsPolicy: ClusterFirstWithHostNet
     enableServiceLinks: true
@@ -81,7 +81,7 @@ items:
       terminationMessagePolicy: File
       volumeMounts:
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: spire-agent-token-8f8fb
+        name: spire-agent-token-bk88n
         readOnly: true
     nodeName: kind-1-control-plane
     priority: 0
@@ -126,30 +126,30 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: spire-agent-token-8f8fb
+    - name: spire-agent-token-bk88n
       secret:
         defaultMode: 420
-        secretName: spire-agent-token-8f8fb
+        secretName: spire-agent-token-bk88n
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:14Z"
+      lastTransitionTime: "2021-06-14T19:38:20Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:16Z"
+      lastTransitionTime: "2021-06-14T19:38:25Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:16Z"
+      lastTransitionTime: "2021-06-14T19:38:25Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:00Z"
+      lastTransitionTime: "2021-06-14T19:38:07Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://deacbe09290916ed28bf6a804efacde37cefeecb634ef33a72d44c03a3567198
+    - containerID: containerd://79d63034f134acb55b79c9ec1bf7ca4566f74638ad97a4d45a21ef4a0dafdc5b
       image: gcr.io/spiffe-io/spire-agent:0.11.3
       imageID: gcr.io/spiffe-io/spire-agent@sha256:0185a98dd527c448ee997f0f4830078b05eafa8c5810ec58d45380207f2e811c
       lastState: {}
@@ -159,10 +159,10 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-14T14:49:16Z"
+          startedAt: "2021-06-14T19:38:24Z"
     hostIP: 172.17.0.2
     initContainerStatuses:
-    - containerID: containerd://992103dc268ff56bd657031f0ecd7c6af8c10c138205a68e604dd66d3b9b52e2
+    - containerID: containerd://f64c15e69b518ec08ac2abd00b935a640f94d8be9323636581d46f1f45a3f9b5
       image: gcr.io/spiffe-io/wait-for-it:latest
       imageID: gcr.io/spiffe-io/wait-for-it@sha256:d9bdc931e4404237d2fb0ba84db5ece88b236c40eeca570d786ee54fd243f4ae
       lastState: {}
@@ -171,19 +171,19 @@ items:
       restartCount: 0
       state:
         terminated:
-          containerID: containerd://992103dc268ff56bd657031f0ecd7c6af8c10c138205a68e604dd66d3b9b52e2
+          containerID: containerd://f64c15e69b518ec08ac2abd00b935a640f94d8be9323636581d46f1f45a3f9b5
           exitCode: 0
-          finishedAt: "2021-06-14T14:49:14Z"
+          finishedAt: "2021-06-14T19:38:20Z"
           reason: Completed
-          startedAt: "2021-06-14T14:49:07Z"
+          startedAt: "2021-06-14T19:38:09Z"
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: BestEffort
-    startTime: "2021-06-14T14:49:00Z"
+    startTime: "2021-06-14T19:38:07Z"
 - metadata:
-    creationTimestamp: "2021-06-14T14:49:00Z"
+    creationTimestamp: "2021-06-14T19:38:07Z"
     generateName: spire-server-
     labels:
       app: spire-server
@@ -197,10 +197,10 @@ items:
       controller: true
       kind: StatefulSet
       name: spire-server
-      uid: b1b91fee-4c59-4cdf-852d-ca2378345350
-    resourceVersion: "1626"
+      uid: c17f243b-de30-4157-9009-cb4e12f2607c
+    resourceVersion: "1713"
     selfLink: /api/v1/namespaces/spire/pods/spire-server-0
-    uid: 5002143c-5e8d-498b-8b82-739efc9fbf16
+    uid: 015dd217-6da4-4b07-ab0e-e139c7bc1745
   spec:
     containers:
     - image: docker.io/networkservicemesh/nsm-spire:master
@@ -219,7 +219,7 @@ items:
         name: spire-entries
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: spire-server-token-t95zw
+        name: spire-server-token-szjwd
         readOnly: true
     - args:
       - -config
@@ -252,7 +252,7 @@ items:
       - mountPath: /run/spire/secret
         name: spire-secret
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: spire-server-token-t95zw
+        name: spire-server-token-szjwd
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -297,30 +297,30 @@ items:
         path: /var/spire-data
         type: DirectoryOrCreate
       name: spire-data
-    - name: spire-server-token-t95zw
+    - name: spire-server-token-szjwd
       secret:
         defaultMode: 420
-        secretName: spire-server-token-t95zw
+        secretName: spire-server-token-szjwd
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:00Z"
+      lastTransitionTime: "2021-06-14T19:38:07Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:13Z"
+      lastTransitionTime: "2021-06-14T19:38:19Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:13Z"
+      lastTransitionTime: "2021-06-14T19:38:19Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-14T14:49:00Z"
+      lastTransitionTime: "2021-06-14T19:38:07Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://faea2c3a0c546e6e32ae43a7ff8c3bb85eb4671cb092565647a9f08db08eafcf
+    - containerID: containerd://6a66b6f2d4326aafac055c5f60849c3daf285556e0a80289fe7eb910ea943ff5
       image: docker.io/networkservicemesh/nsm-spire:master
       imageID: docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
       lastState: {}
@@ -330,8 +330,8 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-14T14:49:07Z"
-    - containerID: containerd://8ea0b191b5a98b002d65462f5853c61d431fed1da18746777b925a914e662229
+          startedAt: "2021-06-14T19:38:11Z"
+    - containerID: containerd://0c212cb33634bcc83e6be9a63b9ba7f980d799b23008cfa470e4ed4ab8b5f897
       image: gcr.io/spiffe-io/spire-server:0.11.3
       imageID: gcr.io/spiffe-io/spire-server@sha256:3b371f6c513d61ae5f4e4db845ac36223da7782923a5ee57038cba9a161a3f93
       lastState: {}
@@ -341,15 +341,15 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-14T14:49:13Z"
+          startedAt: "2021-06-14T19:38:19Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 10.244.0.5
     podIPs:
     - ip: 10.244.0.5
     qosClass: BestEffort
-    startTime: "2021-06-14T14:49:00Z"
+    startTime: "2021-06-14T19:38:07Z"
 kind: PodList
 metadata:
-  resourceVersion: "4771"
+  resourceVersion: "7866"
   selfLink: /api/v1/namespaces/spire/pods

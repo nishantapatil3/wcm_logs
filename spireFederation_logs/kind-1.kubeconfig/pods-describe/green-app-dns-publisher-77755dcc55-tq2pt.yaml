@@ -1,0 +1,70 @@
+Name:         green-app-dns-publisher-77755dcc55-tq2pt
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Mon, 14 Jun 2021 19:40:40 +0000
+Labels:       app=app-dns-publisher-green
+              connectivitydomain=green
+              pod-template-hash=77755dcc55
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/green-app-dns-publisher-77755dcc55
+Containers:
+  green-app-dns-publisher:
+    Container ID:  containerd://c4afdb1e67169b0788387e0d9a626d8d6e0831669cb8500fcdd4c388f9198d11
+    Image:         nishantapatil3/app-dns-publisher-controller:latest
+    Image ID:      sha256:ddcefbc1a9ff6516bdfd517d75c5641a97ea987a85f1f20bb219e2c86449843b
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/bin/app-dns-publisher-controller
+    Args:
+      -n
+      wcm-system
+      -s
+      green-wcmd:50051
+      -d
+      green.nispatil-wcm-cisco.com
+      -i
+      false
+    State:          Running
+      Started:      Mon, 14 Jun 2021 19:40:41 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:          (v1:metadata.uid)
+      INSECURE:        false
+      TRACER_ENABLED:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from green-app-dns-publisher-service-account-token-mnzbw (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  green-app-dns-publisher-service-account-token-mnzbw:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-app-dns-publisher-service-account-token-mnzbw
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  20m   default-scheduler  Successfully assigned wcm-system/green-app-dns-publisher-77755dcc55-tq2pt to kind-1-control-plane
+  Normal  Pulled     20m   kubelet            Container image "nishantapatil3/app-dns-publisher-controller:latest" already present on machine
+  Normal  Created    20m   kubelet            Created container green-app-dns-publisher
+  Normal  Started    20m   kubelet            Started container green-app-dns-publisher
+

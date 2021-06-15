@@ -1,75 +1,67 @@
 ==== START logs for container nsm-spire of pod spire/spire-server-0 ====
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- /spire.api.registration.Registration/FetchEntries()=\"\" span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- request={} span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- response={} span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg="successfully deleted 0 entries"
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- /spire.api.registration.Registration/CreateEntry()=\"\" span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- request={\"selectors\":[{\"type\":\"k8s_sat\",\"value\":\"agent_sa:spire-agent\"}],\"parent_id\":\"spiffe://central.com/spire/server\",\"spiffe_id\":\"spiffe://central.com/spire-agent\"} span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- response={\"id\":\"c62c713e-de00-4d3a-80f0-c7d5ee0b7f9b\"} span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg="successfully register entry id:\"c62c713e-de00-4d3a-80f0-c7d5ee0b7f9b\" "
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- /spire.api.registration.Registration/CreateEntry()=\"\" span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- request={\"selectors\":[{\"type\":\"k8s\",\"value\":\"sa:connectivity-domain-operator-service-account\"}],\"parent_id\":\"spiffe://central.com/spire-agent\",\"spiffe_id\":\"spiffe://central.com/connectivity-domain-operator\"} span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg=">><<-- response={\"id\":\"658579e7-2a9e-417b-ab35-757ac1472ba4\"} span=<nil>"
-time="2021-06-15T16:22:31Z" level=info msg="successfully register entry id:\"658579e7-2a9e-417b-ab35-757ac1472ba4\" "
+time="2021-06-15T17:08:59Z" level=error msg="failed to dial server: context deadline exceeded"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- /spire.api.registration.Registration/FetchEntries()=\"\" span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- request={} span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg="successfully deleted 0 entries"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- /spire.api.registration.Registration/CreateEntry()=\"\" span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- request={\"selectors\":[{\"type\":\"k8s_sat\",\"value\":\"agent_sa:spire-agent\"}],\"parent_id\":\"spiffe://central.com/spire/server\",\"spiffe_id\":\"spiffe://central.com/spire-agent\"} span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- response={\"id\":\"394ab2fc-e95e-4de8-b2bf-a2520f5f39aa\"} span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg="successfully register entry id:\"394ab2fc-e95e-4de8-b2bf-a2520f5f39aa\" "
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- /spire.api.registration.Registration/CreateEntry()=\"\" span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- request={\"selectors\":[{\"type\":\"k8s\",\"value\":\"sa:connectivity-domain-operator-service-account\"}],\"parent_id\":\"spiffe://central.com/spire-agent\",\"spiffe_id\":\"spiffe://central.com/connectivity-domain-operator\"} span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg=">><<-- response={\"id\":\"2dae382d-6f33-4f20-8209-9743b373b043\"} span=<nil>"
+time="2021-06-15T17:08:59Z" level=info msg="successfully register entry id:\"2dae382d-6f33-4f20-8209-9743b373b043\" "
 ==== END logs for container nsm-spire of pod spire/spire-server-0 ====
 ==== START logs for container spire-server of pod spire/spire-server-0 ====
-time="2021-06-15T16:22:29Z" level=warning msg="Current umask 0022 is too permissive; setting umask 0027."
-time="2021-06-15T16:22:29Z" level=info msg="data directory: \"/run/spire/data\""
-time="2021-06-15T16:22:29Z" level=info msg="Opening SQL database" db_type=sqlite3 subsystem_name=built-in_plugin.sql
-time="2021-06-15T16:22:29Z" level=info msg="Initializing new database." subsystem_name=built-in_plugin.sql
-time="2021-06-15T16:22:29Z" level=info msg="Connected to SQL database" read_only=false subsystem_name=built-in_plugin.sql type=sqlite3 version=3.25.2
-time="2021-06-15T16:22:29Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=sql plugin_services="[]" plugin_type=DataStore subsystem_name=catalog
-time="2021-06-15T16:22:29Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=k8s_sat plugin_services="[]" plugin_type=NodeAttestor subsystem_name=catalog
-time="2021-06-15T16:22:29Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=noop plugin_services="[]" plugin_type=NodeResolver subsystem_name=catalog
-time="2021-06-15T16:22:29Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=disk plugin_services="[]" plugin_type=KeyManager subsystem_name=catalog
-time="2021-06-15T16:22:29Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=k8sbundle plugin_services="[]" plugin_type=Notifier subsystem_name=catalog
-time="2021-06-15T16:22:29Z" level=info msg="plugins started"
-time="2021-06-15T16:22:29Z" level=debug msg="Loading journal" path=/run/spire/data/journal.pem subsystem_name=ca_manager
-time="2021-06-15T16:22:29Z" level=info msg="Journal loaded" jwt_keys=0 subsystem_name=ca_manager x509_cas=0
-time="2021-06-15T16:22:29Z" level=debug msg="Preparing X509 CA" slot=A subsystem_name=ca_manager
-time="2021-06-15T16:22:29Z" level=info msg="X509 CA prepared" expiration="2021-06-16T16:22:29Z" issued_at="2021-06-15T16:22:29Z" self_signed=true slot=A subsystem_name=ca_manager
-time="2021-06-15T16:22:29Z" level=info msg="X509 CA activated" expiration="2021-06-16T16:22:29Z" issued_at="2021-06-15T16:22:29Z" slot=A subsystem_name=ca_manager
-time="2021-06-15T16:22:29Z" level=debug msg="Successfully rotated X.509 CA" subsystem_name=ca_manager trust_domain_id="spiffe://central.com" ttl=86399.689991653
-time="2021-06-15T16:22:29Z" level=debug msg="Preparing JWT key" slot=A subsystem_name=ca_manager
-time="2021-06-15T16:22:29Z" level=info msg="JWT key prepared" expiration="2021-06-16T16:22:29Z" issued_at="2021-06-15T16:22:29Z" slot=A subsystem_name=ca_manager
-time="2021-06-15T16:22:29Z" level=info msg="JWT key activated" expiration="2021-06-16T16:22:29Z" issued_at="2021-06-15T16:22:29Z" slot=A subsystem_name=ca_manager
-time="2021-06-15T16:22:29Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
-time="2021-06-15T16:22:29Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T17:22:29Z" spiffe_id="spiffe://central.com/spire/server" subsystem_name=ca
-time="2021-06-15T16:22:29Z" level=info msg="Serving bundle endpoint" addr="0.0.0.0:8443" subsystem_name=endpoints
-time="2021-06-15T16:22:29Z" level=debug msg="Initializing API endpoints" subsystem_name=endpoints
-time="2021-06-15T16:22:29Z" level=debug msg="Starting checker" name=server subsystem_name=health
-time="2021-06-15T16:22:29Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:22:29Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:22:29Z" level=info msg="Starting UDS server" address=/run/spire/sockets/registration.sock subsystem_name=endpoints
-time="2021-06-15T16:22:29Z" level=info msg="Starting TCP server" address="[::]:8081" subsystem_name=endpoints
-time="2021-06-15T16:22:29Z" level=error msg="Error updating bundle" error="local bundle not found" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:22:29Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T16:23:29Z" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:22:29Z" level=error msg="Error updating bundle" error="local bundle not found" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:22:29Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T16:23:29Z" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:22:29Z" level=debug msg="Notifier handled event" event="bundle loaded" notifier=k8sbundle subsystem_name=ca_manager
-time="2021-06-15T16:22:32Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T17:22:32Z" spiffe_id="spiffe://central.com/spire/agent/k8s_sat/kubernetes/8d013b26-c0ca-48b5-a18b-a2bb49592d2b" subsystem_name=ca
-time="2021-06-15T16:22:32Z" level=debug msg="Could not find node resolver" agent_id="spiffe://central.com/spire/agent/k8s_sat/kubernetes/8d013b26-c0ca-48b5-a18b-a2bb49592d2b" caller-addr="10.244.0.1:9429" method=AttestAgent node_attestor_type=k8s_sat service=agent.v1.Agent subsystem_name=api
-time="2021-06-15T16:22:32Z" level=info msg="Agent attestation request completed" address="10.244.0.1:9429" agent_id="spiffe://central.com/spire/agent/k8s_sat/kubernetes/8d013b26-c0ca-48b5-a18b-a2bb49592d2b" caller-addr="10.244.0.1:9429" method=AttestAgent node_attestor_type=k8s_sat service=agent.v1.Agent subsystem_name=api
-time="2021-06-15T16:22:32Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T17:22:32Z" spiffe_id="spiffe://central.com/connectivity-domain-operator" subsystem_name=ca
-time="2021-06-15T16:22:32Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T17:22:32Z" spiffe_id="spiffe://central.com/spire-agent" subsystem_name=ca
-time="2021-06-15T16:23:29Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:23:29Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:23:29Z" level=error msg="Error updating bundle" error="local bundle not found" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:23:29Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T16:24:29Z" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:23:29Z" level=error msg="Error updating bundle" error="local bundle not found" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:23:29Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T16:24:29Z" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:23:49Z" level=error msg="Bundle not found" method=fetch_federated_bundle subsystem_name=registration_api
-time="2021-06-15T16:23:49Z" level=error msg="Bundle not found" method=fetch_federated_bundle subsystem_name=registration_api
-time="2021-06-15T16:24:29Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:24:29Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:24:29Z" level=info msg="Bundle refreshed" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:24:29Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T17:00:29Z" subsystem_name=bundle_client trust_domain=member2.com
-time="2021-06-15T16:24:29Z" level=info msg="Bundle refreshed" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:24:29Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T17:00:29Z" subsystem_name=bundle_client trust_domain=member1.com
-time="2021-06-15T16:24:52Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T17:24:52Z" spiffe_id="spiffe://central.com/green-wcmd" subsystem_name=ca
-time="2021-06-15T16:24:52Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T17:24:52Z" spiffe_id="spiffe://central.com/green" subsystem_name=ca
-time="2021-06-15T16:24:52Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T17:24:52Z" spiffe_id="spiffe://central.com/green-app-dns-publisher" subsystem_name=ca
-time="2021-06-15T16:30:28Z" level=error msg="Entry already exists" method=create_registration_entry subsystem_name=registration_api
-time="2021-06-15T16:30:28Z" level=error msg="Entry already exists" method=create_registration_entry subsystem_name=registration_api
-time="2021-06-15T16:30:28Z" level=error msg="Entry already exists" method=create_registration_entry subsystem_name=registration_api
+time="2021-06-15T17:08:55Z" level=warning msg="Current umask 0022 is too permissive; setting umask 0027."
+time="2021-06-15T17:08:55Z" level=info msg="data directory: \"/run/spire/data\""
+time="2021-06-15T17:08:55Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=k8sbundle plugin_services="[]" plugin_type=Notifier subsystem_name=catalog
+time="2021-06-15T17:08:55Z" level=info msg="Opening SQL database" db_type=sqlite3 subsystem_name=built-in_plugin.sql
+time="2021-06-15T17:08:55Z" level=info msg="Initializing new database." subsystem_name=built-in_plugin.sql
+time="2021-06-15T17:08:55Z" level=info msg="Connected to SQL database" read_only=false subsystem_name=built-in_plugin.sql type=sqlite3 version=3.25.2
+time="2021-06-15T17:08:55Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=sql plugin_services="[]" plugin_type=DataStore subsystem_name=catalog
+time="2021-06-15T17:08:55Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=k8s_sat plugin_services="[]" plugin_type=NodeAttestor subsystem_name=catalog
+time="2021-06-15T17:08:55Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=noop plugin_services="[]" plugin_type=NodeResolver subsystem_name=catalog
+time="2021-06-15T17:08:55Z" level=info msg="Plugin loaded." built-in_plugin=true plugin_name=disk plugin_services="[]" plugin_type=KeyManager subsystem_name=catalog
+time="2021-06-15T17:08:55Z" level=info msg="plugins started"
+time="2021-06-15T17:08:55Z" level=debug msg="Loading journal" path=/run/spire/data/journal.pem subsystem_name=ca_manager
+time="2021-06-15T17:08:55Z" level=info msg="Journal loaded" jwt_keys=0 subsystem_name=ca_manager x509_cas=0
+time="2021-06-15T17:08:55Z" level=debug msg="Preparing X509 CA" slot=A subsystem_name=ca_manager
+time="2021-06-15T17:08:55Z" level=info msg="X509 CA prepared" expiration="2021-06-16T17:08:55Z" issued_at="2021-06-15T17:08:55Z" self_signed=true slot=A subsystem_name=ca_manager
+time="2021-06-15T17:08:55Z" level=info msg="X509 CA activated" expiration="2021-06-16T17:08:55Z" issued_at="2021-06-15T17:08:55Z" slot=A subsystem_name=ca_manager
+time="2021-06-15T17:08:55Z" level=debug msg="Successfully rotated X.509 CA" subsystem_name=ca_manager trust_domain_id="spiffe://central.com" ttl=86399.145269198
+time="2021-06-15T17:08:55Z" level=debug msg="Preparing JWT key" slot=A subsystem_name=ca_manager
+time="2021-06-15T17:08:55Z" level=info msg="JWT key prepared" expiration="2021-06-16T17:08:55Z" issued_at="2021-06-15T17:08:55Z" slot=A subsystem_name=ca_manager
+time="2021-06-15T17:08:55Z" level=info msg="JWT key activated" expiration="2021-06-16T17:08:55Z" issued_at="2021-06-15T17:08:55Z" slot=A subsystem_name=ca_manager
+time="2021-06-15T17:08:55Z" level=debug msg="Rotating server SVID" subsystem_name=svid_rotator
+time="2021-06-15T17:08:55Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T18:08:55Z" spiffe_id="spiffe://central.com/spire/server" subsystem_name=ca
+time="2021-06-15T17:08:55Z" level=info msg="Serving bundle endpoint" addr="0.0.0.0:8443" subsystem_name=endpoints
+time="2021-06-15T17:08:55Z" level=debug msg="Initializing API endpoints" subsystem_name=endpoints
+time="2021-06-15T17:08:55Z" level=debug msg="Starting checker" name=server subsystem_name=health
+time="2021-06-15T17:08:55Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member2.com
+time="2021-06-15T17:08:55Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member1.com
+time="2021-06-15T17:08:55Z" level=info msg="Starting TCP server" address="[::]:8081" subsystem_name=endpoints
+time="2021-06-15T17:08:55Z" level=info msg="Starting UDS server" address=/run/spire/sockets/registration.sock subsystem_name=endpoints
+time="2021-06-15T17:08:55Z" level=error msg="Error updating bundle" error="local bundle not found" subsystem_name=bundle_client trust_domain=member2.com
+time="2021-06-15T17:08:55Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T17:09:55Z" subsystem_name=bundle_client trust_domain=member2.com
+time="2021-06-15T17:08:55Z" level=error msg="Error updating bundle" error="local bundle not found" subsystem_name=bundle_client trust_domain=member1.com
+time="2021-06-15T17:08:55Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T17:09:55Z" subsystem_name=bundle_client trust_domain=member1.com
+time="2021-06-15T17:08:56Z" level=debug msg="Notifier handled event" event="bundle loaded" notifier=k8sbundle subsystem_name=ca_manager
+time="2021-06-15T17:09:00Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T18:09:00Z" spiffe_id="spiffe://central.com/spire/agent/k8s_sat/kubernetes/6e5d8fa5-5957-4d20-9d3c-83c808f878e0" subsystem_name=ca
+time="2021-06-15T17:09:00Z" level=debug msg="Could not find node resolver" agent_id="spiffe://central.com/spire/agent/k8s_sat/kubernetes/6e5d8fa5-5957-4d20-9d3c-83c808f878e0" caller-addr="10.244.0.1:6830" method=AttestAgent node_attestor_type=k8s_sat service=agent.v1.Agent subsystem_name=api
+time="2021-06-15T17:09:00Z" level=info msg="Agent attestation request completed" address="10.244.0.1:6830" agent_id="spiffe://central.com/spire/agent/k8s_sat/kubernetes/6e5d8fa5-5957-4d20-9d3c-83c808f878e0" caller-addr="10.244.0.1:6830" method=AttestAgent node_attestor_type=k8s_sat service=agent.v1.Agent subsystem_name=api
+time="2021-06-15T17:09:00Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T18:09:00Z" spiffe_id="spiffe://central.com/spire-agent" subsystem_name=ca
+time="2021-06-15T17:09:00Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T18:09:00Z" spiffe_id="spiffe://central.com/connectivity-domain-operator" subsystem_name=ca
+time="2021-06-15T17:09:52Z" level=error msg="Bundle not found" method=fetch_federated_bundle subsystem_name=registration_api
+time="2021-06-15T17:09:53Z" level=error msg="Bundle not found" method=fetch_federated_bundle subsystem_name=registration_api
+time="2021-06-15T17:09:55Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member2.com
+time="2021-06-15T17:09:55Z" level=debug msg="Polling for bundle update" subsystem_name=bundle_client trust_domain=member1.com
+time="2021-06-15T17:09:55Z" level=info msg="Bundle refreshed" subsystem_name=bundle_client trust_domain=member1.com
+time="2021-06-15T17:09:55Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T17:45:56Z" subsystem_name=bundle_client trust_domain=member1.com
+time="2021-06-15T17:09:56Z" level=info msg="Bundle refreshed" subsystem_name=bundle_client trust_domain=member2.com
+time="2021-06-15T17:09:56Z" level=debug msg="Scheduling next bundle refresh" at="2021-06-15T17:45:56Z" subsystem_name=bundle_client trust_domain=member2.com
+time="2021-06-15T17:11:25Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T18:11:25Z" spiffe_id="spiffe://central.com/green" subsystem_name=ca
+time="2021-06-15T17:11:25Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T18:11:25Z" spiffe_id="spiffe://central.com/green-app-dns-publisher" subsystem_name=ca
+time="2021-06-15T17:11:25Z" level=debug msg="Signed X509 SVID" expiration="2021-06-15T18:11:25Z" spiffe_id="spiffe://central.com/green-wcmd" subsystem_name=ca
 ==== END logs for container spire-server of pod spire/spire-server-0 ====

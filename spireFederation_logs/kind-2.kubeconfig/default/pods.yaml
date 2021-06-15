@@ -2,12 +2,260 @@
 apiVersion: v1
 items:
 - metadata:
-    creationTimestamp: "2021-06-15T16:22:49Z"
+    creationTimestamp: "2021-06-15T17:21:30Z"
+    generateName: helloworld-green-679c6b6b65-
+    labels:
+      app: helloworld-green
+      nsm/servicename: helloworld.cluster2.nispatil-wcm-cisco.com
+      pod-template-hash: 679c6b6b65
+      version: v1
+    name: helloworld-green-679c6b6b65-qpchn
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: helloworld-green-679c6b6b65
+      uid: 22818179-c7d5-4865-9147-1f72cd2436b3
+    resourceVersion: "4067"
+    selfLink: /api/v1/namespaces/default/pods/helloworld-green-679c6b6b65-qpchn
+    uid: 66bf85d1-8382-4585-b360-0a276812284f
+  spec:
+    containers:
+    - image: docker.io/istio/examples-helloworld-v1:latest
+      imagePullPolicy: IfNotPresent
+      name: helloworld
+      ports:
+      - containerPort: 5000
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 100m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-z4ssx
+        readOnly: true
+    - command:
+      - /bin/nsm-monitor
+      env:
+      - name: MONITOR_DNS_CONFIGS
+        value: "true"
+      - name: NS_NETWORKSERVICEMESH_IO
+        value: green?service=helloworld&port=5000&clusterName=cluster2
+      image: nishantapatil3/nsm-monitor:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsm-dns-monitor
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: nsm-coredns-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-z4ssx
+        readOnly: true
+    - args:
+      - -conf
+      - /etc/coredns/Corefile
+      image: nishantapatil3/nsm-coredns:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: coredns
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: nsm-coredns-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-z4ssx
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    initContainers:
+    - command:
+      - /bin/nsm-dns-init
+      env:
+      - name: NS_NETWORKSERVICEMESH_IO
+        value: green?service=helloworld&port=5000&clusterName=cluster2
+      - name: NSM_NAMESPACE
+        value: nsm-system
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      image: nishantapatil3/nsm-dns-init:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsm-dns-init
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: nsm-coredns-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-z4ssx
+        readOnly: true
+    - env:
+      - name: NS_NETWORKSERVICEMESH_IO
+        value: green?service=helloworld&port=5000&clusterName=cluster2
+      - name: NSM_NAMESPACE
+        value: nsm-system
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      image: nishantapatil3/nsm-init:vl3_latest
+      imagePullPolicy: IfNotPresent
+      name: nsm-init-container
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: nsc-service-account-token-z4ssx
+        readOnly: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: nsc-service-account
+    serviceAccountName: nsc-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: nsm-coredns-volume
+    - name: nsc-service-account-token-z4ssx
+      secret:
+        defaultMode: 420
+        secretName: nsc-service-account-token-z4ssx
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-15T17:21:33Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-15T17:21:34Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-15T17:21:34Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-15T17:21:30Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://1fc265d99722d1d5fa13d50e8b7f8e85a3e9c5776963b222078e1d2fa4ed3cee
+      image: docker.io/nishantapatil3/nsm-coredns:vl3_latest
+      imageID: sha256:1e3b3d066b4df3e26c87221a232c0bd0138bbed54a3989e5533aa279aae28824
+      lastState: {}
+      name: coredns
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-15T17:21:34Z"
+    - containerID: containerd://96a319933f3327e64a7bc435962cd309a3a519b59156ef937db2589e3407c4ed
+      image: docker.io/istio/examples-helloworld-v1:latest
+      imageID: sha256:f96f1c11f3f2837fc164f27a0ad4d79d75e2a9bbf553cc94b2a778fdc746a614
+      lastState: {}
+      name: helloworld
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-15T17:21:33Z"
+    - containerID: containerd://90624f7c2f4f221a02de1ec944e87326617045a4d55aa03c42a4bca089ea7596
+      image: docker.io/nishantapatil3/nsm-monitor:vl3_latest
+      imageID: sha256:8925fe0f66063659f02d328a53562c447d944f92da8df4ee89ecdf8f6bd927c2
+      lastState: {}
+      name: nsm-dns-monitor
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-15T17:21:34Z"
+    hostIP: 172.17.0.3
+    initContainerStatuses:
+    - containerID: containerd://f43694d786f5f187dece6ac15c50bd6091520268e63a16f46f68c5f3db4901f0
+      image: docker.io/nishantapatil3/nsm-dns-init:vl3_latest
+      imageID: sha256:6209b1c5cfae8abc582dff0e14b276d4936ad5449055a04523d379f9b024fa9a
+      lastState: {}
+      name: nsm-dns-init
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://f43694d786f5f187dece6ac15c50bd6091520268e63a16f46f68c5f3db4901f0
+          exitCode: 0
+          finishedAt: "2021-06-15T17:21:31Z"
+          reason: Completed
+          startedAt: "2021-06-15T17:21:31Z"
+    - containerID: containerd://075702b7356e5d39fde7fd3ec1c6d4da9f2ebfdc5be49967e70f78df48d56c0b
+      image: docker.io/nishantapatil3/nsm-init:vl3_latest
+      imageID: sha256:32420316d7902cce8014090481c9fa2b0007a060983ba56b882099a46c97037e
+      lastState: {}
+      name: nsm-init-container
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://075702b7356e5d39fde7fd3ec1c6d4da9f2ebfdc5be49967e70f78df48d56c0b
+          exitCode: 0
+          finishedAt: "2021-06-15T17:21:33Z"
+          reason: Completed
+          startedAt: "2021-06-15T17:21:31Z"
+    phase: Running
+    podIP: 10.244.0.21
+    podIPs:
+    - ip: 10.244.0.21
+    qosClass: Burstable
+    startTime: "2021-06-15T17:21:30Z"
+- metadata:
+    creationTimestamp: "2021-06-15T17:09:01Z"
     generateName: member-core-operator-d598d4888-
     labels:
       name: member-core-operator
       pod-template-hash: d598d4888
-    name: member-core-operator-d598d4888-xd9cx
+    name: member-core-operator-d598d4888-jh8x7
     namespace: default
     ownerReferences:
     - apiVersion: apps/v1
@@ -15,10 +263,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: member-core-operator-d598d4888
-      uid: 8e4eb228-085b-4b97-a7f5-774872eec756
-    resourceVersion: "2693"
-    selfLink: /api/v1/namespaces/default/pods/member-core-operator-d598d4888-xd9cx
-    uid: e1203acd-05d1-4bc7-9ee9-7dfcbffde976
+      uid: e177b9d3-bbe3-4f21-bc42-a94e6c776d5d
+    resourceVersion: "1308"
+    selfLink: /api/v1/namespaces/default/pods/member-core-operator-d598d4888-jh8x7
+    uid: 1447849c-ad00-4713-a454-ca40403fbd8d
   spec:
     containers:
     - command:
@@ -45,7 +293,7 @@ items:
         name: config-data-member-core
         subPath: config.yaml
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: member-core-operator-token-rx5bk
+        name: member-core-operator-token-xn679
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -71,30 +319,30 @@ items:
         defaultMode: 420
         name: member-core-configmap
       name: config-data-member-core
-    - name: member-core-operator-token-rx5bk
+    - name: member-core-operator-token-xn679
       secret:
         defaultMode: 420
-        secretName: member-core-operator-token-rx5bk
+        secretName: member-core-operator-token-xn679
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T16:22:49Z"
+      lastTransitionTime: "2021-06-15T17:09:01Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T16:22:51Z"
+      lastTransitionTime: "2021-06-15T17:09:03Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T16:22:51Z"
+      lastTransitionTime: "2021-06-15T17:09:03Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T16:22:49Z"
+      lastTransitionTime: "2021-06-15T17:09:01Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://53e9ddd631f98b2c22217a91504bb81e865de481f6ad880a30f4a120a1d5e7ad
+    - containerID: containerd://9e0d3b6bae2744f2c5767a3aeb17bc17ffe3d81f959816c7c9898323dc2688db
       image: docker.io/nishantapatil3/member-core-operator:latest
       imageID: sha256:2b2bf5d67c11cf3c3cabaa3b9e0b0185bc6c5a29162186ef80c26f627571d5de
       lastState: {}
@@ -104,15 +352,15 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T16:22:51Z"
+          startedAt: "2021-06-15T17:09:02Z"
     hostIP: 172.17.0.3
     phase: Running
     podIP: 10.244.0.6
     podIPs:
     - ip: 10.244.0.6
     qosClass: BestEffort
-    startTime: "2021-06-15T16:22:49Z"
+    startTime: "2021-06-15T17:09:01Z"
 kind: PodList
 metadata:
-  resourceVersion: "5372"
+  resourceVersion: "5527"
   selfLink: /api/v1/namespaces/default/pods

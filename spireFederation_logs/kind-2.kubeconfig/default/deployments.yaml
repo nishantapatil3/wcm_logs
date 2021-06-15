@@ -4,17 +4,170 @@ items:
 - metadata:
     annotations:
       deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"ns.networkservicemesh.io":"green?service=helloworld\u0026port=5000\u0026clusterName=cluster2"},"labels":{"version":"v1"},"name":"helloworld-green","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"helloworld-green","version":"v1"}},"template":{"metadata":{"labels":{"app":"helloworld-green","nsm/servicename":"helloworld.cluster2.nispatil-wcm-cisco.com","version":"v1"}},"spec":{"containers":[{"image":"docker.io/istio/examples-helloworld-v1:latest","imagePullPolicy":"IfNotPresent","name":"helloworld","ports":[{"containerPort":5000}],"resources":{"requests":{"cpu":"100m"}}}],"serviceAccount":"nsc-service-account"}}}}
+      ns.networkservicemesh.io: green?service=helloworld&port=5000&clusterName=cluster2
+    creationTimestamp: "2021-06-15T17:21:30Z"
+    generation: 1
+    labels:
+      version: v1
+    name: helloworld-green
+    namespace: default
+    resourceVersion: "4070"
+    selfLink: /apis/apps/v1/namespaces/default/deployments/helloworld-green
+    uid: 6c536d9b-99fd-4bc6-b774-a3378be7d976
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: helloworld-green
+        version: v1
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: helloworld-green
+          nsm/servicename: helloworld.cluster2.nispatil-wcm-cisco.com
+          version: v1
+      spec:
+        containers:
+        - image: docker.io/istio/examples-helloworld-v1:latest
+          imagePullPolicy: IfNotPresent
+          name: helloworld
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - command:
+          - /bin/nsm-monitor
+          env:
+          - name: MONITOR_DNS_CONFIGS
+            value: "true"
+          - name: NS_NETWORKSERVICEMESH_IO
+            value: green?service=helloworld&port=5000&clusterName=cluster2
+          image: nishantapatil3/nsm-monitor:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: nsm-dns-monitor
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/coredns
+            name: nsm-coredns-volume
+        - args:
+          - -conf
+          - /etc/coredns/Corefile
+          image: nishantapatil3/nsm-coredns:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: coredns
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/coredns
+            name: nsm-coredns-volume
+        dnsPolicy: ClusterFirst
+        initContainers:
+        - command:
+          - /bin/nsm-dns-init
+          env:
+          - name: NS_NETWORKSERVICEMESH_IO
+            value: green?service=helloworld&port=5000&clusterName=cluster2
+          - name: NSM_NAMESPACE
+            value: nsm-system
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          image: nishantapatil3/nsm-dns-init:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: nsm-dns-init
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/coredns
+            name: nsm-coredns-volume
+        - env:
+          - name: NS_NETWORKSERVICEMESH_IO
+            value: green?service=helloworld&port=5000&clusterName=cluster2
+          - name: NSM_NAMESPACE
+            value: nsm-system
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          image: nishantapatil3/nsm-init:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: nsm-init-container
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: nsc-service-account
+        serviceAccountName: nsc-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: nsm-coredns-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-15T17:21:34Z"
+      lastUpdateTime: "2021-06-15T17:21:34Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-15T17:21:30Z"
+      lastUpdateTime: "2021-06-15T17:21:34Z"
+      message: ReplicaSet "helloworld-green-679c6b6b65" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
       meta.helm.sh/release-name: member-core-operator-release
       meta.helm.sh/release-namespace: default
-    creationTimestamp: "2021-06-15T16:22:49Z"
+    creationTimestamp: "2021-06-15T17:09:01Z"
     generation: 1
     labels:
       app.kubernetes.io/managed-by: Helm
     name: member-core-operator
     namespace: default
-    resourceVersion: "2695"
+    resourceVersion: "1310"
     selfLink: /apis/apps/v1/namespaces/default/deployments/member-core-operator
-    uid: 3421d961-15b8-4b36-a042-c68892c554ff
+    uid: a36474b6-0e7c-40a1-b889-63141f089b3d
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -72,14 +225,14 @@ items:
   status:
     availableReplicas: 1
     conditions:
-    - lastTransitionTime: "2021-06-15T16:22:52Z"
-      lastUpdateTime: "2021-06-15T16:22:52Z"
+    - lastTransitionTime: "2021-06-15T17:09:03Z"
+      lastUpdateTime: "2021-06-15T17:09:03Z"
       message: Deployment has minimum availability.
       reason: MinimumReplicasAvailable
       status: "True"
       type: Available
-    - lastTransitionTime: "2021-06-15T16:22:49Z"
-      lastUpdateTime: "2021-06-15T16:22:52Z"
+    - lastTransitionTime: "2021-06-15T17:09:01Z"
+      lastUpdateTime: "2021-06-15T17:09:03Z"
       message: ReplicaSet "member-core-operator-d598d4888" has successfully progressed.
       reason: NewReplicaSetAvailable
       status: "True"
@@ -90,5 +243,5 @@ items:
     updatedReplicas: 1
 kind: DeploymentList
 metadata:
-  resourceVersion: "5372"
+  resourceVersion: "5527"
   selfLink: /apis/apps/v1/namespaces/default/deployments

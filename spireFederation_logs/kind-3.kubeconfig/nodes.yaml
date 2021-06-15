@@ -5,7 +5,7 @@ items:
       kubeadm.alpha.kubernetes.io/cri-socket: /run/containerd/containerd.sock
       node.alpha.kubernetes.io/ttl: "0"
       volumes.kubernetes.io/controller-managed-attach-detach: "true"
-    creationTimestamp: "2021-06-15T16:09:51Z"
+    creationTimestamp: "2021-06-15T17:04:39Z"
     labels:
       beta.kubernetes.io/arch: amd64
       beta.kubernetes.io/os: linux
@@ -14,9 +14,9 @@ items:
       kubernetes.io/os: linux
       node-role.kubernetes.io/master: ""
     name: kind-3-control-plane
-    resourceVersion: "5432"
+    resourceVersion: "4808"
     selfLink: /api/v1/nodes/kind-3-control-plane
-    uid: 1d1d1c1f-3162-4b6d-8192-4557d70781b6
+    uid: a80de779-bfe1-4a5e-b04d-bdfff763ab80
   spec:
     podCIDR: 10.244.0.0/24
     podCIDRs:
@@ -33,7 +33,7 @@ items:
       hugepages-1Gi: "0"
       hugepages-2Mi: "0"
       memory: 16253024Ki
-      networkservicemesh.io/socket: "32"
+      networkservicemesh.io/socket: "36"
       pods: "110"
     capacity:
       cpu: "4"
@@ -41,29 +41,29 @@ items:
       hugepages-1Gi: "0"
       hugepages-2Mi: "0"
       memory: 16253024Ki
-      networkservicemesh.io/socket: "32"
+      networkservicemesh.io/socket: "36"
       pods: "110"
     conditions:
-    - lastHeartbeatTime: "2021-06-15T16:35:35Z"
-      lastTransitionTime: "2021-06-15T16:09:48Z"
+    - lastHeartbeatTime: "2021-06-15T17:26:43Z"
+      lastTransitionTime: "2021-06-15T17:04:37Z"
       message: kubelet has sufficient memory available
       reason: KubeletHasSufficientMemory
       status: "False"
       type: MemoryPressure
-    - lastHeartbeatTime: "2021-06-15T16:35:35Z"
-      lastTransitionTime: "2021-06-15T16:09:48Z"
+    - lastHeartbeatTime: "2021-06-15T17:26:43Z"
+      lastTransitionTime: "2021-06-15T17:04:37Z"
       message: kubelet has no disk pressure
       reason: KubeletHasNoDiskPressure
       status: "False"
       type: DiskPressure
-    - lastHeartbeatTime: "2021-06-15T16:35:35Z"
-      lastTransitionTime: "2021-06-15T16:09:48Z"
+    - lastHeartbeatTime: "2021-06-15T17:26:43Z"
+      lastTransitionTime: "2021-06-15T17:04:37Z"
       message: kubelet has sufficient PID available
       reason: KubeletHasSufficientPID
       status: "False"
       type: PIDPressure
-    - lastHeartbeatTime: "2021-06-15T16:35:35Z"
-      lastTransitionTime: "2021-06-15T16:10:54Z"
+    - lastHeartbeatTime: "2021-06-15T17:26:43Z"
+      lastTransitionTime: "2021-06-15T17:05:43Z"
       message: kubelet is posting ready status
       reason: KubeletReady
       status: "True"
@@ -77,10 +77,12 @@ items:
       sizeBytes: 720654115
     - names:
       - docker.io/nishantapatil3/vl3_ucnf-nse:latest
-      sizeBytes: 340347748
+      sizeBytes: 340347763
+    - names: null
+      sizeBytes: 340347733
     - names:
       - docker.io/nishantapatil3/vppagent-forwarder:vl3_latest
-      sizeBytes: 325680594
+      sizeBytes: 325680619
     - names:
       - k8s.gcr.io/etcd:3.4.3-0
       sizeBytes: 289997247
@@ -121,8 +123,11 @@ items:
       - docker.io/nishantapatil3/nsmd-k8s:vl3_latest
       sizeBytes: 49425724
     - names:
+      - docker.io/nishantapatil3/prefix-service:vl3_latest
+      sizeBytes: 49194824
+    - names:
       - docker.io/nishantapatil3/crossconnect-monitor:vl3_latest
-      sizeBytes: 47549775
+      sizeBytes: 47549780
     - names:
       - docker.io/metallb/speaker:v0.8.2
       sizeBytes: 43762602
@@ -136,8 +141,14 @@ items:
       - k8s.gcr.io/coredns:1.6.5
       sizeBytes: 41705951
     - names:
+      - gcr.io/spiffe-io/spire-agent:0.11.0
+      sizeBytes: 37369607
+    - names:
       - docker.io/nishantapatil3/admission-webhook:vl3_latest
       sizeBytes: 36688718
+    - names:
+      - docker.io/nishantapatil3/kernel-forwarder:vl3_latest
+      sizeBytes: 34736867
     - names:
       - docker.io/nishantapatil3/nsmdp:vl3_latest
       sizeBytes: 26861366
@@ -148,19 +159,28 @@ items:
       - docker.io/nishantapatil3/proxy-nsmd:vl3_latest
       sizeBytes: 25684800
     - names:
+      - docker.io/nishantapatil3/nsm-coredns:vl3_latest
+      sizeBytes: 25445474
+    - names:
       - docker.io/nishantapatil3/nsm-monitor:vl3_latest
       sizeBytes: 24848194
     - names:
       - docker.io/nishantapatil3/nsm-init:vl3_latest
       sizeBytes: 24715580
     - names:
+      - docker.io/nishantapatil3/nsmrs:vl3_latest
+      sizeBytes: 22430513
+    - names:
       - gcr.io/spiffe-io/spire-server@sha256:bc42ea43755b040d6f30fe4245d13b844bd3d60792a3da8ac24e066eee87d76c
       - gcr.io/spiffe-io/spire-server:0.11.0
       sizeBytes: 21157291
     - names:
-      - gcr.io/spiffe-io/spire-agent@sha256:200a32945f2acfc2b7615aa317fad9a4910ddd1489c9ce02b14b17708ac27b27
-      - gcr.io/spiffe-io/spire-agent:0.11.0
-      sizeBytes: 12734287
+      - docker.io/nishantapatil3/nsm-spire:vl3_latest
+      sizeBytes: 20753214
+    - names:
+      - gcr.io/spiffe-io/wait-for-it@sha256:d9bdc931e4404237d2fb0ba84db5ece88b236c40eeca570d786ee54fd243f4ae
+      - gcr.io/spiffe-io/wait-for-it:latest
+      sizeBytes: 17452519
     - names:
       - docker.io/nishantapatil3/nsm-dns-init:vl3_latest
       sizeBytes: 11968825
@@ -168,10 +188,6 @@ items:
       - docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
       - docker.io/networkservicemesh/nsm-spire:master
       sizeBytes: 9486906
-    - names:
-      - gcr.io/spiffe-io/wait-for-it@sha256:d9bdc931e4404237d2fb0ba84db5ece88b236c40eeca570d786ee54fd243f4ae
-      - gcr.io/spiffe-io/wait-for-it:latest
-      sizeBytes: 5931494
     - names:
       - k8s.gcr.io/pause:3.1
       sizeBytes: 746479
@@ -182,11 +198,11 @@ items:
       kernelVersion: 5.4.0-1038-aws
       kubeProxyVersion: v1.17.5
       kubeletVersion: v1.17.5
-      machineID: 4c3f0ce4a9984ea0a04a98cd3b01d04c
+      machineID: 4bf4288ce35141ba81b4051d20264825
       operatingSystem: linux
       osImage: Ubuntu 19.10
-      systemUUID: d0d4fd47-569b-4a6c-bcf5-235a56659686
+      systemUUID: b2ce0cd7-71c1-45f4-a7fd-a539115c4cf5
 kind: NodeList
 metadata:
-  resourceVersion: "5539"
+  resourceVersion: "5355"
   selfLink: /api/v1/nodes

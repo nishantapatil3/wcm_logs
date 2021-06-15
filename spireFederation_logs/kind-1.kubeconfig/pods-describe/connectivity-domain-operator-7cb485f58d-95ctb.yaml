@@ -1,0 +1,67 @@
+Name:         connectivity-domain-operator-7cb485f58d-95ctb
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Tue, 15 Jun 2021 17:08:56 +0000
+Labels:       name=connectivity-domain-operator
+              pod-template-hash=7cb485f58d
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/connectivity-domain-operator-7cb485f58d
+Containers:
+  connectivity-domain-operator:
+    Container ID:  containerd://edfa3478868b6a0ff77153531caa0c16df82df24a15c78781aab260f081604a7
+    Image:         nishantapatil3/connectivity-domain-operator:latest
+    Image ID:      sha256:29cce4d874b7bc169a2fcc3ebba2ae953288c1573660fb3003f29b0e1c4a3e9b
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      connectivity-domain-operator
+    State:          Running
+      Started:      Tue, 15 Jun 2021 17:08:57 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         connectivity-domain-operator-7cb485f58d-95ctb (v1:metadata.name)
+      OPERATOR_NAME:    connectivity-domain-operator
+      CONFIG_PATH:      etc/connectivity-domain-configmap/config.yaml
+      INSECURE:         false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from connectivity-domain-operator-service-account-token-6c65h (ro)
+      etc/connectivity-domain-configmap/config.yaml from config-data-connectivity-domain (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-connectivity-domain:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      connectivity-domain-configmap
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  connectivity-domain-operator-service-account-token-6c65h:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  connectivity-domain-operator-service-account-token-6c65h
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  20m   default-scheduler  Successfully assigned wcm-system/connectivity-domain-operator-7cb485f58d-95ctb to kind-1-control-plane
+  Normal  Pulled     20m   kubelet            Container image "nishantapatil3/connectivity-domain-operator:latest" already present on machine
+  Normal  Created    20m   kubelet            Created container connectivity-domain-operator
+  Normal  Started    20m   kubelet            Started container connectivity-domain-operator
+

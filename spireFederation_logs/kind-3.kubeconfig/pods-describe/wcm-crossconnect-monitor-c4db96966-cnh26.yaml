@@ -1,0 +1,59 @@
+Name:         wcm-crossconnect-monitor-c4db96966-cnh26
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Tue, 15 Jun 2021 17:09:24 +0000
+Labels:       app=wcm-crossconnect-monitor
+              membercore=wcm
+              pod-template-hash=c4db96966
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/wcm-crossconnect-monitor-c4db96966
+Containers:
+  crossconnect-monitor:
+    Container ID:   containerd://ad4757a47b3846dcc64b60fb53e37eb24d3290ae7a5d004ff63980f46e720c62
+    Image:          nishantapatil3/crossconnect-monitor:vl3_latest
+    Image ID:       sha256:a7e54c21903a5135b4d5d6551c418565deb1ed3a64b2dab881076dd0e7a91a73
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Jun 2021 17:09:30 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                   false
+      METRICS_COLLECTOR_ENABLED:  false
+      PROMETHEUS:                 false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-crossconnect-monitor-service-account-token-7nzvj (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-crossconnect-monitor-service-account-token-7nzvj:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-crossconnect-monitor-service-account-token-7nzvj
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  20m   default-scheduler  Successfully assigned nsm-system/wcm-crossconnect-monitor-c4db96966-cnh26 to kind-3-control-plane
+  Normal  Pulled     20m   kubelet            Container image "nishantapatil3/crossconnect-monitor:vl3_latest" already present on machine
+  Normal  Created    20m   kubelet            Created container crossconnect-monitor
+  Normal  Started    20m   kubelet            Started container crossconnect-monitor
+

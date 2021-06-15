@@ -6,154 +6,9 @@ items:
       deployment.kubernetes.io/desired-replicas: "1"
       deployment.kubernetes.io/max-replicas: "2"
       deployment.kubernetes.io/revision: "1"
-      ns.networkservicemesh.io: green?service=helloworld&port=5000&clusterName=cluster3
-    creationTimestamp: "2021-06-14T19:42:15Z"
-    generation: 1
-    labels:
-      app: helloworld-green
-      nsm/servicename: helloworld.cluster3.nispatil-wcm-cisco.com
-      pod-template-hash: 64b8686595
-      version: v1
-    name: helloworld-green-64b8686595
-    namespace: default
-    ownerReferences:
-    - apiVersion: apps/v1
-      blockOwnerDeletion: true
-      controller: true
-      kind: Deployment
-      name: helloworld-green
-      uid: adb1b312-5463-4b02-9e94-b6f7aea1d5d8
-    resourceVersion: "2775"
-    selfLink: /apis/apps/v1/namespaces/default/replicasets/helloworld-green-64b8686595
-    uid: 0012f2a3-2c6e-4c5d-b5ea-08d081161337
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        app: helloworld-green
-        pod-template-hash: 64b8686595
-        version: v1
-    template:
-      metadata:
-        creationTimestamp: null
-        labels:
-          app: helloworld-green
-          nsm/servicename: helloworld.cluster3.nispatil-wcm-cisco.com
-          pod-template-hash: 64b8686595
-          version: v1
-      spec:
-        containers:
-        - image: docker.io/istio/examples-helloworld-v1:latest
-          imagePullPolicy: IfNotPresent
-          name: helloworld
-          ports:
-          - containerPort: 5000
-            protocol: TCP
-          resources:
-            requests:
-              cpu: 100m
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-        - command:
-          - /bin/nsm-monitor
-          env:
-          - name: MONITOR_DNS_CONFIGS
-            value: "true"
-          - name: NS_NETWORKSERVICEMESH_IO
-            value: green?service=helloworld&port=5000&clusterName=cluster3
-          image: nishantapatil3/nsm-monitor:vl3_latest
-          imagePullPolicy: IfNotPresent
-          name: nsm-dns-monitor
-          resources:
-            limits:
-              networkservicemesh.io/socket: "1"
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-          - mountPath: /etc/coredns
-            name: nsm-coredns-volume
-        - args:
-          - -conf
-          - /etc/coredns/Corefile
-          image: nishantapatil3/nsm-coredns:vl3_latest
-          imagePullPolicy: IfNotPresent
-          name: coredns
-          resources:
-            limits:
-              networkservicemesh.io/socket: "1"
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-          - mountPath: /etc/coredns
-            name: nsm-coredns-volume
-        dnsPolicy: ClusterFirst
-        initContainers:
-        - command:
-          - /bin/nsm-dns-init
-          env:
-          - name: NS_NETWORKSERVICEMESH_IO
-            value: green?service=helloworld&port=5000&clusterName=cluster3
-          - name: NSM_NAMESPACE
-            value: nsm-system
-          - name: JAEGER_AGENT_HOST
-            value: wcm-jaeger.nsm-system
-          - name: TRACER_ENABLED
-            value: "true"
-          - name: JAEGER_AGENT_PORT
-            value: "6831"
-          image: nishantapatil3/nsm-dns-init:vl3_latest
-          imagePullPolicy: IfNotPresent
-          name: nsm-dns-init
-          resources:
-            limits:
-              networkservicemesh.io/socket: "1"
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          volumeMounts:
-          - mountPath: /etc/coredns
-            name: nsm-coredns-volume
-        - env:
-          - name: NS_NETWORKSERVICEMESH_IO
-            value: green?service=helloworld&port=5000&clusterName=cluster3
-          - name: NSM_NAMESPACE
-            value: nsm-system
-          - name: JAEGER_AGENT_HOST
-            value: wcm-jaeger.nsm-system
-          - name: TRACER_ENABLED
-            value: "true"
-          - name: JAEGER_AGENT_PORT
-            value: "6831"
-          image: nishantapatil3/nsm-init:vl3_latest
-          imagePullPolicy: IfNotPresent
-          name: nsm-init-container
-          resources:
-            limits:
-              networkservicemesh.io/socket: "1"
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-        restartPolicy: Always
-        schedulerName: default-scheduler
-        securityContext: {}
-        serviceAccount: nsc-service-account
-        serviceAccountName: nsc-service-account
-        terminationGracePeriodSeconds: 30
-        volumes:
-        - emptyDir: {}
-          name: nsm-coredns-volume
-  status:
-    availableReplicas: 1
-    fullyLabeledReplicas: 1
-    observedGeneration: 1
-    readyReplicas: 1
-    replicas: 1
-- metadata:
-    annotations:
-      deployment.kubernetes.io/desired-replicas: "1"
-      deployment.kubernetes.io/max-replicas: "2"
-      deployment.kubernetes.io/revision: "1"
       meta.helm.sh/release-name: member-core-operator-release
       meta.helm.sh/release-namespace: default
-    creationTimestamp: "2021-06-14T19:38:28Z"
+    creationTimestamp: "2021-06-15T16:22:52Z"
     generation: 1
     labels:
       name: member-core-operator
@@ -166,10 +21,10 @@ items:
       controller: true
       kind: Deployment
       name: member-core-operator
-      uid: 6d2e8192-a02e-486a-8393-a140cf993a4a
-    resourceVersion: "1547"
+      uid: b7648adb-b69b-4fbf-8ac1-5fa5abdda66d
+    resourceVersion: "2621"
     selfLink: /apis/apps/v1/namespaces/default/replicasets/member-core-operator-d598d4888
-    uid: e26037a3-9ca8-4e79-9b07-1410c68eed8a
+    uid: 4f35e027-37ff-43b0-988e-939a925a6b84
   spec:
     replicas: 1
     selector:
@@ -227,5 +82,5 @@ items:
     replicas: 1
 kind: ReplicaSetList
 metadata:
-  resourceVersion: "6006"
+  resourceVersion: "5239"
   selfLink: /apis/apps/v1/namespaces/default/replicasets

@@ -1,0 +1,54 @@
+Name:         etcd-operator-84cf6bc5d5-j9zbv
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Tue, 15 Jun 2021 16:22:22 +0000
+Labels:       app=etcd-operator
+              pod-template-hash=84cf6bc5d5
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  ReplicaSet/etcd-operator-84cf6bc5d5
+Containers:
+  etcd-operator:
+    Container ID:  containerd://be0295b192ef9f1f94b8ebfa41c40de64f798383c9e8a49c4eb1b83611e5253f
+    Image:         quay.io/coreos/etcd-operator:v0.9.4
+    Image ID:      sha256:9d5c51d92fbddcda022478def5889a9ceb074305d83f2336cfc228827a03d5d5
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      etcd-operator
+    State:          Running
+      Started:      Tue, 15 Jun 2021 16:22:23 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      MY_POD_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      MY_POD_NAME:       etcd-operator-84cf6bc5d5-j9zbv (v1:metadata.name)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-ptqvm (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-ptqvm:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-ptqvm
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned wcm-system/etcd-operator-84cf6bc5d5-j9zbv to kind-1-control-plane
+  Normal  Pulled     11m   kubelet            Container image "quay.io/coreos/etcd-operator:v0.9.4" already present on machine
+  Normal  Created    11m   kubelet            Created container etcd-operator
+  Normal  Started    11m   kubelet            Started container etcd-operator
+

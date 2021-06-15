@@ -1,0 +1,79 @@
+Name:                 kube-proxy-bqrb2
+Namespace:            kube-system
+Priority:             2000001000
+Priority Class Name:  system-node-critical
+Node:                 kind-2-control-plane/172.17.0.3
+Start Time:           Tue, 15 Jun 2021 16:09:41 +0000
+Labels:               controller-revision-hash=ffd768b57
+                      k8s-app=kube-proxy
+                      pod-template-generation=1
+Annotations:          <none>
+Status:               Running
+IP:                   172.17.0.3
+IPs:
+  IP:           172.17.0.3
+Controlled By:  DaemonSet/kube-proxy
+Containers:
+  kube-proxy:
+    Container ID:  containerd://f2dd555f10650ccd0f71ca1b239619127a70fa02555134cf8739ce8b18eef2b5
+    Image:         k8s.gcr.io/kube-proxy:v1.17.5
+    Image ID:      sha256:da46d9e67f5bf2df91845fee23059c32009e8c541247147b0b2a2c48b9a03f66
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /usr/local/bin/kube-proxy
+      --config=/var/lib/kube-proxy/config.conf
+      --hostname-override=$(NODE_NAME)
+    State:          Running
+      Started:      Tue, 15 Jun 2021 16:09:47 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      NODE_NAME:   (v1:spec.nodeName)
+    Mounts:
+      /lib/modules from lib-modules (ro)
+      /run/xtables.lock from xtables-lock (rw)
+      /var/lib/kube-proxy from kube-proxy (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-proxy-token-p72pb (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-proxy:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      kube-proxy
+    Optional:  false
+  xtables-lock:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/xtables.lock
+    HostPathType:  FileOrCreate
+  lib-modules:
+    Type:          HostPath (bare host directory volume)
+    Path:          /lib/modules
+    HostPathType:  
+  kube-proxy-token-p72pb:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  kube-proxy-token-p72pb
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     op=Exists
+                 CriticalAddonsOnly op=Exists
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  24m   default-scheduler  Successfully assigned kube-system/kube-proxy-bqrb2 to kind-2-control-plane
+  Normal  Pulled     24m   kubelet            Container image "k8s.gcr.io/kube-proxy:v1.17.5" already present on machine
+  Normal  Created    24m   kubelet            Created container kube-proxy
+  Normal  Started    24m   kubelet            Started container kube-proxy
+

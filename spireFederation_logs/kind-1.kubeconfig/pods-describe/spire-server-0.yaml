@@ -2,7 +2,7 @@ Name:         spire-server-0
 Namespace:    spire
 Priority:     0
 Node:         kind-1-control-plane/172.17.0.2
-Start Time:   Mon, 14 Jun 2021 19:38:07 +0000
+Start Time:   Tue, 15 Jun 2021 16:22:22 +0000
 Labels:       app=spire-server
               controller-revision-hash=spire-server-76f96758f8
               statefulset.kubernetes.io/pod-name=spire-server-0
@@ -14,22 +14,22 @@ IPs:
 Controlled By:  StatefulSet/spire-server
 Containers:
   nsm-spire:
-    Container ID:   containerd://6a66b6f2d4326aafac055c5f60849c3daf285556e0a80289fe7eb910ea943ff5
+    Container ID:   containerd://7c2015146915616a3cb0a444a417b881180de5e5c4f803cf53dc577ab2041450
     Image:          docker.io/networkservicemesh/nsm-spire:master
     Image ID:       docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
     Port:           <none>
     Host Port:      <none>
     State:          Running
-      Started:      Mon, 14 Jun 2021 19:38:11 +0000
+      Started:      Tue, 15 Jun 2021 16:22:26 +0000
     Ready:          True
     Restart Count:  0
     Environment:    <none>
     Mounts:
       /run/spire/entries from spire-entries (ro)
       /run/spire/sockets from spire-server-socket (ro)
-      /var/run/secrets/kubernetes.io/serviceaccount from spire-server-token-szjwd (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from spire-server-token-lp4df (ro)
   spire-server:
-    Container ID:  containerd://0c212cb33634bcc83e6be9a63b9ba7f980d799b23008cfa470e4ed4ab8b5f897
+    Container ID:  containerd://2b16dba912a324542eb02822baa2bbaeda705f287bdd0796b353aa89a2e04d57
     Image:         gcr.io/spiffe-io/spire-server:0.11.3
     Image ID:      gcr.io/spiffe-io/spire-server@sha256:3b371f6c513d61ae5f4e4db845ac36223da7782923a5ee57038cba9a161a3f93
     Port:          8081/TCP
@@ -38,7 +38,7 @@ Containers:
       -config
       /run/spire/config/server.conf
     State:          Running
-      Started:      Mon, 14 Jun 2021 19:38:19 +0000
+      Started:      Tue, 15 Jun 2021 16:22:29 +0000
     Ready:          True
     Restart Count:  0
     Liveness:       tcp-socket :8081 delay=15s timeout=3s period=60s #success=1 #failure=2
@@ -48,7 +48,7 @@ Containers:
       /run/spire/data from spire-data (rw)
       /run/spire/secret from spire-secret (rw)
       /run/spire/sockets from spire-server-socket (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from spire-server-token-szjwd (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from spire-server-token-lp4df (ro)
 Conditions:
   Type              Status
   Initialized       True 
@@ -76,9 +76,9 @@ Volumes:
     Type:          HostPath (bare host directory volume)
     Path:          /var/spire-data
     HostPathType:  DirectoryOrCreate
-  spire-server-token-szjwd:
+  spire-server-token-lp4df:
     Type:        Secret (a volume populated by a Secret)
-    SecretName:  spire-server-token-szjwd
+    SecretName:  spire-server-token-lp4df
     Optional:    false
 QoS Class:       BestEffort
 Node-Selectors:  <none>
@@ -87,13 +87,13 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  22m   default-scheduler  Successfully assigned spire/spire-server-0 to kind-1-control-plane
-  Normal  Pulling    22m   kubelet            Pulling image "docker.io/networkservicemesh/nsm-spire:master"
-  Normal  Pulled     22m   kubelet            Successfully pulled image "docker.io/networkservicemesh/nsm-spire:master"
-  Normal  Created    22m   kubelet            Created container nsm-spire
-  Normal  Started    22m   kubelet            Started container nsm-spire
-  Normal  Pulling    22m   kubelet            Pulling image "gcr.io/spiffe-io/spire-server:0.11.3"
-  Normal  Pulled     22m   kubelet            Successfully pulled image "gcr.io/spiffe-io/spire-server:0.11.3"
-  Normal  Created    22m   kubelet            Created container spire-server
-  Normal  Started    22m   kubelet            Started container spire-server
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned spire/spire-server-0 to kind-1-control-plane
+  Normal  Pulling    11m   kubelet            Pulling image "docker.io/networkservicemesh/nsm-spire:master"
+  Normal  Pulled     11m   kubelet            Successfully pulled image "docker.io/networkservicemesh/nsm-spire:master"
+  Normal  Created    11m   kubelet            Created container nsm-spire
+  Normal  Started    11m   kubelet            Started container nsm-spire
+  Normal  Pulling    11m   kubelet            Pulling image "gcr.io/spiffe-io/spire-server:0.11.3"
+  Normal  Pulled     11m   kubelet            Successfully pulled image "gcr.io/spiffe-io/spire-server:0.11.3"
+  Normal  Created    11m   kubelet            Created container spire-server
+  Normal  Started    11m   kubelet            Started container spire-server
 

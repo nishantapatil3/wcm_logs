@@ -6,11 +6,11 @@ Annotations:  meta.helm.sh/release-name: member-core-cr-release
 API Version:  wcm.cisco.com/v1alpha1
 Kind:         MemberCore
 Metadata:
-  Creation Timestamp:  2021-06-14T19:38:28Z
+  Creation Timestamp:  2021-06-15T16:22:53Z
   Generation:          1
-  Resource Version:    6006
+  Resource Version:    5169
   Self Link:           /apis/wcm.cisco.com/v1alpha1/membercores/wcm
-  UID:                 3231ab0a-5b58-4b3e-bfbb-78ccc5b1f943
+  UID:                 a917afac-4220-4d43-b627-3378e4a6abab
 Spec:
   Federates With:
     Address:       172.17.255.1
@@ -27,48 +27,47 @@ Status:
     Deployment:       wcm-crossconnect-monitor
     Service Account:  wcm-crossconnect-monitor-service-account
   Jaeger:
-    Service:  wcm-jaeger
+    Deployment:  wcm-jaeger
+    Service:     wcm-jaeger
   Nse Discovery:
     Cluster Role:          wcm-nse-discovery-cluster-role
     Cluster Role Binding:  wcm-nse-discovery-cluster-role-binding
     Deployment:            wcm-nse-discovery
     Service Account:       wcm-nse-discovery-service-account
   Nsm:
-    Cluster Role:          wcm-nsm-cluster-role
-    Cluster Role Binding:  wcm-nsm-cluster-role-binding
-    Cluster Role View:     wcm-nsm-cluster-role-view
-    Config Map:            wcm-nsm-config-map
+    Cluster Role:       wcm-nsm-cluster-role
+    Cluster Role View:  wcm-nsm-cluster-role-view
+    Config Map:         wcm-nsm-config-map
     Crds:
       Network Service Endpoint:  networkserviceendpoints.networkservicemesh.io
       Network Service Manager:   networkservicemanagers.networkservicemesh.io
     Namespace:                   nsm-system
     Nsm Admission Webhook:
       Deployment:  wcm-nsm-admission-webhook
-      Secret:      wcm-nsm-admission-webhook-secret
       Service:     wcm-nsm-admission-webhook
     Nsm Vpp Forwarder:
       Daemon Set:       wcm-nsm-vpp-forwarder
       Service Account:  wcm-nsm-vpp-forwarder-service-account
     Nsmgr:
-      Daemon Set:       wcm-nsmgr
-      Service:          wcm-nsmgr
-      Service Account:  wcm-nsmgr-service-account
+      Daemon Set:  wcm-nsmgr
+      Service:     wcm-nsmgr
   Pods:
-    Name:    wcm-crossconnect-monitor-c4db96966-jsztt
+    Name:    wcm-nsm-vpp-forwarder-kcstt
     Status:  Running
-    Name:    wcm-nsm-vpp-forwarder-ghtf6
+    Name:    wcm-nse-discovery-5f68d85698-2xkfn
     Status:  Running
-    Name:    wcm-nse-discovery-5f68d85698-b42bp
+    Name:    wcm-jaeger-86c548cd44-vns87
     Status:  Running
-    Name:    wcm-jaeger-86c548cd44-fjfb8
+    Name:    wcm-nsmgr-45wvw
     Status:  Running
-    Name:    wcm-proxy-nsmgr-7599b46ff-vtflj
+    Name:    wcm-proxy-nsmgr-7599b46ff-nps2w
     Status:  Running
-    Name:    wcm-nsmgr-vz6xp
+    Name:    wcm-crossconnect-monitor-c4db96966-g9w6z
     Status:  Running
-    Name:    wcm-nsm-admission-webhook-684d7fd7b5-cz4b9
+    Name:    wcm-nsm-admission-webhook-684d7fd7b5-6ml87
     Status:  Running
   Prefix - Service:
+    Deployment:  wcm-prefix-service
   Proxy - Nsmgr:
     Deployment:       wcm-proxy-nsmgr
     Service:          wcm-proxy-nsmgr
@@ -81,13 +80,13 @@ Status:
       Daemon Set:            wcm-spire-agent
       Service Account:       wcm-spire-agent-service-account
     Bundle:
-      Config Map:  wcm-spire-bundle-config-map
     Entries:
       Config Map:  wcm-spire-entries-config-map
     Server:
       Cluster Role:          wcm-spire-server-cluster-role
       Cluster Role Binding:  wcm-spire-server-cluster-role-binding
       Config Map:            wcm-spire-server-config-map
+      Secret:                wcm-spire-server-secret
       Service:               wcm-spire-server
       Service Account:       wcm-spire-server-service-account
       Stateful Set:          wcm-spire-server

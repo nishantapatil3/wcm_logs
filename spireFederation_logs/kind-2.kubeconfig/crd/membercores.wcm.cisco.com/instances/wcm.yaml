@@ -6,11 +6,11 @@ Annotations:  meta.helm.sh/release-name: member-core-cr-release
 API Version:  wcm.cisco.com/v1alpha1
 Kind:         MemberCore
 Metadata:
-  Creation Timestamp:  2021-06-14T19:38:26Z
+  Creation Timestamp:  2021-06-15T16:22:50Z
   Generation:          1
-  Resource Version:    5903
+  Resource Version:    5054
   Self Link:           /apis/wcm.cisco.com/v1alpha1/membercores/wcm
-  UID:                 54729aa1-4f5a-4fa9-9a05-911ee645704f
+  UID:                 d29cea93-c2fe-4ddb-a9e6-a3f6c8ad991a
 Spec:
   Federates With:
     Address:       172.17.255.1
@@ -27,21 +27,23 @@ Status:
     Deployment:       wcm-crossconnect-monitor
     Service Account:  wcm-crossconnect-monitor-service-account
   Jaeger:
-    Service:  wcm-jaeger
+    Deployment:  wcm-jaeger
   Nse Discovery:
-    Cluster Role:          wcm-nse-discovery-cluster-role
     Cluster Role Binding:  wcm-nse-discovery-cluster-role-binding
     Deployment:            wcm-nse-discovery
     Service:               wcm-nse-discovery
+    Service Account:       wcm-nse-discovery-service-account
   Nsm:
-    Cluster Role:          wcm-nsm-cluster-role
-    Cluster Role Binding:  wcm-nsm-cluster-role-binding
-    Config Map:            wcm-nsm-config-map
+    Cluster Role:       wcm-nsm-cluster-role
+    Cluster Role View:  wcm-nsm-cluster-role-view
+    Config Map:         wcm-nsm-config-map
     Crds:
+      Network Service:           networkservices.networkservicemesh.io
       Network Service Endpoint:  networkserviceendpoints.networkservicemesh.io
       Network Service Manager:   networkservicemanagers.networkservicemesh.io
     Namespace:                   nsm-system
     Nsm Admission Webhook:
+      Deployment:                      wcm-nsm-admission-webhook
       Mutating Webhook Configuration:  wcm-nsm-admission-webhook-mutating-webhook-config
       Secret:                          wcm-nsm-admission-webhook-secret
       Service:                         wcm-nsm-admission-webhook
@@ -49,28 +51,28 @@ Status:
       Daemon Set:       wcm-nsm-vpp-forwarder
       Service Account:  wcm-nsm-vpp-forwarder-service-account
     Nsmgr:
-      Daemon Set:       wcm-nsmgr
-      Service:          wcm-nsmgr
-      Service Account:  wcm-nsmgr-service-account
+      Daemon Set:  wcm-nsmgr
+      Service:     wcm-nsmgr
   Pods:
-    Name:    wcm-crossconnect-monitor-c4db96966-l89sq
+    Name:    wcm-nsm-vpp-forwarder-pjlqx
     Status:  Running
-    Name:    wcm-jaeger-86c548cd44-2g29n
+    Name:    wcm-nsmgr-mxxdf
     Status:  Running
-    Name:    wcm-nsm-vpp-forwarder-s5dnb
+    Name:    wcm-nse-discovery-6fd76df87f-mz5qr
     Status:  Running
-    Name:    wcm-nse-discovery-6fd76df87f-s4ld2
+    Name:    wcm-crossconnect-monitor-c4db96966-9gpp7
     Status:  Running
-    Name:    wcm-nsm-admission-webhook-684d7fd7b5-mnf8p
+    Name:    wcm-nsm-admission-webhook-684d7fd7b5-7dng5
     Status:  Running
-    Name:    wcm-proxy-nsmgr-7599b46ff-9z8qf
+    Name:    wcm-jaeger-86c548cd44-stbrz
     Status:  Running
-    Name:    wcm-nsmgr-7z474
+    Name:    wcm-proxy-nsmgr-7599b46ff-fktqp
     Status:  Running
   Prefix - Service:
     Deployment:  wcm-prefix-service
   Proxy - Nsmgr:
     Deployment:       wcm-proxy-nsmgr
+    Service:          wcm-proxy-nsmgr
     Service Account:  wcm-proxy-nsmgr-service-account
   Spire:
     Agent:
@@ -78,14 +80,15 @@ Status:
       Cluster Role Binding:  wcm-spire-agent-cluster-role-binding
       Config Map:            wcm-spire-agent-config-map
       Daemon Set:            wcm-spire-agent
-      Service Account:       wcm-spire-agent-service-account
     Bundle:
-      Config Map:  wcm-spire-bundle-config-map
     Entries:
+      Config Map:  wcm-spire-entries-config-map
     Server:
       Cluster Role:          wcm-spire-server-cluster-role
       Cluster Role Binding:  wcm-spire-server-cluster-role-binding
       Config Map:            wcm-spire-server-config-map
       Secret:                wcm-spire-server-secret
       Service:               wcm-spire-server
+      Service Account:       wcm-spire-server-service-account
+      Stateful Set:          wcm-spire-server
 Events:                      <none>

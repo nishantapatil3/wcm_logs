@@ -1,0 +1,65 @@
+Name:         istio-operator-69678d7cfb-g8656
+Namespace:    istio-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Tue, 15 Jun 2021 16:22:38 +0000
+Labels:       name=istio-operator
+              pod-template-hash=69678d7cfb
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  ReplicaSet/istio-operator-69678d7cfb
+Containers:
+  istio-operator:
+    Container ID:  containerd://1e81cf15eca9c0af51d8eb22f5d975b5d4d45ec4c68cc3516f619481849229cf
+    Image:         docker.io/istio/operator:1.8.3
+    Image ID:      sha256:5f582e5590ccc71ed73913e520c3347bb5185f7c75c798883aad3280c80cde96
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      operator
+      server
+    State:          Running
+      Started:      Tue, 15 Jun 2021 16:22:38 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     200m
+      memory:  256Mi
+    Requests:
+      cpu:     50m
+      memory:  128Mi
+    Environment:
+      WATCH_NAMESPACE:             istio-system
+      LEADER_ELECTION_NAMESPACE:   istio-system
+      POD_NAME:                    istio-operator-69678d7cfb-g8656 (v1:metadata.name)
+      OPERATOR_NAME:               istio-system
+      WAIT_FOR_RESOURCES_TIMEOUT:  300s
+      REVISION:                    
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from istio-operator-token-pz4n6 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  istio-operator-token-pz4n6:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istio-operator-token-pz4n6
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned istio-system/istio-operator-69678d7cfb-g8656 to kind-1-control-plane
+  Normal  Pulled     11m   kubelet            Container image "docker.io/istio/operator:1.8.3" already present on machine
+  Normal  Created    11m   kubelet            Created container istio-operator
+  Normal  Started    11m   kubelet            Started container istio-operator
+

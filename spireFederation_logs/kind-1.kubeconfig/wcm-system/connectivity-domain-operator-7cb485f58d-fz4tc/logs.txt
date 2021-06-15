@@ -1,0 +1,713 @@
+==== START logs for container connectivity-domain-operator of pod wcm-system/connectivity-domain-operator-7cb485f58d-fz4tc ====
+{"level":"info","ts":1623774156.4602382,"logger":"cmd","msg":"Operator Version: 0.0.1"}
+{"level":"info","ts":1623774156.4602928,"logger":"cmd","msg":"Go Version: go1.15.8"}
+{"level":"info","ts":1623774156.4603004,"logger":"cmd","msg":"Go OS/Arch: linux/amd64"}
+{"level":"info","ts":1623774156.4603066,"logger":"cmd","msg":"Version of operator-sdk: v0.18.1"}
+{"level":"info","ts":1623774156.4606678,"logger":"cmd","msg":"Configs:"}
+{"level":"info","ts":1623774156.4609056,"logger":"leader","msg":"Trying to become the leader."}
+{"level":"info","ts":1623774156.929625,"logger":"leader","msg":"No pre-existing lock was found."}
+{"level":"info","ts":1623774156.9339125,"logger":"leader","msg":"Became the leader."}
+{"level":"info","ts":1623774157.3870187,"logger":"controller-runtime.metrics","msg":"metrics server is starting to listen","addr":"0.0.0.0:8383"}
+{"level":"info","ts":1623774157.3874955,"logger":"cmd","msg":"Registering Components."}
+{"level":"info","ts":1623774158.299078,"logger":"cmd","msg":"Could not create metrics Service","error":"failed to initialize service object for metrics: replicasets.apps \"connectivity-domain-operator-7cb485f58d\" is forbidden: User \"system:serviceaccount:wcm-system:connectivity-domain-operator-service-account\" cannot get resource \"replicasets\" in API group \"apps\" in the namespace \"wcm-system\""}
+{"level":"info","ts":1623774158.753427,"logger":"cmd","msg":"Could not create ServiceMonitor object","error":"no ServiceMonitor registered with the API"}
+{"level":"info","ts":1623774158.7536073,"logger":"cmd","msg":"Install prometheus-operator in your cluster to create ServiceMonitor objects","error":"no ServiceMonitor registered with the API"}
+{"level":"info","ts":1623774158.7536476,"logger":"cmd","msg":"Starting the Cmd."}
+{"level":"info","ts":1623774158.7545621,"logger":"controller-runtime.manager","msg":"starting metrics server","path":"/metrics"}
+{"level":"info","ts":1623774158.7548628,"logger":"controller","msg":"Starting EventSource","controller":"connectivitydomain-controller","source":"kind source: /, Kind="}
+{"level":"info","ts":1623774158.855405,"logger":"controller","msg":"Starting EventSource","controller":"connectivitydomain-controller","source":"kind source: /, Kind="}
+{"level":"info","ts":1623774158.955859,"logger":"controller","msg":"Starting EventSource","controller":"connectivitydomain-controller","source":"kind source: /, Kind="}
+{"level":"info","ts":1623774159.0565236,"logger":"controller","msg":"Starting Controller","controller":"connectivitydomain-controller"}
+{"level":"info","ts":1623774159.0569265,"logger":"controller","msg":"Starting workers","controller":"connectivitydomain-controller","worker count":1}
+{"level":"info","ts":1623774294.2622628,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774294.262385,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774294.2626216,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"error","ts":1623774294.3757787,"logger":"controller_connectivitydomain","msg":"An error occurred","component":"NSR","method":"UpdateObject","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\ncisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject.func1\n\tcommon-operator-resources/resources.go:859\ncisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject\n\tcommon-operator-resources/resources.go:869\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*ReconcileConnectivityDomain).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:236\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"error","ts":1623774294.3773367,"logger":"controller_connectivitydomain","msg":"An Error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile.func1\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:106\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"error","ts":1623774294.377483,"logger":"controller","msg":"Reconciler error","controller":"connectivitydomain-controller","name":"green","namespace":"wcm-system","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:237\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"info","ts":1623774295.3779407,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.3779962,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.4889078,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.4889946,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774295.4894247,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.489462,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.489475,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.5030835,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.503554,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774295.5038133,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.504408,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.5046268,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.5047503,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.555316,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.5553653,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774295.555446,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.55552,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.555556,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.5557141,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.55576,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.677647,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774295.6776936,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774295.677809,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.6778274,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.6778417,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.6781673,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.678276,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774295.678383,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"error","ts":1623774295.688437,"logger":"controller_connectivitydomain","msg":"An error occurred","component":"WCMD","method":"UpdateObject","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\ncisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject.func1\n\tcommon-operator-resources/resources.go:859\ncisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject\n\tcommon-operator-resources/resources.go:869\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*ReconcileConnectivityDomain).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:296\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"error","ts":1623774295.6888087,"logger":"controller_connectivitydomain","msg":"An Error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile.func1\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:106\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"error","ts":1623774295.689055,"logger":"controller","msg":"Reconciler error","controller":"connectivitydomain-controller","name":"green","namespace":"wcm-system","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:237\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"info","ts":1623774296.6896753,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.689714,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.6897306,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.6898327,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.6899014,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.689976,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.6899927,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7031832,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.703241,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774296.7033508,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.703374,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.703445,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.703572,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.706199,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7065196,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7067206,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7069337,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7578888,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7579463,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774296.758189,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7583165,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7583835,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7585034,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.758535,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7585638,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7585883,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.758881,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.759001,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.776453,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7774441,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774296.7789023,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7790077,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7790864,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7791739,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7793756,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.779855,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7829206,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7829986,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7830176,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7832391,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7951367,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7951772,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774296.7957685,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7960374,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7962606,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7965288,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7967186,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7969873,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7977183,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7977722,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7977915,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7978354,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.7978516,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.821028,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.821505,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774296.8220375,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.822276,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8224685,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8244455,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8246777,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8248465,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8250127,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8251956,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8253846,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8255937,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8257606,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8261847,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8995733,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8996756,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774296.8998084,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.899828,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8998396,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.8999033,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.900065,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774296.9002342,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.90027,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.900297,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.900312,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774296.900332,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.900344,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.9003978,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774296.9005299,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6363933,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6366773,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774297.6367996,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6368158,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774297.636829,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6368694,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774297.636887,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6369138,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774297.636927,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6369514,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774297.636965,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6370041,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6370165,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774297.637039,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774297.6373947,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774297.637569,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"error","ts":1623774297.6511238,"logger":"controller_connectivitydomain","msg":"An error occurred","component":"istio","method":"UpdateObject","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\ncisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject.func1\n\tcommon-operator-resources/resources.go:859\ncisco-app-networking.github.io/wcm-api/common-operator-resources.LogWCMComponent.UpdateObject\n\tcommon-operator-resources/resources.go:869\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*ReconcileConnectivityDomain).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:395\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"error","ts":1623774297.6514792,"logger":"controller_connectivitydomain","msg":"An Error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile.func1\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:106\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"error","ts":1623774297.651556,"logger":"controller","msg":"Reconciler error","controller":"connectivitydomain-controller","name":"green","namespace":"wcm-system","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:237\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"info","ts":1623774298.6520772,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6521285,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6521757,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.652215,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.652653,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6529527,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6529694,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6530282,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6530766,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6531012,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6531749,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6533263,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6533575,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.653428,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.6534529,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.773937,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7739875,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774298.774249,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7742908,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7743046,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7743309,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.774378,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.774405,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7744195,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7744446,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7744577,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7744763,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.774487,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.774506,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.774518,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7745655,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.774585,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7746391,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7906864,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7907338,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774298.7908564,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7908828,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7908938,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7909303,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.790947,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7909722,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.790995,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7910192,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7910328,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7910552,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7910628,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7910812,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7910898,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7911365,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7911546,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7911742,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.7911882,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.805242,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8054209,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774298.8055692,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8055875,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8056002,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8056335,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8056488,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.805673,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.805687,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.805713,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.805725,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8057432,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.805823,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.805851,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8059003,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8059602,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8059843,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.806006,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774298.80602,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774298.8060327,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774298.9311824,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774298.9312456,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774301.246017,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2479863,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2480323,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2480636,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2480814,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.248103,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.248111,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2481663,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2481825,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2482002,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2482336,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2482562,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2483835,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.248499,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2485342,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2485504,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.24856,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2485688,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.248718,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2670531,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2672422,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774301.268172,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2682965,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2684064,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2685802,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2686856,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2687805,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2688432,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2689178,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.268999,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2691324,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2691727,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.269198,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2693532,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.269442,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2695446,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2696624,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2703063,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.27037,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.270473,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.27064,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.279598,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2796462,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774301.2797189,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2797382,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2797718,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2798004,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.279929,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2801185,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2801673,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2801952,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.28021,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2802284,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.280353,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2803981,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.280414,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.280667,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2807293,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.280753,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2808216,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2808638,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2809935,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2811763,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.281315,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2903926,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2904987,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774301.2906048,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2906222,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2907116,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2907789,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2908006,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.290824,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2908366,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2908611,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2909617,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.291089,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2911918,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2912638,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.291364,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2915082,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2915535,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2915773,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2915947,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2916498,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2917678,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.2918391,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774301.291865,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774301.291914,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3009486,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774301.301191,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774301.3113725,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3114905,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.311527,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3116105,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3117347,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3117793,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.311791,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3118143,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3118267,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774301.3120131,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"error","ts":1623774301.4419937,"logger":"controller_connectivitydomain","msg":"An Error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile.func1\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:106\ncisco-app-networking.github.io/wcm-api/connectivity-domain-operator/pkg/controller/connectivitydomain.(*LoggingConnectivityDomainReconciler).Reconcile\n\tconnectivity-domain-operator/pkg/controller/connectivitydomain/connectivitydomain_controller.go:117\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:235\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"error","ts":1623774301.4421027,"logger":"controller","msg":"Reconciler error","controller":"connectivitydomain-controller","name":"green","namespace":"wcm-system","error":"Operation cannot be fulfilled on connectivitydomains.wcm.cisco.com \"green\": the object has been modified; please apply your changes to the latest version and try again","stacktrace":"github.com/go-logr/zapr.(*zapLogger).Error\n\t/Users/nispatil/go/pkg/mod/github.com/go-logr/zapr@v0.1.1/zapr.go:128\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:237\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:209\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).worker\n\t/Users/nispatil/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.6.2/pkg/internal/controller/controller.go:188\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:155\nk8s.io/apimachinery/pkg/util/wait.BackoffUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:156\nk8s.io/apimachinery/pkg/util/wait.JitterUntil\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:133\nk8s.io/apimachinery/pkg/util/wait.Until\n\t/Users/nispatil/go/pkg/mod/k8s.io/apimachinery@v0.18.6/pkg/util/wait/wait.go:90"}
+{"level":"info","ts":1623774302.4423358,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.442497,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.442514,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.442538,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4425492,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4425728,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4425874,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4426308,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.442668,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4426916,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4427161,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4427376,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4427574,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4428067,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4429264,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.442972,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4429889,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4430015,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.443033,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4431033,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4431527,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4431667,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4431765,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.443197,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4481814,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774302.4485862,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4486232,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.448634,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4486604,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4486773,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4486961,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4487283,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4487584,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4488227,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4488668,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4488792,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4489007,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4489145,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4489589,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4489813,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4490268,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4490435,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4490795,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4491127,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.449167,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4493806,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4495103,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4495468,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4495854,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4548182,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774302.4549189,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.454939,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4550629,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4551587,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4551785,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4552133,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4552267,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4552526,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4553154,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4553475,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4553616,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.455383,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4554155,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4554634,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4554956,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4555097,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774302.45552,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4555326,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4555616,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.455653,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4557512,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4557674,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4557772,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.4557962,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774302.455873,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774305.6317666,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6318216,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6318474,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6319032,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6320713,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6321769,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6321976,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6325388,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774305.632592,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6326275,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774305.632911,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6329856,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6338718,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6341584,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6342425,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6342793,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6343057,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6343312,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774305.634583,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774305.634745,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6348152,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6348855,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6349285,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774305.635605,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774305.6359203,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774333.3515,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3515513,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3515637,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3516414,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3517463,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3518162,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3518322,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3518603,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3518763,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3519068,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3519373,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3519585,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3519726,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3520234,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3520532,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3520947,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.352114,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.352148,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3521807,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3522475,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.352296,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3525238,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3525453,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3526876,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3627124,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774333.362832,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3628516,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.362862,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.362888,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.362905,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.362929,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3630235,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3631592,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3632536,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3632758,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3632855,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3633482,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.363394,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.363453,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.363469,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.36349,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.363588,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.363603,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.363653,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.363714,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3637578,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3637712,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3638003,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3638222,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3794932,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774333.3800483,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3800757,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3800893,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3801193,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3801508,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3801749,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3802795,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3803656,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3803825,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3804188,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3804307,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3804471,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3804584,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3805096,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3805323,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3805509,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3805654,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.38058,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3806093,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3806515,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3806775,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3808415,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3808544,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3808758,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.3964992,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774333.4028015,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4029949,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.403076,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4032135,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4033642,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4034724,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4035783,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4036665,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.403752,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4038503,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4039578,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4040449,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.40412,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4042275,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4043548,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4044733,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4045706,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4047313,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774333.404855,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4049716,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4050617,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4051347,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4052043,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4053662,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774333.4122844,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774334.3575442,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774334.3576825,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.357703,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3577316,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.35776,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3577828,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3578072,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3578198,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3578432,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.357857,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3578765,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3578875,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3579133,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.360255,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3603559,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3603835,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3604066,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.360419,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3604321,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3604672,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3605113,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3605397,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.360557,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.360569,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3605988,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3731885,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774334.373629,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3736703,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3736844,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3737116,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.373723,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.373739,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3737473,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3737674,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3737764,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3737898,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.373797,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3738775,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.373898,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3739462,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3739676,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3739877,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3740041,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.37426,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3743024,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.374396,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3744261,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3744395,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3744504,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.37447,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3807433,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774334.3809834,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.381063,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3811,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3811302,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3811476,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3811722,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3812037,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3814812,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.381529,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3815682,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3815942,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3816788,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.381832,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3818908,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3819137,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3819375,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.381953,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3819954,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3821323,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3822918,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3823898,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3824651,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3825154,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3825812,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3881829,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774334.3883934,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3884592,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.388482,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3885114,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.388529,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3885548,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3885763,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3886058,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.388645,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.388666,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3886774,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3886979,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3887148,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.388761,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3887844,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3888474,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3888826,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3888974,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774334.388927,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3889694,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774334.389008,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3890178,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.3890276,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.389067,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.4124074,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774334.4451323,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5969863,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5970614,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5970778,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5971162,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.597139,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5972729,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5972984,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.597374,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5973928,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5974581,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5974767,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5976906,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.597708,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5977528,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5978131,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5978334,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5978677,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.597903,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5979612,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5980043,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5980508,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5980642,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5980923,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.5981128,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6035671,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774338.6037369,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6038892,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6039846,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6040368,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6041164,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6042125,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6043158,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6043947,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6044319,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6044514,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6044624,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6044903,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6045046,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.604599,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6047716,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6048143,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6048443,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6048775,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.604947,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6050086,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6050344,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.605072,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6050832,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6051211,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.610671,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+{"level":"info","ts":1623774338.6107635,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6107826,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6107945,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6108325,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6108627,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6108851,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6109748,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6110108,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.611119,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6111581,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6111712,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6112,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6112435,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.611313,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.611349,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6113648,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"cd-info","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6113806,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"WCMD","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6114116,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"NSR","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6114404,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6114767,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"istio","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6115015,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6115208,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6115463,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6115656,"logger":"controller_connectivitydomain","msg":"No error occurred","component":"App dns publisher","method":"UpdateObject"}
+{"level":"info","ts":1623774338.6116493,"logger":"controller_connectivitydomain","msg":"No error occurred","method":"Reconcile","operator":"connectivity domain","request namespace":"wcm-system","request name":"green"}
+==== END logs for container connectivity-domain-operator of pod wcm-system/connectivity-domain-operator-7cb485f58d-fz4tc ====

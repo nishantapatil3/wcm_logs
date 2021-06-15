@@ -1,0 +1,64 @@
+Name:         external-dns-849696cb6d-sqx86
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Tue, 15 Jun 2021 16:22:33 +0000
+Labels:       app=external-dns
+              pod-template-hash=849696cb6d
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.9
+IPs:
+  IP:           10.244.0.9
+Controlled By:  ReplicaSet/external-dns-849696cb6d
+Containers:
+  external-dns:
+    Container ID:  containerd://a248f8a6ebb0ea901d9baa833302fe19e21eb7f14de34e74982af6fc1753a0ee
+    Image:         registry.opensource.zalan.do/teapot/external-dns:v0.7.6
+    Image ID:      sha256:914d04e1dce41c3fc415ea0e91fa2bfd41d37374793d4dacba9fbfdeffcfbaee
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      --log-level=debug
+      --source=service
+      --source=crd
+      --source=istio-virtualservice
+      --source=istio-gateway
+      --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      --crd-source-kind=DNSEndpoint
+      --publish-internal-services
+      --registry=noop
+      --policy=sync
+      --provider=coredns
+      --txt-owner-id=kind-1.kubeconfig
+    State:          Running
+      Started:      Tue, 15 Jun 2021 16:22:34 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      ETCD_URLS:  http://wcm-etcd-cluster-client.wcm-system:2379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from external-dns-token-pqdfc (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  external-dns-token-pqdfc:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  external-dns-token-pqdfc
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned wcm-system/external-dns-849696cb6d-sqx86 to kind-1-control-plane
+  Normal  Pulled     11m   kubelet            Container image "registry.opensource.zalan.do/teapot/external-dns:v0.7.6" already present on machine
+  Normal  Created    11m   kubelet            Created container external-dns
+  Normal  Started    11m   kubelet            Started container external-dns
+

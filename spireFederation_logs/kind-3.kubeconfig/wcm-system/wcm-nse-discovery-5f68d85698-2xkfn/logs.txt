@@ -866,4 +866,220 @@ time="2021-06-15T16:34:01Z" level=info msg="Fetch tlsConfig for Trust Domain: me
 time="2021-06-15T16:34:01Z" level=info msg="Found 1 tlsconfigs."
 time="2021-06-15T16:34:11Z" level=error msg="None of the tls certificates worked: <nil>"
 time="2021-06-15T16:34:11Z" level=info msg="Trying to establish connection using tlsConfig:<nil>"
+time="2021-06-15T16:34:31Z" level=error msg="Error occurred while trying to establish connection to: green.nispatil-wcm-cisco.com:443. Error: context deadline exceeded"
+time="2021-06-15T16:34:31Z" level=error msg="Failed to dial Network Service Registry at green.nispatil-wcm-cisco.com:443: context deadline exceeded" operation=initRegistryClient span="311c23b228ebb263:44b6227a3aa3fafe:311c23b228ebb263:1"
+2021/06/15 16:34:31 Reporting span 311c23b228ebb263:44b6227a3aa3fafe:311c23b228ebb263:1
+2021/06/15 16:34:31 Reporting span 311c23b228ebb263:311c23b228ebb263:0000000000000000:1
+{"level":"info","ts":1623774871.0336223,"caller":"nseinformer/nseInformerController.go:369","msg":"Error processing pod &{{ } {green2cw8m green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/green2cw8m e166d1c1-c82e-48c0-94c6-98efe731b78b 3823 1 2021-06-15 16:26:57 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-25rm4 wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}}: Connection to Network Registry Server is not available","app":"nse-discovery"}
+{"level":"info","ts":1623774871.0336885,"caller":"nseinformer/nseInformerController.go:156","msg":"Processing NSE named greent9mhz...","app":"nse-discovery"}
+{"level":"info","ts":1623774871.0337017,"caller":"nseinformer/nseInformerController.go:163","msg":"Found service name: green","app":"nse-discovery"}
+{"level":"info","ts":1623774871.0337126,"caller":"nseinformer/nseInformerController.go:178","msg":"Getting endpoints from the local NSR","app":"nse-discovery"}
+time="2021-06-15T16:34:31Z" level=info msg="==--> discovery.FindNetworkService() span:0b90e54ebc28b2e8:0b90e54ebc28b2e8:0000000000000000:1"
+time="2021-06-15T16:34:31Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=0b90e54ebc28b2e8:0b90e54ebc28b2e8:0000000000000000:1"
+time="2021-06-15T16:34:31Z" level=info msg=">><<-- nsrURL=\"wcm-proxy-nsmgr.nsm-system:5005\" span=0b90e54ebc28b2e8:0b90e54ebc28b2e8:0000000000000000:1"
+time="2021-06-15T16:34:31Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:34:31Z" level=info msg="==----> initRegistryClient() span:0b90e54ebc28b2e8:04f98a2f645a5edf:0b90e54ebc28b2e8:1"
+time="2021-06-15T16:34:31Z" level=info msg="Waiting for liveness probe: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:34:31Z" level=info msg="Liveness probe was successful: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:34:31Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="0b90e54ebc28b2e8:04f98a2f645a5edf:0b90e54ebc28b2e8:1"
+time="2021-06-15T16:34:31Z" level=info msg="Trying to establish connection to target: wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:34:31Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:34:31Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc0002f2080]}"
+time="2021-06-15T16:34:31Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:34:31Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:34:31Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:34:31Z" level=info msg="Found 1 tlsconfigs."
+time="2021-06-15T16:34:31Z" level=info msg="Found the right tls certificate:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:34:31Z" level=info msg="Trying to establish connection using tlsConfig:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:34:31Z" level=info msg="Successfully connected to wcm-proxy-nsmgr.nsm-system:5005" operation=initRegistryClient span="0b90e54ebc28b2e8:04f98a2f645a5edf:0b90e54ebc28b2e8:1"
+2021/06/15 16:34:31 Reporting span 0b90e54ebc28b2e8:04f98a2f645a5edf:0b90e54ebc28b2e8:1
+{"level":"info","ts":1623774871.095329,"caller":"nseinformer/nseInformerController.go:408","msg":"Discover NSEs from NSR: network_service_name:\"green\" ","app":"nse-discovery"}
+time="2021-06-15T16:34:31Z" level=info msg=">><<---- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=0b90e54ebc28b2e8:0b90e54ebc28b2e8:0000000000000000:1"
+time="2021-06-15T16:34:31Z" level=info msg=">><<---- request={\"network_service_name\":\"green\"} span=0b90e54ebc28b2e8:0b90e54ebc28b2e8:0000000000000000:1"
+2021/06/15 16:34:31 Reporting span 0b90e54ebc28b2e8:0f3cb383000b39bd:0b90e54ebc28b2e8:1
+time="2021-06-15T16:34:31Z" level=info msg=">><<---- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane\",\"url\":\"172.17.0.4:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green2cw8m\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-25rm4\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greent9mhz\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-fq9sm\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=0b90e54ebc28b2e8:0b90e54ebc28b2e8:0000000000000000:1"
+2021/06/15 16:34:31 Reporting span 0b90e54ebc28b2e8:0b90e54ebc28b2e8:0000000000000000:1
+{"level":"info","ts":1623774871.1021476,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name green2cw8m","app":"nse-discovery"}
+{"level":"info","ts":1623774871.1022415,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name greent9mhz","app":"nse-discovery"}
+{"level":"info","ts":1623774871.1023865,"caller":"nseinformer/nseInformerController.go:186","msg":"Retrieved 2 endpoints from the local NSR","app":"nse-discovery"}
+{"level":"info","ts":1623774871.1024792,"caller":"nseinformer/nseInformerController.go:189","msg":"Getting endpoints from the global NSR at: green.nispatil-wcm-cisco.com:443","app":"nse-discovery"}
+time="2021-06-15T16:34:31Z" level=info msg="==--> discovery.FindNetworkService() span:784d9e7673a5c230:784d9e7673a5c230:0000000000000000:1"
+time="2021-06-15T16:34:31Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=784d9e7673a5c230:784d9e7673a5c230:0000000000000000:1"
+time="2021-06-15T16:34:31Z" level=info msg=">><<-- nsrURL=\"green.nispatil-wcm-cisco.com:443\" span=784d9e7673a5c230:784d9e7673a5c230:0000000000000000:1"
+time="2021-06-15T16:34:31Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:34:31Z" level=info msg="==----> initRegistryClient() span:784d9e7673a5c230:78fe7654ef06e864:784d9e7673a5c230:1"
+time="2021-06-15T16:34:31Z" level=info msg="Waiting for liveness probe: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:34:31Z" level=info msg="Liveness probe was successful: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:34:31Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="784d9e7673a5c230:78fe7654ef06e864:784d9e7673a5c230:1"
+time="2021-06-15T16:34:31Z" level=info msg="Trying to establish connection to target: green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:34:31Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:34:31Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc00009b680]}"
+time="2021-06-15T16:34:31Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:34:31Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:34:31Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:34:31Z" level=info msg="Found 1 tlsconfigs."
+time="2021-06-15T16:34:41Z" level=error msg="None of the tls certificates worked: <nil>"
+time="2021-06-15T16:34:41Z" level=info msg="Trying to establish connection using tlsConfig:<nil>"
+time="2021-06-15T16:35:01Z" level=error msg="Error occurred while trying to establish connection to: green.nispatil-wcm-cisco.com:443. Error: context deadline exceeded"
+time="2021-06-15T16:35:01Z" level=error msg="Failed to dial Network Service Registry at green.nispatil-wcm-cisco.com:443: context deadline exceeded" operation=initRegistryClient span="784d9e7673a5c230:78fe7654ef06e864:784d9e7673a5c230:1"
+2021/06/15 16:35:01 Reporting span 784d9e7673a5c230:78fe7654ef06e864:784d9e7673a5c230:1
+2021/06/15 16:35:01 Reporting span 784d9e7673a5c230:784d9e7673a5c230:0000000000000000:1
+{"level":"info","ts":1623774901.1032493,"caller":"nseinformer/nseInformerController.go:369","msg":"Error processing pod &{{ } {greent9mhz green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/greent9mhz 7bd8a158-3bc1-4173-b0cd-55c6067f6c24 3828 1 2021-06-15 16:26:58 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-fq9sm wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}}: Connection to Network Registry Server is not available","app":"nse-discovery"}
+{"level":"info","ts":1623774901.1032972,"caller":"nseinformer/nseInformerController.go:156","msg":"Processing NSE named green2cw8m...","app":"nse-discovery"}
+{"level":"info","ts":1623774901.1033084,"caller":"nseinformer/nseInformerController.go:163","msg":"Found service name: green","app":"nse-discovery"}
+{"level":"info","ts":1623774901.1033697,"caller":"nseinformer/nseInformerController.go:178","msg":"Getting endpoints from the local NSR","app":"nse-discovery"}
+time="2021-06-15T16:35:01Z" level=info msg="==--> discovery.FindNetworkService() span:3c48ed5dbb8bec1b:3c48ed5dbb8bec1b:0000000000000000:1"
+time="2021-06-15T16:35:01Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=3c48ed5dbb8bec1b:3c48ed5dbb8bec1b:0000000000000000:1"
+time="2021-06-15T16:35:01Z" level=info msg=">><<-- nsrURL=\"wcm-proxy-nsmgr.nsm-system:5005\" span=3c48ed5dbb8bec1b:3c48ed5dbb8bec1b:0000000000000000:1"
+time="2021-06-15T16:35:01Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:35:01Z" level=info msg="==----> initRegistryClient() span:3c48ed5dbb8bec1b:6a1c4a3ba5c1980d:3c48ed5dbb8bec1b:1"
+time="2021-06-15T16:35:01Z" level=info msg="Waiting for liveness probe: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:35:01Z" level=info msg="Liveness probe was successful: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:35:01Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="3c48ed5dbb8bec1b:6a1c4a3ba5c1980d:3c48ed5dbb8bec1b:1"
+time="2021-06-15T16:35:01Z" level=info msg="Trying to establish connection to target: wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:35:01Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:35:01Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc0006b3700]}"
+time="2021-06-15T16:35:01Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:35:01Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:35:01Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:35:01Z" level=info msg="Found 1 tlsconfigs."
+time="2021-06-15T16:35:01Z" level=info msg="Found the right tls certificate:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:35:01Z" level=info msg="Trying to establish connection using tlsConfig:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:35:01Z" level=info msg="Successfully connected to wcm-proxy-nsmgr.nsm-system:5005" operation=initRegistryClient span="3c48ed5dbb8bec1b:6a1c4a3ba5c1980d:3c48ed5dbb8bec1b:1"
+2021/06/15 16:35:01 Reporting span 3c48ed5dbb8bec1b:6a1c4a3ba5c1980d:3c48ed5dbb8bec1b:1
+{"level":"info","ts":1623774901.1325912,"caller":"nseinformer/nseInformerController.go:408","msg":"Discover NSEs from NSR: network_service_name:\"green\" ","app":"nse-discovery"}
+time="2021-06-15T16:35:01Z" level=info msg=">><<---- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=3c48ed5dbb8bec1b:3c48ed5dbb8bec1b:0000000000000000:1"
+time="2021-06-15T16:35:01Z" level=info msg=">><<---- request={\"network_service_name\":\"green\"} span=3c48ed5dbb8bec1b:3c48ed5dbb8bec1b:0000000000000000:1"
+2021/06/15 16:35:01 Reporting span 3c48ed5dbb8bec1b:0bb1873aa03179d2:3c48ed5dbb8bec1b:1
+time="2021-06-15T16:35:01Z" level=info msg=">><<---- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane\",\"url\":\"172.17.0.4:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green2cw8m\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-25rm4\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greent9mhz\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-fq9sm\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=3c48ed5dbb8bec1b:3c48ed5dbb8bec1b:0000000000000000:1"
+2021/06/15 16:35:01 Reporting span 3c48ed5dbb8bec1b:3c48ed5dbb8bec1b:0000000000000000:1
+{"level":"info","ts":1623774901.1386006,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name green2cw8m","app":"nse-discovery"}
+{"level":"info","ts":1623774901.1386533,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name greent9mhz","app":"nse-discovery"}
+{"level":"info","ts":1623774901.1386657,"caller":"nseinformer/nseInformerController.go:186","msg":"Retrieved 2 endpoints from the local NSR","app":"nse-discovery"}
+{"level":"info","ts":1623774901.1386774,"caller":"nseinformer/nseInformerController.go:189","msg":"Getting endpoints from the global NSR at: green.nispatil-wcm-cisco.com:443","app":"nse-discovery"}
+time="2021-06-15T16:35:01Z" level=info msg="==--> discovery.FindNetworkService() span:75ae719d9c77c8f2:75ae719d9c77c8f2:0000000000000000:1"
+time="2021-06-15T16:35:01Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=75ae719d9c77c8f2:75ae719d9c77c8f2:0000000000000000:1"
+time="2021-06-15T16:35:01Z" level=info msg=">><<-- nsrURL=\"green.nispatil-wcm-cisco.com:443\" span=75ae719d9c77c8f2:75ae719d9c77c8f2:0000000000000000:1"
+time="2021-06-15T16:35:01Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:35:01Z" level=info msg="==----> initRegistryClient() span:75ae719d9c77c8f2:55c772dad98a2797:75ae719d9c77c8f2:1"
+time="2021-06-15T16:35:01Z" level=info msg="Waiting for liveness probe: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:35:01Z" level=info msg="Liveness probe was successful: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:35:01Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="75ae719d9c77c8f2:55c772dad98a2797:75ae719d9c77c8f2:1"
+time="2021-06-15T16:35:01Z" level=info msg="Trying to establish connection to target: green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:35:01Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:35:01Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc0002b00c0]}"
+time="2021-06-15T16:35:01Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:35:01Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:35:01Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:35:01Z" level=info msg="Found 1 tlsconfigs."
+time="2021-06-15T16:35:11Z" level=error msg="None of the tls certificates worked: <nil>"
+time="2021-06-15T16:35:11Z" level=info msg="Trying to establish connection using tlsConfig:<nil>"
+{"level":"info","ts":1623774930.0441196,"caller":"nseinformer/nseInformerController.go:107","msg":"NSE pod: &{{ } {green2cw8m green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/green2cw8m e166d1c1-c82e-48c0-94c6-98efe731b78b 3823 1 2021-06-15 16:26:57 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-25rm4 wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}} was updated with: &{{ } {green2cw8m green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/green2cw8m e166d1c1-c82e-48c0-94c6-98efe731b78b 3823 1 2021-06-15 16:26:57 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-25rm4 wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}}","app":"nse-discovery"}
+{"level":"info","ts":1623774930.04427,"caller":"nseinformer/nseInformerController.go:107","msg":"NSE pod: &{{ } {greent9mhz green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/greent9mhz 7bd8a158-3bc1-4173-b0cd-55c6067f6c24 3828 1 2021-06-15 16:26:58 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-fq9sm wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}} was updated with: &{{ } {greent9mhz green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/greent9mhz 7bd8a158-3bc1-4173-b0cd-55c6067f6c24 3828 1 2021-06-15 16:26:58 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-fq9sm wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}}","app":"nse-discovery"}
+time="2021-06-15T16:35:31Z" level=error msg="Error occurred while trying to establish connection to: green.nispatil-wcm-cisco.com:443. Error: context deadline exceeded"
+time="2021-06-15T16:35:31Z" level=error msg="Failed to dial Network Service Registry at green.nispatil-wcm-cisco.com:443: context deadline exceeded" operation=initRegistryClient span="75ae719d9c77c8f2:55c772dad98a2797:75ae719d9c77c8f2:1"
+2021/06/15 16:35:31 Reporting span 75ae719d9c77c8f2:55c772dad98a2797:75ae719d9c77c8f2:1
+2021/06/15 16:35:31 Reporting span 75ae719d9c77c8f2:75ae719d9c77c8f2:0000000000000000:1
+{"level":"info","ts":1623774931.139401,"caller":"nseinformer/nseInformerController.go:369","msg":"Error processing pod &{{ } {green2cw8m green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/green2cw8m e166d1c1-c82e-48c0-94c6-98efe731b78b 3823 1 2021-06-15 16:26:57 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-25rm4 wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}}: Connection to Network Registry Server is not available","app":"nse-discovery"}
+{"level":"info","ts":1623774931.1394708,"caller":"nseinformer/nseInformerController.go:156","msg":"Processing NSE named greent9mhz...","app":"nse-discovery"}
+{"level":"info","ts":1623774931.1394846,"caller":"nseinformer/nseInformerController.go:163","msg":"Found service name: green","app":"nse-discovery"}
+{"level":"info","ts":1623774931.1394973,"caller":"nseinformer/nseInformerController.go:178","msg":"Getting endpoints from the local NSR","app":"nse-discovery"}
+time="2021-06-15T16:35:31Z" level=info msg="==--> discovery.FindNetworkService() span:2bc6b8f2937e1bfd:2bc6b8f2937e1bfd:0000000000000000:1"
+time="2021-06-15T16:35:31Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=2bc6b8f2937e1bfd:2bc6b8f2937e1bfd:0000000000000000:1"
+time="2021-06-15T16:35:31Z" level=info msg=">><<-- nsrURL=\"wcm-proxy-nsmgr.nsm-system:5005\" span=2bc6b8f2937e1bfd:2bc6b8f2937e1bfd:0000000000000000:1"
+time="2021-06-15T16:35:31Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:35:31Z" level=info msg="==----> initRegistryClient() span:2bc6b8f2937e1bfd:790493eb0e4c64cc:2bc6b8f2937e1bfd:1"
+time="2021-06-15T16:35:31Z" level=info msg="Waiting for liveness probe: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:35:31Z" level=info msg="Liveness probe was successful: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:35:31Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="2bc6b8f2937e1bfd:790493eb0e4c64cc:2bc6b8f2937e1bfd:1"
+time="2021-06-15T16:35:31Z" level=info msg="Trying to establish connection to target: wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:35:31Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:35:31Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc000901b00]}"
+time="2021-06-15T16:35:31Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:35:31Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:35:31Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:35:31Z" level=info msg="Found 1 tlsconfigs."
+time="2021-06-15T16:35:31Z" level=info msg="Found the right tls certificate:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:35:31Z" level=info msg="Trying to establish connection using tlsConfig:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:35:31Z" level=info msg="Successfully connected to wcm-proxy-nsmgr.nsm-system:5005" operation=initRegistryClient span="2bc6b8f2937e1bfd:790493eb0e4c64cc:2bc6b8f2937e1bfd:1"
+2021/06/15 16:35:31 Reporting span 2bc6b8f2937e1bfd:790493eb0e4c64cc:2bc6b8f2937e1bfd:1
+{"level":"info","ts":1623774931.1669087,"caller":"nseinformer/nseInformerController.go:408","msg":"Discover NSEs from NSR: network_service_name:\"green\" ","app":"nse-discovery"}
+time="2021-06-15T16:35:31Z" level=info msg=">><<---- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=2bc6b8f2937e1bfd:2bc6b8f2937e1bfd:0000000000000000:1"
+time="2021-06-15T16:35:31Z" level=info msg=">><<---- request={\"network_service_name\":\"green\"} span=2bc6b8f2937e1bfd:2bc6b8f2937e1bfd:0000000000000000:1"
+2021/06/15 16:35:31 Reporting span 2bc6b8f2937e1bfd:48c110fb9fd69815:2bc6b8f2937e1bfd:1
+time="2021-06-15T16:35:31Z" level=info msg=">><<---- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane\",\"url\":\"172.17.0.4:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green2cw8m\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-25rm4\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greent9mhz\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-fq9sm\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=2bc6b8f2937e1bfd:2bc6b8f2937e1bfd:0000000000000000:1"
+2021/06/15 16:35:31 Reporting span 2bc6b8f2937e1bfd:2bc6b8f2937e1bfd:0000000000000000:1
+{"level":"info","ts":1623774931.17182,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name green2cw8m","app":"nse-discovery"}
+{"level":"info","ts":1623774931.171854,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name greent9mhz","app":"nse-discovery"}
+{"level":"info","ts":1623774931.1718662,"caller":"nseinformer/nseInformerController.go:186","msg":"Retrieved 2 endpoints from the local NSR","app":"nse-discovery"}
+{"level":"info","ts":1623774931.1718953,"caller":"nseinformer/nseInformerController.go:189","msg":"Getting endpoints from the global NSR at: green.nispatil-wcm-cisco.com:443","app":"nse-discovery"}
+time="2021-06-15T16:35:31Z" level=info msg="==--> discovery.FindNetworkService() span:7134e30b5a68f219:7134e30b5a68f219:0000000000000000:1"
+time="2021-06-15T16:35:31Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=7134e30b5a68f219:7134e30b5a68f219:0000000000000000:1"
+time="2021-06-15T16:35:31Z" level=info msg=">><<-- nsrURL=\"green.nispatil-wcm-cisco.com:443\" span=7134e30b5a68f219:7134e30b5a68f219:0000000000000000:1"
+time="2021-06-15T16:35:31Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:35:31Z" level=info msg="==----> initRegistryClient() span:7134e30b5a68f219:5ca59051b7f8eeb5:7134e30b5a68f219:1"
+time="2021-06-15T16:35:31Z" level=info msg="Waiting for liveness probe: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:35:31Z" level=info msg="Liveness probe was successful: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:35:31Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="7134e30b5a68f219:5ca59051b7f8eeb5:7134e30b5a68f219:1"
+time="2021-06-15T16:35:31Z" level=info msg="Trying to establish connection to target: green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:35:31Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:35:31Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc000643a80]}"
+time="2021-06-15T16:35:31Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:35:31Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:35:31Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:35:31Z" level=info msg="Found 1 tlsconfigs."
+time="2021-06-15T16:35:41Z" level=error msg="None of the tls certificates worked: <nil>"
+time="2021-06-15T16:35:41Z" level=info msg="Trying to establish connection using tlsConfig:<nil>"
+time="2021-06-15T16:36:01Z" level=error msg="Error occurred while trying to establish connection to: green.nispatil-wcm-cisco.com:443. Error: context deadline exceeded"
+time="2021-06-15T16:36:01Z" level=error msg="Failed to dial Network Service Registry at green.nispatil-wcm-cisco.com:443: context deadline exceeded" operation=initRegistryClient span="7134e30b5a68f219:5ca59051b7f8eeb5:7134e30b5a68f219:1"
+2021/06/15 16:36:01 Reporting span 7134e30b5a68f219:5ca59051b7f8eeb5:7134e30b5a68f219:1
+2021/06/15 16:36:01 Reporting span 7134e30b5a68f219:7134e30b5a68f219:0000000000000000:1
+{"level":"info","ts":1623774961.1725245,"caller":"nseinformer/nseInformerController.go:369","msg":"Error processing pod &{{ } {greent9mhz green nsm-system /apis/networkservicemesh.io/v1alpha1/namespaces/nsm-system/networkserviceendpoints/greent9mhz 7bd8a158-3bc1-4173-b0cd-55c6067f6c24 3828 1 2021-06-15 16:26:58 +0000 UTC <nil> <nil> map[app:vl3-nse-green networkservicename:green nsepod.name:green-kind-3_vl3-nse-green-7555496c4c-fq9sm wcm/nsr.addr:green.nispatil-wcm-cisco.com wcm/nsr.port:443] map[] [] []  []} {green IP kind-3-control-plane} {RUNNING}}: Connection to Network Registry Server is not available","app":"nse-discovery"}
+{"level":"info","ts":1623774961.172608,"caller":"nseinformer/nseInformerController.go:156","msg":"Processing NSE named green2cw8m...","app":"nse-discovery"}
+{"level":"info","ts":1623774961.1726236,"caller":"nseinformer/nseInformerController.go:163","msg":"Found service name: green","app":"nse-discovery"}
+{"level":"info","ts":1623774961.1726336,"caller":"nseinformer/nseInformerController.go:178","msg":"Getting endpoints from the local NSR","app":"nse-discovery"}
+time="2021-06-15T16:36:01Z" level=info msg="==--> discovery.FindNetworkService() span:209d441d6e345e75:209d441d6e345e75:0000000000000000:1"
+time="2021-06-15T16:36:01Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=209d441d6e345e75:209d441d6e345e75:0000000000000000:1"
+time="2021-06-15T16:36:01Z" level=info msg=">><<-- nsrURL=\"wcm-proxy-nsmgr.nsm-system:5005\" span=209d441d6e345e75:209d441d6e345e75:0000000000000000:1"
+time="2021-06-15T16:36:01Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:36:01Z" level=info msg="==----> initRegistryClient() span:209d441d6e345e75:31697eab2000199b:209d441d6e345e75:1"
+time="2021-06-15T16:36:01Z" level=info msg="Waiting for liveness probe: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:36:01Z" level=info msg="Liveness probe was successful: tcp:wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:36:01Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="209d441d6e345e75:31697eab2000199b:209d441d6e345e75:1"
+time="2021-06-15T16:36:01Z" level=info msg="Trying to establish connection to target: wcm-proxy-nsmgr.nsm-system:5005"
+time="2021-06-15T16:36:01Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:36:01Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc000509040]}"
+time="2021-06-15T16:36:01Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:36:01Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:36:01Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:36:01Z" level=info msg="Found 1 tlsconfigs."
+time="2021-06-15T16:36:01Z" level=info msg="Found the right tls certificate:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:36:01Z" level=info msg="Trying to establish connection using tlsConfig:&{<nil> <nil> [] map[] <nil> 0xca3d80 <nil> 0xca3e00 <nil> <nil> []  NoClientCert <nil> true [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-15T16:36:01Z" level=info msg="Successfully connected to wcm-proxy-nsmgr.nsm-system:5005" operation=initRegistryClient span="209d441d6e345e75:31697eab2000199b:209d441d6e345e75:1"
+2021/06/15 16:36:01 Reporting span 209d441d6e345e75:31697eab2000199b:209d441d6e345e75:1
+{"level":"info","ts":1623774961.2022905,"caller":"nseinformer/nseInformerController.go:408","msg":"Discover NSEs from NSR: network_service_name:\"green\" ","app":"nse-discovery"}
+time="2021-06-15T16:36:01Z" level=info msg=">><<---- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=209d441d6e345e75:209d441d6e345e75:0000000000000000:1"
+time="2021-06-15T16:36:01Z" level=info msg=">><<---- request={\"network_service_name\":\"green\"} span=209d441d6e345e75:209d441d6e345e75:0000000000000000:1"
+2021/06/15 16:36:01 Reporting span 209d441d6e345e75:7617119034dec8b0:209d441d6e345e75:1
+time="2021-06-15T16:36:01Z" level=info msg=">><<---- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane\",\"url\":\"172.17.0.4:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"green2cw8m\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-25rm4\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greent9mhz\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-fq9sm\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=209d441d6e345e75:209d441d6e345e75:0000000000000000:1"
+2021/06/15 16:36:01 Reporting span 209d441d6e345e75:209d441d6e345e75:0000000000000000:1
+{"level":"info","ts":1623774961.20779,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name green2cw8m","app":"nse-discovery"}
+{"level":"info","ts":1623774961.2078397,"caller":"nseinformer/nseInformerController.go:316","msg":"found NSE with name greent9mhz","app":"nse-discovery"}
+{"level":"info","ts":1623774961.2078528,"caller":"nseinformer/nseInformerController.go:186","msg":"Retrieved 2 endpoints from the local NSR","app":"nse-discovery"}
+{"level":"info","ts":1623774961.2078638,"caller":"nseinformer/nseInformerController.go:189","msg":"Getting endpoints from the global NSR at: green.nispatil-wcm-cisco.com:443","app":"nse-discovery"}
+time="2021-06-15T16:36:01Z" level=info msg="==--> discovery.FindNetworkService() span:722c7ddbb279277c:722c7ddbb279277c:0000000000000000:1"
+time="2021-06-15T16:36:01Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=722c7ddbb279277c:722c7ddbb279277c:0000000000000000:1"
+time="2021-06-15T16:36:01Z" level=info msg=">><<-- nsrURL=\"green.nispatil-wcm-cisco.com:443\" span=722c7ddbb279277c:722c7ddbb279277c:0000000000000000:1"
+time="2021-06-15T16:36:01Z" level=info msg="Requesting NetworkServiceDiscoveryClient..."
+time="2021-06-15T16:36:01Z" level=info msg="==----> initRegistryClient() span:722c7ddbb279277c:6451808fbf08d865:722c7ddbb279277c:1"
+time="2021-06-15T16:36:01Z" level=info msg="Waiting for liveness probe: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:36:01Z" level=info msg="Liveness probe was successful: tcp:green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:36:01Z" level=info msg="Registry port now available, attempting to connect..." operation=initRegistryClient span="722c7ddbb279277c:6451808fbf08d865:722c7ddbb279277c:1"
+time="2021-06-15T16:36:01Z" level=info msg="Trying to establish connection to target: green.nispatil-wcm-cisco.com:443"
+time="2021-06-15T16:36:01Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-15T16:36:01Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc0002f3800]}"
+time="2021-06-15T16:36:01Z" level=info msg="defaultTrustDomain:member2.com"
+time="2021-06-15T16:36:01Z" level=info msg="AUTHORIZING ALL CLIENTS"
+time="2021-06-15T16:36:01Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-15T16:36:01Z" level=info msg="Found 1 tlsconfigs."
 ==== END logs for container wcm-nse-discovery of pod wcm-system/wcm-nse-discovery-5f68d85698-2xkfn ====

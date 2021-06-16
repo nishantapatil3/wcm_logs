@@ -1,0 +1,66 @@
+Name:         wcm-nsm-admission-webhook-684d7fd7b5-qsqr8
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Wed, 16 Jun 2021 17:02:05 +0000
+Labels:       app=wcm-nsm-admission-webhook
+              membercore=wcm
+              nsm-cr=wcm
+              pod-template-hash=684d7fd7b5
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  ReplicaSet/wcm-nsm-admission-webhook-684d7fd7b5
+Containers:
+  wcm-nsm-admission-webhook:
+    Container ID:   containerd://8594511c59d9a57a99dd3938600b5b73fb9157739d3a9eaf1d5ac9221dc6c750
+    Image:          nishantapatil3/admission-webhook:vl3_latest
+    Image ID:       sha256:c1fe997575b42d93e58139264b13afba5fcb04e55f84219acf72ac9d7cf5244c
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:02:06 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      REPO:               nishantapatil3
+      TAG:                vl3_latest
+      IMAGE_PULL_POLICY:  IfNotPresent
+      NSM_NAMESPACE:      nsm-system
+      TRACER_ENABLED:     true
+      JAEGER_AGENT_HOST:  wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:  6831
+    Mounts:
+      /etc/webhook/certs from webhook-certs (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-xgf87 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  webhook-certs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsm-admission-webhook-secret
+    Optional:    false
+  default-token-xgf87:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-xgf87
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned nsm-system/wcm-nsm-admission-webhook-684d7fd7b5-qsqr8 to kind-3-control-plane
+  Normal  Pulled     11m   kubelet            Container image "nishantapatil3/admission-webhook:vl3_latest" already present on machine
+  Normal  Created    11m   kubelet            Created container wcm-nsm-admission-webhook
+  Normal  Started    11m   kubelet            Started container wcm-nsm-admission-webhook
+

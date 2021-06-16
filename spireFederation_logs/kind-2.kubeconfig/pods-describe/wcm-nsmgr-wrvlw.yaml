@@ -1,0 +1,141 @@
+Name:         wcm-nsmgr-wrvlw
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Wed, 16 Jun 2021 17:02:04 +0000
+Labels:       app=wcm-nsmgr
+              controller-revision-hash=894c98c8b
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.13
+IPs:
+  IP:           10.244.0.13
+Controlled By:  DaemonSet/wcm-nsmgr
+Containers:
+  wcm-nsmgr:
+    Container ID:   containerd://0c8a2212057514a966ef661a2e2b8e7204a7b0fe02df4a0e58950088e7566014
+    Image:          nishantapatil3/nsmdp:vl3_latest
+    Image ID:       sha256:d2a2ffe224a7f4af5b7b51fdfcc4c2ad7e9c28fcadecd343c5da7005ecce5eae
+    Port:           5001/TCP
+    Host Port:      5001/TCP
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:03:09 +0000
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Wed, 16 Jun 2021 17:02:06 +0000
+      Finished:     Wed, 16 Jun 2021 17:03:08 +0000
+    Ready:          True
+    Restart Count:  1
+    Environment:
+      INSECURE:                false
+      TRACER_ENABLED:          true
+      JAEGER_AGENT_HOST:       wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:       6831
+      PROXY_NSMD_K8S_ADDRESS:  wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:      wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/kubelet/device-plugins from kubelet-socket (rw)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-2vhnv (ro)
+  nsmd:
+    Container ID:   containerd://f31264050fea93eb0116c214783ce11feb1d656ba6cbd01a54464e9192e5d8a5
+    Image:          nishantapatil3/nsmd:vl3_latest
+    Image ID:       sha256:f999fb5e16ced589b717c1a0e9bc50f21c17a48dec160bbae1721de272d044af
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:02:06 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://127.0.0.1:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://127.0.0.1:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-2vhnv (ro)
+  nsmd-k8s:
+    Container ID:   containerd://c6809609cd48e3eae68b8a9577b3425df22a54138d450b69b947ed60c504096b
+    Image:          nishantapatil3/nsmd-k8s:vl3_latest
+    Image ID:       sha256:0dba562dc8f8225e641ac2c73e863025ba39f00ceac322eb5f45dd82e50765d5
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:02:07 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      POD_NAME:                    wcm-nsmgr-wrvlw (v1:metadata.name)
+      POD_UID:                      (v1:metadata.uid)
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-2vhnv (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubelet-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/kubelet/device-plugins
+    HostPathType:  DirectoryOrCreate
+  nsm-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-nsm-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nsmgr-service-account-token-2vhnv:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsmgr-service-account-token-2vhnv
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age                From               Message
+  ----    ------     ----               ----               -------
+  Normal  Scheduled  11m                default-scheduler  Successfully assigned nsm-system/wcm-nsmgr-wrvlw to kind-2-control-plane
+  Normal  Pulled     11m                kubelet            Container image "nishantapatil3/nsmd-k8s:vl3_latest" already present on machine
+  Normal  Created    11m                kubelet            Created container nsmd-k8s
+  Normal  Pulled     11m                kubelet            Container image "nishantapatil3/nsmd:vl3_latest" already present on machine
+  Normal  Created    11m                kubelet            Created container nsmd
+  Normal  Started    11m                kubelet            Started container nsmd
+  Normal  Started    11m                kubelet            Started container nsmd-k8s
+  Normal  Pulled     10m (x2 over 11m)  kubelet            Container image "nishantapatil3/nsmdp:vl3_latest" already present on machine
+  Normal  Created    10m (x2 over 11m)  kubelet            Created container wcm-nsmgr
+  Normal  Started    10m (x2 over 11m)  kubelet            Started container wcm-nsmgr
+

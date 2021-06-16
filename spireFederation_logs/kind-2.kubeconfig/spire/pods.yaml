@@ -2,13 +2,13 @@
 apiVersion: v1
 items:
 - metadata:
-    creationTimestamp: "2021-06-16T00:12:27Z"
+    creationTimestamp: "2021-06-16T17:01:46Z"
     generateName: wcm-spire-agent-
     labels:
       app: spire-agent
       controller-revision-hash: 8944446df
       pod-template-generation: "1"
-    name: wcm-spire-agent-rglnc
+    name: wcm-spire-agent-9j657
     namespace: spire
     ownerReferences:
     - apiVersion: apps/v1
@@ -16,10 +16,10 @@ items:
       controller: true
       kind: DaemonSet
       name: wcm-spire-agent
-      uid: d0210260-71af-4013-bd50-7d31252f0245
-    resourceVersion: "1709"
-    selfLink: /api/v1/namespaces/spire/pods/wcm-spire-agent-rglnc
-    uid: 54fc4a04-e998-4090-bb5e-41a1227fdb9d
+      uid: b9974bdc-9541-467c-9bba-cde9dfd9c9c2
+    resourceVersion: "1553"
+    selfLink: /api/v1/namespaces/spire/pods/wcm-spire-agent-9j657
+    uid: 97966163-c127-4da4-9d63-859cca5514c3
   spec:
     affinity:
       nodeAffinity:
@@ -62,7 +62,7 @@ items:
         name: wcm-spire-bundle-config-map
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-spire-agent-service-account-token-cf2c8
+        name: wcm-spire-agent-service-account-token-v7xvv
         readOnly: true
     dnsPolicy: ClusterFirstWithHostNet
     enableServiceLinks: true
@@ -81,7 +81,7 @@ items:
       terminationMessagePolicy: File
       volumeMounts:
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-spire-agent-service-account-token-cf2c8
+        name: wcm-spire-agent-service-account-token-v7xvv
         readOnly: true
     nodeName: kind-2-control-plane
     priority: 0
@@ -126,30 +126,30 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: wcm-spire-agent-service-account-token-cf2c8
+    - name: wcm-spire-agent-service-account-token-v7xvv
       secret:
         defaultMode: 420
-        secretName: wcm-spire-agent-service-account-token-cf2c8
+        secretName: wcm-spire-agent-service-account-token-v7xvv
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:12:35Z"
+      lastTransitionTime: "2021-06-16T17:01:54Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:12:36Z"
+      lastTransitionTime: "2021-06-16T17:01:55Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:12:36Z"
+      lastTransitionTime: "2021-06-16T17:01:55Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:12:27Z"
+      lastTransitionTime: "2021-06-16T17:01:46Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://18b4e61044debf0e4c1f7a09843bc1fa8702f3b3e3e0853f1c2f4d5ac12d767d
+    - containerID: containerd://2925ea80991cbb05d1db530dd9361fc742c106fbc3e20d79525343a0de45acb9
       image: gcr.io/spiffe-io/spire-agent:0.11.0
       imageID: sha256:f24f52a2596fe1fb66586f6f68b410cdcc4c705424024c66a885104777ca4a0f
       lastState: {}
@@ -159,10 +159,10 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T00:12:36Z"
+          startedAt: "2021-06-16T17:01:54Z"
     hostIP: 172.17.0.3
     initContainerStatuses:
-    - containerID: containerd://15a39d77ac9d6561bd7adef026d71f2ce86e8ea6f7db798efdbb050bb679e7c1
+    - containerID: containerd://df78b216d8aad892b65367208c434651d20c07b2b53f3ce1d6e2c76e7807ae7e
       image: gcr.io/spiffe-io/wait-for-it:latest
       imageID: gcr.io/spiffe-io/wait-for-it@sha256:d9bdc931e4404237d2fb0ba84db5ece88b236c40eeca570d786ee54fd243f4ae
       lastState: {}
@@ -171,19 +171,19 @@ items:
       restartCount: 0
       state:
         terminated:
-          containerID: containerd://15a39d77ac9d6561bd7adef026d71f2ce86e8ea6f7db798efdbb050bb679e7c1
+          containerID: containerd://df78b216d8aad892b65367208c434651d20c07b2b53f3ce1d6e2c76e7807ae7e
           exitCode: 0
-          finishedAt: "2021-06-16T00:12:35Z"
+          finishedAt: "2021-06-16T17:01:53Z"
           reason: Completed
-          startedAt: "2021-06-16T00:12:31Z"
+          startedAt: "2021-06-16T17:01:48Z"
     phase: Running
     podIP: 172.17.0.3
     podIPs:
     - ip: 172.17.0.3
     qosClass: BestEffort
-    startTime: "2021-06-16T00:12:27Z"
+    startTime: "2021-06-16T17:01:46Z"
 - metadata:
-    creationTimestamp: "2021-06-16T00:14:03Z"
+    creationTimestamp: "2021-06-16T17:02:38Z"
     generateName: wcm-spire-server-
     labels:
       app: wcm-spire-server
@@ -197,10 +197,10 @@ items:
       controller: true
       kind: StatefulSet
       name: wcm-spire-server
-      uid: 102d2709-41cb-4299-b492-e3be1744b3b3
-    resourceVersion: "2234"
+      uid: 83f7ee51-ff00-44fb-90c2-d8376e45929a
+    resourceVersion: "1949"
     selfLink: /api/v1/namespaces/spire/pods/wcm-spire-server-0
-    uid: 4c559246-d5fe-4342-be8e-94428648badc
+    uid: b8b457e3-ab4c-463f-a87a-d605fa71fdde
   spec:
     containers:
     - image: docker.io/networkservicemesh/nsm-spire:master
@@ -219,7 +219,7 @@ items:
         name: wcm-spire-entries-config-map
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-spire-server-service-account-token-wpffk
+        name: wcm-spire-server-service-account-token-dqz44
         readOnly: true
     - args:
       - -config
@@ -252,7 +252,7 @@ items:
       - mountPath: /run/spire/secret
         name: wcm-spire-server-secret
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-spire-server-service-account-token-wpffk
+        name: wcm-spire-server-service-account-token-dqz44
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -297,30 +297,30 @@ items:
         path: /var/spire-data
         type: DirectoryOrCreate
       name: spire-data
-    - name: wcm-spire-server-service-account-token-wpffk
+    - name: wcm-spire-server-service-account-token-dqz44
       secret:
         defaultMode: 420
-        secretName: wcm-spire-server-service-account-token-wpffk
+        secretName: wcm-spire-server-service-account-token-dqz44
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:14:03Z"
+      lastTransitionTime: "2021-06-16T17:02:38Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:14:05Z"
+      lastTransitionTime: "2021-06-16T17:02:40Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:14:05Z"
+      lastTransitionTime: "2021-06-16T17:02:40Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T00:14:03Z"
+      lastTransitionTime: "2021-06-16T17:02:38Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://ad86335d482db7ec80e473b9e3bb3605519a6eb75c68d452f9071645aacb0b6f
+    - containerID: containerd://a98d358c122fb8d436d8c2a13828c92cf2beb6a51bc23d248643de2824f232a1
       image: docker.io/networkservicemesh/nsm-spire:master
       imageID: docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
       lastState: {}
@@ -330,8 +330,8 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T00:14:04Z"
-    - containerID: containerd://c1146ff45ee7d833e37246f1d47844a95bd87f633703c1870b2c3b386fe8e3b3
+          startedAt: "2021-06-16T17:02:39Z"
+    - containerID: containerd://27a306cf200ece74adf956af0f57816e78795e47b9062c0e476529b1c35b92ca
       image: gcr.io/spiffe-io/spire-server:0.11.0
       imageID: gcr.io/spiffe-io/spire-server@sha256:bc42ea43755b040d6f30fe4245d13b844bd3d60792a3da8ac24e066eee87d76c
       lastState: {}
@@ -341,15 +341,15 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T00:14:04Z"
+          startedAt: "2021-06-16T17:02:39Z"
     hostIP: 172.17.0.3
     phase: Running
     podIP: 10.244.0.15
     podIPs:
     - ip: 10.244.0.15
     qosClass: BestEffort
-    startTime: "2021-06-16T00:14:03Z"
+    startTime: "2021-06-16T17:02:38Z"
 kind: PodList
 metadata:
-  resourceVersion: "4923"
+  resourceVersion: "3943"
   selfLink: /api/v1/namespaces/spire/pods

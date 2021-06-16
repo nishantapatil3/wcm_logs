@@ -1,0 +1,167 @@
+Name:         helloworld-green-679c6b6b65-x52sq
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Wed, 16 Jun 2021 17:08:52 +0000
+Labels:       app=helloworld-green
+              nsm/servicename=helloworld.cluster2.nispatil-wcm-cisco.com
+              pod-template-hash=679c6b6b65
+              version=v1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.18
+IPs:
+  IP:           10.244.0.18
+Controlled By:  ReplicaSet/helloworld-green-679c6b6b65
+Init Containers:
+  nsm-dns-init:
+    Container ID:  containerd://354f27503a45f17686974e935bc52e942f46c4fa3c5511189d005f44ee33e857
+    Image:         nishantapatil3/nsm-dns-init:vl3_latest
+    Image ID:      sha256:6209b1c5cfae8abc582dff0e14b276d4936ad5449055a04523d379f9b024fa9a
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/nsm-dns-init
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Wed, 16 Jun 2021 17:08:53 +0000
+      Finished:     Wed, 16 Jun 2021 17:08:53 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      NS_NETWORKSERVICEMESH_IO:  green?service=helloworld&port=5000&clusterName=cluster2
+      NSM_NAMESPACE:             nsm-system
+      JAEGER_AGENT_HOST:         wcm-jaeger.nsm-system
+      TRACER_ENABLED:            true
+      JAEGER_AGENT_PORT:         6831
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-jl9hm (ro)
+  nsm-init-container:
+    Container ID:   containerd://41ece2022aee77a7b0903187d52c9dea5bbbda6fc03a241f6610a84ce0a0bdaf
+    Image:          nishantapatil3/nsm-init:vl3_latest
+    Image ID:       sha256:c62b9117600e8b879ab8dc452ccf089e0a2ccf2aa1457151998b136fa05cc492
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Wed, 16 Jun 2021 17:08:53 +0000
+      Finished:     Wed, 16 Jun 2021 17:09:09 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      NS_NETWORKSERVICEMESH_IO:  green?service=helloworld&port=5000&clusterName=cluster2
+      NSM_NAMESPACE:             nsm-system
+      JAEGER_AGENT_HOST:         wcm-jaeger.nsm-system
+      TRACER_ENABLED:            true
+      JAEGER_AGENT_PORT:         6831
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-jl9hm (ro)
+Containers:
+  helloworld:
+    Container ID:   containerd://202e87f8161eab13327fea7ce2dacf2e7c32af7770ab5933c9372f17fb608e20
+    Image:          docker.io/istio/examples-helloworld-v1:latest
+    Image ID:       sha256:f96f1c11f3f2837fc164f27a0ad4d79d75e2a9bbf553cc94b2a778fdc746a614
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:09:10 +0000
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-jl9hm (ro)
+  nsm-dns-monitor:
+    Container ID:  containerd://0844f854a4ea3699a311d0071fbd0cd7fee5bcccc1218859296e9fc3e24fa303
+    Image:         nishantapatil3/nsm-monitor:vl3_latest
+    Image ID:      sha256:2d23a628b5a3451045c8f3133d762bfefd15a63cec26ecd0971cf21ddfd29494
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/nsm-monitor
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:09:10 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      MONITOR_DNS_CONFIGS:       true
+      NS_NETWORKSERVICEMESH_IO:  green?service=helloworld&port=5000&clusterName=cluster2
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-jl9hm (ro)
+  coredns:
+    Container ID:  containerd://050ef50c0a9272e579f78e867ea74dade7f813730a506c3037353ae7a0e2b5a1
+    Image:         nishantapatil3/nsm-coredns:vl3_latest
+    Image ID:      sha256:1e3b3d066b4df3e26c87221a232c0bd0138bbed54a3989e5533aa279aae28824
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      -conf
+      /etc/coredns/Corefile
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:09:10 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:                     <none>
+    Mounts:
+      /etc/coredns from nsm-coredns-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-service-account-token-jl9hm (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  nsm-coredns-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  nsc-service-account-token-jl9hm:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  nsc-service-account-token-jl9hm
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  5m29s  default-scheduler  Successfully assigned default/helloworld-green-679c6b6b65-x52sq to kind-2-control-plane
+  Normal  Pulled     4m59s  kubelet            Container image "nishantapatil3/nsm-dns-init:vl3_latest" already present on machine
+  Normal  Created    4m59s  kubelet            Created container nsm-dns-init
+  Normal  Started    4m58s  kubelet            Started container nsm-dns-init
+  Normal  Pulled     4m58s  kubelet            Container image "nishantapatil3/nsm-init:vl3_latest" already present on machine
+  Normal  Created    4m58s  kubelet            Created container nsm-init-container
+  Normal  Started    4m58s  kubelet            Started container nsm-init-container
+  Normal  Created    4m41s  kubelet            Created container helloworld
+  Normal  Pulled     4m41s  kubelet            Container image "docker.io/istio/examples-helloworld-v1:latest" already present on machine
+  Normal  Started    4m41s  kubelet            Started container helloworld
+  Normal  Pulled     4m41s  kubelet            Container image "nishantapatil3/nsm-monitor:vl3_latest" already present on machine
+  Normal  Created    4m41s  kubelet            Created container nsm-dns-monitor
+  Normal  Started    4m41s  kubelet            Started container nsm-dns-monitor
+  Normal  Pulled     4m41s  kubelet            Container image "nishantapatil3/nsm-coredns:vl3_latest" already present on machine
+  Normal  Created    4m41s  kubelet            Created container coredns
+  Normal  Started    4m41s  kubelet            Started container coredns
+

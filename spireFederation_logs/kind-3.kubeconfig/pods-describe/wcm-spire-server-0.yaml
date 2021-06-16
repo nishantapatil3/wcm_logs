@@ -2,7 +2,7 @@ Name:         wcm-spire-server-0
 Namespace:    spire
 Priority:     0
 Node:         kind-3-control-plane/172.17.0.4
-Start Time:   Wed, 16 Jun 2021 00:14:09 +0000
+Start Time:   Wed, 16 Jun 2021 17:02:33 +0000
 Labels:       app=wcm-spire-server
               controller-revision-hash=wcm-spire-server-665467cfdf
               statefulset.kubernetes.io/pod-name=wcm-spire-server-0
@@ -14,22 +14,22 @@ IPs:
 Controlled By:  StatefulSet/wcm-spire-server
 Containers:
   nsm-spire:
-    Container ID:   containerd://0b504c48c6b2694c38521d3f59a364573bad4db080f28795c8f0a7d5d718a250
+    Container ID:   containerd://e8b300b2be4bdfccc4c84757cea455afb5bca5857ca5af4c028b5d8171e9bc4c
     Image:          docker.io/networkservicemesh/nsm-spire:master
     Image ID:       docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
     Port:           <none>
     Host Port:      <none>
     State:          Running
-      Started:      Wed, 16 Jun 2021 00:14:10 +0000
+      Started:      Wed, 16 Jun 2021 17:02:34 +0000
     Ready:          True
     Restart Count:  0
     Environment:    <none>
     Mounts:
       /run/spire/entries from wcm-spire-entries-config-map (ro)
       /run/spire/sockets from spire-server-socket (ro)
-      /var/run/secrets/kubernetes.io/serviceaccount from wcm-spire-server-service-account-token-4zd7b (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-spire-server-service-account-token-qzqld (ro)
   wcm-spire-server:
-    Container ID:  containerd://00b2e3e786db8dcc635dfbebe6641407328c3816bc362a97ef383796eb0076c2
+    Container ID:  containerd://2d1999794b88259ca7b27736abc77f85410604dbdbffe381083f958a25b0d006
     Image:         gcr.io/spiffe-io/spire-server:0.11.0
     Image ID:      gcr.io/spiffe-io/spire-server@sha256:bc42ea43755b040d6f30fe4245d13b844bd3d60792a3da8ac24e066eee87d76c
     Port:          8081/TCP
@@ -38,7 +38,7 @@ Containers:
       -config
       /run/spire/config/server.conf
     State:          Running
-      Started:      Wed, 16 Jun 2021 00:14:10 +0000
+      Started:      Wed, 16 Jun 2021 17:02:34 +0000
     Ready:          True
     Restart Count:  0
     Liveness:       tcp-socket :8081 delay=15s timeout=3s period=60s #success=1 #failure=2
@@ -48,7 +48,7 @@ Containers:
       /run/spire/data from spire-data (rw)
       /run/spire/secret from wcm-spire-server-secret (rw)
       /run/spire/sockets from spire-server-socket (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from wcm-spire-server-service-account-token-4zd7b (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-spire-server-service-account-token-qzqld (ro)
 Conditions:
   Type              Status
   Initialized       True 
@@ -76,9 +76,9 @@ Volumes:
     Type:          HostPath (bare host directory volume)
     Path:          /var/spire-data
     HostPathType:  DirectoryOrCreate
-  wcm-spire-server-service-account-token-4zd7b:
+  wcm-spire-server-service-account-token-qzqld:
     Type:        Secret (a volume populated by a Secret)
-    SecretName:  wcm-spire-server-service-account-token-4zd7b
+    SecretName:  wcm-spire-server-service-account-token-qzqld
     Optional:    false
 QoS Class:       BestEffort
 Node-Selectors:  <none>
@@ -87,11 +87,11 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  14m   default-scheduler  Successfully assigned spire/wcm-spire-server-0 to kind-3-control-plane
-  Normal  Pulled     14m   kubelet            Container image "docker.io/networkservicemesh/nsm-spire:master" already present on machine
-  Normal  Created    14m   kubelet            Created container nsm-spire
-  Normal  Started    14m   kubelet            Started container nsm-spire
-  Normal  Pulled     14m   kubelet            Container image "gcr.io/spiffe-io/spire-server:0.11.0" already present on machine
-  Normal  Created    14m   kubelet            Created container wcm-spire-server
-  Normal  Started    14m   kubelet            Started container wcm-spire-server
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned spire/wcm-spire-server-0 to kind-3-control-plane
+  Normal  Pulled     11m   kubelet            Container image "docker.io/networkservicemesh/nsm-spire:master" already present on machine
+  Normal  Created    11m   kubelet            Created container nsm-spire
+  Normal  Started    11m   kubelet            Started container nsm-spire
+  Normal  Pulled     11m   kubelet            Container image "gcr.io/spiffe-io/spire-server:0.11.0" already present on machine
+  Normal  Created    11m   kubelet            Created container wcm-spire-server
+  Normal  Started    11m   kubelet            Started container wcm-spire-server
 

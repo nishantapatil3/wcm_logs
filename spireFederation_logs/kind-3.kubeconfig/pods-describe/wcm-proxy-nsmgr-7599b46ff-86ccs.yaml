@@ -1,0 +1,87 @@
+Name:         wcm-proxy-nsmgr-7599b46ff-86ccs
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Wed, 16 Jun 2021 17:02:09 +0000
+Labels:       app=wcm-proxy-nsmgr
+              membercore=wcm
+              pod-template-hash=7599b46ff
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  ReplicaSet/wcm-proxy-nsmgr-7599b46ff
+Containers:
+  wcm-proxy-nsmgr:
+    Container ID:   containerd://51ac791ef5c7841cea3fa4fe45f0b6461d9e9c514864f439b7fbfcb80d47be5f
+    Image:          nishantapatil3/proxy-nsmd:vl3_latest
+    Image ID:       sha256:522e9ca7c6f0c3be85daca7ce08bf5c037e4187395c3549e1569a1ef4143c6a1
+    Port:           5006/TCP
+    Host Port:      5006/TCP
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:02:11 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  31505
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-2c6bz (ro)
+  proxy-nsmd-k8s:
+    Container ID:   containerd://8f6018a8713c9486c6f1a609ad40ce2d87858ea5585bba01f98539d70d3be38c
+    Image:          nishantapatil3/proxy-nsmd-k8s:vl3_latest
+    Image ID:       sha256:ef1d8f5a1921b4867ff81dd7132fb753b395769e750606f90d4af720a73b09c3
+    Port:           5005/TCP
+    Host Port:      5005/TCP
+    State:          Running
+      Started:      Wed, 16 Jun 2021 17:02:11 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  443
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-2c6bz (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-proxy-nsmgr-service-account-token-2c6bz:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-proxy-nsmgr-service-account-token-2c6bz
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  11m   default-scheduler  Successfully assigned nsm-system/wcm-proxy-nsmgr-7599b46ff-86ccs to kind-3-control-plane
+  Normal  Pulled     11m   kubelet            Container image "nishantapatil3/proxy-nsmd:vl3_latest" already present on machine
+  Normal  Created    11m   kubelet            Created container wcm-proxy-nsmgr
+  Normal  Started    11m   kubelet            Started container wcm-proxy-nsmgr
+  Normal  Pulled     11m   kubelet            Container image "nishantapatil3/proxy-nsmd-k8s:vl3_latest" already present on machine
+  Normal  Created    11m   kubelet            Created container proxy-nsmd-k8s
+  Normal  Started    11m   kubelet            Started container proxy-nsmd-k8s
+

@@ -2,14 +2,14 @@
 apiVersion: v1
 items:
 - metadata:
-    creationTimestamp: "2021-06-15T17:21:21Z"
+    creationTimestamp: "2021-06-16T00:27:16Z"
     generateName: helloworld-green-64b8686595-
     labels:
       app: helloworld-green
       nsm/servicename: helloworld.cluster3.nispatil-wcm-cisco.com
       pod-template-hash: 64b8686595
       version: v1
-    name: helloworld-green-64b8686595-9wkjz
+    name: helloworld-green-64b8686595-scvcb
     namespace: default
     ownerReferences:
     - apiVersion: apps/v1
@@ -17,10 +17,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: helloworld-green-64b8686595
-      uid: e510a8e7-7872-4bc0-b2c3-296bb3ace0c6
-    resourceVersion: "3894"
-    selfLink: /api/v1/namespaces/default/pods/helloworld-green-64b8686595-9wkjz
-    uid: 095bd5a5-ef17-4200-a8c3-2a59cbbece5a
+      uid: 082d7d36-ef8b-4ac5-afef-7a0e5146088f
+    resourceVersion: "4675"
+    selfLink: /api/v1/namespaces/default/pods/helloworld-green-64b8686595-scvcb
+    uid: 319ecab9-5bd7-4568-984c-6b53a8e676e6
   spec:
     containers:
     - image: docker.io/istio/examples-helloworld-v1:latest
@@ -36,7 +36,7 @@ items:
       terminationMessagePolicy: File
       volumeMounts:
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: nsc-service-account-token-l82b7
+        name: nsc-service-account-token-h9v8n
         readOnly: true
     - command:
       - /bin/nsm-monitor
@@ -59,7 +59,7 @@ items:
       - mountPath: /etc/coredns
         name: nsm-coredns-volume
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: nsc-service-account-token-l82b7
+        name: nsc-service-account-token-h9v8n
         readOnly: true
     - args:
       - -conf
@@ -78,7 +78,7 @@ items:
       - mountPath: /etc/coredns
         name: nsm-coredns-volume
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: nsc-service-account-token-l82b7
+        name: nsc-service-account-token-h9v8n
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -110,7 +110,7 @@ items:
       - mountPath: /etc/coredns
         name: nsm-coredns-volume
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: nsc-service-account-token-l82b7
+        name: nsc-service-account-token-h9v8n
         readOnly: true
     - env:
       - name: NS_NETWORKSERVICEMESH_IO
@@ -135,7 +135,7 @@ items:
       terminationMessagePolicy: File
       volumeMounts:
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: nsc-service-account-token-l82b7
+        name: nsc-service-account-token-h9v8n
         readOnly: true
     nodeName: kind-3-control-plane
     priority: 0
@@ -157,30 +157,30 @@ items:
     volumes:
     - emptyDir: {}
       name: nsm-coredns-volume
-    - name: nsc-service-account-token-l82b7
+    - name: nsc-service-account-token-h9v8n
       secret:
         defaultMode: 420
-        secretName: nsc-service-account-token-l82b7
+        secretName: nsc-service-account-token-h9v8n
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:21:25Z"
+      lastTransitionTime: "2021-06-16T00:27:20Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:21:26Z"
+      lastTransitionTime: "2021-06-16T00:27:21Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:21:26Z"
+      lastTransitionTime: "2021-06-16T00:27:21Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:21:21Z"
+      lastTransitionTime: "2021-06-16T00:27:16Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://e10aa5e0ca6f36039a75f33ef7b3a0310e3d87e6858a6694556ad1a754004dbc
+    - containerID: containerd://6cd4bf48692d9c3dab4b6dbf498ef10dce379c7ce7630dcca594200c07bad8ae
       image: docker.io/nishantapatil3/nsm-coredns:vl3_latest
       imageID: sha256:1e3b3d066b4df3e26c87221a232c0bd0138bbed54a3989e5533aa279aae28824
       lastState: {}
@@ -190,8 +190,8 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T17:21:25Z"
-    - containerID: containerd://494d88c584f3627853990e1b52e1c1d8c6392057010bfcbd1d38c8ca834c13e2
+          startedAt: "2021-06-16T00:27:20Z"
+    - containerID: containerd://4a21b7b124409318d8ca1a3e944dc7b1bc74dc6e510108fa3aa51d064c14b9ef
       image: docker.io/istio/examples-helloworld-v1:latest
       imageID: sha256:f96f1c11f3f2837fc164f27a0ad4d79d75e2a9bbf553cc94b2a778fdc746a614
       lastState: {}
@@ -201,10 +201,10 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T17:21:25Z"
-    - containerID: containerd://c6ee30e1af74bc99df62670b3d40b015931c325631d9193c5c14c8630ae0c554
+          startedAt: "2021-06-16T00:27:20Z"
+    - containerID: containerd://bfbb4e2cd51b771650f026a6a694f433cb141a19f018a2a8501059f934e697a0
       image: docker.io/nishantapatil3/nsm-monitor:vl3_latest
-      imageID: sha256:8925fe0f66063659f02d328a53562c447d944f92da8df4ee89ecdf8f6bd927c2
+      imageID: sha256:2767ae959d923d5d6a127f0fcd55cd187dd6fb2697f1e1b4424f50c6648a42ce
       lastState: {}
       name: nsm-dns-monitor
       ready: true
@@ -212,10 +212,10 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T17:21:25Z"
+          startedAt: "2021-06-16T00:27:20Z"
     hostIP: 172.17.0.4
     initContainerStatuses:
-    - containerID: containerd://db0bc0062c4b36a81c5134de867b02f3e00e0a3424cc16555d65acdc67f260db
+    - containerID: containerd://081586e98805b4583c5a1e5037522eb2d03290f65ce36829e74b2f274640f428
       image: docker.io/nishantapatil3/nsm-dns-init:vl3_latest
       imageID: sha256:6209b1c5cfae8abc582dff0e14b276d4936ad5449055a04523d379f9b024fa9a
       lastState: {}
@@ -224,38 +224,38 @@ items:
       restartCount: 0
       state:
         terminated:
-          containerID: containerd://db0bc0062c4b36a81c5134de867b02f3e00e0a3424cc16555d65acdc67f260db
+          containerID: containerd://081586e98805b4583c5a1e5037522eb2d03290f65ce36829e74b2f274640f428
           exitCode: 0
-          finishedAt: "2021-06-15T17:21:22Z"
+          finishedAt: "2021-06-16T00:27:17Z"
           reason: Completed
-          startedAt: "2021-06-15T17:21:22Z"
-    - containerID: containerd://c5b7593692433336b18ac914b306aaf06d7338d97b4cab69d34789daeb56b964
+          startedAt: "2021-06-16T00:27:17Z"
+    - containerID: containerd://b5fe5f87dda1943daaf64602c1e62afb2324f9c6c0cd98b7d95d6cafe0295f17
       image: docker.io/nishantapatil3/nsm-init:vl3_latest
-      imageID: sha256:32420316d7902cce8014090481c9fa2b0007a060983ba56b882099a46c97037e
+      imageID: sha256:0d1c42a12b0df61950e7247d1babc1b374602fa4b177ed1e04a8a39ea0ec9f77
       lastState: {}
       name: nsm-init-container
       ready: true
       restartCount: 0
       state:
         terminated:
-          containerID: containerd://c5b7593692433336b18ac914b306aaf06d7338d97b4cab69d34789daeb56b964
+          containerID: containerd://b5fe5f87dda1943daaf64602c1e62afb2324f9c6c0cd98b7d95d6cafe0295f17
           exitCode: 0
-          finishedAt: "2021-06-15T17:21:24Z"
+          finishedAt: "2021-06-16T00:27:20Z"
           reason: Completed
-          startedAt: "2021-06-15T17:21:23Z"
+          startedAt: "2021-06-16T00:27:18Z"
     phase: Running
-    podIP: 10.244.0.19
+    podIP: 10.244.0.20
     podIPs:
-    - ip: 10.244.0.19
+    - ip: 10.244.0.20
     qosClass: Burstable
-    startTime: "2021-06-15T17:21:22Z"
+    startTime: "2021-06-16T00:27:17Z"
 - metadata:
-    creationTimestamp: "2021-06-15T17:09:04Z"
+    creationTimestamp: "2021-06-16T00:12:26Z"
     generateName: member-core-operator-d598d4888-
     labels:
       name: member-core-operator
       pod-template-hash: d598d4888
-    name: member-core-operator-d598d4888-sl86n
+    name: member-core-operator-d598d4888-zr6dw
     namespace: default
     ownerReferences:
     - apiVersion: apps/v1
@@ -263,10 +263,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: member-core-operator-d598d4888
-      uid: e00bd1fe-3657-4626-a889-ae01a97c8829
-    resourceVersion: "1230"
-    selfLink: /api/v1/namespaces/default/pods/member-core-operator-d598d4888-sl86n
-    uid: cc3b8768-e264-4482-8f7b-7db6087b3d45
+      uid: 5e734533-ca2f-4cea-9cb0-f29306d1cddb
+    resourceVersion: "1520"
+    selfLink: /api/v1/namespaces/default/pods/member-core-operator-d598d4888-zr6dw
+    uid: 8e15a258-ef5b-466f-9905-88c2214f52fc
   spec:
     containers:
     - command:
@@ -293,7 +293,7 @@ items:
         name: config-data-member-core
         subPath: config.yaml
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: member-core-operator-token-hd76s
+        name: member-core-operator-token-2zhsp
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -319,32 +319,32 @@ items:
         defaultMode: 420
         name: member-core-configmap
       name: config-data-member-core
-    - name: member-core-operator-token-hd76s
+    - name: member-core-operator-token-2zhsp
       secret:
         defaultMode: 420
-        secretName: member-core-operator-token-hd76s
+        secretName: member-core-operator-token-2zhsp
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:04Z"
+      lastTransitionTime: "2021-06-16T00:12:26Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:06Z"
+      lastTransitionTime: "2021-06-16T00:12:28Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:06Z"
+      lastTransitionTime: "2021-06-16T00:12:28Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:04Z"
+      lastTransitionTime: "2021-06-16T00:12:26Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://1567543aec086f6a3bac14df60f6c742899286dcfc759400e55de6b25412bf9a
+    - containerID: containerd://039839d228cca2a7ee54cc23ac024116554a387a97be50a569114eab55817569
       image: docker.io/nishantapatil3/member-core-operator:latest
-      imageID: sha256:2b2bf5d67c11cf3c3cabaa3b9e0b0185bc6c5a29162186ef80c26f627571d5de
+      imageID: sha256:11c4929c685452aa8609f3710c5e9abc3b6e9a3eaa1955a7c370bc89cd3f4f8c
       lastState: {}
       name: member-core-operator
       ready: true
@@ -352,15 +352,15 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T17:09:06Z"
+          startedAt: "2021-06-16T00:12:27Z"
     hostIP: 172.17.0.4
     phase: Running
     podIP: 10.244.0.6
     podIPs:
     - ip: 10.244.0.6
     qosClass: BestEffort
-    startTime: "2021-06-15T17:09:04Z"
+    startTime: "2021-06-16T00:12:26Z"
 kind: PodList
 metadata:
-  resourceVersion: "5355"
+  resourceVersion: "4926"
   selfLink: /api/v1/namespaces/default/pods

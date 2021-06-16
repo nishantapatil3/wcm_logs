@@ -1,0 +1,66 @@
+Name:         local-path-provisioner-58f6947c7-qv5dw
+Namespace:    local-path-storage
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Wed, 16 Jun 2021 00:07:13 +0000
+Labels:       app=local-path-provisioner
+              pod-template-hash=58f6947c7
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.2
+IPs:
+  IP:           10.244.0.2
+Controlled By:  ReplicaSet/local-path-provisioner-58f6947c7
+Containers:
+  local-path-provisioner:
+    Container ID:  containerd://3da686e63becd6a16502e1775b400a2d4817a1e3a3c242fbf889e8973e27984c
+    Image:         rancher/local-path-provisioner:v0.0.12
+    Image ID:      sha256:db10073a6f829f72cc09655e92fbc3c74410c647c626b431ecd5257d1f6b59c1
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      local-path-provisioner
+      --debug
+      start
+      --helper-image
+      k8s.gcr.io/debian-base:v2.0.0
+      --config
+      /etc/config/config.json
+    State:          Running
+      Started:      Wed, 16 Jun 2021 00:07:14 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_NAMESPACE:  local-path-storage (v1:metadata.namespace)
+    Mounts:
+      /etc/config/ from config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from local-path-provisioner-service-account-token-bmkf4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      local-path-config
+    Optional:  false
+  local-path-provisioner-service-account-token-bmkf4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  local-path-provisioner-service-account-token-bmkf4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  kubernetes.io/os=linux
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  22m   default-scheduler  0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Normal   Scheduled         21m   default-scheduler  Successfully assigned local-path-storage/local-path-provisioner-58f6947c7-qv5dw to kind-3-control-plane
+  Normal   Pulled            21m   kubelet            Container image "rancher/local-path-provisioner:v0.0.12" already present on machine
+  Normal   Created           21m   kubelet            Created container local-path-provisioner
+  Normal   Started           21m   kubelet            Started container local-path-provisioner
+

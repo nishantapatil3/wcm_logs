@@ -16,40 +16,40 @@ vpp-probe
 /home/ubuntu/go/bin/vpp-probe --kubeconfig="/home/ubuntu/kubeconfigs/nsm/kind-2.kubeconfig" discover
 
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: wcm-nsm-vpp-forwarder-h85qh | namespace: nsm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 172.17.0.3
+   pod: wcm-nsm-vpp-forwarder-6sqt7 | namespace: nsm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 172.17.0.3
   ----------------------------------------------------------------------------------------------------------------------------------
     VPP version: 20.05.1-6~gf53edbc3b~b1
     
     VPP
       Idx    Internal     Interface    Type         State    IP                MTU    Config                                                               Related
         1    host-eth0    mgmt         AF_PACKET    up       172.17.0.3/16       0    host_if_name:eth0                                                    
-        2    memif1/0     DST-7        MEMIF        up       -                1400    socket:/var/lib/networkservicemesh/nsm-15/nsm662qp9Tx/memif.sock     l2xc to: SRC-7
-        3    tap0         SRC-7        TAP          up       -                1400    host_if_name:tap-981580385 version:2                                 l2xc to: DST-7
+        2    memif1/0     DST-b        MEMIF        up       -                1400    socket:/var/lib/networkservicemesh/nsm-25/nsm6wfAzfiR/memif.sock     l2xc to: SRC-b
+        3    tap0         SRC-b        TAP          up       -                1400    host_if_name:tap-1837238954 version:2                                l2xc to: DST-b
     
     Linux
       Idx	Internal	Interface	Type		State	IP			 MTU	Config			Namespace
-       22	nsm0		SRC-7		TAP_TO_VPP	up	172.100.220.5/30	1400	vpp_tap_if_name:SRC-7	FD: /proc/13267/ns/net
+       21	nsm0		SRC-b		TAP_TO_VPP	up	172.100.252.5/30	1400	vpp_tap_if_name:SRC-b	FD: /proc/13049/ns/net
     
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: vl3-nse-green-76bc7f4b96-5zlv4 | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.19
+   pod: vl3-nse-green-76bc7f4b96-846cw | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.18
   ----------------------------------------------------------------------------------------------------------------------------------
     VPP version: 20.05.1-6~gf53edbc3b~b1
     
     VPP
-      Idx    Internal    Interface                                      Type     State    IP                   MTU    Config                                                                 Related
-        1    memif1/0    green-kind-2_vl3-nse-green-76bc7f4b96-8fsld    MEMIF    up       172.100.220.2/30       0    socket:/var/lib/networkservicemesh/nsmxdhBqp9Tt/memif.sock (master)    
-        2    memif2/0    helloworld-green-679c6b6b65-qpchn              MEMIF    up       172.100.220.6/30       0    socket:/var/lib/networkservicemesh/nsm662qp9Tx/memif.sock (master)     
+      Idx    Internal    Interface                                      Type     State    IP                   MTU    Config                                                                Related
+        1    memif1/0    green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp    MEMIF    up       172.100.252.2/30       0    socket:/var/lib/networkservicemesh/nsmwhDzf9R/memif.sock (master)     
+        2    memif2/0    helloworld-green-679c6b6b65-4nz7t              MEMIF    up       172.100.252.6/30       0    socket:/var/lib/networkservicemesh/nsm6wfAzfiR/memif.sock (master)    
     
     No linux interfaces configured
     
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: vl3-nse-green-76bc7f4b96-8fsld | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.20
+   pod: vl3-nse-green-76bc7f4b96-lqcdp | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.19
   ----------------------------------------------------------------------------------------------------------------------------------
     VPP version: 20.05.1-6~gf53edbc3b~b1
     
     VPP
       Idx    Internal    Interface     Type     State    IP                   MTU    Config                                                       Related
-        1    memif1/0    green68m8k    MEMIF    up       172.100.220.1/30       0    socket:/var/lib/networkservicemesh/green68m8k/memif.sock     
+        1    memif1/0    greenh6lqn    MEMIF    up       172.100.252.1/30       0    socket:/var/lib/networkservicemesh/greenh6lqn/memif.sock     
     
     No linux interfaces configured
     
@@ -58,130 +58,105 @@ vpp-probe
 /home/ubuntu/go/bin/vpp-probe --kubeconfig="/home/ubuntu/kubeconfigs/nsm/kind-2.kubeconfig" exec agentctl config history --details
 
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: wcm-nsm-vpp-forwarder-h85qh | namespace: nsm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 172.17.0.3
+   pod: wcm-nsm-vpp-forwarder-6sqt7 | namespace: nsm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 172.17.0.3
   ----------------------------------------------------------------------------------------------------------------------------------
   
-    # agentctl config history --details (took 136.828415ms)
+    # agentctl config history --details (took 132.57502ms)
     
         SEQ  TYPE            START  INPUT      OPERATIONS          RESULT  SUMMARY                              DETAILS                                           
-        0    status update   20m    1  values                                                                                                         
-        1    status update   20m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        2    config replace  20m    27 values                                                                                                         
-        3    config change   20m    13 values  CREATE:17           ok      CONFIGURED:17                                                                          
-        4    status update   20m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        5    status update   20m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        6    status update   20m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        7    status update   20m    2  values  CREATE:1, DELETE:1  ok      OBTAINED:1, REMOVED:1                                                                  
-        8    status update   17m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        9    status update   17m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        10   status update   15m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        11   status update   15m    1  values  DELETE:1            ok      REMOVED:1                                                                              
-        12   status update   15m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        13   status update   15m    1  values  DELETE:1            ok      REMOVED:1                                                                              
-        14   status update   13m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        15   status update   13m    1  values  DELETE:1            ok      REMOVED:1                                                                              
-        16   status sync     13m         CREATE:1, DELETE:1  ok      CONFIGURED:1, REMOVED:1                                                                
-        17   status update   13m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        18   status sync     13m         CREATE:1, DELETE:1  ok      CONFIGURED:1, REMOVED:1                                                                
-        19   status update   13m    1  values  DELETE:1            ok      REMOVED:1                                                                              
-        20   status update   8m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        21   config change   8m     6  values  CREATE:9            ok      CONFIGURED:8, PENDING:1              [CREATE] vpp/interface/DST-7/rx-modes -> PENDING  
-        22   status update   8m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        23   status update   8m     1  values  DELETE:1            ok      REMOVED:1                                                                              
-        24   status update   8m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        25   status update   8m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
-        26   status update   8m     2  values  CREATE:2, DELETE:1  ok      CONFIGURED:1, OBTAINED:1, REMOVED:1                                                    
-        27   status update   8m     2  values  CREATE:1, DELETE:1  ok      OBTAINED:1, REMOVED:1                                                                  
+        0    config replace  16m    27 values                                                                                                         
+        1    config change   16m    13 values  CREATE:17           ok      CONFIGURED:17                                                                          
+        2    status update   16m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        3    status update   16m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        4    status update   16m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        5    status update   16m    2  values  CREATE:1, DELETE:1  ok      OBTAINED:1, REMOVED:1                                                                  
+        6    status update   14m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        7    status update   14m    1  values  DELETE:1            ok      REMOVED:1                                                                              
+        8    status update   11m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        9    status update   11m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        10   status update   10m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        11   status update   10m    1  values  DELETE:1            ok      REMOVED:1                                                                              
+        12   status update   10m    1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        13   status update   10m    1  values  DELETE:1            ok      REMOVED:1                                                                              
+        14   status update   1m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        15   config change   1m     6  values  CREATE:9            ok      CONFIGURED:8, PENDING:1              [CREATE] vpp/interface/DST-b/rx-modes -> PENDING  
+        16   status update   1m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        17   status update   1m     1  values  DELETE:1            ok      REMOVED:1                                                                              
+        18   status update   1m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        19   status update   1m     1  values  CREATE:1            ok      OBTAINED:1                                                                             
+        20   status update   1m     2  values  CREATE:2, DELETE:1  ok      CONFIGURED:1, OBTAINED:1, REMOVED:1                                                    
+        21   status update   1m     2  values  CREATE:1, DELETE:1  ok      OBTAINED:1, REMOVED:1                                                                  
       
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: vl3-nse-green-76bc7f4b96-5zlv4 | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.19
+   pod: vl3-nse-green-76bc7f4b96-846cw | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.18
   ----------------------------------------------------------------------------------------------------------------------------------
   
-    # agentctl config history --details (took 138.0334ms)
+    # agentctl config history --details (took 148.05766ms)
     
         SEQ  TYPE            START  INPUT      OPERATIONS          RESULT  SUMMARY                              DETAILS                                                                                 
-        0    config replace  13m    16 values                                                                                                                                               
-        1    config change   12m    2  values  CREATE:6            ok      CONFIGURED:5, PENDING:1              [CREATE] vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-8fsld/rx-modes -> PENDING  
-        2    status update   12m    1  values  CREATE:1            ok      OBTAINED:1                                                                                                                   
-        3    status update   12m    2  values  CREATE:2, DELETE:1  ok      CONFIGURED:1, OBTAINED:1, REMOVED:1                                                                                          
-        4    config change   8m     3  values  CREATE:5            ok      CONFIGURED:4, PENDING:1              [CREATE] vpp/interface/helloworld-green-679c6b6b65-qpchn/rx-modes -> PENDING            
-        5    status update   8m     1  values  CREATE:1            ok      OBTAINED:1                                                                                                                   
-        6    status update   8m     2  values  CREATE:2, DELETE:1  ok      CONFIGURED:1, OBTAINED:1, REMOVED:1                                                                                          
+        0    config replace  10m    16 values                                                                                                                                               
+        1    config change   9m     2  values  CREATE:6            ok      CONFIGURED:5, PENDING:1              [CREATE] vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp/rx-modes -> PENDING  
+        2    status update   9m     1  values  CREATE:1            ok      OBTAINED:1                                                                                                                   
+        3    status update   9m     2  values  CREATE:2, DELETE:1  ok      CONFIGURED:1, OBTAINED:1, REMOVED:1                                                                                          
+        4    config change   1m     3  values  CREATE:5            ok      CONFIGURED:4, PENDING:1              [CREATE] vpp/interface/helloworld-green-679c6b6b65-4nz7t/rx-modes -> PENDING            
+        5    status update   1m     1  values  CREATE:1            ok      OBTAINED:1                                                                                                                   
+        6    status update   1m     2  values  CREATE:2, DELETE:1  ok      CONFIGURED:1, OBTAINED:1, REMOVED:1                                                                                          
       
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: vl3-nse-green-76bc7f4b96-8fsld | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.20
+   pod: vl3-nse-green-76bc7f4b96-lqcdp | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.19
   ----------------------------------------------------------------------------------------------------------------------------------
   
-    # agentctl config history --details (took 127.533399ms)
+    # agentctl config history --details (took 158.393909ms)
     
         SEQ  TYPE            START  INPUT      OPERATIONS          RESULT  SUMMARY                DETAILS  
-        0    config replace  13m    16 values                                                  
-        1    config change   12m    2  values  CREATE:5            ok      CONFIGURED:5                    
-        2    status update   12m    1  values  CREATE:1            ok      OBTAINED:1                      
-        3    status update   12m    2  values  CREATE:1, DELETE:1  ok      OBTAINED:1, REMOVED:1           
+        0    config replace  10m    16 values                                                  
+        1    config change   9m     2  values  CREATE:5            ok      CONFIGURED:5                    
+        2    status update   9m     1  values  CREATE:1            ok      OBTAINED:1                      
+        3    status update   9m     2  values  CREATE:1, DELETE:1  ok      OBTAINED:1, REMOVED:1           
       
 
 
 /home/ubuntu/go/bin/vpp-probe --kubeconfig="/home/ubuntu/kubeconfigs/nsm/kind-2.kubeconfig" exec agentctl values
 
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: wcm-nsm-vpp-forwarder-h85qh | namespace: nsm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 172.17.0.3
+   pod: wcm-nsm-vpp-forwarder-6sqt7 | namespace: nsm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 172.17.0.3
   ----------------------------------------------------------------------------------------------------------------------------------
   
-    # agentctl values (took 151.852142ms)
+    # agentctl values (took 127.555877ms)
     
       MODEL                        NAME                                                    STATE        DETAILS   LAST OP   ERROR     
-      linux.interfaces.interface   SRC-7                                                   CONFIGURED             CREATE              
-                                   linux/interface/SRC-7/address/static/172.100.220.5/30   CONFIGURED             CREATE              
-                                   linux/interface/state/SRC-7/UP                          CONFIGURED             CREATE              
-      linux.l3.route               172.100.0.0/16/SRC-7                                    CONFIGURED             CREATE              
-      vpp.acls.acl                 NSMmgmtInterfaceACL                                     CONFIGURED             UPDATE              
-                                   vpp/acl/NSMmgmtInterfaceACL/interface/ingress/mgmt      CONFIGURED             UPDATE              
+      linux.interfaces.interface   SRC-b                                                   CONFIGURED             CREATE              
+                                   linux/interface/SRC-b/address/static/172.100.252.5/30   CONFIGURED             CREATE              
+                                   linux/interface/state/SRC-b/UP                          CONFIGURED             CREATE              
+      linux.l3.route               172.100.0.0/16/SRC-b                                    CONFIGURED             CREATE              
+      vpp.acls.acl                 NSMmgmtInterfaceACL                                     CONFIGURED             CREATE              
+                                   vpp/acl/NSMmgmtInterfaceACL/interface/ingress/mgmt      CONFIGURED             CREATE              
       vpp.ipfix.ipfix                                                                      obtained                                   
-      vpp.l2.xconnect              DST-7                                                   CONFIGURED             CREATE              
-      vpp.l2.xconnect              SRC-7                                                   CONFIGURED             CREATE              
+      vpp.l2.xconnect              DST-b                                                   CONFIGURED             CREATE              
+      vpp.l2.xconnect              SRC-b                                                   CONFIGURED             CREATE              
       vpp.nat.nat44-global                                                                 obtained                                   
-      vpp.arp                      mgmt/10.244.0.10                                        CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.2                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.3                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.4                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.5                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.6                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.7                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.8                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/10.244.0.9                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/172.17.0.1                                         CONFIGURED             UPDATE              
-      vpp.arp                      mgmt/172.17.0.2                                         obtained                                   
-      vpp.arp                      mgmt/172.17.255.1                                       obtained                                   
-      vpp.arp                      mgmt/172.17.255.2                                       obtained                                   
-      vpp.interfaces               DST-7                                                   CONFIGURED             CREATE              
-                                   vpp/interface/DST-7/rx-modes                            CONFIGURED             CREATE              
-      vpp.interfaces               SRC-7                                                   CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.10                                        CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.2                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.3                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.4                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.5                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.6                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.7                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.8                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/10.244.0.9                                         CONFIGURED             CREATE              
+      vpp.arp                      mgmt/172.17.0.1                                         CONFIGURED             CREATE              
+      vpp.interfaces               DST-b                                                   CONFIGURED             CREATE              
+                                   vpp/interface/DST-b/rx-modes                            CONFIGURED             CREATE              
+      vpp.interfaces               SRC-b                                                   CONFIGURED             CREATE              
       vpp.interfaces               UNTAGGED-local0                                         obtained                                   
-      vpp.interfaces               mgmt                                                    CONFIGURED             UPDATE              
-                                   vpp/interface/mgmt/address/static/172.17.0.3/16         CONFIGURED             UPDATE              
-                                   vpp/interface/mgmt/has-IP-address                       CONFIGURED             UPDATE              
-                                   vpp/interface/mgmt/vrf/0/ip-version/v4                  CONFIGURED             UPDATE              
+      vpp.interfaces               mgmt                                                    CONFIGURED             CREATE              
+                                   vpp/interface/mgmt/address/static/172.17.0.3/16         CONFIGURED             CREATE              
+                                   vpp/interface/mgmt/has-IP-address                       CONFIGURED             CREATE              
+                                   vpp/interface/mgmt/vrf/0/ip-version/v4                  CONFIGURED             CREATE              
       vpp.proxyarp-global                                                                  obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/0.0.0.0/0/gw/172.17.0.1               CONFIGURED             UPDATE              
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.10/32/gw/10.244.0.10         obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.2/32/gw/10.244.0.2           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.3/32/gw/10.244.0.3           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.4/32/gw/10.244.0.4           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.5/32/gw/10.244.0.5           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.6/32/gw/10.244.0.6           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.7/32/gw/10.244.0.7           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.8/32/gw/10.244.0.8           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/10.244.0.9/32/gw/10.244.0.9           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/172.17.0.0/16/gw/0.0.0.0              obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/172.17.0.1/32/gw/172.17.0.1           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/172.17.0.2/32/gw/172.17.0.2           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/172.17.0.3/32/gw/172.17.0.3           obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/172.17.255.1/32/gw/172.17.255.1       obtained                                   
-      vpp.route                    if/mgmt/vrf/0/dst/172.17.255.2/32/gw/172.17.255.2       obtained                                   
+      vpp.route                    if/mgmt/vrf/0/dst/0.0.0.0/0/gw/172.17.0.1               CONFIGURED             CREATE              
+      vpp.route                    vrf/0/dst/0.0.0.0/0/gw/0.0.0.0                          obtained                                   
       vpp.route                    vrf/0/dst/0.0.0.0/32/gw/0.0.0.0                         obtained                                   
-      vpp.route                    vrf/0/dst/172.17.0.0/32/gw/0.0.0.0                      obtained                                   
-      vpp.route                    vrf/0/dst/172.17.255.255/32/gw/0.0.0.0                  obtained                                   
       vpp.route                    vrf/0/dst/224.0.0.0/4/gw/0.0.0.0                        obtained                                   
       vpp.route                    vrf/0/dst/240.0.0.0/4/gw/0.0.0.0                        obtained                                   
       vpp.route                    vrf/0/dst/255.255.255.255/32/gw/0.0.0.0                 obtained                                   
@@ -191,51 +166,51 @@ vpp-probe
       vpp.vrf-table                id/0/protocol/IPV6                                      obtained                                   
                                    linux/interface/host-name/eth0                          obtained                                   
                                    linux/interface/host-name/lo                            obtained                                   
-                                   linux/interface/host-name/veth14a2ccc7                  obtained                                   
-                                   linux/interface/host-name/veth29513f1c                  obtained                                   
-                                   linux/interface/host-name/veth4212b182                  obtained                                   
-                                   linux/interface/host-name/veth42479d76                  obtained                                   
-                                   linux/interface/host-name/veth497b6ecb                  obtained                                   
-                                   linux/interface/host-name/veth4e255696                  obtained                                   
-                                   linux/interface/host-name/veth4fe29cbd                  obtained                                   
-                                   linux/interface/host-name/veth54a6a74d                  obtained                                   
-                                   linux/interface/host-name/veth62b157f8                  obtained                                   
-                                   linux/interface/host-name/veth766ae0fc                  obtained                                   
-                                   linux/interface/host-name/veth8f8c836b                  obtained                                   
-                                   linux/interface/host-name/vetha4f79386                  obtained                                   
-                                   linux/interface/host-name/vethbf4f2139                  obtained                                   
-                                   linux/interface/host-name/vethc42a25eb                  obtained                                   
-                                   linux/interface/host-name/vethd61aa9de                  obtained                                   
-                                   linux/interface/host-name/vethf8ee0025                  obtained                                   
-                                   vpp/interface/DST-7/link-state/UP                       obtained                                   
-                                   vpp/interface/SRC-7/link-state/UP                       obtained                                   
+                                   linux/interface/host-name/veth1ad4e72b                  obtained                                   
+                                   linux/interface/host-name/veth29591cb5                  obtained                                   
+                                   linux/interface/host-name/veth2a327728                  obtained                                   
+                                   linux/interface/host-name/veth2f4dbdbe                  obtained                                   
+                                   linux/interface/host-name/veth331dc332                  obtained                                   
+                                   linux/interface/host-name/veth40c2e41b                  obtained                                   
+                                   linux/interface/host-name/veth4400b794                  obtained                                   
+                                   linux/interface/host-name/veth6a8b0b9c                  obtained                                   
+                                   linux/interface/host-name/veth6b0ff886                  obtained                                   
+                                   linux/interface/host-name/veth6d634f57                  obtained                                   
+                                   linux/interface/host-name/veth72bbec61                  obtained                                   
+                                   linux/interface/host-name/veth79a9ec27                  obtained                                   
+                                   linux/interface/host-name/vethb53fe5ce                  obtained                                   
+                                   linux/interface/host-name/vethca8bc9cd                  obtained                                   
+                                   linux/interface/host-name/vethd624eb08                  obtained                                   
+                                   linux/interface/host-name/vethf1e48169                  obtained                                   
+                                   vpp/interface/DST-b/link-state/UP                       obtained                                   
+                                   vpp/interface/SRC-b/link-state/UP                       obtained                                   
                                    vpp/interface/UNTAGGED-local0/link-state/DOWN           obtained                                   
                                    vpp/interface/mgmt/link-state/UP                        obtained                                   
       
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: vl3-nse-green-76bc7f4b96-5zlv4 | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.19
+   pod: vl3-nse-green-76bc7f4b96-846cw | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.18
   ----------------------------------------------------------------------------------------------------------------------------------
   
-    # agentctl values (took 127.785763ms)
+    # agentctl values (took 119.435816ms)
     
       MODEL                  NAME                                                                                        STATE        DETAILS   LAST OP   ERROR     
       vpp.ipfix.ipfix                                                                                                    obtained                                   
       vpp.nat.nat44-global                                                                                               obtained                                   
       vpp.interfaces         UNTAGGED-local0                                                                             obtained                                   
-      vpp.interfaces         green-kind-2_vl3-nse-green-76bc7f4b96-8fsld                                                 CONFIGURED             UPDATE              
-                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-8fsld/address/static/172.100.220.2/30   CONFIGURED             UPDATE              
-                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-8fsld/has-IP-address                    CONFIGURED             UPDATE              
-                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-8fsld/rx-modes                          CONFIGURED             UPDATE              
-                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-8fsld/vrf/0/ip-version/v4               CONFIGURED             UPDATE              
-      vpp.interfaces         helloworld-green-679c6b6b65-qpchn                                                           CONFIGURED             CREATE              
-                             vpp/interface/helloworld-green-679c6b6b65-qpchn/address/static/172.100.220.6/30             CONFIGURED             CREATE              
-                             vpp/interface/helloworld-green-679c6b6b65-qpchn/has-IP-address                              CONFIGURED             CREATE              
-                             vpp/interface/helloworld-green-679c6b6b65-qpchn/rx-modes                                    CONFIGURED             CREATE              
-                             vpp/interface/helloworld-green-679c6b6b65-qpchn/vrf/0/ip-version/v4                         CONFIGURED             CREATE              
+      vpp.interfaces         green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp                                                 CONFIGURED             UPDATE              
+                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp/address/static/172.100.252.2/30   CONFIGURED             UPDATE              
+                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp/has-IP-address                    CONFIGURED             UPDATE              
+                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp/rx-modes                          CONFIGURED             UPDATE              
+                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp/vrf/0/ip-version/v4               CONFIGURED             UPDATE              
+      vpp.interfaces         helloworld-green-679c6b6b65-4nz7t                                                           CONFIGURED             CREATE              
+                             vpp/interface/helloworld-green-679c6b6b65-4nz7t/address/static/172.100.252.6/30             CONFIGURED             CREATE              
+                             vpp/interface/helloworld-green-679c6b6b65-4nz7t/has-IP-address                              CONFIGURED             CREATE              
+                             vpp/interface/helloworld-green-679c6b6b65-4nz7t/rx-modes                                    CONFIGURED             CREATE              
+                             vpp/interface/helloworld-green-679c6b6b65-4nz7t/vrf/0/ip-version/v4                         CONFIGURED             CREATE              
       vpp.proxyarp-global                                                                                                obtained                                   
       vpp.route              vrf/0/dst/0.0.0.0/0/gw/0.0.0.0                                                              obtained                                   
       vpp.route              vrf/0/dst/0.0.0.0/32/gw/0.0.0.0                                                             obtained                                   
-      vpp.route              vrf/0/dst/172.100.216.0/22/gw/172.100.220.1                                                 CONFIGURED             UPDATE              
+      vpp.route              vrf/0/dst/172.100.248.0/22/gw/172.100.252.1                                                 CONFIGURED             UPDATE              
       vpp.route              vrf/0/dst/224.0.0.0/4/gw/0.0.0.0                                                            obtained                                   
       vpp.route              vrf/0/dst/240.0.0.0/4/gw/0.0.0.0                                                            obtained                                   
       vpp.route              vrf/0/dst/255.255.255.255/32/gw/0.0.0.0                                                     obtained                                   
@@ -246,27 +221,27 @@ vpp-probe
                              linux/interface/host-name/eth0                                                              obtained                                   
                              linux/interface/host-name/lo                                                                obtained                                   
                              vpp/interface/UNTAGGED-local0/link-state/DOWN                                               obtained                                   
-                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-8fsld/link-state/UP                     obtained                                   
-                             vpp/interface/helloworld-green-679c6b6b65-qpchn/link-state/UP                               obtained                                   
+                             vpp/interface/green-kind-2_vl3-nse-green-76bc7f4b96-lqcdp/link-state/UP                     obtained                                   
+                             vpp/interface/helloworld-green-679c6b6b65-4nz7t/link-state/UP                               obtained                                   
       
   ----------------------------------------------------------------------------------------------------------------------------------
-   pod: vl3-nse-green-76bc7f4b96-8fsld | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.20
+   pod: vl3-nse-green-76bc7f4b96-lqcdp | namespace: wcm-system | node: kind-2-control-plane | cluster: kind-kind-2 | ip: 10.244.0.19
   ----------------------------------------------------------------------------------------------------------------------------------
   
-    # agentctl values (took 137.391172ms)
+    # agentctl values (took 127.243543ms)
     
       MODEL                  NAME                                                       STATE        DETAILS   LAST OP   ERROR     
       vpp.ipfix.ipfix                                                                   obtained                                   
       vpp.nat.nat44-global                                                              obtained                                   
       vpp.interfaces         UNTAGGED-local0                                            obtained                                   
-      vpp.interfaces         green68m8k                                                 CONFIGURED             CREATE              
-                             vpp/interface/green68m8k/address/static/172.100.220.1/30   CONFIGURED             CREATE              
-                             vpp/interface/green68m8k/has-IP-address                    CONFIGURED             CREATE              
-                             vpp/interface/green68m8k/vrf/0/ip-version/v4               CONFIGURED             CREATE              
+      vpp.interfaces         greenh6lqn                                                 CONFIGURED             CREATE              
+                             vpp/interface/greenh6lqn/address/static/172.100.252.1/30   CONFIGURED             CREATE              
+                             vpp/interface/greenh6lqn/has-IP-address                    CONFIGURED             CREATE              
+                             vpp/interface/greenh6lqn/vrf/0/ip-version/v4               CONFIGURED             CREATE              
       vpp.proxyarp-global                                                               obtained                                   
       vpp.route              vrf/0/dst/0.0.0.0/0/gw/0.0.0.0                             obtained                                   
       vpp.route              vrf/0/dst/0.0.0.0/32/gw/0.0.0.0                            obtained                                   
-      vpp.route              vrf/0/dst/172.100.220.0/22/gw/172.100.220.2                CONFIGURED             CREATE              
+      vpp.route              vrf/0/dst/172.100.252.0/22/gw/172.100.252.2                CONFIGURED             CREATE              
       vpp.route              vrf/0/dst/224.0.0.0/4/gw/0.0.0.0                           obtained                                   
       vpp.route              vrf/0/dst/240.0.0.0/4/gw/0.0.0.0                           obtained                                   
       vpp.route              vrf/0/dst/255.255.255.255/32/gw/0.0.0.0                    obtained                                   
@@ -277,6 +252,6 @@ vpp-probe
                              linux/interface/host-name/eth0                             obtained                                   
                              linux/interface/host-name/lo                               obtained                                   
                              vpp/interface/UNTAGGED-local0/link-state/DOWN              obtained                                   
-                             vpp/interface/green68m8k/link-state/UP                     obtained                                   
+                             vpp/interface/greenh6lqn/link-state/UP                     obtained                                   
       
 

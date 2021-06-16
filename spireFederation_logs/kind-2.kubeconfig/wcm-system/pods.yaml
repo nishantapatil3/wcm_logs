@@ -6,7 +6,7 @@ items:
       sidecar.istio.io/inject: "false"
       wcm/nsr.address: green.nispatil-wcm-cisco.com
       wcm/nsr.port: "443"
-    creationTimestamp: "2021-06-15T17:16:39Z"
+    creationTimestamp: "2021-06-16T00:18:23Z"
     generateName: vl3-nse-green-76bc7f4b96-
     labels:
       networkservicemesh.io/app: vl3-nse-green
@@ -14,7 +14,7 @@ items:
       pod-template-hash: 76bc7f4b96
       wcm-nse: green
       wcm/nse.servicename: green
-    name: vl3-nse-green-76bc7f4b96-5zlv4
+    name: vl3-nse-green-76bc7f4b96-846cw
     namespace: wcm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -22,10 +22,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: vl3-nse-green-76bc7f4b96
-      uid: 5bb6468a-4c9f-4cde-8ded-4f144298372e
-    resourceVersion: "3110"
-    selfLink: /api/v1/namespaces/wcm-system/pods/vl3-nse-green-76bc7f4b96-5zlv4
-    uid: 4b8e5d86-251d-4c7b-bdb8-8e801f3a0b78
+      uid: 8df9136a-000e-4377-bfa6-2c9f00485a02
+    resourceVersion: "3031"
+    selfLink: /api/v1/namespaces/wcm-system/pods/vl3-nse-green-76bc7f4b96-846cw
+    uid: ca688bb9-2a0e-4aea-a564-e42b269305db
   spec:
     containers:
     - env:
@@ -107,7 +107,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: vl3-nse-green-service-account-token-cj4rw
+        name: vl3-nse-green-service-account-token-ls7f5
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -137,30 +137,30 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: vl3-nse-green-service-account-token-cj4rw
+    - name: vl3-nse-green-service-account-token-ls7f5
       secret:
         defaultMode: 420
-        secretName: vl3-nse-green-service-account-token-cj4rw
+        secretName: vl3-nse-green-service-account-token-ls7f5
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:39Z"
+      lastTransitionTime: "2021-06-16T00:18:23Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:39Z"
+      lastTransitionTime: "2021-06-16T00:18:24Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:39Z"
+      lastTransitionTime: "2021-06-16T00:18:24Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:39Z"
+      lastTransitionTime: "2021-06-16T00:18:23Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://c6a1fe4738385f2563364ab78d54d8cc3a319c6851e0eaa6b3df1e8a7e5b7e22
+    - containerID: containerd://88f66a574e1a3fbca8877e8521df3bd02824ef88ff7c6a69373f84d2f559d091
       image: docker.io/nishantapatil3/vl3_ucnf-nse:latest
       imageID: sha256:76380341646a65ea109e5dc6c9a4efa198ee96796f5279fec8f93da263e7689b
       lastState: {}
@@ -170,199 +170,199 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T17:16:39Z"
+          startedAt: "2021-06-16T00:18:24Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.18
+    podIPs:
+    - ip: 10.244.0.18
+    qosClass: BestEffort
+    startTime: "2021-06-16T00:18:23Z"
+- metadata:
+    annotations:
+      sidecar.istio.io/inject: "false"
+      wcm/nsr.address: green.nispatil-wcm-cisco.com
+      wcm/nsr.port: "443"
+    creationTimestamp: "2021-06-16T00:18:25Z"
+    generateName: vl3-nse-green-76bc7f4b96-
+    labels:
+      networkservicemesh.io/app: vl3-nse-green
+      networkservicemesh.io/impl: green
+      pod-template-hash: 76bc7f4b96
+      wcm-nse: green
+      wcm/nse.servicename: green
+    name: vl3-nse-green-76bc7f4b96-lqcdp
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: vl3-nse-green-76bc7f4b96
+      uid: 8df9136a-000e-4377-bfa6-2c9f00485a02
+    resourceVersion: "3063"
+    selfLink: /api/v1/namespaces/wcm-system/pods/vl3-nse-green-76bc7f4b96-lqcdp
+    uid: 835ecf31-0b71-4a54-9f3f-262f8a6e89b1
+  spec:
+    containers:
+    - env:
+      - name: ENDPOINT_NETWORK_SERVICE
+        value: green
+      - name: ENDPOINT_LABELS
+        value: app=vl3-nse-green
+      - name: TRACER_ENABLED
+        value: "true"
+      - name: JAEGER_SERVICE_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_SERVICE_PORT_JAEGER
+        value: "6831"
+      - name: JAEGER_AGENT_HOST
+        value: wcm-jaeger.nsm-system
+      - name: JAEGER_AGENT_PORT
+        value: "6831"
+      - name: WORKLOAD_REFRESH_INTERVAL
+        value: 2h30m
+      - name: NSREGISTRY_ADDR
+        value: wcm-nsmgr.nsm-system
+      - name: NSREGISTRY_PORT
+        value: "5000"
+      - name: CLUSTER_NAME
+        value: green-kind-2
+      - name: NSE_POD_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      - name: NSE_POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: NSM_REMOTE_NS_IP_LIST
+        valueFrom:
+          configMapKeyRef:
+            key: remote.ip_list
+            name: nsm-vl3-green-config-map
+      - name: METRICS_PORT
+        value: "2112"
+      - name: WORKLOAD_METRICS_PORT
+        value: "3000"
+      - name: INSECURE
+        value: "false"
+      - name: TRUST_SVIDS
+        value: spiffe://central.com/example-connectivity-domain-app-dns-publisher,spiffe://central.com/example-connectivity-domain-wcmd,spiffe://member1.com/wcm-nsmgr,spiffe://member2.com/wcm-nsmgr,spiffe://member1.com/wcm-nsm-vpp-forwarder,spiffe://member2.com/wcm-nsm-vpp-forwarder
+      image: nishantapatil3/vl3_ucnf-nse:latest
+      imagePullPolicy: IfNotPresent
+      name: vl3-nse-green
+      ports:
+      - containerPort: 9191
+        name: monitoring-vpp
+        protocol: TCP
+      - containerPort: 2112
+        name: monitoring
+        protocol: TCP
+      - containerPort: 3000
+        name: workload
+        protocol: TCP
+      resources:
+        limits:
+          networkservicemesh.io/socket: "1"
+        requests:
+          networkservicemesh.io/socket: "1"
+      securityContext:
+        capabilities:
+          add:
+          - NET_ADMIN
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/universal-cnf/config.yaml
+        name: universal-cnf-config-volume
+        subPath: config.yaml
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: vl3-nse-green-service-account-token-ls7f5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: kind-2-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: vl3-nse-green-service-account
+    serviceAccountName: vl3-nse-green-service-account
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: vl3-nse-green-config-map
+      name: universal-cnf-config-volume
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: vl3-nse-green-service-account-token-ls7f5
+      secret:
+        defaultMode: 420
+        secretName: vl3-nse-green-service-account-token-ls7f5
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-16T00:18:26Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-16T00:18:27Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-16T00:18:27Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-16T00:18:25Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://cbc1b36f74241f1e51629ecebbce1a6222bfb5972ed36414df2b75ba5699d198
+      image: docker.io/nishantapatil3/vl3_ucnf-nse:latest
+      imageID: sha256:76380341646a65ea109e5dc6c9a4efa198ee96796f5279fec8f93da263e7689b
+      lastState: {}
+      name: vl3-nse-green
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-16T00:18:26Z"
     hostIP: 172.17.0.3
     phase: Running
     podIP: 10.244.0.19
     podIPs:
     - ip: 10.244.0.19
     qosClass: BestEffort
-    startTime: "2021-06-15T17:16:39Z"
+    startTime: "2021-06-16T00:18:26Z"
 - metadata:
-    annotations:
-      sidecar.istio.io/inject: "false"
-      wcm/nsr.address: green.nispatil-wcm-cisco.com
-      wcm/nsr.port: "443"
-    creationTimestamp: "2021-06-15T17:16:43Z"
-    generateName: vl3-nse-green-76bc7f4b96-
-    labels:
-      networkservicemesh.io/app: vl3-nse-green
-      networkservicemesh.io/impl: green
-      pod-template-hash: 76bc7f4b96
-      wcm-nse: green
-      wcm/nse.servicename: green
-    name: vl3-nse-green-76bc7f4b96-8fsld
-    namespace: wcm-system
-    ownerReferences:
-    - apiVersion: apps/v1
-      blockOwnerDeletion: true
-      controller: true
-      kind: ReplicaSet
-      name: vl3-nse-green-76bc7f4b96
-      uid: 5bb6468a-4c9f-4cde-8ded-4f144298372e
-    resourceVersion: "3148"
-    selfLink: /api/v1/namespaces/wcm-system/pods/vl3-nse-green-76bc7f4b96-8fsld
-    uid: e7477ef5-ee5b-4db3-b99a-82fbf7dbdc81
-  spec:
-    containers:
-    - env:
-      - name: ENDPOINT_NETWORK_SERVICE
-        value: green
-      - name: ENDPOINT_LABELS
-        value: app=vl3-nse-green
-      - name: TRACER_ENABLED
-        value: "true"
-      - name: JAEGER_SERVICE_HOST
-        value: wcm-jaeger.nsm-system
-      - name: JAEGER_SERVICE_PORT_JAEGER
-        value: "6831"
-      - name: JAEGER_AGENT_HOST
-        value: wcm-jaeger.nsm-system
-      - name: JAEGER_AGENT_PORT
-        value: "6831"
-      - name: WORKLOAD_REFRESH_INTERVAL
-        value: 2h30m
-      - name: NSREGISTRY_ADDR
-        value: wcm-nsmgr.nsm-system
-      - name: NSREGISTRY_PORT
-        value: "5000"
-      - name: CLUSTER_NAME
-        value: green-kind-2
-      - name: NSE_POD_IP
-        valueFrom:
-          fieldRef:
-            apiVersion: v1
-            fieldPath: status.podIP
-      - name: NSE_POD_NAME
-        valueFrom:
-          fieldRef:
-            apiVersion: v1
-            fieldPath: metadata.name
-      - name: NSM_REMOTE_NS_IP_LIST
-        valueFrom:
-          configMapKeyRef:
-            key: remote.ip_list
-            name: nsm-vl3-green-config-map
-      - name: METRICS_PORT
-        value: "2112"
-      - name: WORKLOAD_METRICS_PORT
-        value: "3000"
-      - name: INSECURE
-        value: "false"
-      - name: TRUST_SVIDS
-        value: spiffe://central.com/example-connectivity-domain-app-dns-publisher,spiffe://central.com/example-connectivity-domain-wcmd,spiffe://member1.com/wcm-nsmgr,spiffe://member2.com/wcm-nsmgr,spiffe://member1.com/wcm-nsm-vpp-forwarder,spiffe://member2.com/wcm-nsm-vpp-forwarder
-      image: nishantapatil3/vl3_ucnf-nse:latest
-      imagePullPolicy: IfNotPresent
-      name: vl3-nse-green
-      ports:
-      - containerPort: 9191
-        name: monitoring-vpp
-        protocol: TCP
-      - containerPort: 2112
-        name: monitoring
-        protocol: TCP
-      - containerPort: 3000
-        name: workload
-        protocol: TCP
-      resources:
-        limits:
-          networkservicemesh.io/socket: "1"
-        requests:
-          networkservicemesh.io/socket: "1"
-      securityContext:
-        capabilities:
-          add:
-          - NET_ADMIN
-        privileged: true
-      terminationMessagePath: /dev/termination-log
-      terminationMessagePolicy: File
-      volumeMounts:
-      - mountPath: /etc/universal-cnf/config.yaml
-        name: universal-cnf-config-volume
-        subPath: config.yaml
-      - mountPath: /run/spire/sockets
-        name: spire-agent-socket
-        readOnly: true
-      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: vl3-nse-green-service-account-token-cj4rw
-        readOnly: true
-    dnsPolicy: ClusterFirst
-    enableServiceLinks: true
-    nodeName: kind-2-control-plane
-    priority: 0
-    restartPolicy: Always
-    schedulerName: default-scheduler
-    securityContext: {}
-    serviceAccount: vl3-nse-green-service-account
-    serviceAccountName: vl3-nse-green-service-account
-    terminationGracePeriodSeconds: 30
-    tolerations:
-    - effect: NoExecute
-      key: node.kubernetes.io/not-ready
-      operator: Exists
-      tolerationSeconds: 300
-    - effect: NoExecute
-      key: node.kubernetes.io/unreachable
-      operator: Exists
-      tolerationSeconds: 300
-    volumes:
-    - configMap:
-        defaultMode: 420
-        name: vl3-nse-green-config-map
-      name: universal-cnf-config-volume
-    - hostPath:
-        path: /run/spire/sockets
-        type: DirectoryOrCreate
-      name: spire-agent-socket
-    - name: vl3-nse-green-service-account-token-cj4rw
-      secret:
-        defaultMode: 420
-        secretName: vl3-nse-green-service-account-token-cj4rw
-  status:
-    conditions:
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:43Z"
-      status: "True"
-      type: Initialized
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:44Z"
-      status: "True"
-      type: Ready
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:44Z"
-      status: "True"
-      type: ContainersReady
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:16:43Z"
-      status: "True"
-      type: PodScheduled
-    containerStatuses:
-    - containerID: containerd://e1f3b1db147707f79bf8d053c9339a6b1aaf5beaf899263b8607d9c1f841d45b
-      image: docker.io/nishantapatil3/vl3_ucnf-nse:latest
-      imageID: sha256:76380341646a65ea109e5dc6c9a4efa198ee96796f5279fec8f93da263e7689b
-      lastState: {}
-      name: vl3-nse-green
-      ready: true
-      restartCount: 0
-      started: true
-      state:
-        running:
-          startedAt: "2021-06-15T17:16:44Z"
-    hostIP: 172.17.0.3
-    phase: Running
-    podIP: 10.244.0.20
-    podIPs:
-    - ip: 10.244.0.20
-    qosClass: BestEffort
-    startTime: "2021-06-15T17:16:43Z"
-- metadata:
-    creationTimestamp: "2021-06-15T17:09:29Z"
+    creationTimestamp: "2021-06-16T00:12:50Z"
     generateName: wcm-nse-discovery-6fd76df87f-
     labels:
       app: nse-discovery-wcm
       membercore: wcm
       pod-template-hash: 6fd76df87f
-    name: wcm-nse-discovery-6fd76df87f-bxqv4
+    name: wcm-nse-discovery-6fd76df87f-zdjns
     namespace: wcm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -370,10 +370,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: wcm-nse-discovery-6fd76df87f
-      uid: baa496c4-ddb0-4389-86fc-69ddfb9d7247
-    resourceVersion: "1708"
-    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-nse-discovery-6fd76df87f-bxqv4
-    uid: 0c1d7d0a-80af-4ec6-8aef-bc11c9be7c7a
+      uid: 8d46d2a7-0052-49ef-a848-ee4b0a697a8c
+    resourceVersion: "1975"
+    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-nse-discovery-6fd76df87f-zdjns
+    uid: e3ca0e7b-040c-470e-ad8d-450c83b3e21f
   spec:
     containers:
     - env:
@@ -407,7 +407,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-nse-discovery-service-account-token-dlb7g
+        name: wcm-nse-discovery-service-account-token-v644t
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -433,30 +433,30 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: wcm-nse-discovery-service-account-token-dlb7g
+    - name: wcm-nse-discovery-service-account-token-v644t
       secret:
         defaultMode: 420
-        secretName: wcm-nse-discovery-service-account-token-dlb7g
+        secretName: wcm-nse-discovery-service-account-token-v644t
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:30Z"
+      lastTransitionTime: "2021-06-16T00:12:50Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:32Z"
+      lastTransitionTime: "2021-06-16T00:12:52Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:32Z"
+      lastTransitionTime: "2021-06-16T00:12:52Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:29Z"
+      lastTransitionTime: "2021-06-16T00:12:50Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://b1bf4af67c0870a468ac9ce81fd260f5e186a48c6dfc4ebbb196a7c7d5f95a31
+    - containerID: containerd://6aa6c6cb0c77311d0c7bcb0b09df5a16d4b92b20dbeab0c75ed09a8ef9a98044
       image: docker.io/nishantapatil3/nse-discovery-operator:latest
       imageID: sha256:1b5ecfa6d0d767dd2db1c356acedf754f7294d781e4021d8bcbfc1310364d3e2
       lastState: {}
@@ -466,21 +466,21 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T17:09:31Z"
+          startedAt: "2021-06-16T00:12:51Z"
     hostIP: 172.17.0.3
     phase: Running
     podIP: 10.244.0.14
     podIPs:
     - ip: 10.244.0.14
     qosClass: BestEffort
-    startTime: "2021-06-15T17:09:30Z"
+    startTime: "2021-06-16T00:12:50Z"
 - metadata:
-    creationTimestamp: "2021-06-15T17:09:02Z"
+    creationTimestamp: "2021-06-16T00:12:24Z"
     generateName: wcm-nse-operator-6fb5b6fb4c-
     labels:
       name: wcm-nse-operator
       pod-template-hash: 6fb5b6fb4c
-    name: wcm-nse-operator-6fb5b6fb4c-5lvnn
+    name: wcm-nse-operator-6fb5b6fb4c-qww29
     namespace: wcm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -488,10 +488,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: wcm-nse-operator-6fb5b6fb4c
-      uid: b5f99145-41a8-4c5a-8e72-ce76ae6c0253
-    resourceVersion: "1328"
-    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-nse-operator-6fb5b6fb4c-5lvnn
-    uid: 9752e1ec-5f37-4b67-98b7-181ffda222e0
+      uid: 5b1c62d9-7214-478e-851e-8aed2fe058b2
+    resourceVersion: "1607"
+    selfLink: /api/v1/namespaces/wcm-system/pods/wcm-nse-operator-6fb5b6fb4c-qww29
+    uid: 1cf785a2-4cbe-4f75-9387-4ef2d91adddd
   spec:
     containers:
     - command:
@@ -527,7 +527,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-nse-operator-service-account-token-v9sxn
+        name: wcm-nse-operator-service-account-token-xgz4r
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -557,30 +557,30 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: wcm-nse-operator-service-account-token-v9sxn
+    - name: wcm-nse-operator-service-account-token-xgz4r
       secret:
         defaultMode: 420
-        secretName: wcm-nse-operator-service-account-token-v9sxn
+        secretName: wcm-nse-operator-service-account-token-xgz4r
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:02Z"
+      lastTransitionTime: "2021-06-16T00:12:24Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:04Z"
+      lastTransitionTime: "2021-06-16T00:12:25Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:04Z"
+      lastTransitionTime: "2021-06-16T00:12:25Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T17:09:02Z"
+      lastTransitionTime: "2021-06-16T00:12:24Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://3366be86079f42805ed156d98776c721f7d5b46f4fac733fb1f505385cfd8b00
+    - containerID: containerd://3890c46e220054dc3233bb60d6e82e4c28b6fbc162519d49265dff6a110962c1
       image: docker.io/nishantapatil3/wcm-nse-operator:latest
       imageID: sha256:9d37be55cadf9f97c4951248a9e7948f8ffcd4f60e3308ca620d6ada42733195
       lastState: {}
@@ -590,15 +590,15 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-15T17:09:03Z"
+          startedAt: "2021-06-16T00:12:25Z"
     hostIP: 172.17.0.3
     phase: Running
     podIP: 10.244.0.7
     podIPs:
     - ip: 10.244.0.7
     qosClass: BestEffort
-    startTime: "2021-06-15T17:09:02Z"
+    startTime: "2021-06-16T00:12:24Z"
 kind: PodList
 metadata:
-  resourceVersion: "5541"
+  resourceVersion: "4927"
   selfLink: /api/v1/namespaces/wcm-system/pods

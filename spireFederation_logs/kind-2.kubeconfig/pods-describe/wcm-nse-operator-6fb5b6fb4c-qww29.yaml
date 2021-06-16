@@ -1,0 +1,66 @@
+Name:         wcm-nse-operator-6fb5b6fb4c-qww29
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Wed, 16 Jun 2021 00:12:24 +0000
+Labels:       name=wcm-nse-operator
+              pod-template-hash=6fb5b6fb4c
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.7
+IPs:
+  IP:           10.244.0.7
+Controlled By:  ReplicaSet/wcm-nse-operator-6fb5b6fb4c
+Containers:
+  wcm-nse-operator:
+    Container ID:  containerd://3890c46e220054dc3233bb60d6e82e4c28b6fbc162519d49265dff6a110962c1
+    Image:         nishantapatil3/wcm-nse-operator:latest
+    Image ID:      sha256:9d37be55cadf9f97c4951248a9e7948f8ffcd4f60e3308ca620d6ada42733195
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      wcm-nse-operator
+    State:          Running
+      Started:      Wed, 16 Jun 2021 00:12:25 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         wcm-nse-operator-6fb5b6fb4c-qww29 (v1:metadata.name)
+      OPERATOR_NAME:    wcm-nse-operator
+      CONFIG_PATH:      etc/wcm-vpp-nse-configmap/config.yaml
+      INSECURE:         false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-operator-service-account-token-xgz4r (ro)
+      etc/wcm-vpp-nse-configmap/config.yaml from config-data-wcm-nse (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-wcm-nse:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-vpp-nse-configmap
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nse-operator-service-account-token-xgz4r:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-operator-service-account-token-xgz4r
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  16m   default-scheduler  Successfully assigned wcm-system/wcm-nse-operator-6fb5b6fb4c-qww29 to kind-2-control-plane
+  Normal  Pulled     16m   kubelet            Container image "nishantapatil3/wcm-nse-operator:latest" already present on machine
+  Normal  Created    16m   kubelet            Created container wcm-nse-operator
+  Normal  Started    16m   kubelet            Started container wcm-nse-operator

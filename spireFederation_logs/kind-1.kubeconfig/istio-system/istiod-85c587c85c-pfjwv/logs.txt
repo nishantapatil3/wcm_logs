@@ -1,0 +1,360 @@
+==== START logs for container discovery of pod istio-system/istiod-85c587c85c-pfjwv ====
+2021-06-16T00:12:34.652811Z	info	FLAG: --appNamespace=""
+2021-06-16T00:12:34.652869Z	info	FLAG: --caCertFile=""
+2021-06-16T00:12:34.652876Z	info	FLAG: --clusterID="Kubernetes"
+2021-06-16T00:12:34.652880Z	info	FLAG: --clusterRegistriesNamespace="istio-system"
+2021-06-16T00:12:34.652884Z	info	FLAG: --configDir=""
+2021-06-16T00:12:34.652888Z	info	FLAG: --ctrlz_address="localhost"
+2021-06-16T00:12:34.652895Z	info	FLAG: --ctrlz_port="9876"
+2021-06-16T00:12:34.652899Z	info	FLAG: --domain="cluster.local"
+2021-06-16T00:12:34.652911Z	info	FLAG: --grpcAddr=":15010"
+2021-06-16T00:12:34.652920Z	info	FLAG: --help="false"
+2021-06-16T00:12:34.652924Z	info	FLAG: --httpAddr=":8080"
+2021-06-16T00:12:34.652928Z	info	FLAG: --httpsAddr=":15017"
+2021-06-16T00:12:34.652934Z	info	FLAG: --keepaliveInterval="30s"
+2021-06-16T00:12:34.652939Z	info	FLAG: --keepaliveMaxServerConnectionAge="30m0s"
+2021-06-16T00:12:34.652944Z	info	FLAG: --keepaliveTimeout="10s"
+2021-06-16T00:12:34.652947Z	info	FLAG: --kubeconfig=""
+2021-06-16T00:12:34.652953Z	info	FLAG: --kubernetesApiBurst="160"
+2021-06-16T00:12:34.652959Z	info	FLAG: --kubernetesApiQPS="80"
+2021-06-16T00:12:34.652963Z	info	FLAG: --log_as_json="false"
+2021-06-16T00:12:34.652968Z	info	FLAG: --log_caller=""
+2021-06-16T00:12:34.652973Z	info	FLAG: --log_output_level="default:info"
+2021-06-16T00:12:34.652977Z	info	FLAG: --log_rotate=""
+2021-06-16T00:12:34.652982Z	info	FLAG: --log_rotate_max_age="30"
+2021-06-16T00:12:34.652987Z	info	FLAG: --log_rotate_max_backups="1000"
+2021-06-16T00:12:34.652991Z	info	FLAG: --log_rotate_max_size="104857600"
+2021-06-16T00:12:34.652995Z	info	FLAG: --log_stacktrace_level="default:none"
+2021-06-16T00:12:34.653003Z	info	FLAG: --log_target="[stdout]"
+2021-06-16T00:12:34.653024Z	info	FLAG: --mcpInitialConnWindowSize="1048576"
+2021-06-16T00:12:34.653029Z	info	FLAG: --mcpInitialWindowSize="1048576"
+2021-06-16T00:12:34.653034Z	info	FLAG: --mcpMaxMsgSize="4194304"
+2021-06-16T00:12:34.653039Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2021-06-16T00:12:34.653043Z	info	FLAG: --monitoringAddr=":15014"
+2021-06-16T00:12:34.653047Z	info	FLAG: --namespace="istio-system"
+2021-06-16T00:12:34.653070Z	info	FLAG: --networksConfig="/etc/istio/config/meshNetworks"
+2021-06-16T00:12:34.653082Z	info	FLAG: --plugins="[authn,authz,health]"
+2021-06-16T00:12:34.653101Z	info	FLAG: --profile="true"
+2021-06-16T00:12:34.653107Z	info	FLAG: --registries="[Kubernetes]"
+2021-06-16T00:12:34.653112Z	info	FLAG: --resync="1m0s"
+2021-06-16T00:12:34.653116Z	info	FLAG: --secureGRPCAddr=":15012"
+2021-06-16T00:12:34.653121Z	info	FLAG: --tlsCertFile=""
+2021-06-16T00:12:34.653142Z	info	FLAG: --tlsKeyFile=""
+2021-06-16T00:12:34.653147Z	info	FLAG: --trust-domain=""
+2021-06-16T00:12:34.822823Z	info	klog	Config not found: /var/run/secrets/remote/config[]
+2021-06-16T00:12:34.836410Z	info	initializing mesh configuration ./etc/istio/config/mesh
+2021-06-16T00:12:34.837764Z	info	mesh configuration: {
+    "proxyListenPort": 15001,
+    "connectTimeout": "10s",
+    "protocolDetectionTimeout": "0s",
+    "ingressClass": "istio",
+    "ingressService": "istio-ingressgateway",
+    "ingressControllerMode": "STRICT",
+    "enableTracing": true,
+    "defaultConfig": {
+        "configPath": "./etc/istio/proxy",
+        "binaryPath": "/usr/local/bin/envoy",
+        "serviceCluster": "istio-proxy",
+        "drainDuration": "45s",
+        "parentShutdownDuration": "60s",
+        "discoveryAddress": "istiod.istio-system.svc:15012",
+        "proxyAdminPort": 15000,
+        "controlPlaneAuthPolicy": "MUTUAL_TLS",
+        "statNameLength": 189,
+        "concurrency": 2,
+        "tracing": {
+            "zipkin": {
+                "address": "zipkin.istio-system:9411"
+            }
+        },
+        "envoyAccessLogService": {
+
+        },
+        "envoyMetricsService": {
+
+        },
+        "proxyMetadata": {
+            "DNS_AGENT": ""
+        },
+        "statusPort": 15020,
+        "terminationDrainDuration": "5s"
+    },
+    "outboundTrafficPolicy": {
+        "mode": "ALLOW_ANY"
+    },
+    "enableAutoMtls": true,
+    "trustDomain": "cluster.local",
+    "trustDomainAliases": [
+    ],
+    "defaultServiceExportTo": [
+        "*"
+    ],
+    "defaultVirtualServiceExportTo": [
+        "*"
+    ],
+    "defaultDestinationRuleExportTo": [
+        "*"
+    ],
+    "rootNamespace": "istio-system",
+    "localityLbSetting": {
+        "enabled": true
+    },
+    "dnsRefreshRate": "5s",
+    "certificates": [
+    ],
+    "thriftConfig": {
+
+    },
+    "serviceSettings": [
+    ],
+    "enablePrometheusMerge": true
+}
+2021-06-16T00:12:34.837796Z	info	version: 1.8.3-e282a1f927086cc046b967f0171840e238a9aa8c-Clean
+2021-06-16T00:12:34.838073Z	info	flags: 
+2021-06-16T00:12:34.838145Z	info	initializing mesh networks
+2021-06-16T00:12:34.838427Z	info	mesh networks configuration: {
+   "networks": {
+   }
+}
+2021-06-16T00:12:34.838530Z	info	initializing mesh handlers
+2021-06-16T00:12:34.838552Z	info	initializing controllers
+2021-06-16T00:12:34.838557Z	info	No certificates specified, skipping K8S DNS certificate controller
+2021-06-16T00:12:34.893190Z	info	Skipping IngressClass, resource not supported
+2021-06-16T00:12:34.893361Z	info	Adding Kubernetes registry adapter
+2021-06-16T00:12:34.893387Z	info	Initializing Kubernetes service registry "Kubernetes"
+2021-06-16T00:12:34.893510Z	info	JWT policy is first-party-jwt
+2021-06-16T00:12:34.893519Z	info	creating CA and initializing public key
+2021-06-16T00:12:34.893550Z	info	Use self-signed certificate as the CA certificate
+2021-06-16T00:12:34.895891Z	info	pkica	Failed to get secret (error: secrets "istio-ca-secret" not found), will create one
+2021-06-16T00:12:35.282233Z	info	pkica	Using self-generated public key: -----BEGIN CERTIFICATE-----
+MIIC/DCCAeSgAwIBAgIQOhTxt1iKMGpDKGygrTSuZjANBgkqhkiG9w0BAQsFADAY
+MRYwFAYDVQQKEw1jbHVzdGVyLmxvY2FsMB4XDTIxMDYxNjAwMTIzNVoXDTMxMDYx
+NDAwMTIzNVowGDEWMBQGA1UEChMNY2x1c3Rlci5sb2NhbDCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAK6OtNFFhrFF44XzRWbGEvSD0/SjovVgGsajFG9x
+NGPFTC+xnQG80GAZe3278DfFTQHABN99qAnF77xwm+xMra7AleR11GRTuhhFp8Ts
+2ubG+3SqQzxdwhNT9d3RiJDOS+8HFVU8Ph7w9hppnEeL+iXT1705uNrbpREheIGB
+zsXtZ8c6LvYmQ9W6oHNOe033XpgQWgBrG37u4GlU8Rxa29POHr3c71mJzK9lxGEw
+Bm+Y6Is/MbrXAEUSe3Fh2wpJW8s9UXs8HDHP4G1lwRCh9WlREbPcbv0duqmbh/Ie
+/+jzHHvGxeeCo8uRwpmPZSHM5rxBtxTC175HSXu4+nOVEMcCAwEAAaNCMEAwDgYD
+VR0PAQH/BAQDAgIEMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFFm2vnmXnj58
+8lLhvlW8KG+tCZJUMA0GCSqGSIb3DQEBCwUAA4IBAQCVTNFOeS5tU+VLmL4KsxXS
+564ZWqUl9MDHdolR+shUwLbQT/+6pjw4yvonSYQES9QIQdrTO0eNrkuonKoD8uel
+pYl81eXQvpFO6+hGA09ksHPT34yrTsBv2maq8NI2QwYXYlfHQSQQ8gsipQyr1NOK
+hYpIMFcR3NvuvzMfArU96VLqpuJlv9upCqilmyQCu7BM2B2lh3w58CHM/odSdFHu
+C2XPYn4qfFmG/N/zVz78YGJTA6GvRPYLfd0XXqp+yVTe3Pmmnx8DGbm7IEmL6wWi
+MMjE+akVHs+QVsVU0vLKuTaQyRGcatZ8WYKBT4TbdTvlVXokmvimjFHtDD/PvoYN
+-----END CERTIFICATE-----
+
+2021-06-16T00:12:35.282311Z	info	rootcertrotator	Set up back off time 49m44s to start rotator.
+2021-06-16T00:12:35.282335Z	info	initializing Istiod DNS certificates host: istiod.istio-system.svc, custom host: 
+2021-06-16T00:12:35.282361Z	info	Generating K8S-signed cert for [istiod.istio-system.svc istiod-remote.istio-system.svc istio-pilot.istio-system.svc]
+2021-06-16T00:12:35.282696Z	info	rootcertrotator	Jitter is enabled, wait 49m44s before starting root cert rotator.
+2021-06-16T00:12:35.447318Z	info	DNS certificates created in ./var/run/secrets/istio-dns
+2021-06-16T00:12:35.447640Z	info	adding watcher for certificate var/run/secrets/istio-dns/cert-chain.pem
+2021-06-16T00:12:35.447797Z	info	adding watcher for certificate var/run/secrets/istio-dns/key.pem
+2021-06-16T00:12:35.447922Z	info	spiffe	Added 1 certs to trust domain cluster.local in peer cert verifier
+2021-06-16T00:12:35.447953Z	info	initializing secure discovery service
+2021-06-16T00:12:35.448251Z	info	using max conn age of 30m0s
+2021-06-16T00:12:35.449464Z	info	initializing secure webhook server for istiod webhooks
+2021-06-16T00:12:35.450496Z	info	initializing sidecar injector
+2021-06-16T00:12:35.453113Z	info	initializing config validator
+2021-06-16T00:12:35.453193Z	info	initializing Istiod admin server
+2021-06-16T00:12:35.453369Z	info	initializing registry event handlers
+2021-06-16T00:12:35.453446Z	info	starting discovery service
+2021-06-16T00:12:35.453473Z	info	using max conn age of 30m0s
+2021-06-16T00:12:35.453546Z	info	initializing Kubernetes cluster registry
+2021-06-16T00:12:35.453619Z	info	Setting up event handlers
+2021-06-16T00:12:35.453688Z	info	initializing Kubernetes credential reader for cluster Kubernetes
+2021-06-16T00:12:35.453812Z	info	Starting Secrets controller
+2021-06-16T00:12:35.453827Z	info	Waiting for informer caches to sync
+2021-06-16T00:12:36.170426Z	info	Setting up event handlers
+2021-06-16T00:12:36.170538Z	info	Starting Secrets controller
+2021-06-16T00:12:36.170549Z	info	Waiting for informer caches to sync
+2021-06-16T00:12:36.174472Z	info	Starting Istiod Server with primary cluster Kubernetes
+2021-06-16T00:12:36.174790Z	info	ControlZ available at 127.0.0.1:9876
+2021-06-16T00:12:36.175224Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service wcm-etcd-cluster/wcm-system has not been populated
+2021-06-16T00:12:36.175429Z	info	ads	Full push, new service wcm-etcd-cluster.wcm-system.svc.cluster.local
+2021-06-16T00:12:36.175783Z	info	kube	Starting Pilot K8S CRD controller
+2021-06-16T00:12:36.176011Z	info	kube	Pilot K8S CRD controller synced 224.002µs
+2021-06-16T00:12:36.175870Z	info	klog	attempting to acquire leader lease  istio-system/istio-leader...[]
+2021-06-16T00:12:36.184253Z	info	klog	successfully acquired lease istio-system/istio-leader[]
+2021-06-16T00:12:36.186286Z	info	Starting ingress controller
+2021-06-16T00:12:36.186667Z	warn	Missing ingress, skip status updates
+2021-06-16T00:12:36.192926Z	info	Starting ADS server
+2021-06-16T00:12:36.192968Z	info	Starting IstioD CA
+2021-06-16T00:12:36.193311Z	info	Istiod CA has started
+2021-06-16T00:12:36.193369Z	info	klog	attempting to acquire leader lease  istio-system/istio-validation-controller-election...[]
+2021-06-16T00:12:36.193588Z	info	klog	attempting to acquire leader lease  istio-system/istio-namespace-controller-election...[]
+2021-06-16T00:12:36.193829Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-scheduler/kube-system has not been populated
+2021-06-16T00:12:36.193859Z	info	ads	Incremental push, service kube-scheduler.kube-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.194183Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service wcm-etcd-cluster-client/wcm-system has not been populated
+2021-06-16T00:12:36.194214Z	info	ads	Full push, new service wcm-etcd-cluster-client.wcm-system.svc.cluster.local
+2021-06-16T00:12:36.194339Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service my-coredns-coredns/wcm-system has not been populated
+2021-06-16T00:12:36.194370Z	info	ads	Full push, new service my-coredns-coredns.wcm-system.svc.cluster.local
+2021-06-16T00:12:36.194393Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service istio-operator/istio-system has not been populated
+2021-06-16T00:12:36.194419Z	info	ads	Full push, new service istio-operator.istio-system.svc.cluster.local
+2021-06-16T00:12:36.194439Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service rancher.io-local-path/local-path-storage has not been populated
+2021-06-16T00:12:36.194445Z	info	ads	Incremental push, service rancher.io-local-path.local-path-storage.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.194469Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service wcm-etcd-cluster-client-service/wcm-system has not been populated
+2021-06-16T00:12:36.194478Z	info	ads	Full push, new service wcm-etcd-cluster-client-service.wcm-system.svc.cluster.local
+2021-06-16T00:12:36.194495Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service spire-server/spire has not been populated
+2021-06-16T00:12:36.194511Z	info	ads	Full push, new service spire-server.spire.svc.cluster.local
+2021-06-16T00:12:36.194523Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service istiod/istio-system has not been populated
+2021-06-16T00:12:36.194541Z	info	ads	Incremental push, service istiod.istio-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.194550Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-controller-manager/kube-system has not been populated
+2021-06-16T00:12:36.194555Z	info	ads	Incremental push, service kube-controller-manager.kube-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.194565Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service etcd-operator/wcm-system has not been populated
+2021-06-16T00:12:36.194571Z	info	ads	Incremental push, service etcd-operator.wcm-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.194589Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kubernetes/default has not been populated
+2021-06-16T00:12:36.194603Z	info	ads	Full push, new service kubernetes.default.svc.cluster.local
+2021-06-16T00:12:36.194631Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-dns/kube-system has not been populated
+2021-06-16T00:12:36.194639Z	info	ads	Full push, new service kube-dns.kube-system.svc.cluster.local
+2021-06-16T00:12:36.204786Z	info	klog	successfully acquired lease istio-system/istio-namespace-controller-election[]
+2021-06-16T00:12:36.205547Z	info	Starting namespace controller
+2021-06-16T00:12:36.208359Z	info	klog	successfully acquired lease istio-system/istio-validation-controller-election[]
+2021-06-16T00:12:36.208968Z	info	Starting validation controller
+2021-06-16T00:12:36.294282Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-scheduler/kube-system has not been populated
+2021-06-16T00:12:36.294324Z	info	ads	Incremental push, service kube-scheduler.kube-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.294415Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service rancher.io-local-path/local-path-storage has not been populated
+2021-06-16T00:12:36.294438Z	info	ads	Incremental push, service rancher.io-local-path.local-path-storage.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.294852Z	info	ads	Incremental push, service istiod.istio-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.295031Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-controller-manager/kube-system has not been populated
+2021-06-16T00:12:36.295175Z	info	ads	Incremental push, service kube-controller-manager.kube-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.295211Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service etcd-operator/wcm-system has not been populated
+2021-06-16T00:12:36.295230Z	info	ads	Incremental push, service etcd-operator.wcm-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.295269Z	info	ads	Full push, service accounts changed, kubernetes.default.svc.cluster.local
+2021-06-16T00:12:36.295345Z	info	ads	All caches have been synced up in 1.652233839s, marking server ready
+2021-06-16T00:12:36.295421Z	info	starting gRPC discovery service at [::]:15010
+2021-06-16T00:12:36.295549Z	info	starting secure gRPC discovery service at [::]:15012
+2021-06-16T00:12:36.295562Z	info	starting Http service at [::]:8080
+2021-06-16T00:12:36.295639Z	info	starting webhook service at [::]:8080
+2021-06-16T00:12:36.295763Z	info	ads	Incremental push, service istiod.istio-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.295796Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-scheduler/kube-system has not been populated
+2021-06-16T00:12:36.295804Z	info	ads	Incremental push, service kube-scheduler.kube-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.295839Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service kube-controller-manager/kube-system has not been populated
+2021-06-16T00:12:36.295851Z	info	ads	Incremental push, service kube-controller-manager.kube-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.295867Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service etcd-operator/wcm-system has not been populated
+2021-06-16T00:12:36.295874Z	info	ads	Incremental push, service etcd-operator.wcm-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.295953Z	info	Handle EDS endpoint: skip collecting workload entry endpoints, service rancher.io-local-path/local-path-storage has not been populated
+2021-06-16T00:12:36.295963Z	info	ads	Incremental push, service rancher.io-local-path.local-path-storage.svc.cluster.local has no endpoints
+2021-06-16T00:12:36.305869Z	info	Namespace controller started
+2021-06-16T00:12:36.309929Z	info	validationController	Reconcile(enter): add event (v1, Kind=Endpoints) istio-system/istiod
+2021-06-16T00:12:36.397206Z	info	ads	Push debounce stable[1] 134: 100.109372ms since last change, 203.79327ms since last push, full=true
+2021-06-16T00:12:36.427857Z	info	ads	XDS: Pushing:2021-06-16T00:12:36Z/0 Services:9 ConnectedEndpoints:0
+2021-06-16T00:12:36.434376Z	info	ads	Full push, new service istiod.istio-system.svc.cluster.local
+2021-06-16T00:12:36.534845Z	info	ads	Push debounce stable[2] 1: 100.160433ms since last change, 100.160153ms since last push, full=true
+2021-06-16T00:12:36.535982Z	info	ads	XDS: Pushing:2021-06-16T00:12:36Z/1 Services:9 ConnectedEndpoints:0
+2021-06-16T00:12:37.332071Z	info	ads	Push debounce stable[3] 1: 100.020221ms since last change, 100.019971ms since last push, full=false
+2021-06-16T00:12:37.332145Z	info	ads	XDS: Incremental Pushing:2021-06-16T00:12:36Z/1 ConnectedEndpoints:0
+2021-06-16T00:12:37.437361Z	info	ads	Incremental push, service istio-ingressgateway.istio-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:37.457032Z	info	http: TLS handshake error from 10.244.0.1:2639: remote error: tls: bad certificate
+2021-06-16T00:12:37.518430Z	info	validationController	Not ready to switch validation to fail-closed: dummy invalid config not rejected
+2021-06-16T00:12:37.538649Z	info	ads	Push debounce stable[4] 2: 101.166496ms since last change, 112.200635ms since last push, full=true
+2021-06-16T00:12:37.539400Z	info	ads	XDS: Pushing:2021-06-16T00:12:37Z/2 Services:10 ConnectedEndpoints:0
+2021-06-16T00:12:37.581044Z	info	validationController	Successfully updated validatingwebhookconfiguration istiod-istio-system (failurePolicy=Ignore,resourceVersion=2104)
+2021-06-16T00:12:37.581118Z	info	validationController	Reconcile(enter): add event (admissionregistration.k8s.io/v1beta1, Kind=ValidatingWebhookConfiguration) istiod-istio-system
+2021-06-16T00:12:37.602471Z	info	validationServer	configuration is invalid: gateway must have at least one server
+2021-06-16T00:12:37.613064Z	info	validationController	Endpoint successfully rejected invalid config. Switching to fail-close.
+2021-06-16T00:12:37.638304Z	info	validationController	Successfully updated validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail,resourceVersion=2107)
+2021-06-16T00:12:37.638361Z	info	validationController	Reconcile(enter): initial request to kickstart reconciliation
+2021-06-16T00:12:37.638827Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=2107) is up-to-date. No change required.
+2021-06-16T00:12:37.650691Z	info	validationController	Reconcile(enter): update event (v1, Kind=Endpoints) istio-system/istiod
+2021-06-16T00:12:37.651378Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=2107) is up-to-date. No change required.
+2021-06-16T00:12:37.651430Z	info	validationController	Reconcile(enter): update event (admissionregistration.k8s.io/v1beta1, Kind=ValidatingWebhookConfiguration) istiod-istio-system
+2021-06-16T00:12:37.651966Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=2107) is up-to-date. No change required.
+2021-06-16T00:12:37.651980Z	info	validationController	Reconcile(enter): update event (admissionregistration.k8s.io/v1beta1, Kind=ValidatingWebhookConfiguration) istiod-istio-system
+2021-06-16T00:12:37.652523Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=2107) is up-to-date. No change required.
+2021-06-16T00:12:37.659715Z	info	ads	Push debounce stable[5] 1: 100.457507ms since last change, 100.457177ms since last push, full=true
+2021-06-16T00:12:37.660732Z	info	ads	XDS: Pushing:2021-06-16T00:12:37Z/3 Services:10 ConnectedEndpoints:0
+2021-06-16T00:12:38.518624Z	info	validationController	Reconcile(enter): retry dry-run creation of invalid config
+2021-06-16T00:12:38.519622Z	info	validationController	validatingwebhookconfiguration istiod-istio-system (failurePolicy=Fail, resourceVersion=2107) is up-to-date. No change required.
+2021-06-16T00:12:38.985087Z	info	ads	ADS: new connection for node:router~10.244.0.15~istio-ingressgateway-5c658595cb-cp8vm.istio-system~istio-system.svc.cluster.local-1
+2021-06-16T00:12:38.988223Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:39
+2021-06-16T00:12:39.037355Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:38 empty:10 cached:0/38
+2021-06-16T00:12:39.209004Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:39
+2021-06-16T00:12:39.209400Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:38 empty:0 cached:38/38
+2021-06-16T00:12:39.267846Z	info	ads	Incremental push, service istio-ingressgateway.istio-system.svc.cluster.local has no endpoints
+2021-06-16T00:12:39.368900Z	info	ads	Push debounce stable[6] 1: 100.131593ms since last change, 100.131333ms since last push, full=false
+2021-06-16T00:12:39.368987Z	info	ads	XDS: Incremental Pushing:2021-06-16T00:12:37Z/3 ConnectedEndpoints:1
+2021-06-16T00:12:40.463783Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:0
+2021-06-16T00:12:41.624276Z	info	ads	Full push, new service istio-ingressgateway.istio-system.svc.cluster.local
+2021-06-16T00:12:41.725434Z	info	ads	Push debounce stable[7] 1: 101.060584ms since last change, 101.060234ms since last push, full=true
+2021-06-16T00:12:41.726911Z	info	ads	XDS: Pushing:2021-06-16T00:12:41Z/4 Services:10 ConnectedEndpoints:1
+2021-06-16T00:12:41.731589Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:39
+2021-06-16T00:12:41.732404Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:38 empty:0 cached:28/38
+2021-06-16T00:12:41.732662Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:0
+2021-06-16T00:12:46.193877Z	info	ads	Push Status: {}
+2021-06-16T00:12:56.586374Z	info	ads	Push debounce stable[8] 1: 100.153262ms since last change, 100.152992ms since last push, full=false
+2021-06-16T00:12:56.586512Z	info	ads	XDS: Incremental Pushing:2021-06-16T00:12:41Z/4 ConnectedEndpoints:1
+2021-06-16T00:13:05.265051Z	info	ads	Push debounce stable[9] 3: 100.487425ms since last change, 102.45602ms since last push, full=true
+2021-06-16T00:13:05.266184Z	info	ads	XDS: Pushing:2021-06-16T00:13:05Z/5 Services:10 ConnectedEndpoints:1
+2021-06-16T00:13:05.268447Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:39
+2021-06-16T00:13:05.269355Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:38 empty:0 cached:32/38
+2021-06-16T00:13:05.269818Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:0
+2021-06-16T00:13:06.193769Z	info	ads	Push Status: {}
+2021-06-16T00:13:14.318354Z	info	ads	Push debounce stable[10] 1: 100.02056ms since last change, 100.0203ms since last push, full=false
+2021-06-16T00:13:14.318446Z	info	ads	XDS: Incremental Pushing:2021-06-16T00:13:05Z/5 ConnectedEndpoints:1
+2021-06-16T00:17:04.963370Z	info	ads	Push debounce stable[11] 2: 100.118101ms since last change, 114.732964ms since last push, full=false
+2021-06-16T00:17:04.963473Z	info	ads	XDS: Incremental Pushing:2021-06-16T00:13:05Z/5 ConnectedEndpoints:1
+2021-06-16T00:17:05.196603Z	info	ads	Push debounce stable[12] 1: 100.123131ms since last change, 100.122891ms since last push, full=false
+2021-06-16T00:17:05.196689Z	info	ads	XDS: Incremental Pushing:2021-06-16T00:13:05Z/5 ConnectedEndpoints:1
+2021-06-16T00:17:05.285367Z	info	ads	Incremental push, service green.wcm-system.svc.cluster.local has no endpoints
+2021-06-16T00:17:05.385750Z	info	ads	Push debounce stable[13] 2: 100.200321ms since last change, 107.845827ms since last push, full=true
+2021-06-16T00:17:05.386626Z	info	ads	XDS: Pushing:2021-06-16T00:17:05Z/6 Services:11 ConnectedEndpoints:1
+2021-06-16T00:17:05.388676Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:41
+2021-06-16T00:17:05.388832Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:38 empty:0 cached:38/38
+2021-06-16T00:17:05.388976Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:0
+2021-06-16T00:17:05.415161Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:40 empty:2 cached:38/40
+2021-06-16T00:17:05.495419Z	info	ads	Incremental push, service green-wcmd.wcm-system.svc.cluster.local has no endpoints
+2021-06-16T00:17:05.596152Z	info	ads	Push debounce stable[14] 3: 100.135261ms since last change, 144.221252ms since last push, full=true
+2021-06-16T00:17:05.597184Z	info	ads	XDS: Pushing:2021-06-16T00:17:05Z/7 Services:12 ConnectedEndpoints:1
+2021-06-16T00:17:05.599317Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:47
+2021-06-16T00:17:05.599503Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:40 empty:0 cached:40/40
+2021-06-16T00:17:05.599696Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:0
+2021-06-16T00:17:05.625532Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:46 empty:6 cached:40/46
+2021-06-16T00:17:06.193741Z	info	ads	Push Status: {}
+2021-06-16T00:17:06.609675Z	info	ads	Incremental push, service green-cd-info.wcm-system.svc.cluster.local has no endpoints
+2021-06-16T00:17:06.709845Z	info	ads	Push debounce stable[15] 3: 100.11002ms since last change, 173.631069ms since last push, full=true
+2021-06-16T00:17:06.710992Z	info	ads	XDS: Pushing:2021-06-16T00:17:06Z/8 Services:13 ConnectedEndpoints:1
+2021-06-16T00:17:06.714262Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:49
+2021-06-16T00:17:06.714531Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:46 empty:0 cached:46/46
+2021-06-16T00:17:06.714987Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:0
+2021-06-16T00:17:06.751801Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:48 empty:2 cached:46/48
+2021-06-16T00:17:06.790099Z	info	ads	Full push, new service green.wcm-system.svc.cluster.local
+2021-06-16T00:17:06.890320Z	info	ads	Push debounce stable[16] 1: 100.117201ms since last change, 100.116921ms since last push, full=true
+2021-06-16T00:17:06.891358Z	info	ads	XDS: Pushing:2021-06-16T00:17:06Z/9 Services:13 ConnectedEndpoints:1
+2021-06-16T00:17:06.893726Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:49
+2021-06-16T00:17:06.894146Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:48 empty:0 cached:46/48
+2021-06-16T00:17:06.894519Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:0
+2021-06-16T00:17:07.469830Z	info	ads	Push debounce stable[17] 2: 100.15033ms since last change, 121.950183ms since last push, full=true
+2021-06-16T00:17:07.470103Z	info	ads	XDS: Pushing:2021-06-16T00:17:07Z/10 Services:13 ConnectedEndpoints:1
+2021-06-16T00:17:07.473015Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:49
+2021-06-16T00:17:07.474613Z	info	gateway omitting listener "0.0.0.0_8443" due to: must have more than 0 chains in listener "0.0.0.0_8443"
+2021-06-16T00:17:07.475480Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:1
+2021-06-16T00:17:07.501062Z	warn	constructed http route config for route http.80 on port 80 with no vhosts; Setting up a default 404 vhost
+2021-06-16T00:17:07.501915Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:1
+2021-06-16T00:17:07.631282Z	info	ads	Push debounce stable[18] 3: 100.150881ms since last change, 132.546346ms since last push, full=true
+2021-06-16T00:17:07.632388Z	info	ads	XDS: Pushing:2021-06-16T00:17:07Z/11 Services:16 ConnectedEndpoints:1
+2021-06-16T00:17:07.634885Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:52
+2021-06-16T00:17:07.635052Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:48 empty:0 cached:48/48
+2021-06-16T00:17:07.635215Z	info	gateway omitting listener "0.0.0.0_8443" due to: must have more than 0 chains in listener "0.0.0.0_8443"
+2021-06-16T00:17:07.635424Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:1
+2021-06-16T00:17:07.635463Z	warn	constructed http route config for route http.80 on port 80 with no vhosts; Setting up a default 404 vhost
+2021-06-16T00:17:07.635647Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:1
+2021-06-16T00:17:07.798222Z	info	ads	Incremental push, service green-wcmd.wcm-system.svc.cluster.local has no endpoints
+2021-06-16T00:17:07.889930Z	info	ads	Full push, new service green-cd-info.wcm-system.svc.cluster.local
+2021-06-16T00:17:07.990141Z	info	ads	Push debounce stable[19] 5: 100.141261ms since last change, 327.052516ms since last push, full=true
+2021-06-16T00:17:07.995392Z	info	ads	XDS: Pushing:2021-06-16T00:17:07Z/12 Services:16 ConnectedEndpoints:1
+2021-06-16T00:17:08.005044Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:52
+2021-06-16T00:17:08.006094Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:48 empty:6 cached:40/48
+2021-06-16T00:17:08.007324Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:2
+2021-06-16T00:17:08.010374Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:1
+2021-06-16T00:17:14.703083Z	info	ads	Full push, new service green-wcmd.wcm-system.svc.cluster.local
+2021-06-16T00:17:14.803461Z	info	ads	Push debounce stable[20] 1: 100.177391ms since last change, 100.177141ms since last push, full=true
+2021-06-16T00:17:14.805450Z	info	ads	XDS: Pushing:2021-06-16T00:17:14Z/13 Services:16 ConnectedEndpoints:1
+2021-06-16T00:17:14.808240Z	info	ads	CDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:52
+2021-06-16T00:17:14.809176Z	info	ads	EDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:48 empty:0 cached:42/48
+2021-06-16T00:17:14.810286Z	info	ads	LDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:2
+2021-06-16T00:17:14.810907Z	info	ads	RDS: PUSH for node:istio-ingressgateway-5c658595cb-cp8vm.istio-system resources:1
+2021-06-16T00:17:16.193759Z	info	ads	Push Status: {}
+==== END logs for container discovery of pod istio-system/istiod-85c587c85c-pfjwv ====

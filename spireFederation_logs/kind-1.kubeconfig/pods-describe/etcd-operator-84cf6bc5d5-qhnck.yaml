@@ -1,0 +1,55 @@
+Name:         etcd-operator-84cf6bc5d5-qhnck
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Wed, 16 Jun 2021 00:11:55 +0000
+Labels:       app=etcd-operator
+              pod-template-hash=84cf6bc5d5
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  ReplicaSet/etcd-operator-84cf6bc5d5
+Containers:
+  etcd-operator:
+    Container ID:  containerd://cb4e8276ec6e7190bbca7991a833e4378bad0d6df1cb2d42c3b0bf7b0d5b6bc3
+    Image:         quay.io/coreos/etcd-operator:v0.9.4
+    Image ID:      sha256:4ba8776e692759fc9aa75ecc2eadd8771802a43cde72cb45df1c0a561ca38bca
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      etcd-operator
+    State:          Running
+      Started:      Wed, 16 Jun 2021 00:12:05 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      MY_POD_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      MY_POD_NAME:       etcd-operator-84cf6bc5d5-qhnck (v1:metadata.name)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-ks8hw (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-ks8hw:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-ks8hw
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  16m   default-scheduler  Successfully assigned wcm-system/etcd-operator-84cf6bc5d5-qhnck to kind-1-control-plane
+  Normal  Pulling    16m   kubelet            Pulling image "quay.io/coreos/etcd-operator:v0.9.4"
+  Normal  Pulled     16m   kubelet            Successfully pulled image "quay.io/coreos/etcd-operator:v0.9.4"
+  Normal  Created    16m   kubelet            Created container etcd-operator
+  Normal  Started    16m   kubelet            Started container etcd-operator
+

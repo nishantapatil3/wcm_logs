@@ -31,7 +31,14 @@ server {
               port = 8443
             }
           }
+          federates_with "member2.com" {
+            bundle_endpoint {
+              address = "172.17.253.1"
+              port = 8443
+            }
+          }
           
+                
                 
     }
     }
@@ -61,7 +68,13 @@ server {
           keys_path = "/run/spire/data/keys.json"
         }
       }
-      
+      UpstreamAuthority "disk" {
+      plugin_data {
+        ttl = "12h"
+        key_file_path = "/run/spire/secret/bootstrap.key"
+        cert_file_path = "/run/spire/secret/bootstrap.crt"
+      }
+    }
       Notifier "k8sbundle" {
         plugin_data {
       config_map = "wcm-spire-bundle-config-map"

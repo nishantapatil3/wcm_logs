@@ -1,0 +1,51 @@
+Name:         wcm-jaeger-86c548cd44-qnz9x
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Wed, 16 Jun 2021 00:12:44 +0000
+Labels:       membercore=wcm
+              pod-template-hash=86c548cd44
+              run=wcm-jaeger
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/wcm-jaeger-86c548cd44
+Containers:
+  jaeger:
+    Container ID:   containerd://3a1a9646275f806cfd458255220c0aefebd7aad79abdeab3757ae046411a0629
+    Image:          jaegertracing/all-in-one:1.14.0
+    Image ID:       sha256:18e2a2315119a6e4d11cab78a4b98f638ca46ef895507dd85b12362dfff567e8
+    Ports:          16686/TCP, 6831/UDP
+    Host Ports:     0/TCP, 0/UDP
+    State:          Running
+      Started:      Wed, 16 Jun 2021 00:12:46 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-mv78w (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-mv78w:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-mv78w
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  16m   default-scheduler  Successfully assigned nsm-system/wcm-jaeger-86c548cd44-qnz9x to kind-3-control-plane
+  Normal  Pulled     16m   kubelet            Container image "jaegertracing/all-in-one:1.14.0" already present on machine
+  Normal  Created    16m   kubelet            Created container jaeger
+  Normal  Started    16m   kubelet            Started container jaeger
+

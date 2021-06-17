@@ -1,0 +1,61 @@
+Name:         connectivity-domain-operator-7cb485f58d-rrncv
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 17 Jun 2021 06:25:49 +0000
+Labels:       name=connectivity-domain-operator
+              pod-template-hash=7cb485f58d
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  ReplicaSet/connectivity-domain-operator-7cb485f58d
+Containers:
+  connectivity-domain-operator:
+    Container ID:  containerd://1c24d93c175db07b00b3945ddd7d226645a9f2fb94f5318f20b7cf4dcd811ff0
+    Image:         nishantapatil3/connectivity-domain-operator:latest
+    Image ID:      sha256:f5cbc4050df179b766560f6625bf6ed2967acd8da5b995a6c8f21d9517811695
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      connectivity-domain-operator
+    State:          Running
+      Started:      Thu, 17 Jun 2021 06:25:51 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      POD_NAME:         connectivity-domain-operator-7cb485f58d-rrncv (v1:metadata.name)
+      OPERATOR_NAME:    connectivity-domain-operator
+      CONFIG_PATH:      etc/connectivity-domain-configmap/config.yaml
+      INSECURE:         false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from connectivity-domain-operator-service-account-token-wtvvm (ro)
+      etc/connectivity-domain-configmap/config.yaml from config-data-connectivity-domain (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-connectivity-domain:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      connectivity-domain-configmap
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  connectivity-domain-operator-service-account-token-wtvvm:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  connectivity-domain-operator-service-account-token-wtvvm
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

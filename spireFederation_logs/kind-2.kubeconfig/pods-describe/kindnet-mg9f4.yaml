@@ -1,0 +1,77 @@
+Name:         kindnet-mg9f4
+Namespace:    kube-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 17 Jun 2021 06:11:00 +0000
+Labels:       app=kindnet
+              controller-revision-hash=5b955bbc76
+              k8s-app=kindnet
+              pod-template-generation=1
+              tier=node
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.3
+IPs:
+  IP:           172.17.0.3
+Controlled By:  DaemonSet/kindnet
+Containers:
+  kindnet-cni:
+    Container ID:   containerd://b3699f3bb7a877648918ba259811bed238df6f76d79aeb93db7e6edf0c381836
+    Image:          kindest/kindnetd:0.5.4
+    Image ID:       sha256:2186a1a396deb58f1ea5eaf20193a518ca05049b46ccd754ec83366b5c8c13d5
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 17 Jun 2021 06:11:02 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  50Mi
+    Requests:
+      cpu:     100m
+      memory:  50Mi
+    Environment:
+      HOST_IP:      (v1:status.hostIP)
+      POD_IP:       (v1:status.podIP)
+      POD_SUBNET:  10.244.0.0/16
+    Mounts:
+      /etc/cni/net.d from cni-cfg (rw)
+      /lib/modules from lib-modules (ro)
+      /run/xtables.lock from xtables-lock (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kindnet-token-5vvdg (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  cni-cfg:
+    Type:          HostPath (bare host directory volume)
+    Path:          /etc/cni/net.d
+    HostPathType:  
+  xtables-lock:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/xtables.lock
+    HostPathType:  FileOrCreate
+  lib-modules:
+    Type:          HostPath (bare host directory volume)
+    Path:          /lib/modules
+    HostPathType:  
+  kindnet-token-5vvdg:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  kindnet-token-5vvdg
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     :NoSchedule op=Exists
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:          <none>
+

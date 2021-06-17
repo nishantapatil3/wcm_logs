@@ -6,13 +6,13 @@ items:
       deployment.kubernetes.io/revision: "1"
       kubectl.kubernetes.io/last-applied-configuration: |
         {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"local-path-provisioner","namespace":"local-path-storage"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"local-path-provisioner"}},"template":{"metadata":{"labels":{"app":"local-path-provisioner"}},"spec":{"containers":[{"command":["local-path-provisioner","--debug","start","--helper-image","k8s.gcr.io/debian-base:v2.0.0","--config","/etc/config/config.json"],"env":[{"name":"POD_NAMESPACE","valueFrom":{"fieldRef":{"fieldPath":"metadata.namespace"}}}],"image":"rancher/local-path-provisioner:v0.0.12","imagePullPolicy":"IfNotPresent","name":"local-path-provisioner","volumeMounts":[{"mountPath":"/etc/config/","name":"config-volume"}]}],"nodeSelector":{"kubernetes.io/os":"linux"},"serviceAccountName":"local-path-provisioner-service-account","tolerations":[{"effect":"NoSchedule","key":"node-role.kubernetes.io/master","operator":"Equal"}],"volumes":[{"configMap":{"name":"local-path-config"},"name":"config-volume"}]}}}}
-    creationTimestamp: "2021-06-16T16:56:34Z"
+    creationTimestamp: "2021-06-17T06:11:16Z"
     generation: 1
     name: local-path-provisioner
     namespace: local-path-storage
-    resourceVersion: "545"
+    resourceVersion: "560"
     selfLink: /apis/apps/v1/namespaces/local-path-storage/deployments/local-path-provisioner
-    uid: f615f971-56f4-490e-8a33-9cc147b56599
+    uid: 9d37a098-d488-46e7-9749-eeff6868dc17
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -76,14 +76,14 @@ items:
   status:
     availableReplicas: 1
     conditions:
-    - lastTransitionTime: "2021-06-16T16:57:35Z"
-      lastUpdateTime: "2021-06-16T16:57:35Z"
+    - lastTransitionTime: "2021-06-17T06:12:18Z"
+      lastUpdateTime: "2021-06-17T06:12:18Z"
       message: Deployment has minimum availability.
       reason: MinimumReplicasAvailable
       status: "True"
       type: Available
-    - lastTransitionTime: "2021-06-16T16:56:49Z"
-      lastUpdateTime: "2021-06-16T16:57:35Z"
+    - lastTransitionTime: "2021-06-17T06:11:30Z"
+      lastUpdateTime: "2021-06-17T06:12:18Z"
       message: ReplicaSet "local-path-provisioner-58f6947c7" has successfully progressed.
       reason: NewReplicaSetAvailable
       status: "True"
@@ -94,5 +94,5 @@ items:
     updatedReplicas: 1
 kind: DeploymentList
 metadata:
-  resourceVersion: "3983"
+  resourceVersion: "107467"
   selfLink: /apis/apps/v1/namespaces/local-path-storage/deployments

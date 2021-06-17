@@ -1,0 +1,59 @@
+Name:         local-path-provisioner-58f6947c7-cjq8p
+Namespace:    local-path-storage
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 17 Jun 2021 06:11:16 +0000
+Labels:       app=local-path-provisioner
+              pod-template-hash=58f6947c7
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.3
+IPs:
+  IP:           10.244.0.3
+Controlled By:  ReplicaSet/local-path-provisioner-58f6947c7
+Containers:
+  local-path-provisioner:
+    Container ID:  containerd://9ae2c62dc877b3fae294ed536f0808c64aa5c33e5ef8f74b64ae3896b8a2956f
+    Image:         rancher/local-path-provisioner:v0.0.12
+    Image ID:      sha256:db10073a6f829f72cc09655e92fbc3c74410c647c626b431ecd5257d1f6b59c1
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      local-path-provisioner
+      --debug
+      start
+      --helper-image
+      k8s.gcr.io/debian-base:v2.0.0
+      --config
+      /etc/config/config.json
+    State:          Running
+      Started:      Thu, 17 Jun 2021 06:11:17 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_NAMESPACE:  local-path-storage (v1:metadata.namespace)
+    Mounts:
+      /etc/config/ from config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from local-path-provisioner-service-account-token-dqwvv (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      local-path-config
+    Optional:  false
+  local-path-provisioner-service-account-token-dqwvv:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  local-path-provisioner-service-account-token-dqwvv
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  kubernetes.io/os=linux
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

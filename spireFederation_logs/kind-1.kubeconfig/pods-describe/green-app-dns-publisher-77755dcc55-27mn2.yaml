@@ -1,0 +1,64 @@
+Name:         green-app-dns-publisher-77755dcc55-27mn2
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 17 Jun 2021 14:54:58 +0000
+Labels:       app=app-dns-publisher-green
+              connectivitydomain=green
+              pod-template-hash=77755dcc55
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/green-app-dns-publisher-77755dcc55
+Containers:
+  green-app-dns-publisher:
+    Container ID:  containerd://67d0c92219fb0d0f17aaf9d89fb645df63637dfda3be25dd826680fe0ee32015
+    Image:         nishantapatil3/app-dns-publisher-controller:latest
+    Image ID:      sha256:fc4ee29ae0f9f73776c45ef8e3aad785f82ae5cac1bcea894990a40263d9e9ad
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/bin/app-dns-publisher-controller
+    Args:
+      -n
+      wcm-system
+      -s
+      green-wcmd:50051
+      -d
+      green.nispatil-wcm-cisco.com
+      -i
+      false
+    State:          Running
+      Started:      Thu, 17 Jun 2021 14:54:58 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:          (v1:metadata.uid)
+      INSECURE:        false
+      TRACER_ENABLED:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from green-app-dns-publisher-service-account-token-drkvn (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  green-app-dns-publisher-service-account-token-drkvn:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  green-app-dns-publisher-service-account-token-drkvn
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

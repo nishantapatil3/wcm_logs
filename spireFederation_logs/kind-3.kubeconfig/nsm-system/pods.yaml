@@ -2,13 +2,13 @@
 apiVersion: v1
 items:
 - metadata:
-    creationTimestamp: "2021-06-16T17:02:02Z"
+    creationTimestamp: "2021-06-17T06:26:17Z"
     generateName: wcm-crossconnect-monitor-c4db96966-
     labels:
       app: wcm-crossconnect-monitor
       membercore: wcm
       pod-template-hash: c4db96966
-    name: wcm-crossconnect-monitor-c4db96966-f8gzf
+    name: wcm-crossconnect-monitor-c4db96966-qjgnc
     namespace: nsm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -16,10 +16,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: wcm-crossconnect-monitor-c4db96966
-      uid: 3c5ca936-af90-424d-bfb9-70b71b1055ce
-    resourceVersion: "1569"
-    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-crossconnect-monitor-c4db96966-f8gzf
-    uid: 26ca8d92-9ab8-4887-9e98-3c6e4ffac9de
+      uid: ad5a71cf-1874-44f3-82c8-5a0d7570c6fd
+    resourceVersion: "3123"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-crossconnect-monitor-c4db96966-qjgnc
+    uid: deb05b60-ab95-4934-a54b-0b0cd1e1c9a4
   spec:
     containers:
     - env:
@@ -40,7 +40,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-crossconnect-monitor-service-account-token-jv59s
+        name: wcm-crossconnect-monitor-service-account-token-bv2sc
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -66,32 +66,32 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: wcm-crossconnect-monitor-service-account-token-jv59s
+    - name: wcm-crossconnect-monitor-service-account-token-bv2sc
       secret:
         defaultMode: 420
-        secretName: wcm-crossconnect-monitor-service-account-token-jv59s
+        secretName: wcm-crossconnect-monitor-service-account-token-bv2sc
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:02Z"
+      lastTransitionTime: "2021-06-17T06:26:17Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:04Z"
+      lastTransitionTime: "2021-06-17T06:26:18Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:04Z"
+      lastTransitionTime: "2021-06-17T06:26:18Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:02Z"
+      lastTransitionTime: "2021-06-17T06:26:17Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://8d3cfc48469e4b94f6e63935510352a0546233f4d2e25f62fa667290045d3744
+    - containerID: containerd://901bc3a32a016a5c282a33cb32bc274a9e29cead2ffbc90165be19368e731b8f
       image: docker.io/nishantapatil3/crossconnect-monitor:vl3_latest
-      imageID: sha256:bbdaaeef33c11908f1c6ba5ad90f6a32ea638663cc22348408f666ccdafb0be3
+      imageID: sha256:ad2be8e701db697d5d91e0da2352211d305689672ac22565c5f05dba6aa08100
       lastState: {}
       name: crossconnect-monitor
       ready: true
@@ -99,22 +99,22 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:04Z"
+          startedAt: "2021-06-17T06:26:17Z"
     hostIP: 172.17.0.4
     phase: Running
-    podIP: 10.244.0.10
+    podIP: 10.244.0.9
     podIPs:
-    - ip: 10.244.0.10
+    - ip: 10.244.0.9
     qosClass: BestEffort
-    startTime: "2021-06-16T17:02:02Z"
+    startTime: "2021-06-17T06:26:17Z"
 - metadata:
-    creationTimestamp: "2021-06-16T17:02:02Z"
+    creationTimestamp: "2021-06-17T06:26:17Z"
     generateName: wcm-jaeger-86c548cd44-
     labels:
       membercore: wcm
       pod-template-hash: 86c548cd44
       run: wcm-jaeger
-    name: wcm-jaeger-86c548cd44-7p47t
+    name: wcm-jaeger-86c548cd44-4flk2
     namespace: nsm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -122,10 +122,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: wcm-jaeger-86c548cd44
-      uid: 0d32fc7e-d8a5-4e2c-835d-14d183105489
-    resourceVersion: "1565"
-    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-jaeger-86c548cd44-7p47t
-    uid: 63c0747c-62b1-4a58-8291-3c994a3366d6
+      uid: e3b25ad1-c41c-4b6a-a41e-e8541fd40eb6
+    resourceVersion: "3120"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-jaeger-86c548cd44-4flk2
+    uid: a219635d-bc3c-45b8-9eb5-95e553ccea48
   spec:
     containers:
     - image: jaegertracing/all-in-one:1.14.0
@@ -143,7 +143,7 @@ items:
       terminationMessagePolicy: File
       volumeMounts:
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: default-token-xgf87
+        name: default-token-vpdgw
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -165,30 +165,30 @@ items:
       operator: Exists
       tolerationSeconds: 300
     volumes:
-    - name: default-token-xgf87
+    - name: default-token-vpdgw
       secret:
         defaultMode: 420
-        secretName: default-token-xgf87
+        secretName: default-token-vpdgw
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:02Z"
+      lastTransitionTime: "2021-06-17T06:26:17Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:04Z"
+      lastTransitionTime: "2021-06-17T06:26:18Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:04Z"
+      lastTransitionTime: "2021-06-17T06:26:18Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:02Z"
+      lastTransitionTime: "2021-06-17T06:26:17Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://24555b61b383956f8511643e3bd0f0448e853c2e699a2fb980ab537ed42a5002
+    - containerID: containerd://d1ebf4a1b661bc16dc130fbe6f1137f41b408391d09a122d54660313cf849adb
       image: docker.io/jaegertracing/all-in-one:1.14.0
       imageID: sha256:18e2a2315119a6e4d11cab78a4b98f638ca46ef895507dd85b12362dfff567e8
       lastState: {}
@@ -198,23 +198,23 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:04Z"
+          startedAt: "2021-06-17T06:26:18Z"
     hostIP: 172.17.0.4
     phase: Running
-    podIP: 10.244.0.9
+    podIP: 10.244.0.10
     podIPs:
-    - ip: 10.244.0.9
+    - ip: 10.244.0.10
     qosClass: BestEffort
-    startTime: "2021-06-16T17:02:02Z"
+    startTime: "2021-06-17T06:26:17Z"
 - metadata:
-    creationTimestamp: "2021-06-16T17:02:05Z"
+    creationTimestamp: "2021-06-17T06:26:18Z"
     generateName: wcm-nsm-admission-webhook-684d7fd7b5-
     labels:
       app: wcm-nsm-admission-webhook
       membercore: wcm
       nsm-cr: wcm
       pod-template-hash: 684d7fd7b5
-    name: wcm-nsm-admission-webhook-684d7fd7b5-qsqr8
+    name: wcm-nsm-admission-webhook-684d7fd7b5-lk79x
     namespace: nsm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -222,10 +222,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: wcm-nsm-admission-webhook-684d7fd7b5
-      uid: 35fad463-dae4-4ce6-8b93-509d352c2137
-    resourceVersion: "1783"
-    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsm-admission-webhook-684d7fd7b5-qsqr8
-    uid: 284f651e-a45a-4151-8f30-2edf5490c443
+      uid: fb793696-301f-4439-948c-d39ac133262e
+    resourceVersion: "3330"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsm-admission-webhook-684d7fd7b5-lk79x
+    uid: 2fac25ed-3658-45fa-bddb-9222d5797223
   spec:
     containers:
     - env:
@@ -274,7 +274,7 @@ items:
         name: webhook-certs
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: default-token-xgf87
+        name: default-token-vpdgw
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -300,32 +300,32 @@ items:
       secret:
         defaultMode: 420
         secretName: wcm-nsm-admission-webhook-secret
-    - name: default-token-xgf87
+    - name: default-token-vpdgw
       secret:
         defaultMode: 420
-        secretName: default-token-xgf87
+        secretName: default-token-vpdgw
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:05Z"
+      lastTransitionTime: "2021-06-17T06:26:18Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:21Z"
+      lastTransitionTime: "2021-06-17T06:26:33Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:21Z"
+      lastTransitionTime: "2021-06-17T06:26:33Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:05Z"
+      lastTransitionTime: "2021-06-17T06:26:18Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://8594511c59d9a57a99dd3938600b5b73fb9157739d3a9eaf1d5ac9221dc6c750
+    - containerID: containerd://6fd32050a3fa20e642ca58e716f68bbfb88ef6027faec7c4c68703a79c2acb52
       image: docker.io/nishantapatil3/admission-webhook:vl3_latest
-      imageID: sha256:c1fe997575b42d93e58139264b13afba5fcb04e55f84219acf72ac9d7cf5244c
+      imageID: sha256:a29a40d52f2d87d000cbe5e60f2a13cef3ef2feda1872e679a23a39f9811c874
       lastState: {}
       name: wcm-nsm-admission-webhook
       ready: true
@@ -333,23 +333,23 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:06Z"
+          startedAt: "2021-06-17T06:26:19Z"
     hostIP: 172.17.0.4
     phase: Running
     podIP: 10.244.0.11
     podIPs:
     - ip: 10.244.0.11
     qosClass: BestEffort
-    startTime: "2021-06-16T17:02:05Z"
+    startTime: "2021-06-17T06:26:18Z"
 - metadata:
-    creationTimestamp: "2021-06-16T17:02:08Z"
+    creationTimestamp: "2021-06-17T06:26:22Z"
     generateName: wcm-nsm-vpp-forwarder-
     labels:
       app: wcm-nsm-vpp-forwarder
       controller-revision-hash: 797497759b
       membercore: wcm
       pod-template-generation: "1"
-    name: wcm-nsm-vpp-forwarder-rqzg2
+    name: wcm-nsm-vpp-forwarder-hw57v
     namespace: nsm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -357,10 +357,10 @@ items:
       controller: true
       kind: DaemonSet
       name: wcm-nsm-vpp-forwarder
-      uid: 981eabbf-39ff-4ec5-b100-cba1e3e57bc5
-    resourceVersion: "1809"
-    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsm-vpp-forwarder-rqzg2
-    uid: 97ae84dc-0dba-4d5a-8726-adcdc83e71df
+      uid: 33386793-f293-4061-972e-5627fd9d93b8
+    resourceVersion: "3348"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsm-vpp-forwarder-hw57v
+    uid: a0289876-594f-4ac5-b412-32edce2b1218
   spec:
     affinity:
       nodeAffinity:
@@ -426,7 +426,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-nsm-vpp-forwarder-service-account-token-smrnk
+        name: wcm-nsm-vpp-forwarder-service-account-token-ck7mw
         readOnly: true
     dnsPolicy: ClusterFirstWithHostNet
     enableServiceLinks: true
@@ -471,32 +471,32 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: wcm-nsm-vpp-forwarder-service-account-token-smrnk
+    - name: wcm-nsm-vpp-forwarder-service-account-token-ck7mw
       secret:
         defaultMode: 420
-        secretName: wcm-nsm-vpp-forwarder-service-account-token-smrnk
+        secretName: wcm-nsm-vpp-forwarder-service-account-token-ck7mw
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:08Z"
+      lastTransitionTime: "2021-06-17T06:26:22Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:26Z"
+      lastTransitionTime: "2021-06-17T06:26:38Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:26Z"
+      lastTransitionTime: "2021-06-17T06:26:38Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:08Z"
+      lastTransitionTime: "2021-06-17T06:26:22Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://8757be4c1f39979ed1970b7726a1a18923241cc65b060803eecb04ac4b3d7c5a
+    - containerID: containerd://754b20c8c35dfacb707e321918b88bda3153f9af331e37c606af91d6f09ae916
       image: docker.io/nishantapatil3/vppagent-forwarder:vl3_latest
-      imageID: sha256:49f4428b1ae76b024e643ca393f59d76738689bd0648a4b2f7219a4eca709caa
+      imageID: sha256:d4e0eeee633c426b723cfe909c4c2dbed1bc27676881adde898867441c0f0e32
       lastState: {}
       name: wcm-nsm-vpp-forwarder
       ready: true
@@ -504,23 +504,23 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:10Z"
+          startedAt: "2021-06-17T06:26:22Z"
     hostIP: 172.17.0.4
     phase: Running
     podIP: 172.17.0.4
     podIPs:
     - ip: 172.17.0.4
     qosClass: BestEffort
-    startTime: "2021-06-16T17:02:08Z"
+    startTime: "2021-06-17T06:26:22Z"
 - metadata:
-    creationTimestamp: "2021-06-16T17:02:11Z"
+    creationTimestamp: "2021-06-17T06:26:25Z"
     generateName: wcm-nsmgr-
     labels:
       app: wcm-nsmgr
       controller-revision-hash: 894c98c8b
       membercore: wcm
       pod-template-generation: "1"
-    name: wcm-nsmgr-jf5x8
+    name: wcm-nsmgr-4wlqt
     namespace: nsm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -528,10 +528,10 @@ items:
       controller: true
       kind: DaemonSet
       name: wcm-nsmgr
-      uid: 60d8d31a-5bd2-48ed-9ebd-adcb2f4ad647
-    resourceVersion: "1994"
-    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsmgr-jf5x8
-    uid: 024f2b15-9729-45e8-a4e2-3d91825a127e
+      uid: bc1f6d77-6fdc-489c-92b7-1428daf4d0c2
+    resourceVersion: "4903"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-nsmgr-4wlqt
+    uid: b126c50e-3d69-4693-8af5-b56bfe62b876
   spec:
     affinity:
       nodeAffinity:
@@ -575,7 +575,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-nsmgr-service-account-token-q8lq4
+        name: wcm-nsmgr-service-account-token-fsqlq
         readOnly: true
     - env:
       - name: INSECURE
@@ -629,7 +629,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-nsmgr-service-account-token-q8lq4
+        name: wcm-nsmgr-service-account-token-fsqlq
         readOnly: true
     - env:
       - name: INSECURE
@@ -672,7 +672,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-nsmgr-service-account-token-q8lq4
+        name: wcm-nsmgr-service-account-token-fsqlq
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -720,32 +720,32 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: wcm-nsmgr-service-account-token-q8lq4
+    - name: wcm-nsmgr-service-account-token-fsqlq
       secret:
         defaultMode: 420
-        secretName: wcm-nsmgr-service-account-token-q8lq4
+        secretName: wcm-nsmgr-service-account-token-fsqlq
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:12Z"
+      lastTransitionTime: "2021-06-17T06:26:25Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:03:17Z"
+      lastTransitionTime: "2021-06-17T06:35:29Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:03:17Z"
+      lastTransitionTime: "2021-06-17T06:35:29Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:11Z"
+      lastTransitionTime: "2021-06-17T06:26:25Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://17eeb5bdc81b82fc3053826b0d2a9eab933adbb3e7bf0a00435682514d8ba21e
+    - containerID: containerd://ed0b35b321e07d736c1fc5e012fec24286099ce8a6d0ce2760daec144da7f1b2
       image: docker.io/nishantapatil3/nsmd:vl3_latest
-      imageID: sha256:f999fb5e16ced589b717c1a0e9bc50f21c17a48dec160bbae1721de272d044af
+      imageID: sha256:aa1ee6f94d7c5c9561b75803695cc9989fbd39343339b497d68335ac05ce3803
       lastState: {}
       name: nsmd
       ready: true
@@ -753,10 +753,10 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:14Z"
-    - containerID: containerd://5fe8ce9c13e3729548a82a2fb8641ee73cfe6e3d76744c24378db442a3bab737
+          startedAt: "2021-06-17T06:26:26Z"
+    - containerID: containerd://5243c63aadbe78b0d4be470afcb908b83465d5bea32dd028e1ace9d3955f65ac
       image: docker.io/nishantapatil3/nsmd-k8s:vl3_latest
-      imageID: sha256:0dba562dc8f8225e641ac2c73e863025ba39f00ceac322eb5f45dd82e50765d5
+      imageID: sha256:005d30bf9620cc85cb0a257f340d366ca69af38e6ecf7734f310bcc64819f271
       lastState: {}
       name: nsmd-k8s
       ready: true
@@ -764,39 +764,39 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:14Z"
-    - containerID: containerd://544610bc5085b8479b083076cd5b203707d1c0cdc5f6f0b8852394d784b2e9fe
+          startedAt: "2021-06-17T06:26:26Z"
+    - containerID: containerd://aada4d190f687f1c73fb65fac95c0f7825fc342470cc5d4f7f7cc258e0e8c1d6
       image: docker.io/nishantapatil3/nsmdp:vl3_latest
-      imageID: sha256:d2a2ffe224a7f4af5b7b51fdfcc4c2ad7e9c28fcadecd343c5da7005ecce5eae
+      imageID: sha256:640fd309f204c8e1aef62effdca44902e19d5fb1b49f0238cb95033ead8cb49c
       lastState:
         terminated:
-          containerID: containerd://53b9a131ef14998ae12b1d3093fda5bf412a43df3f5b6f09b93e7d15b6caf868
+          containerID: containerd://19fca1b98fa97faf98540b5472c0abda1eef786f915125f7e22cd4b8e2c833f1
           exitCode: 1
-          finishedAt: "2021-06-16T17:03:15Z"
+          finishedAt: "2021-06-17T06:35:28Z"
           reason: Error
-          startedAt: "2021-06-16T17:02:14Z"
+          startedAt: "2021-06-17T06:26:26Z"
       name: wcm-nsmgr
       ready: true
       restartCount: 1
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:03:16Z"
+          startedAt: "2021-06-17T06:35:28Z"
     hostIP: 172.17.0.4
     phase: Running
     podIP: 10.244.0.13
     podIPs:
     - ip: 10.244.0.13
     qosClass: BestEffort
-    startTime: "2021-06-16T17:02:12Z"
+    startTime: "2021-06-17T06:26:25Z"
 - metadata:
-    creationTimestamp: "2021-06-16T17:02:09Z"
+    creationTimestamp: "2021-06-17T16:38:28Z"
     generateName: wcm-proxy-nsmgr-7599b46ff-
     labels:
       app: wcm-proxy-nsmgr
       membercore: wcm
       pod-template-hash: 7599b46ff
-    name: wcm-proxy-nsmgr-7599b46ff-86ccs
+    name: wcm-proxy-nsmgr-7599b46ff-tdrm2
     namespace: nsm-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -804,10 +804,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: wcm-proxy-nsmgr-7599b46ff
-      uid: 3d133b56-eef0-4190-9af6-47d367de65a7
-    resourceVersion: "1678"
-    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-proxy-nsmgr-7599b46ff-86ccs
-    uid: 849e2bb9-027a-435d-a674-82c6c88d2a87
+      uid: 589459fb-d697-4404-8f4e-77e366bf3449
+    resourceVersion: "107331"
+    selfLink: /api/v1/namespaces/nsm-system/pods/wcm-proxy-nsmgr-7599b46ff-tdrm2
+    uid: 6b69f5ef-3b71-4b4f-953f-881bf86e1387
   spec:
     containers:
     - env:
@@ -840,7 +840,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-proxy-nsmgr-service-account-token-2c6bz
+        name: wcm-proxy-nsmgr-service-account-token-lcwq6
         readOnly: true
     - env:
       - name: INSECURE
@@ -875,7 +875,7 @@ items:
         name: spire-agent-socket
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: wcm-proxy-nsmgr-service-account-token-2c6bz
+        name: wcm-proxy-nsmgr-service-account-token-lcwq6
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -901,32 +901,32 @@ items:
         path: /run/spire/sockets
         type: DirectoryOrCreate
       name: spire-agent-socket
-    - name: wcm-proxy-nsmgr-service-account-token-2c6bz
+    - name: wcm-proxy-nsmgr-service-account-token-lcwq6
       secret:
         defaultMode: 420
-        secretName: wcm-proxy-nsmgr-service-account-token-2c6bz
+        secretName: wcm-proxy-nsmgr-service-account-token-lcwq6
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:09Z"
+      lastTransitionTime: "2021-06-17T16:38:28Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:12Z"
+      lastTransitionTime: "2021-06-17T16:38:29Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:12Z"
+      lastTransitionTime: "2021-06-17T16:38:29Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T17:02:09Z"
+      lastTransitionTime: "2021-06-17T16:38:28Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://8f6018a8713c9486c6f1a609ad40ce2d87858ea5585bba01f98539d70d3be38c
+    - containerID: containerd://17b5e3d7d1814a88e24a257c1b9d2ad0069fc136c07552b3d37ff27aab1685ab
       image: docker.io/nishantapatil3/proxy-nsmd-k8s:vl3_latest
-      imageID: sha256:ef1d8f5a1921b4867ff81dd7132fb753b395769e750606f90d4af720a73b09c3
+      imageID: sha256:b7bbcd45416a019518f2de52375cd47312e0ec9e1758f12674530bfc3f8e000b
       lastState: {}
       name: proxy-nsmd-k8s
       ready: true
@@ -934,10 +934,10 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:11Z"
-    - containerID: containerd://51ac791ef5c7841cea3fa4fe45f0b6461d9e9c514864f439b7fbfcb80d47be5f
+          startedAt: "2021-06-17T16:38:29Z"
+    - containerID: containerd://6f9b36c742155bf2a8fcc1464a8ec0a860640349b592414222c553baa6a71164
       image: docker.io/nishantapatil3/proxy-nsmd:vl3_latest
-      imageID: sha256:522e9ca7c6f0c3be85daca7ce08bf5c037e4187395c3549e1569a1ef4143c6a1
+      imageID: sha256:4bd6d292028451c37419f96e740e279981ad2fda6975a8ea42e7d9acf3f89654
       lastState: {}
       name: wcm-proxy-nsmgr
       ready: true
@@ -945,15 +945,15 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T17:02:11Z"
+          startedAt: "2021-06-17T16:38:29Z"
     hostIP: 172.17.0.4
     phase: Running
-    podIP: 10.244.0.12
+    podIP: 10.244.0.19
     podIPs:
-    - ip: 10.244.0.12
+    - ip: 10.244.0.19
     qosClass: BestEffort
-    startTime: "2021-06-16T17:02:09Z"
+    startTime: "2021-06-17T16:38:28Z"
 kind: PodList
 metadata:
-  resourceVersion: "3988"
+  resourceVersion: "107473"
   selfLink: /api/v1/namespaces/nsm-system/pods

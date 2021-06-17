@@ -1,0 +1,104 @@
+Name:         istiod-85c587c85c-8jp6w
+Namespace:    istio-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 17 Jun 2021 06:26:03 +0000
+Labels:       app=istiod
+              install.operator.istio.io/owning-resource=unknown
+              istio=pilot
+              istio.io/rev=default
+              operator.istio.io/component=Pilot
+              pod-template-hash=85c587c85c
+Annotations:  prometheus.io/port: 15014
+              prometheus.io/scrape: true
+              sidecar.istio.io/inject: false
+Status:       Running
+IP:           10.244.0.13
+IPs:
+  IP:           10.244.0.13
+Controlled By:  ReplicaSet/istiod-85c587c85c
+Containers:
+  discovery:
+    Container ID:  containerd://a9f5ad79eb792b7e7a2026d3e1bcf21ecf522d3adda4905e3d936ee111bb5e80
+    Image:         docker.io/istio/pilot:1.8.3
+    Image ID:      sha256:ebc663348203067614bc16465c1f48c1b5bb3a6e2697831a17b6f7bd3081b299
+    Ports:         8080/TCP, 15010/TCP, 15017/TCP, 15053/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP, 0/TCP
+    Args:
+      discovery
+      --monitoringAddr=:15014
+      --log_output_level=default:info
+      --domain
+      cluster.local
+      --keepaliveMaxServerConnectionAge
+      30m
+    State:          Running
+      Started:      Thu, 17 Jun 2021 06:26:04 +0000
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      500m
+      memory:   2Gi
+    Readiness:  http-get http://:8080/ready delay=1s timeout=5s period=3s #success=1 #failure=3
+    Environment:
+      REVISION:                                     default
+      JWT_POLICY:                                   first-party-jwt
+      PILOT_CERT_PROVIDER:                          kubernetes
+      POD_NAME:                                     istiod-85c587c85c-8jp6w (v1:metadata.name)
+      POD_NAMESPACE:                                istio-system (v1:metadata.namespace)
+      SERVICE_ACCOUNT:                               (v1:spec.serviceAccountName)
+      KUBECONFIG:                                   /var/run/secrets/remote/config
+      PILOT_TRACE_SAMPLING:                         1
+      PILOT_ENABLE_PROTOCOL_SNIFFING_FOR_OUTBOUND:  true
+      PILOT_ENABLE_PROTOCOL_SNIFFING_FOR_INBOUND:   true
+      INJECTION_WEBHOOK_CONFIG_NAME:                istio-sidecar-injector
+      ISTIOD_ADDR:                                  istiod.istio-system.svc:15012
+      PILOT_ENABLE_ANALYSIS:                        false
+      CLUSTER_ID:                                   Kubernetes
+      EXTERNAL_ISTIOD:                              false
+      CENTRAL_ISTIOD:                               false
+      PILOT_ENDPOINT_TELEMETRY_LABEL:               true
+    Mounts:
+      /etc/cacerts from cacerts (ro)
+      /etc/istio/config from config-volume (rw)
+      /var/lib/istio/inject from inject (ro)
+      /var/run/secrets/istio-dns from local-certs (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from istiod-service-account-token-qvq5t (ro)
+      /var/run/secrets/remote from istio-kubeconfig (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  local-certs:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     Memory
+    SizeLimit:  <unset>
+  cacerts:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  cacerts
+    Optional:    true
+  istio-kubeconfig:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istio-kubeconfig
+    Optional:    true
+  inject:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      istio-sidecar-injector
+    Optional:  false
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      istio
+    Optional:  false
+  istiod-service-account-token-qvq5t:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istiod-service-account-token-qvq5t
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

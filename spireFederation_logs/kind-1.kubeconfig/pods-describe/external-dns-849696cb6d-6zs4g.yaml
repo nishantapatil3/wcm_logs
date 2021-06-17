@@ -1,0 +1,58 @@
+Name:         external-dns-849696cb6d-6zs4g
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Thu, 17 Jun 2021 06:25:47 +0000
+Labels:       app=external-dns
+              pod-template-hash=849696cb6d
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  ReplicaSet/external-dns-849696cb6d
+Containers:
+  external-dns:
+    Container ID:  containerd://8129fdeb502a76f9a30c55b7aa1d8991c44490876b01c613bb1534b23079d567
+    Image:         registry.opensource.zalan.do/teapot/external-dns:v0.7.6
+    Image ID:      sha256:914d04e1dce41c3fc415ea0e91fa2bfd41d37374793d4dacba9fbfdeffcfbaee
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      --log-level=debug
+      --source=service
+      --source=crd
+      --source=istio-virtualservice
+      --source=istio-gateway
+      --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      --crd-source-kind=DNSEndpoint
+      --publish-internal-services
+      --registry=noop
+      --policy=sync
+      --provider=coredns
+      --txt-owner-id=kind-1.kubeconfig
+    State:          Running
+      Started:      Thu, 17 Jun 2021 06:25:49 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      ETCD_URLS:  http://wcm-etcd-cluster-client.wcm-system:2379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from external-dns-token-brrft (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  external-dns-token-brrft:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  external-dns-token-brrft
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

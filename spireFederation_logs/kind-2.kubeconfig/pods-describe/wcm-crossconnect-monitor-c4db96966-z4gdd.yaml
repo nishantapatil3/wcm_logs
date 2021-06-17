@@ -1,0 +1,53 @@
+Name:         wcm-crossconnect-monitor-c4db96966-z4gdd
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 17 Jun 2021 06:26:12 +0000
+Labels:       app=wcm-crossconnect-monitor
+              membercore=wcm
+              pod-template-hash=c4db96966
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.9
+IPs:
+  IP:           10.244.0.9
+Controlled By:  ReplicaSet/wcm-crossconnect-monitor-c4db96966
+Containers:
+  crossconnect-monitor:
+    Container ID:   containerd://05f27578e80778208c581131d18a641f6680c0a40270ea8808cbe210c4115fd1
+    Image:          nishantapatil3/crossconnect-monitor:vl3_latest
+    Image ID:       sha256:ad2be8e701db697d5d91e0da2352211d305689672ac22565c5f05dba6aa08100
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 17 Jun 2021 06:26:13 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                   false
+      METRICS_COLLECTOR_ENABLED:  false
+      PROMETHEUS:                 false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-crossconnect-monitor-service-account-token-2524v (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-crossconnect-monitor-service-account-token-2524v:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-crossconnect-monitor-service-account-token-2524v
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

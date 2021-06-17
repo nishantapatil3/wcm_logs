@@ -1,0 +1,55 @@
+Name:         member-core-operator-d598d4888-tqbxr
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Thu, 17 Jun 2021 06:25:54 +0000
+Labels:       name=member-core-operator
+              pod-template-hash=d598d4888
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.5
+IPs:
+  IP:           10.244.0.5
+Controlled By:  ReplicaSet/member-core-operator-d598d4888
+Containers:
+  member-core-operator:
+    Container ID:  containerd://116db35c6ff560df9ec7f036641a223cb0e0b0966f230a7c733972a7e5e870b3
+    Image:         nishantapatil3/member-core-operator:latest
+    Image ID:      sha256:11c4929c685452aa8609f3710c5e9abc3b6e9a3eaa1955a7c370bc89cd3f4f8c
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      member-core-operator
+    State:          Running
+      Started:      Thu, 17 Jun 2021 06:25:55 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  
+      POD_NAME:         member-core-operator-d598d4888-tqbxr (v1:metadata.name)
+      OPERATOR_NAME:    member-core-operator
+      CONFIG_PATH:      etc/member-core-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from member-core-operator-token-b27n4 (ro)
+      etc/member-core-configmap/config.yaml from config-data-member-core (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-member-core:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      member-core-configmap
+    Optional:  false
+  member-core-operator-token-b27n4:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  member-core-operator-token-b27n4
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:          <none>
+

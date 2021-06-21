@@ -1,0 +1,67 @@
+Name:         my-coredns-coredns-7d7ccd5547-jnslw
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-1-control-plane/172.17.0.2
+Start Time:   Mon, 21 Jun 2021 22:17:56 +0000
+Labels:       app=coredns
+              pod-template-hash=7d7ccd5547
+              release=my-coredns
+Annotations:  checksum/config: 00754626f8f4e5239ec2382866eacbad725e07e4e8ef778d703597e246a15b2c
+Status:       Running
+IP:           10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  ReplicaSet/my-coredns-coredns-7d7ccd5547
+Containers:
+  coredns:
+    Container ID:  containerd://8f0e64e3572e7efbde9eabdc7ce9928a9bdbe8887aa984fd77525f9eca385292
+    Image:         coredns/coredns:1.3.1
+    Image ID:      docker.io/coredns/coredns@sha256:02382353821b12c21b062c59184e227e001079bb13ebd01f9d3270ba0fcbf1e4
+    Port:          53/UDP
+    Host Port:     0/UDP
+    Args:
+      -conf
+      /etc/coredns/Corefile
+    State:          Running
+      Started:      Mon, 21 Jun 2021 22:18:01 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  128Mi
+    Requests:
+      cpu:        100m
+      memory:     128Mi
+    Liveness:     http-get http://:8080/health delay=60s timeout=5s period=10s #success=1 #failure=5
+    Environment:  <none>
+    Mounts:
+      /etc/coredns from config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from my-coredns-coredns-token-224wt (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      my-coredns-coredns
+    Optional:  false
+  my-coredns-coredns-token-224wt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  my-coredns-coredns-token-224wt
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  13m   default-scheduler  Successfully assigned wcm-system/my-coredns-coredns-7d7ccd5547-jnslw to kind-1-control-plane
+  Normal  Pulling    13m   kubelet            Pulling image "coredns/coredns:1.3.1"
+  Normal  Pulled     13m   kubelet            Successfully pulled image "coredns/coredns:1.3.1"
+  Normal  Created    13m   kubelet            Created container coredns
+  Normal  Started    13m   kubelet            Started container coredns
+

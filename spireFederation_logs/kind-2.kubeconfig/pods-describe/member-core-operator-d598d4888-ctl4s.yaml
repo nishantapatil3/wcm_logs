@@ -1,0 +1,61 @@
+Name:         member-core-operator-d598d4888-ctl4s
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.17.0.3
+Start Time:   Mon, 21 Jun 2021 22:18:04 +0000
+Labels:       name=member-core-operator
+              pod-template-hash=d598d4888
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  ReplicaSet/member-core-operator-d598d4888
+Containers:
+  member-core-operator:
+    Container ID:  containerd://51a0baae3bd21dc05270bbbcfb6fb4389bcae501da52a623e350b5f62d3ff5fd
+    Image:         nishantapatil3/member-core-operator:latest
+    Image ID:      sha256:94a02b2c04dab25f518ddb8d4565526577aacf5491be6ef6f04227f115f252a2
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      member-core-operator
+    State:          Running
+      Started:      Mon, 21 Jun 2021 22:18:05 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  
+      POD_NAME:         member-core-operator-d598d4888-ctl4s (v1:metadata.name)
+      OPERATOR_NAME:    member-core-operator
+      CONFIG_PATH:      etc/member-core-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from member-core-operator-token-7ww9b (ro)
+      etc/member-core-configmap/config.yaml from config-data-member-core (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-member-core:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      member-core-configmap
+    Optional:  false
+  member-core-operator-token-7ww9b:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  member-core-operator-token-7ww9b
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  13m   default-scheduler  Successfully assigned default/member-core-operator-d598d4888-ctl4s to kind-2-control-plane
+  Normal  Pulled     13m   kubelet            Container image "nishantapatil3/member-core-operator:latest" already present on machine
+  Normal  Created    13m   kubelet            Created container member-core-operator
+  Normal  Started    13m   kubelet            Started container member-core-operator
+

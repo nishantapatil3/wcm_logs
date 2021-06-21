@@ -1,0 +1,2461 @@
+==== START logs for container crossconnect-monitor of pod nsm-system/wcm-crossconnect-monitor-c4db96966-9c96p ====
+time="2021-06-21T22:18:30Z" level=info msg="Starting crossconnect-monitor..."
+2021/06/21 22:18:30 Version: v1.0.1-rc.2-9-g411a6e1b
+time="2021-06-21T22:18:30Z" level=info msg="All env variables:"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_PORT=tcp://10.96.0.1:443"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_SERVICE_PORT=443"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_6831_UDP=udp://10.106.183.2:6831"
+time="2021-06-21T22:18:30Z" level=info msg="HOSTNAME=wcm-crossconnect-monitor-c4db96966-9c96p"
+time="2021-06-21T22:18:30Z" level=info msg="SHLVL=1"
+time="2021-06-21T22:18:30Z" level=info msg="HOME=/root"
+time="2021-06-21T22:18:30Z" level=info msg="METRICS_COLLECTOR_ENABLED=false"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_16686_TCP_ADDR=10.106.183.2"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_16686_TCP_PORT=16686"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_16686_TCP_PROTO=tcp"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_SERVICE_PORT_JAEGER=6831"
+time="2021-06-21T22:18:30Z" level=info msg="INSECURE=false"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_16686_TCP=tcp://10.106.183.2:16686"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_PORT_443_TCP_ADDR=10.96.0.1"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_SERVICE_PORT_HTTP=16686"
+time="2021-06-21T22:18:30Z" level=info msg="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_PORT_443_TCP_PORT=443"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_PORT_443_TCP_PROTO=tcp"
+time="2021-06-21T22:18:30Z" level=info msg="ENTRY=crossconnect-monitor"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_SERVICE_HOST=10.106.183.2"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_6831_UDP_ADDR=10.106.183.2"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_SERVICE_PORT_HTTPS=443"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_PORT_443_TCP=tcp://10.96.0.1:443"
+time="2021-06-21T22:18:30Z" level=info msg="PROMETHEUS=false"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_SERVICE_PORT=16686"
+time="2021-06-21T22:18:30Z" level=info msg="KUBERNETES_SERVICE_HOST=10.96.0.1"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_6831_UDP_PORT=6831"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT=tcp://10.106.183.2:16686"
+time="2021-06-21T22:18:30Z" level=info msg="PWD=/"
+time="2021-06-21T22:18:30Z" level=info msg="WCM_JAEGER_PORT_6831_UDP_PROTO=udp"
+time="2021-06-21T22:18:30Z" level=error msg="failed to read PROMETHEUS env var"
+time="2021-06-21T22:19:18Z" level=info msg="Adding manager: kind-3-control-plane at 10.244.0.13:5001"
+time="2021-06-21T22:19:18Z" level=info msg="Starting CrossConnections Monitor on 10.244.0.13:5001"
+time="2021-06-21T22:19:18Z" level=info msg="Establish connection to target: 10.244.0.13:5001"
+time="2021-06-21T22:19:18Z" level=info msg="Establish connection with the spire provider at address:unix:///run/spire/sockets/agent.sock"
+time="2021-06-21T22:19:18Z" level=info msg="Connecting to the workload api at:unix:///run/spire/sockets/agent.sock"
+time="2021-06-21T22:19:18Z" level=info msg="Issued identity:spiffe://member2.com/wcm-crossconnect-monitor"
+time="2021-06-21T22:19:18Z" level=info msg="Successfully retrieve bundles:&{{{0 0} 0 0 0 0} map[{member2.com}:0xc0000c1080]}"
+time="2021-06-21T22:19:18Z" level=info msg="Authorizing all clients in TrustDomain:member2.com"
+time="2021-06-21T22:19:18Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-21T22:19:18Z" level=info msg="Retrived 1 tlsconfigs"
+time="2021-06-21T22:19:18Z" level=info msg="Found the right tls certificate: 0 for target: 10.244.0.13:5001"
+[31m*** INITIAL_STATE_TRANSFER
+[0m[31m*** 10.244.0.13:5001
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "1"
+payload: "IP"
+source: <
+  id: "1"
+  network_service: "green"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "0d0fa8f436de9aa9210bb6b36832b51a"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "1a9d84aedb221c5b"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "ad3e2c66264f9e3c12b1437c528409708c4e11cf"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "1056846336"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "2183668208"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "17b69537e0a16c4868e7d26ac5975b03"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "45f0330689311ba6"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "4c506cfa58ad93d5b5e4833e211ca474547ebed3"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "vni"
+      value: "2"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.1/30"
+      dst_ip_addr: "172.100.252.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.252.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-3-control-plane@172.17.0.4:5001"
+    >
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+destination: <
+  id: "2"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsm6Ffs5MCQu"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsm6Ffs5MCQu/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "greenfmxjq"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.1/30"
+      dst_ip_addr: "172.100.252.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.252.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "3"
+payload: "IP"
+source: <
+  id: "3"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green89pnc"
+    >
+    parameters: <
+      key: "name"
+      value: "green89pnc"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green89pnc/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.1/30"
+      dst_ip_addr: "172.100.244.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+destination: <
+  id: "4"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmEG0gjWsQ"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmEG0gjWsQ/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "green89pnc"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.1/30"
+      dst_ip_addr: "172.100.244.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "5"
+payload: "IP"
+source: <
+  id: "5"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green6nmkq"
+    >
+    parameters: <
+      key: "name"
+      value: "green6nmkq"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green6nmkq/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.1/30"
+      dst_ip_addr: "172.100.240.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+destination: <
+  id: "2"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "1d71e521887c485d9660b101a727cd02"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "696271eb4e95c3fb"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "a58bf292a8913fbdcfe95cac67808e61ebe4abe4"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "2004609543"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "161382375"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "eb61ffb051d98b259f825228f8cafba1"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "c8db3a251eb54e7d"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "4ab954cf3b2f8607d7be183a8d546742cfda0245"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "vni"
+      value: "3"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.1/30"
+      dst_ip_addr: "172.100.240.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "6"
+payload: "IP"
+source: <
+  id: "6"
+  network_service: "green"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "7126ec27736232a7f742618e451d707f"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "d26ca62d1d829ff2"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "359660008caef26c8b0079501fb28f1d89173303"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "202409456"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "1233254208"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "6a26f1e140928f1e805a1887c123e22e"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "ede6f1f8e4c29bba"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "7f67a3e23f61e9f091c1d4558bcc842b48ae4227"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "vni"
+      value: "4"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.5/30"
+      dst_ip_addr: "172.100.244.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-3-control-plane@172.17.0.4:5001"
+    >
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+destination: <
+  id: "7"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmoKXjWwQ"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmoKXjWwQ/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "green89pnc"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.5/30"
+      dst_ip_addr: "172.100.244.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "6"
+payload: "IP"
+source: <
+  id: "6"
+  network_service: "green"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "7126ec27736232a7f742618e451d707f"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "d26ca62d1d829ff2"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "359660008caef26c8b0079501fb28f1d89173303"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "202409456"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "1233254208"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "6a26f1e140928f1e805a1887c123e22e"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "ede6f1f8e4c29bba"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "7f67a3e23f61e9f091c1d4558bcc842b48ae4227"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "vni"
+      value: "4"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.5/30"
+      dst_ip_addr: "172.100.244.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-3-control-plane@172.17.0.4:5001"
+    >
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+destination: <
+  id: "7"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmoKXjWwQ"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmoKXjWwQ/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "green89pnc"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.5/30"
+      dst_ip_addr: "172.100.244.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "1"
+payload: "IP"
+source: <
+  id: "1"
+  network_service: "green"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "0d0fa8f436de9aa9210bb6b36832b51a"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "1a9d84aedb221c5b"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "ad3e2c66264f9e3c12b1437c528409708c4e11cf"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "1056846336"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "2183668208"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "17b69537e0a16c4868e7d26ac5975b03"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "45f0330689311ba6"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "4c506cfa58ad93d5b5e4833e211ca474547ebed3"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "vni"
+      value: "2"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.1/30"
+      dst_ip_addr: "172.100.252.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.252.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-3-control-plane@172.17.0.4:5001"
+    >
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+destination: <
+  id: "2"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsm6Ffs5MCQu"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsm6Ffs5MCQu/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "greenfmxjq"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.1/30"
+      dst_ip_addr: "172.100.252.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.252.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "3"
+payload: "IP"
+source: <
+  id: "3"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green89pnc"
+    >
+    parameters: <
+      key: "name"
+      value: "green89pnc"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green89pnc/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.1/30"
+      dst_ip_addr: "172.100.244.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+destination: <
+  id: "4"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmEG0gjWsQ"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmEG0gjWsQ/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "green89pnc"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.1/30"
+      dst_ip_addr: "172.100.244.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "5"
+payload: "IP"
+source: <
+  id: "5"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green6nmkq"
+    >
+    parameters: <
+      key: "name"
+      value: "green6nmkq"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green6nmkq/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.1/30"
+      dst_ip_addr: "172.100.240.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+destination: <
+  id: "2"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "1d71e521887c485d9660b101a727cd02"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "696271eb4e95c3fb"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "a58bf292a8913fbdcfe95cac67808e61ebe4abe4"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "2004609543"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "161382375"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "eb61ffb051d98b259f825228f8cafba1"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "c8db3a251eb54e7d"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "4ab954cf3b2f8607d7be183a8d546742cfda0245"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "vni"
+      value: "3"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.1/30"
+      dst_ip_addr: "172.100.240.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "5"
+payload: "IP"
+source: <
+  id: "5"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green6nmkq"
+    >
+    parameters: <
+      key: "name"
+      value: "green6nmkq"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green6nmkq/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.1/30"
+      dst_ip_addr: "172.100.240.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+destination: <
+  id: "2"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "1d71e521887c485d9660b101a727cd02"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "696271eb4e95c3fb"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "a58bf292a8913fbdcfe95cac67808e61ebe4abe4"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "2004609543"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "161382375"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "eb61ffb051d98b259f825228f8cafba1"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "c8db3a251eb54e7d"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "4ab954cf3b2f8607d7be183a8d546742cfda0245"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "vni"
+      value: "3"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.1/30"
+      dst_ip_addr: "172.100.240.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "6"
+payload: "IP"
+source: <
+  id: "6"
+  network_service: "green"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "7126ec27736232a7f742618e451d707f"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "d26ca62d1d829ff2"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "359660008caef26c8b0079501fb28f1d89173303"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "202409456"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "1233254208"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "6a26f1e140928f1e805a1887c123e22e"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "ede6f1f8e4c29bba"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "7f67a3e23f61e9f091c1d4558bcc842b48ae4227"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "vni"
+      value: "4"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.5/30"
+      dst_ip_addr: "172.100.244.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-3-control-plane@172.17.0.4:5001"
+    >
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+destination: <
+  id: "7"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmoKXjWwQ"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmoKXjWwQ/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "green89pnc"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.5/30"
+      dst_ip_addr: "172.100.244.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "1"
+payload: "IP"
+source: <
+  id: "1"
+  network_service: "green"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "0d0fa8f436de9aa9210bb6b36832b51a"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "1a9d84aedb221c5b"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "ad3e2c66264f9e3c12b1437c528409708c4e11cf"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "1056846336"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "2183668208"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "17b69537e0a16c4868e7d26ac5975b03"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "45f0330689311ba6"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "4c506cfa58ad93d5b5e4833e211ca474547ebed3"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "vni"
+      value: "2"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.1/30"
+      dst_ip_addr: "172.100.252.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.252.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-3-control-plane@172.17.0.4:5001"
+    >
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+destination: <
+  id: "2"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsm6Ffs5MCQu"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsm6Ffs5MCQu/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "greenfmxjq"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.1/30"
+      dst_ip_addr: "172.100.252.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.248.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.252.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "3"
+payload: "IP"
+source: <
+  id: "3"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green89pnc"
+    >
+    parameters: <
+      key: "name"
+      value: "green89pnc"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green89pnc/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.1/30"
+      dst_ip_addr: "172.100.244.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green89pnc"
+>
+destination: <
+  id: "4"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmEG0gjWsQ"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmEG0gjWsQ/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "green89pnc"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.244.1/30"
+      dst_ip_addr: "172.100.244.2/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.252.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.244.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "ucnf/peerName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-s6q9x"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "8"
+payload: "IP"
+source: <
+  id: "8"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green6nmkq"
+    >
+    parameters: <
+      key: "name"
+      value: "green6nmkq"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green6nmkq/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.9/30"
+      dst_ip_addr: "172.100.240.10/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.244.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-lnmdj"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+destination: <
+  id: "7"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "c23b9c0e16c0c0864f02f96a9f1bbf6e"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "feafb6e375b7390e"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "307bdeb18400b07ea5be68e568e789c85a4ecab2"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "217781101"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "1927578313"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "e17d21c8fd216592239b0c0edd9a8267"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "277183fffb89f8ec"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "2529d05578ffe0e43473999e654a40920e041027"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "vni"
+      value: "5"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.9/30"
+      dst_ip_addr: "172.100.240.10/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.244.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-lnmdj"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "8"
+payload: "IP"
+source: <
+  id: "8"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "VPP interface green6nmkq"
+    >
+    parameters: <
+      key: "name"
+      value: "green6nmkq"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026535816"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "green6nmkq/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-1"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.9/30"
+      dst_ip_addr: "172.100.240.10/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.244.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-lnmdj"
+  >
+  path: <
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+destination: <
+  id: "7"
+  network_service: "green@green.nispatil-wcm-cisco.com"
+  mechanism: <
+    type: "IPSEC"
+    parameters: <
+      key: "dst_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "ext_src_ip"
+      value: "172.17.0.3"
+    >
+    parameters: <
+      key: "localEncrKey"
+      value: "c23b9c0e16c0c0864f02f96a9f1bbf6e"
+    >
+    parameters: <
+      key: "localEspSpi"
+      value: "feafb6e375b7390e"
+    >
+    parameters: <
+      key: "localIntegKey"
+      value: "307bdeb18400b07ea5be68e568e789c85a4ecab2"
+    >
+    parameters: <
+      key: "localSAInIdx"
+      value: "217781101"
+    >
+    parameters: <
+      key: "localSAOutIdx"
+      value: "1927578313"
+    >
+    parameters: <
+      key: "mtu_overhead"
+      value: "70"
+    >
+    parameters: <
+      key: "remoteEncrKey"
+      value: "e17d21c8fd216592239b0c0edd9a8267"
+    >
+    parameters: <
+      key: "remoteEspSpi"
+      value: "277183fffb89f8ec"
+    >
+    parameters: <
+      key: "remoteIntegKey"
+      value: "2529d05578ffe0e43473999e654a40920e041027"
+    >
+    parameters: <
+      key: "src_ip"
+      value: "172.17.0.4"
+    >
+    parameters: <
+      key: "vni"
+      value: "5"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.240.9/30"
+      dst_ip_addr: "172.100.240.10/30"
+      src_ip_required: true
+      dst_ip_required: true
+      src_routes: <
+        prefix: "172.100.244.0/22"
+      >
+      dst_routes: <
+        prefix: "172.100.240.0/22"
+      >
+    >
+  >
+  labels: <
+    key: ""
+    value: ""
+  >
+  labels: <
+    key: "vl3Nse/nseSource/endpointName"
+    value: "green-kind-3_vl3-nse-green-7555496c4c-lnmdj"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+    path_segments: <
+      name: "kind-2-control-plane"
+    >
+    path_segments: <
+      name: "kind-2-control-plane@172.17.0.3:5001"
+    >
+  >
+  network_service_endpoint_name: "green6nmkq"
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "9"
+payload: "IP"
+source: <
+  id: "9"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "KERNEL_INTERFACE"
+    parameters: <
+      key: "description"
+      value: "Primary interface"
+    >
+    parameters: <
+      key: "name"
+      value: "nsm0"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026536181"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsm0/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-2"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.5/30"
+      dst_ip_addr: "172.100.252.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      dst_routes: <
+        prefix: "172.100.0.0/16"
+      >
+    >
+  >
+  labels: <
+    key: "clusterName"
+    value: "cluster3"
+  >
+  labels: <
+    key: "namespace"
+    value: "nsm-system"
+  >
+  labels: <
+    key: "podName"
+    value: "helloworld-green-64b8686595-t4nmt"
+  >
+  labels: <
+    key: "port"
+    value: "5000"
+  >
+  labels: <
+    key: "service"
+    value: "helloworld"
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+destination: <
+  id: "a"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmhRJk5p9Qu"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmhRJk5p9Qu/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "greenfmxjq"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.5/30"
+      dst_ip_addr: "172.100.252.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      dst_routes: <
+        prefix: "172.100.0.0/16"
+      >
+    >
+  >
+  labels: <
+    key: "clusterName"
+    value: "cluster3"
+  >
+  labels: <
+    key: "namespace"
+    value: "nsm-system"
+  >
+  labels: <
+    key: "podName"
+    value: "helloworld-green-64b8686595-t4nmt"
+  >
+  labels: <
+    key: "port"
+    value: "5000"
+  >
+  labels: <
+    key: "service"
+    value: "helloworld"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+>
+
+[0m
+[31m*** UPDATE
+[0m[31m*** 10.244.0.13:5001
+[0m[32mid: "9"
+payload: "IP"
+source: <
+  id: "9"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "KERNEL_INTERFACE"
+    parameters: <
+      key: "description"
+      value: "Primary interface"
+    >
+    parameters: <
+      key: "name"
+      value: "nsm0"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026536181"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsm0/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-2"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.5/30"
+      dst_ip_addr: "172.100.252.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      dst_routes: <
+        prefix: "172.100.0.0/16"
+      >
+    >
+  >
+  labels: <
+    key: "clusterName"
+    value: "cluster3"
+  >
+  labels: <
+    key: "namespace"
+    value: "nsm-system"
+  >
+  labels: <
+    key: "podName"
+    value: "helloworld-green-64b8686595-t4nmt"
+  >
+  labels: <
+    key: "port"
+    value: "5000"
+  >
+  labels: <
+    key: "service"
+    value: "helloworld"
+  >
+  network_service_endpoint_name: "greenfmxjq"
+>
+destination: <
+  id: "a"
+  network_service: "green"
+  mechanism: <
+    cls: "LOCAL"
+    type: "MEMIF"
+    parameters: <
+      key: "description"
+      value: "NSM Endpoint"
+    >
+    parameters: <
+      key: "name"
+      value: "nsmhRJk5p9Qu"
+    >
+    parameters: <
+      key: "netnsInode"
+      value: "4026534276"
+    >
+    parameters: <
+      key: "socketfile"
+      value: "nsmhRJk5p9Qu/memif.sock"
+    >
+    parameters: <
+      key: "workspace"
+      value: "nsm-23"
+    >
+    parameters: <
+      key: "workspaceNseName"
+      value: "greenfmxjq"
+    >
+  >
+  context: <
+    ip_context: <
+      src_ip_addr: "172.100.252.5/30"
+      dst_ip_addr: "172.100.252.6/30"
+      src_ip_required: true
+      dst_ip_required: true
+      dst_routes: <
+        prefix: "172.100.0.0/16"
+      >
+    >
+  >
+  labels: <
+    key: "clusterName"
+    value: "cluster3"
+  >
+  labels: <
+    key: "namespace"
+    value: "nsm-system"
+  >
+  labels: <
+    key: "podName"
+    value: "helloworld-green-64b8686595-t4nmt"
+  >
+  labels: <
+    key: "port"
+    value: "5000"
+  >
+  labels: <
+    key: "service"
+    value: "helloworld"
+  >
+  path: <
+    path_segments: <
+      name: "kind-3-control-plane"
+    >
+  >
+>
+
+[0m
+==== END logs for container crossconnect-monitor of pod nsm-system/wcm-crossconnect-monitor-c4db96966-9c96p ====

@@ -1,0 +1,76 @@
+Name:         wcm-nsm-vpp-forwarder-pppxt
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Mon, 21 Jun 2021 22:18:34 +0000
+Labels:       app=wcm-nsm-vpp-forwarder
+              controller-revision-hash=797497759b
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.4
+IPs:
+  IP:           172.17.0.4
+Controlled By:  DaemonSet/wcm-nsm-vpp-forwarder
+Containers:
+  wcm-nsm-vpp-forwarder:
+    Container ID:   containerd://531b93499ac64bc0d95f512a4ebf4c099529133354b14aba941e14111c1b53a1
+    Image:          nishantapatil3/vppagent-forwarder:vl3_latest
+    Image ID:       sha256:2a415110e5d30e9b3be593b1131a7b05211a3fdae3c544824ee573c18eb0b5f9
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 21 Jun 2021 22:18:37 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      INSECURE:                     false
+      METRICS_COLLECTOR_ENABLED:    false
+      NSM_FORWARDER_SRC_IP:          (v1:status.podIP)
+      TRACER_ENABLED:               true
+      JAEGER_AGENT_HOST:            wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:            6831
+      NSM_CONNECTION_MTU_OVERRIDE:  1400
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/networkservicemesh/ from workspace (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsm-vpp-forwarder-service-account-token-vlhp9 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  workspace:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nsm-vpp-forwarder-service-account-token-vlhp9:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsm-vpp-forwarder-service-account-token-vlhp9
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  12m   default-scheduler  Successfully assigned nsm-system/wcm-nsm-vpp-forwarder-pppxt to kind-3-control-plane
+  Normal  Pulled     12m   kubelet            Container image "nishantapatil3/vppagent-forwarder:vl3_latest" already present on machine
+  Normal  Created    12m   kubelet            Created container wcm-nsm-vpp-forwarder
+  Normal  Started    12m   kubelet            Started container wcm-nsm-vpp-forwarder
+

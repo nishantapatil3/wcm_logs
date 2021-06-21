@@ -2,12 +2,12 @@
 apiVersion: v1
 items:
 - metadata:
-    creationTimestamp: "2021-06-17T06:10:31Z"
+    creationTimestamp: "2021-06-21T22:02:03Z"
     generateName: coredns-6955765f44-
     labels:
       k8s-app: kube-dns
       pod-template-hash: 6955765f44
-    name: coredns-6955765f44-5mpv2
+    name: coredns-6955765f44-fl5hd
     namespace: kube-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -15,10 +15,10 @@ items:
       controller: true
       kind: ReplicaSet
       name: coredns-6955765f44
-      uid: 41fa7787-d4af-48a4-a24a-ba0ee11fc206
-    resourceVersion: "592"
-    selfLink: /api/v1/namespaces/kube-system/pods/coredns-6955765f44-5mpv2
-    uid: 7edc5dda-dabb-40af-bd53-4d5700ec0133
+      uid: 292be7fa-183e-43a6-af58-846e1b022594
+    resourceVersion: "591"
+    selfLink: /api/v1/namespaces/kube-system/pods/coredns-6955765f44-fl5hd
+    uid: 37b157df-e8d8-40af-b7a8-8e6c3dea4581
   spec:
     containers:
     - args:
@@ -77,7 +77,7 @@ items:
         name: config-volume
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: coredns-token-ql2nt
+        name: coredns-token-nm2cv
         readOnly: true
     dnsPolicy: Default
     enableServiceLinks: true
@@ -113,30 +113,30 @@ items:
           path: Corefile
         name: coredns
       name: config-volume
-    - name: coredns-token-ql2nt
+    - name: coredns-token-nm2cv
       secret:
         defaultMode: 420
-        secretName: coredns-token-ql2nt
+        secretName: coredns-token-nm2cv
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:18Z"
+      lastTransitionTime: "2021-06-21T22:02:47Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:27Z"
+      lastTransitionTime: "2021-06-21T22:02:54Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:27Z"
+      lastTransitionTime: "2021-06-21T22:02:54Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:18Z"
+      lastTransitionTime: "2021-06-21T22:02:47Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://230052331b7d84e3f81579bd581bb56db0f57f4d9f233b6317e675d2aa4fcc55
+    - containerID: containerd://5977784cbe8fe03fb5b2454478664441066a11d775ca3b14f8b7a3a4ba8ded04
       image: k8s.gcr.io/coredns:1.6.5
       imageID: sha256:70f311871ae12c14bd0e02028f249f933f925e4370744e4e35f706da773a8f61
       lastState: {}
@@ -146,174 +146,174 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-17T06:11:18Z"
+          startedAt: "2021-06-21T22:02:49Z"
+    hostIP: 172.17.0.2
+    phase: Running
+    podIP: 10.244.0.3
+    podIPs:
+    - ip: 10.244.0.3
+    qosClass: Burstable
+    startTime: "2021-06-21T22:02:47Z"
+- metadata:
+    creationTimestamp: "2021-06-21T22:02:03Z"
+    generateName: coredns-6955765f44-
+    labels:
+      k8s-app: kube-dns
+      pod-template-hash: 6955765f44
+    name: coredns-6955765f44-vl748
+    namespace: kube-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: coredns-6955765f44
+      uid: 292be7fa-183e-43a6-af58-846e1b022594
+    resourceVersion: "584"
+    selfLink: /api/v1/namespaces/kube-system/pods/coredns-6955765f44-vl748
+    uid: 09f5f56d-142c-490e-bf47-ec1637c8cd15
+  spec:
+    containers:
+    - args:
+      - -conf
+      - /etc/coredns/Corefile
+      image: k8s.gcr.io/coredns:1.6.5
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 5
+        httpGet:
+          path: /health
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 60
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 5
+      name: coredns
+      ports:
+      - containerPort: 53
+        name: dns
+        protocol: UDP
+      - containerPort: 53
+        name: dns-tcp
+        protocol: TCP
+      - containerPort: 9153
+        name: metrics
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /ready
+          port: 8181
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          memory: 170Mi
+        requests:
+          cpu: 100m
+          memory: 70Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          add:
+          - NET_BIND_SERVICE
+          drop:
+          - all
+        readOnlyRootFilesystem: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/coredns
+        name: config-volume
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: coredns-token-nm2cv
+        readOnly: true
+    dnsPolicy: Default
+    enableServiceLinks: true
+    nodeName: kind-1-control-plane
+    nodeSelector:
+      beta.kubernetes.io/os: linux
+    priority: 2000000000
+    priorityClassName: system-cluster-critical
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: coredns
+    serviceAccountName: coredns
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - key: CriticalAddonsOnly
+      operator: Exists
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        items:
+        - key: Corefile
+          path: Corefile
+        name: coredns
+      name: config-volume
+    - name: coredns-token-nm2cv
+      secret:
+        defaultMode: 420
+        secretName: coredns-token-nm2cv
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-21T22:02:47Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-21T22:02:53Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-21T22:02:53Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-21T22:02:47Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://5472fd21bc17ce68ee32e094f045bc5ab806f21f02aa0c6eb34c143528aec7ee
+      image: k8s.gcr.io/coredns:1.6.5
+      imageID: sha256:70f311871ae12c14bd0e02028f249f933f925e4370744e4e35f706da773a8f61
+      lastState: {}
+      name: coredns
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-21T22:02:49Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 10.244.0.4
     podIPs:
     - ip: 10.244.0.4
     qosClass: Burstable
-    startTime: "2021-06-17T06:11:18Z"
-- metadata:
-    creationTimestamp: "2021-06-17T06:10:31Z"
-    generateName: coredns-6955765f44-
-    labels:
-      k8s-app: kube-dns
-      pod-template-hash: 6955765f44
-    name: coredns-6955765f44-9kp22
-    namespace: kube-system
-    ownerReferences:
-    - apiVersion: apps/v1
-      blockOwnerDeletion: true
-      controller: true
-      kind: ReplicaSet
-      name: coredns-6955765f44
-      uid: 41fa7787-d4af-48a4-a24a-ba0ee11fc206
-    resourceVersion: "559"
-    selfLink: /api/v1/namespaces/kube-system/pods/coredns-6955765f44-9kp22
-    uid: d60dbc0a-0ac8-4082-a034-98ecdeb10eac
-  spec:
-    containers:
-    - args:
-      - -conf
-      - /etc/coredns/Corefile
-      image: k8s.gcr.io/coredns:1.6.5
-      imagePullPolicy: IfNotPresent
-      livenessProbe:
-        failureThreshold: 5
-        httpGet:
-          path: /health
-          port: 8080
-          scheme: HTTP
-        initialDelaySeconds: 60
-        periodSeconds: 10
-        successThreshold: 1
-        timeoutSeconds: 5
-      name: coredns
-      ports:
-      - containerPort: 53
-        name: dns
-        protocol: UDP
-      - containerPort: 53
-        name: dns-tcp
-        protocol: TCP
-      - containerPort: 9153
-        name: metrics
-        protocol: TCP
-      readinessProbe:
-        failureThreshold: 3
-        httpGet:
-          path: /ready
-          port: 8181
-          scheme: HTTP
-        periodSeconds: 10
-        successThreshold: 1
-        timeoutSeconds: 1
-      resources:
-        limits:
-          memory: 170Mi
-        requests:
-          cpu: 100m
-          memory: 70Mi
-      securityContext:
-        allowPrivilegeEscalation: false
-        capabilities:
-          add:
-          - NET_BIND_SERVICE
-          drop:
-          - all
-        readOnlyRootFilesystem: true
-      terminationMessagePath: /dev/termination-log
-      terminationMessagePolicy: File
-      volumeMounts:
-      - mountPath: /etc/coredns
-        name: config-volume
-        readOnly: true
-      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: coredns-token-ql2nt
-        readOnly: true
-    dnsPolicy: Default
-    enableServiceLinks: true
-    nodeName: kind-1-control-plane
-    nodeSelector:
-      beta.kubernetes.io/os: linux
-    priority: 2000000000
-    priorityClassName: system-cluster-critical
-    restartPolicy: Always
-    schedulerName: default-scheduler
-    securityContext: {}
-    serviceAccount: coredns
-    serviceAccountName: coredns
-    terminationGracePeriodSeconds: 30
-    tolerations:
-    - key: CriticalAddonsOnly
-      operator: Exists
-    - effect: NoSchedule
-      key: node-role.kubernetes.io/master
-    - effect: NoExecute
-      key: node.kubernetes.io/not-ready
-      operator: Exists
-      tolerationSeconds: 300
-    - effect: NoExecute
-      key: node.kubernetes.io/unreachable
-      operator: Exists
-      tolerationSeconds: 300
-    volumes:
-    - configMap:
-        defaultMode: 420
-        items:
-        - key: Corefile
-          path: Corefile
-        name: coredns
-      name: config-volume
-    - name: coredns-token-ql2nt
-      secret:
-        defaultMode: 420
-        secretName: coredns-token-ql2nt
-  status:
-    conditions:
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:16Z"
-      status: "True"
-      type: Initialized
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:18Z"
-      status: "True"
-      type: Ready
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:18Z"
-      status: "True"
-      type: ContainersReady
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:11:16Z"
-      status: "True"
-      type: PodScheduled
-    containerStatuses:
-    - containerID: containerd://412f6248171b32962bff9f3f93d52fffaf58231a9969f3eb481c31eba2491971
-      image: k8s.gcr.io/coredns:1.6.5
-      imageID: sha256:70f311871ae12c14bd0e02028f249f933f925e4370744e4e35f706da773a8f61
-      lastState: {}
-      name: coredns
-      ready: true
-      restartCount: 0
-      started: true
-      state:
-        running:
-          startedAt: "2021-06-17T06:11:17Z"
-    hostIP: 172.17.0.2
-    phase: Running
-    podIP: 10.244.0.2
-    podIPs:
-    - ip: 10.244.0.2
-    qosClass: Burstable
-    startTime: "2021-06-17T06:11:16Z"
+    startTime: "2021-06-21T22:02:47Z"
 - metadata:
     annotations:
       kubernetes.io/config.hash: e981b150942358150742d13e6f4e1406
       kubernetes.io/config.mirror: e981b150942358150742d13e6f4e1406
-      kubernetes.io/config.seen: "2021-06-17T06:10:16.246927951Z"
+      kubernetes.io/config.seen: "2021-06-21T22:01:46.474434821Z"
       kubernetes.io/config.source: file
-    creationTimestamp: "2021-06-17T06:10:16Z"
+    creationTimestamp: "2021-06-21T22:01:46Z"
     labels:
       component: etcd
       tier: control-plane
@@ -324,10 +324,10 @@ items:
       controller: true
       kind: Node
       name: kind-1-control-plane
-      uid: 8de092fe-4db5-466a-8af0-8659d9d0df96
-    resourceVersion: "431"
+      uid: c1f7103e-623f-4994-84a1-fe6ea683ac62
+    resourceVersion: "437"
     selfLink: /api/v1/namespaces/kube-system/pods/etcd-kind-1-control-plane
-    uid: c8cefca4-e474-407e-91c0-5d90b50f1703
+    uid: 030317cf-415f-4675-9840-be15dbe2967f
   spec:
     containers:
     - command:
@@ -396,23 +396,23 @@ items:
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://bffe987e1000de5433b1f0617b99310e3b6b943277d02adaad34b1324803276c
+    - containerID: containerd://7af9da7c21098df026929c50941abdfb66447c09567541c263d4d79ad6b096fe
       image: k8s.gcr.io/etcd:3.4.3-0
       imageID: sha256:303ce5db0e90dab1c5728ec70d21091201a23cdf8aeca70ab54943bbaaf0833f
       lastState: {}
@@ -422,16 +422,16 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-17T06:10:08Z"
+          startedAt: "2021-06-21T22:01:38Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: BestEffort
-    startTime: "2021-06-17T06:10:16Z"
+    startTime: "2021-06-21T22:01:46Z"
 - metadata:
-    creationTimestamp: "2021-06-17T06:10:31Z"
+    creationTimestamp: "2021-06-21T22:02:03Z"
     generateName: kindnet-
     labels:
       app: kindnet
@@ -439,7 +439,7 @@ items:
       k8s-app: kindnet
       pod-template-generation: "1"
       tier: node
-    name: kindnet-6ttfd
+    name: kindnet-g94nr
     namespace: kube-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -447,10 +447,10 @@ items:
       controller: true
       kind: DaemonSet
       name: kindnet
-      uid: a08ebd1c-eeb8-4445-912a-9512d0d2bd49
-    resourceVersion: "443"
-    selfLink: /api/v1/namespaces/kube-system/pods/kindnet-6ttfd
-    uid: a11d2449-1b1c-486d-873a-691303b854a0
+      uid: 1e8b9dc9-f8c4-4555-a18b-555668afd571
+    resourceVersion: "451"
+    selfLink: /api/v1/namespaces/kube-system/pods/kindnet-g94nr
+    uid: 8773c10f-de60-42a2-8592-7d5f49a4ecc1
   spec:
     affinity:
       nodeAffinity:
@@ -502,7 +502,7 @@ items:
         name: lib-modules
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: kindnet-token-l7jk2
+        name: kindnet-token-mwgvs
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -552,30 +552,30 @@ items:
         path: /lib/modules
         type: ""
       name: lib-modules
-    - name: kindnet-token-l7jk2
+    - name: kindnet-token-mwgvs
       secret:
         defaultMode: 420
-        secretName: kindnet-token-l7jk2
+        secretName: kindnet-token-mwgvs
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:31Z"
+      lastTransitionTime: "2021-06-21T22:02:03Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:38Z"
+      lastTransitionTime: "2021-06-21T22:02:08Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:38Z"
+      lastTransitionTime: "2021-06-21T22:02:08Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:31Z"
+      lastTransitionTime: "2021-06-21T22:02:03Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://5cb6f49f30b903dac4865ee79e2e9c2ecd587ed4d9a2da437b75790cbed5287b
+    - containerID: containerd://68ac4e5cb19a8ff0f131cbeaf07d436cdf9b4d191ede52a48f1474d63c1079e9
       image: docker.io/kindest/kindnetd:0.5.4
       imageID: sha256:2186a1a396deb58f1ea5eaf20193a518ca05049b46ccd754ec83366b5c8c13d5
       lastState: {}
@@ -585,21 +585,21 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-17T06:10:37Z"
+          startedAt: "2021-06-21T22:02:08Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: Guaranteed
-    startTime: "2021-06-17T06:10:31Z"
+    startTime: "2021-06-21T22:02:03Z"
 - metadata:
     annotations:
       kubernetes.io/config.hash: 84d09e1dc580cf14058a67d3ae756085
       kubernetes.io/config.mirror: 84d09e1dc580cf14058a67d3ae756085
-      kubernetes.io/config.seen: "2021-06-17T06:10:16.246933971Z"
+      kubernetes.io/config.seen: "2021-06-21T22:01:46.474440291Z"
       kubernetes.io/config.source: file
-    creationTimestamp: "2021-06-17T06:10:16Z"
+    creationTimestamp: "2021-06-21T22:01:46Z"
     labels:
       component: kube-apiserver
       tier: control-plane
@@ -610,10 +610,10 @@ items:
       controller: true
       kind: Node
       name: kind-1-control-plane
-      uid: 8de092fe-4db5-466a-8af0-8659d9d0df96
-    resourceVersion: "432"
+      uid: c1f7103e-623f-4994-84a1-fe6ea683ac62
+    resourceVersion: "438"
     selfLink: /api/v1/namespaces/kube-system/pods/kube-apiserver-kind-1-control-plane
-    uid: 4b54e121-472c-4ca1-a752-7f478720b0fc
+    uid: e01cc11f-d3d0-4f95-b1ed-404a17df7d12
   spec:
     containers:
     - command:
@@ -716,23 +716,23 @@ items:
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://6bf5fd3f2a9fb87133f99dcb20c9899abb5806df2ff3827500406896bb6dcce8
+    - containerID: containerd://c7d1d24986e59067988431d11d8a98efde27bbaee661ea2ce657a7f7b426d888
       image: k8s.gcr.io/kube-apiserver:v1.17.5
       imageID: sha256:4c404c6bfb0efbfecb9dcc7adb82d9dc194cbdbf274fd146c87e39c93613bab4
       lastState: {}
@@ -742,21 +742,21 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-17T06:10:08Z"
+          startedAt: "2021-06-21T22:01:38Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: Burstable
-    startTime: "2021-06-17T06:10:16Z"
+    startTime: "2021-06-21T22:01:46Z"
 - metadata:
     annotations:
       kubernetes.io/config.hash: 79cda6f312d4d457294a79edd6678739
       kubernetes.io/config.mirror: 79cda6f312d4d457294a79edd6678739
-      kubernetes.io/config.seen: "2021-06-17T06:10:16.246936551Z"
+      kubernetes.io/config.seen: "2021-06-21T22:01:46.474442671Z"
       kubernetes.io/config.source: file
-    creationTimestamp: "2021-06-17T06:10:16Z"
+    creationTimestamp: "2021-06-21T22:01:47Z"
     labels:
       component: kube-controller-manager
       tier: control-plane
@@ -767,10 +767,10 @@ items:
       controller: true
       kind: Node
       name: kind-1-control-plane
-      uid: 8de092fe-4db5-466a-8af0-8659d9d0df96
-    resourceVersion: "433"
+      uid: c1f7103e-623f-4994-84a1-fe6ea683ac62
+    resourceVersion: "439"
     selfLink: /api/v1/namespaces/kube-system/pods/kube-controller-manager-kind-1-control-plane
-    uid: 7572912c-5b79-4227-9377-6d4b61c590da
+    uid: 74a9df77-54b2-4ff5-89c9-f2f7a7261e64
   spec:
     containers:
     - command:
@@ -878,23 +878,23 @@ items:
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://e678870ab3babe041a15c0ad138ffaec1d84bc0445a060a91b18aba9672ac61f
+    - containerID: containerd://d4b5c89d299fab9880d20eef5f1aa67773577dd9e55737fc9641e6926dd841a2
       image: k8s.gcr.io/kube-controller-manager:v1.17.5
       imageID: sha256:676f458badc575b92ecf90713bd97b3099938f299eba3c0c0bb38582b339d476
       lastState: {}
@@ -904,22 +904,22 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-17T06:10:08Z"
+          startedAt: "2021-06-21T22:01:38Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: Burstable
-    startTime: "2021-06-17T06:10:16Z"
+    startTime: "2021-06-21T22:01:46Z"
 - metadata:
-    creationTimestamp: "2021-06-17T06:10:31Z"
+    creationTimestamp: "2021-06-21T22:02:03Z"
     generateName: kube-proxy-
     labels:
       controller-revision-hash: ffd768b57
       k8s-app: kube-proxy
       pod-template-generation: "1"
-    name: kube-proxy-xk288
+    name: kube-proxy-9rlgg
     namespace: kube-system
     ownerReferences:
     - apiVersion: apps/v1
@@ -927,10 +927,10 @@ items:
       controller: true
       kind: DaemonSet
       name: kube-proxy
-      uid: 332dbc62-744b-435d-88cb-782a34ad0dd2
-    resourceVersion: "445"
-    selfLink: /api/v1/namespaces/kube-system/pods/kube-proxy-xk288
-    uid: d4e34ec3-6bdc-47fe-90aa-b3b9d27bed20
+      uid: 7566a6b3-ed1b-4d12-9094-50abab7bde22
+    resourceVersion: "449"
+    selfLink: /api/v1/namespaces/kube-system/pods/kube-proxy-9rlgg
+    uid: 7012d63c-4109-4836-b87f-d29f7ec7807f
   spec:
     affinity:
       nodeAffinity:
@@ -969,7 +969,7 @@ items:
         name: lib-modules
         readOnly: true
       - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: kube-proxy-token-mdk9x
+        name: kube-proxy-token-696w9
         readOnly: true
     dnsPolicy: ClusterFirst
     enableServiceLinks: true
@@ -1023,30 +1023,30 @@ items:
         path: /lib/modules
         type: ""
       name: lib-modules
-    - name: kube-proxy-token-mdk9x
+    - name: kube-proxy-token-696w9
       secret:
         defaultMode: 420
-        secretName: kube-proxy-token-mdk9x
+        secretName: kube-proxy-token-696w9
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:31Z"
+      lastTransitionTime: "2021-06-21T22:02:03Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:38Z"
+      lastTransitionTime: "2021-06-21T22:02:08Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:38Z"
+      lastTransitionTime: "2021-06-21T22:02:08Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:31Z"
+      lastTransitionTime: "2021-06-21T22:02:03Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://1b21e3960f529aaa73eb4b685a724826500935e8ab4332795a6ecaa96a41b3f6
+    - containerID: containerd://6218d7096035d4c3679ea71c9523ae7501d5294430530b045f7fc84926c9cae5
       image: k8s.gcr.io/kube-proxy:v1.17.5
       imageID: sha256:da46d9e67f5bf2df91845fee23059c32009e8c541247147b0b2a2c48b9a03f66
       lastState: {}
@@ -1056,21 +1056,21 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-17T06:10:37Z"
+          startedAt: "2021-06-21T22:02:08Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: BestEffort
-    startTime: "2021-06-17T06:10:31Z"
+    startTime: "2021-06-21T22:02:03Z"
 - metadata:
     annotations:
       kubernetes.io/config.hash: b95be9ddff954501b1709fd9f2e0a160
       kubernetes.io/config.mirror: b95be9ddff954501b1709fd9f2e0a160
-      kubernetes.io/config.seen: "2021-06-17T06:10:16.246938741Z"
+      kubernetes.io/config.seen: "2021-06-21T22:01:46.474444951Z"
       kubernetes.io/config.source: file
-    creationTimestamp: "2021-06-17T06:10:17Z"
+    creationTimestamp: "2021-06-21T22:01:47Z"
     labels:
       component: kube-scheduler
       tier: control-plane
@@ -1081,10 +1081,10 @@ items:
       controller: true
       kind: Node
       name: kind-1-control-plane
-      uid: 8de092fe-4db5-466a-8af0-8659d9d0df96
-    resourceVersion: "430"
+      uid: c1f7103e-623f-4994-84a1-fe6ea683ac62
+    resourceVersion: "440"
     selfLink: /api/v1/namespaces/kube-system/pods/kube-scheduler-kind-1-control-plane
-    uid: 86bfe501-3706-4b91-9193-3d72c2a25c98
+    uid: 1b9e4135-7257-4615-b620-7409f0ad6e73
   spec:
     containers:
     - command:
@@ -1138,23 +1138,23 @@ items:
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-17T06:10:16Z"
+      lastTransitionTime: "2021-06-21T22:01:46Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: containerd://cd4d64faef7c94c66c3b70809267ebe86520626ce8e1e0149646c4716f5510ff
+    - containerID: containerd://0fba57a3a6d56eedd0767a3cc005e5a8bfa48e6a90c8dd8399ecfa4082550c53
       image: k8s.gcr.io/kube-scheduler:v1.17.5
       imageID: sha256:04d32e41c4635fcd1860b9187245b144d717d9967d76980a6f87e8b5b8986598
       lastState: {}
@@ -1164,15 +1164,15 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-17T06:10:08Z"
+          startedAt: "2021-06-21T22:01:38Z"
     hostIP: 172.17.0.2
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: Burstable
-    startTime: "2021-06-17T06:10:16Z"
+    startTime: "2021-06-21T22:01:46Z"
 kind: PodList
 metadata:
-  resourceVersion: "154387"
+  resourceVersion: "7021"
   selfLink: /api/v1/namespaces/kube-system/pods

@@ -5,18 +5,22 @@ Annotations:              <none>
 Selector:                 app=wcm-spire-server
 Type:                     LoadBalancer
 IP Families:              <none>
-IP:                       10.107.81.36
+IP:                       10.105.177.211
 IPs:                      <none>
 LoadBalancer Ingress:     172.17.254.1
 Port:                     grpc  8081/TCP
 TargetPort:               8081/TCP
-NodePort:                 grpc  30678/TCP
+NodePort:                 grpc  31512/TCP
 Endpoints:                10.244.0.15:8081
 Port:                     federation-endpoint  8443/TCP
 TargetPort:               8443/TCP
-NodePort:                 federation-endpoint  31314/TCP
+NodePort:                 federation-endpoint  30712/TCP
 Endpoints:                10.244.0.15:8443
 Session Affinity:         None
 External Traffic Policy:  Cluster
-Events:                   <none>
+Events:
+  Type    Reason        Age                From                Message
+  ----    ------        ----               ----                -------
+  Normal  IPAllocated   13m                metallb-controller  Assigned IP "172.17.254.1"
+  Normal  nodeAssigned  12m (x2 over 12m)  metallb-speaker     announcing from node "kind-2-control-plane"
 

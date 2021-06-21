@@ -1,0 +1,70 @@
+Name:         speaker-wmn7w
+Namespace:    metallb-system
+Priority:     0
+Node:         kind-3-control-plane/172.17.0.4
+Start Time:   Mon, 21 Jun 2021 22:18:07 +0000
+Labels:       app=metallb
+              component=speaker
+              controller-revision-hash=f6cf9fd9f
+              pod-template-generation=1
+Annotations:  prometheus.io/port: 7472
+              prometheus.io/scrape: true
+Status:       Running
+IP:           172.17.0.4
+IPs:
+  IP:           172.17.0.4
+Controlled By:  DaemonSet/speaker
+Containers:
+  speaker:
+    Container ID:  containerd://38bb97acf31f83dd0f7065e0370578f08ef32de1e7cf59e845fc4f15d9736988
+    Image:         metallb/speaker:v0.8.2
+    Image ID:      sha256:4fa93685c11584a953feb4c8f54c322989aa4339ce6ab5374080eac8d0cc23be
+    Port:          7472/TCP
+    Host Port:     7472/TCP
+    Args:
+      --port=7472
+      --config=config
+    State:          Running
+      Started:      Mon, 21 Jun 2021 22:18:09 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  100Mi
+    Requests:
+      cpu:     100m
+      memory:  100Mi
+    Environment:
+      METALLB_NODE_NAME:   (v1:spec.nodeName)
+      METALLB_HOST:        (v1:status.hostIP)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from speaker-token-7dg2d (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  speaker-token-7dg2d:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  speaker-token-7dg2d
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  13m   default-scheduler  Successfully assigned metallb-system/speaker-wmn7w to kind-3-control-plane
+  Normal  Pulled     13m   kubelet            Container image "metallb/speaker:v0.8.2" already present on machine
+  Normal  Created    13m   kubelet            Created container speaker
+  Normal  Started    13m   kubelet            Started container speaker
+

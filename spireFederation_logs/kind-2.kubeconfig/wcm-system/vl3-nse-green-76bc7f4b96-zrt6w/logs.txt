@@ -1,0 +1,1016 @@
+==== START logs for container vl3-nse-green of pod wcm-system/vl3-nse-green-76bc7f4b96-zrt6w ====
+time="2021-06-21 22:24:44.70769" level=info msg="Starting agent version: v0.0.0-dev" BuildDate= CommitHash= loc="agent/agent.go(134)" logger=agent
+time="2021-06-21 22:24:44.70915" level=info msg="Agent started with 2 plugins (took 1ms)" loc="agent/agent.go(179)" logger=agent
+time="2021-06-21T22:24:44Z" level=info msg="starting endpoint"
+time="2021-06-21T22:24:44Z" level=info msg="Serving metrics on: 0.0.0.0:2112" path=/metrics
+time="2021-06-21T22:24:44Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+                                       __
+  _  _____  ___ _______ ____ ____ ___ / /_  
+ | |/ / _ \/ _ /___/ _ '/ _ '/ -_/ _ / __/  vpp-agent v3.2.0
+ |___/ .__/ .__/   \_'_/\_' /\__/_//_\__/   Wed Nov  4 12:43:01 UTC 2020 (229 days ago)
+    /_/  /_/           /___/                root@cac5a9849c6e (go1.15.2 linux/amd64)
+
+time="2021-06-21 22:24:44.79161" level=info msg="Starting agent version: v3.2.0" BuildDate="Wed Nov  4 12:43:01 UTC 2020" CommitHash=f969fd3 loc="agent/agent.go(134)" logger=agent
+time="2021-06-21 22:24:44.79434" level=info msg="ETCD config not found, skip loading this plugin" loc="etcd/plugin_impl_etcd.go(293)" logger=etcd
+time="2021-06-21 22:24:44.79445" level=info msg="Consul config not found, skip loading this plugin" loc="consul/plugin.go(138)" logger=consul
+time="2021-06-21 22:24:44.79459" level=info msg="Redis config not found, skip loading this plugin" loc="redis/plugin_impl_redis.go(123)" logger=redis
+unix_config:471: couldn't open log '/var/log/vpp/vpp.log'
+/usr/bin/vpp[17]: clib_elf_parse_file: open `linux-vdso.so.1': No such file or directory
+/usr/bin/vpp[17]: clib_sysfs_prealloc_hugepages:261: pre-allocating 19 additional 2048K hugepages on numa node 0
+/usr/bin/vpp[17]: buffer: vlib_physmem_shared_map_create: pmalloc_map_pages: failed to mmap 19 pages at 0x1000000000 fd 4 numa 0 flags 0x11: Cannot allocate memory
+
+/usr/bin/vpp[17]: buffer: falling back to non-hugepage backed buffer pool
+/usr/bin/vpp[17]: perfmon: No table for cpuid 800f12
+/usr/bin/vpp[17]: perfmon:   model 1, stepping 2
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: gtpu plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: rdma plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: avf plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: pppoe plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: dhcp plugin not loaded...
+/usr/bin/vpp[17]: vat-plug/load: vat_plugin_register: oddbuf plugin not loaded...
+time="2021-06-21 22:24:45.06580" level=info msg="VPP version: 20.05.1-6~gf53edbc3b~b1" ClientID=0 PID=17 loc="govppmux/plugin_impl_govppmux.go(382)" logger=govpp
+time="2021-06-21 22:24:45.07320" level=info msg="VPP proxy ready" loc="govppmux/plugin_impl_govppmux.go(177)" logger=govpp
+time="2021-06-21 22:24:45.07395" level=info msg="kafka config not found  - skip loading this plugin" loc="kafka/plugin_impl_kafka.go(73)" logger=kafka
+time="2021-06-21 22:24:45.07485" level=warning msg="Failed to list Docker containers: Get \"http://unix.sock/containers/json?all=1\": dial unix /var/run/docker.sock: connect: no such file or directory" loc="descriptor/microservice.go(304)" logger=linux-nsplugin.ms-descriptor
+time="2021-06-21 22:24:45.08468" level=warning msg="VPP plugin wireguard was disabled by VPP" loc="wireguardplugin/wireguardplugin.go(51)" logger=vpp-wg-plugin
+time="2021-06-21 22:24:45.08714" level=info msg="Found 42 registered models" loc="orchestrator/orchestrator.go(101)" logger=orchestrator
+time="2021-06-21 22:24:45.08734" level=info msg="Watching 40 key prefixes from KVScheduler" loc="orchestrator/orchestrator.go(108)" logger=dispatcher
+time="2021-06-21 22:24:45.08843" level=info msg="VPP Wg handler is not available, it will be skipped" loc="configurator/plugin.go(156)" logger=configurator
+time="2021-06-21 22:24:45.08857" level=info msg="Wireguard handler is not available, it will be skipped" loc="restapi/plugin_restapi.go(174)" logger=restpapi
+time="2021-06-21 22:24:45.08877" level=info msg="polling period changed to 30s" loc="telemetry/telemetry.go(112)" logger=telemetry
+time="2021-06-21 22:24:45.08941" level=info msg="Serving on http://0.0.0.0:9191" loc="rest/plugin_impl_rest.go(114)" logger=http
+time="2021-06-21 22:24:45.08970" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=govpp state=ok
+time="2021-06-21 22:24:45.09094" level=info msg="Listening GRPC on: 0.0.0.0:9113" loc="grpc/plugin_impl_grpc.go(152)" logger=grpc
+time="2021-06-21 22:24:45.09199" level=info msg="Starting health http-probe on port 9191" loc="probe/plugin_impl_probe.go(75)" logger=probe
+time="2021-06-21 22:24:45.09208" level=info msg="Unable to register prometheus-probe handler, Prometheus is nil" loc="probe/plugin_impl_probe.go(87)" logger=probe
+time="2021-06-21 22:24:45.09215" level=info msg="Serving /metrics on port 9191" loc="prometheus/plugin_impl_prometheus.go(88)" logger=prometheus
+time="2021-06-21 22:24:45.09229" level=warning msg="No registrations, skipping resync" loc="resync/plugin_impl_resync.go(98)" logger=resync
+time="2021-06-21 22:24:45.09238" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=VPPAgent state=ok
+time="2021-06-21 22:24:45.09247" level=info msg="Agent started with 40 plugins (took 300ms)" loc="agent/agent.go(179)" logger=agent
+time="2021-06-21 22:24:45.09345" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: EOF\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
+time="2021-06-21T22:24:45Z" level=info msg="Liveness probe was successful: tcp:localhost:9113"
+time="2021-06-21T22:24:45Z" level=info msg="Resetting vppagent..."
++======================================================================================================================+
+| #0 - NBTransaction                                                                                        FullResync |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 0
+      - type: NB Transaction, Full Resync
+      - values:
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations:
+      <NONE>
+x----------------------------------------------------------------------------------------------------------------------x
+| #0 - NBTransaction                                                                                       took 80.3ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21 22:24:45.18154" level=info msg="Transaction #0 successful! (took 83.8ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
+time="2021-06-21T22:24:45Z" level=info msg="Finished resetting vppagent..."
+time="2021-06-21T22:24:45Z" level=info msg="nsmServerSocket: /var/lib/networkservicemesh/nsm.server.io.sock"
+time="2021-06-21T22:24:45Z" level=info msg="nsmClientSocket: /var/lib/networkservicemesh/nsm.client.io.sock"
+time="2021-06-21T22:24:45Z" level=info msg="workspace: /var/lib/networkservicemesh/"
+time="2021-06-21T22:24:45Z" level=info msg="Advertise Network Service Name: green"
+time="2021-06-21T22:24:45Z" level=info msg="CLIENT_NETWORK_SERVICE not found."
+time="2021-06-21T22:24:45Z" level=info msg="Advertise labels: app=vl3-nse-green"
+time="2021-06-21T22:24:45Z" level=info msg="CLIENT_LABELS not found."
+time="2021-06-21T22:24:45Z" level=info msg="NSC_INTERFACE_NAME not found."
+time="2021-06-21T22:24:45Z" level=info msg="MECHANISM_TYPE not found."
+time="2021-06-21T22:24:45Z" level=info msg="IP_ADDRESS not found."
+time="2021-06-21T22:24:45Z" level=info msg="POD_NAME not found."
+time="2021-06-21T22:24:45Z" level=info msg="NSM_NAMESPACE not found."
+time="2021-06-21T22:24:45Z" level=info msg="ROUTES not found."
+time="2021-06-21T22:24:45Z" level=info msg="Establish connection to target: wcmd-green.nispatil-wcm-cisco.com:443"
+time="2021-06-21T22:24:45Z" level=info msg="Establish connection with the spire provider at address:unix:///run/spire/sockets/agent.sock"
+time="2021-06-21T22:24:45Z" level=info msg="Issued identity:spiffe://member1.com/vl3-nse-green"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: central.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member1.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-21T22:24:45Z" level=info msg="Retrived 3 tlsconfigs"
+time="2021-06-21T22:24:45Z" level=info msg="Found the right tls certificate: 2 for target: wcmd-green.nispatil-wcm-cisco.com:443"
+time="2021-06-21T22:24:45Z" level=info msg="Allocating subnet"
+time="2021-06-21T22:24:45Z" level=info msg=">><<-- /ippool.Allocator/AllocateSubnet()=\"\" span=<nil>"
+time="2021-06-21T22:24:45Z" level=info msg=">><<-- request={\"identifier\":{\"fqdn\":\"green.nispatil-wcm-cisco.com\",\"name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"connectivity_domain\":\"green\"},\"addr_family\":{},\"prefix_len\":22} span=<nil>"
+time="2021-06-21T22:24:45Z" level=info msg="begin the ipam leased subnet renew process"
+time="2021-06-21T22:24:45Z" level=info msg=">><<-- response={\"identifier\":{\"fqdn\":\"green.nispatil-wcm-cisco.com\",\"name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"connectivity_domain\":\"green\"},\"prefix\":{\"addr_family\":{},\"subnet\":\"172.100.248.0/22\"},\"lease_timeout\":24} span=<nil>"
+time="2021-06-21T22:24:45Z" level=info msg="Obtained subnet from IPAM Service: 172.100.248.0/22"
+time="2021-06-21T22:24:45Z" level=info msg="Creating vL3 IPAM endpoint" nsConfig.IPAddress=172.100.248.0/22 prefixPool=172.100.248.0/22
+time="2021-06-21T22:24:45Z" level=info msg=vl3composite
+time="2021-06-21T22:24:45Z" level=info msg="Establish connection to target: wcm-nsmgr.nsm-system:5000"
+time="2021-06-21T22:24:45Z" level=info msg="EndpointConnection - Serve starting..."
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: central.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member1.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-21T22:24:45Z" level=info msg="Retrived 3 tlsconfigs"
+time="2021-06-21T22:24:45Z" level=info msg="Found the right tls certificate: 2 for target: wcm-nsmgr.nsm-system:5000"
+time="2021-06-21T22:24:45Z" level=info msg="vl3composite socket operation ok... create networkDiscoveryClient"
+time="2021-06-21T22:24:45Z" level=info msg="Creating logger from config: &{nsm-client@vl3-nse-green-76bc7f4b96-zrt6w false false [] 0xc000693680 0xc000488310 <nil> <nil> <nil>}"
+2021/06/21 22:24:45 debug logging disabled
+2021/06/21 22:24:45 Initializing logging reporter
+2021/06/21 22:24:45 debug logging disabled
+time="2021-06-21T22:24:45Z" level=info msg="Establish connection to target: /var/lib/networkservicemesh/nsm.server.io.sock"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: central.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member1.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-21T22:24:45Z" level=info msg="Retrived 3 tlsconfigs"
+time="2021-06-21T22:24:45Z" level=info msg="Found the right tls certificate: 2 for target: /var/lib/networkservicemesh/nsm.server.io.sock"
+time="2021-06-21T22:24:45Z" level=info msg="nsm: connection to nsm server on socket: /var/lib/networkservicemesh/nsm.server.io.sock succeeded."
+time="2021-06-21T22:24:45Z" level=info msg="Establish connection to target: wcmd-green.nispatil-wcm-cisco.com:443"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: central.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member1.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-21T22:24:45Z" level=info msg="Retrived 3 tlsconfigs"
+time="2021-06-21T22:24:45Z" level=info msg="Found the right tls certificate: 2 for target: wcmd-green.nispatil-wcm-cisco.com:443"
+time="2021-06-21T22:24:45Z" level=info msg="service registry initialized"
+time="2021-06-21T22:24:45Z" level=debug msg="vl3composite returning"
+time="2021-06-21T22:24:45Z" level=info msg="Starting endpoints"
+time="2021-06-21T22:24:45Z" level=info msg="Establish connection to target: /var/lib/networkservicemesh/nsm.server.io.sock"
+time="2021-06-21T22:24:45Z" level=debug msg="start processing workload jobs"
+time="2021-06-21T22:24:45Z" level=info msg="Serving workloadMetrics on: 0.0.0.0:3000" path=/workloadMetrics
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: central.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member1.com"
+time="2021-06-21T22:24:45Z" level=info msg="Fetch tlsConfig for Trust Domain: member2.com"
+time="2021-06-21T22:24:45Z" level=info msg="Retrived 3 tlsconfigs"
+time="2021-06-21T22:24:45Z" level=info msg="Found the right tls certificate: 2 for target: /var/lib/networkservicemesh/nsm.server.io.sock"
+time="2021-06-21T22:24:45Z" level=info msg="nsm: connection to nsm server on socket: /var/lib/networkservicemesh/nsm.server.io.sock succeeded."
+time="2021-06-21T22:24:45Z" level=warning msg="global opentracer is already initialized"
+time="2021-06-21T22:24:45Z" level=info msg="Creating logger from config: &{green@vl3-nse-green-76bc7f4b96-zrt6w false false [] 0xc000595740 0xc0003d8bd0 <nil> <nil> <nil>}"
+2021/06/21 22:24:45 debug logging disabled
+2021/06/21 22:24:45 Initializing logging reporter
+2021/06/21 22:24:45 debug logging disabled
+time="2021-06-21T22:24:45Z" level=info msg="==--> NewServer() span:4ed5001937b2c474:4ed5001937b2c474:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg="GRPC.NewServer with open tracing enabled" operation=NewServer span="4ed5001937b2c474:4ed5001937b2c474:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg="==----> GetCertificate() span:4ed5001937b2c474:701d9a905de1a15c:4ed5001937b2c474:1"
+time="2021-06-21T22:24:45Z" level=info msg="Default trust domain:member1.com"
+2021/06/21 22:24:45 Reporting span 4ed5001937b2c474:701d9a905de1a15c:4ed5001937b2c474:1
+2021/06/21 22:24:45 Reporting span 4ed5001937b2c474:4ed5001937b2c474:0000000000000000:1
+time="2021-06-21T22:24:45Z" level=info msg="Server will be started in secure mode using tlsConfig:&{<nil> <nil> [] map[] 0x9ac040 <nil> <nil> 0x9ac140 <nil> <nil> []  RequireAnyClientCert <nil> false [] false false [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] <nil> 0 0 [] false 0 <nil> {{0 0} 0 0 0 0} [] []}"
+time="2021-06-21T22:24:45Z" level=info msg="nse: listening socket /var/lib/networkservicemesh/nsm.client.io.sock"
+time="2021-06-21T22:24:45Z" level=info msg="==--> Endpoint-green-Start() span:1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg=">><<-- labels={\"app\":\"vl3-nse-green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"} span=1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg=">><<-- nse-request={\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_endpoint\":{\"payload\":\"IP\",\"network_service_name\":\"green\",\"labels\":{\"app\":\"vl3-nse-green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"}}} span=1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg=">><<---- /registry.NetworkServiceRegistry/RegisterNSE()=\"\" span=1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg=">><<---- request={\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_endpoint\":{\"payload\":\"IP\",\"network_service_name\":\"green\",\"labels\":{\"app\":\"vl3-nse-green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"}}} span=1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg=">><<---- response={\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_manager\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"},\"network_service_endpoint\":{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}} span=1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg=">><<-- endpoint-name=\"greeng5rrf\" span=1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg="Started endpoint greeng5rrf"
+time="2021-06-21T22:24:45Z" level=info msg="endpoint started"
+2021/06/21 22:24:45 Reporting span 1910f221657b0f15:10f2fec15e3a2ada:1910f221657b0f15:1
+time="2021-06-21T22:24:45Z" level=info msg="NSE registered: network_service:<name:\"green\" payload:\"IP\" > network_service_manager:<name:\"kind-2-control-plane\" url:\"10.244.0.13:5001\" state:\"RUNNING\" > network_service_endpoint:<name:\"greeng5rrf\" payload:\"IP\" network_service_name:\"green\" network_service_manager_name:\"kind-2-control-plane\" labels:<key:\"app\" value:\"vl3-nse-green\" > labels:<key:\"networkservicename\" value:\"green\" > labels:<key:\"nsepod.name\" value:\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\" > labels:<key:\"wcm/nsr.addr\" value:\"green.nispatil-wcm-cisco.com\" > labels:<key:\"wcm/nsr.port\" value:\"443\" > state:\"RUNNING\" > " operation=Endpoint-green-Start span="1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+time="2021-06-21T22:24:45Z" level=info msg="NSE: channel has been successfully advertised, waiting for connection from NSM..." operation=Endpoint-green-Start span="1910f221657b0f15:1910f221657b0f15:0000000000000000:1"
+2021/06/21 22:24:45 Reporting span 1910f221657b0f15:1910f221657b0f15:0000000000000000:1
+time="2021-06-21T22:24:45Z" level=info msg="EndpointConnectionMonitor using filter path_segments:<name:\"kind-2-control-plane\" > "
+time="2021-06-21T22:24:45Z" level=info msg="MonitorServerImpl.AddRecipient: EndpointConnection-&{0xc0003ef8c0 0xc000302640}"
+time="2021-06-21T22:24:45Z" level=debug msg="Try to send message "
+time="2021-06-21 22:24:51.07822" level=info msg="Agent plugin state update." lastErr="<nil>" loc="statuscheck/plugin_impl_statuscheck.go(183)" logger=status-check plugin=vpp-ifplugin state=ok
+time="2021-06-21T22:25:15Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:25:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:25:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:25:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:25:15Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:25:15Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:25:15Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:25:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:25:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:25:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:25:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:25:15Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:25:15Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:25:15Z" level=info msg="newVL3Connect ConnectPeerEndpoint" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane state=0
+time="2021-06-21T22:25:15Z" level=info msg="request remote connection" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:25:15Z" level=info msg="Performing connect to peer" peer.Endpoint=greenfmxjq
+time="2021-06-21T22:25:15Z" level=info msg="Initiating an outgoing connection." description="VPP interface greenfmxjq" destEndpointManager=kind-3-control-plane destEndpointName=greenfmxjq mechanism=MEMIF mechanismName=greenfmxjq operation=nsmClient.Connect remoteIp=green.nispatil-wcm-cisco.com span="158dedd2edd565a1:158dedd2edd565a1:0000000000000000:1"
+time="2021-06-21T22:25:15Z" level=info msg="Initiating an outgoing connection." operation=nsmClient.Connect span="158dedd2edd565a1:158dedd2edd565a1:0000000000000000:1"
+time="2021-06-21T22:25:15Z" level=info msg="==--> nsmClient.Connect() span:158dedd2edd565a1:158dedd2edd565a1:0000000000000000:1"
+time="2021-06-21T22:25:15Z" level=info msg=">><<-- Selected mechanism={\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface greenfmxjq\",\"name\":\"greenfmxjq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"greenfmxjq/memif.sock\"}} span=158dedd2edd565a1:158dedd2edd565a1:0000000000000000:1"
+time="2021-06-21T22:25:15Z" level=info msg="==----> nsmClient.Connect.attempt:0() span:158dedd2edd565a1:01d60632b71753d8:158dedd2edd565a1:1"
+time="2021-06-21T22:25:15Z" level=info msg="Requesting connection:<network_service:\"green@green.nispatil-wcm-cisco.com\" context:<ip_context:<src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\" > path:<path_segments:<name:\"kind-3-control-plane\" > > network_service_endpoint_name:\"greenfmxjq\" > mechanism_preferences:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"VPP interface greenfmxjq\" > parameters:<key:\"name\" value:\"greenfmxjq\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"greenfmxjq/memif.sock\" > > " operation="nsmClient.Connect.attempt:0" span="158dedd2edd565a1:01d60632b71753d8:158dedd2edd565a1:1"
+time="2021-06-21T22:25:15Z" level=info msg=">><<------ /networkservice.NetworkService/Request()=\"\" span=158dedd2edd565a1:01d60632b71753d8:158dedd2edd565a1:1"
+time="2021-06-21T22:25:15Z" level=info msg=">><<------ request={\"connection\":{\"network_service\":\"green@green.nispatil-wcm-cisco.com\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-3-control-plane\"}]},\"network_service_endpoint_name\":\"greenfmxjq\"},\"mechanism_preferences\":[{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface greenfmxjq\",\"name\":\"greenfmxjq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"greenfmxjq/memif.sock\"}}]} span=158dedd2edd565a1:01d60632b71753d8:158dedd2edd565a1:1"
+2021/06/21 22:25:16 Reporting span 158dedd2edd565a1:320bd19625522fcf:01d60632b71753d8:1
+time="2021-06-21T22:25:16Z" level=info msg=">><<------ response={\"id\":\"1\",\"network_service\":\"green@green.nispatil-wcm-cisco.com\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface greenfmxjq\",\"name\":\"greenfmxjq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"greenfmxjq/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-3-control-plane\"}]},\"network_service_endpoint_name\":\"greenfmxjq\"} span=158dedd2edd565a1:01d60632b71753d8:158dedd2edd565a1:1"
+time="2021-06-21T22:25:16Z" level=info msg="Successfully requested connection" description="VPP interface greenfmxjq" destEndpointManager=kind-3-control-plane destEndpointName=greenfmxjq mechanism=MEMIF mechanismName=greenfmxjq operation=nsmClient.Connect remoteIp=green.nispatil-wcm-cisco.com span="158dedd2edd565a1:158dedd2edd565a1:0000000000000000:1"
+2021/06/21 22:25:16 Reporting span 158dedd2edd565a1:01d60632b71753d8:158dedd2edd565a1:1
+2021/06/21 22:25:16 Reporting span 158dedd2edd565a1:158dedd2edd565a1:0000000000000000:1
+time="2021-06-21T22:25:16Z" level=info msg=">><<-- connection={\"id\":\"1\",\"network_service\":\"green@green.nispatil-wcm-cisco.com\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface greenfmxjq\",\"name\":\"greenfmxjq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"greenfmxjq/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.252.1/30\",\"dst_ip_addr\":\"172.100.252.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.252.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-3-control-plane\"}]},\"network_service_endpoint_name\":\"greenfmxjq\"} span=158dedd2edd565a1:158dedd2edd565a1:0000000000000000:1"
+time="2021-06-21T22:25:16Z" level=warning msg="Start continous ping, IP address: 172.100.252.2"
+time="2021-06-21T22:25:16Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+time="2021-06-21T22:25:16Z" level=info msg="starting continous ping IP 172.100.252.2"
+time="2021-06-21T22:25:16Z" level=info msg="Liveness probe was successful: tcp:localhost:9113"
+time="2021-06-21 22:25:16.51611" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: read tcp [::1]:9113->[::1]:60270: read: connection reset by peer\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
+time="2021-06-21T22:25:16Z" level=info msg="Sending DataChange to vppagent for updating desired config: vpp_config:{interfaces:{name:\"greenfmxjq\"  type:MEMIF  enabled:true  ip_addresses:\"172.100.252.1/30\"  memif:{socket_filename:\"/var/lib/networkservicemesh/greenfmxjq/memif.sock\"  ring_size:512}}  routes:{type:INTER_VRF  dst_network:\"172.100.252.0/22\"  next_hop_addr:\"172.100.252.2\"}}"
++======================================================================================================================+
+| #1 - NBTransaction                                                                                                   |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 1
+      - type: NB Transaction
+      - values:
+          - key: config/vpp/v2/interfaces/greenfmxjq
+            val: { name:"greenfmxjq" type:MEMIF enabled:true ip_addresses:"172.100.252.1/30" memif:{socket_filename:"/var/lib/networkservicemesh/greenfmxjq/memif.sock" ring_size:512} }
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.252.0/22/gw/172.100.252.2
+            val: { type:INTER_VRF dst_network:"172.100.252.0/22" next_hop_addr:"172.100.252.2" }
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:25:16.524 +0000 UTC -> 2021-06-21 22:25:16.558 +0000 UTC, dur: 34ms):
+      1. CREATE:
+          - key: config/vpp/v2/interfaces/greenfmxjq
+          - value: { name:"greenfmxjq" type:MEMIF enabled:true ip_addresses:"172.100.252.1/30" memif:{socket_filename:"/var/lib/networkservicemesh/greenfmxjq/memif.sock" ring_size:512} } 
+      2. CREATE [DERIVED]:
+          - key: vpp/interface/greenfmxjq/vrf/0/ip-version/v4
+          - value: <EMPTY> 
+      3. CREATE [DERIVED]:
+          - key: vpp/interface/greenfmxjq/address/static/172.100.252.1/30
+          - value: <EMPTY> 
+      4. CREATE [DERIVED]:
+          - key: vpp/interface/greenfmxjq/has-IP-address
+          - value: <EMPTY> 
+      5. CREATE:
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.252.0/22/gw/172.100.252.2
+          - value: { type:INTER_VRF dst_network:"172.100.252.0/22" next_hop_addr:"172.100.252.2" } 
+x----------------------------------------------------------------------------------------------------------------------x
+| #1 - NBTransaction                                                                                       took 33.6ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21 22:25:16.55817" level=info msg="Transaction #1 successful! (took 34.2ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
++======================================================================================================================+
+| #2 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 2
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/greenfmxjq/link-state/DOWN
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:25:16.562 +0000 UTC -> 2021-06-21 22:25:16.563 +0000 UTC, dur: 1ms):
+      1. CREATE [OBTAINED]:
+          - key: vpp/interface/greenfmxjq/link-state/DOWN
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #2 - SBNotification                                                                                       took 800µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+2021/06/21 22:25:16 Reporting span 667e955557f58e9c:667e955557f58e9c:0000000000000000:1
+time="2021-06-21T22:25:16Z" level=info msg="Done with connect to peer" peer.Endpoint=greenfmxjq
+time="2021-06-21T22:25:16Z" level=info msg="Connected to vL3 Peer" ConnExcludedPrefixes="[]" peer.DstRoutes="[prefix:\"172.100.252.0/22\" ]" peerEndpoint=greenfmxjq peerExcludedPrefixes="[]" srcIP=172.100.252.1/30
+time="2021-06-21T22:25:16Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21 22:25:16.56552" level=info msg="Transaction 2 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 13 private_data 0 idx 5
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 16 private_data 0 idx 6
++======================================================================================================================+
+| #3 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 3
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/greenfmxjq/link-state/DOWN
+            val: <NIL>
+          - key: vpp/interface/greenfmxjq/link-state/UP
+            val: <EMPTY>
+
+time="2021-06-21 22:25:19.57931" level=info msg="Transaction 3 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:25:19.579 +0000 UTC -> 2021-06-21 22:25:19.579 +0000 UTC, dur: 0s):
+      1. DELETE [WAS-OBTAINED]:
+          - key: vpp/interface/greenfmxjq/link-state/DOWN
+          - value: <EMPTY> 
+      2. CREATE [OBTAINED]:
+          - key: vpp/interface/greenfmxjq/link-state/UP
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #3 - SBNotification                                                                                       took 300µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21T22:25:21Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:25:24Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=6.9211 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.9545 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=4.5243 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:25:24Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:25:29Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:25:32Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.5592 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.5451 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=4.4409 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:25:32Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:25:37Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:25:40Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=5.5131 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=20.5819 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.4742 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:25:40Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:25:45Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:25:45Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:25:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:25:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:25:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:25:45Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:25:45Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:25:45Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:25:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:25:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:25:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:25:45Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:25:45Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:25:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:25:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:25:45Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:25:48Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=6.5667 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=4.5349 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=4.4329 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:25:48Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:25:53Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:25:56Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.8749 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=6.9036 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.5279 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:25:56Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:01Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:26:04Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.5632 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=4.5262 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.7306 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:26:04Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:09Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:26:12Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.9924 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=4.4890 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.6501 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:26:12Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:15Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:26:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:26:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:26:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:26:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:26:15Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:26:15Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:26:15Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:26:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:26:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:26:15Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:26:15Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:26:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:26:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:26:15Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:26:17Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:26:20Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.4908 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.6126 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.6442 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:26:20Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:25Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:26:28Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=5.6999 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=4.3789 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=6.1026 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:26:28Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:33Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:26:36Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.4225 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.5548 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.5658 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:26:36Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:41Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:26:44Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=5.6795 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.6017 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.7091 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:26:44Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:45Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:26:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:26:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:26:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:26:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:26:45Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:26:45Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:26:45Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:26:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:26:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:26:45Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:26:45Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:26:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:26:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:26:45Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:26:49Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:26:52Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=5.4001 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.6824 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.6445 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:26:52Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:26:57Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:27:00Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.5839 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.9667 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=4.3985 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:27:00Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:27:05Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:27:08Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=5.4784 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=5.6771 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.4504 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:27:08Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:27:13Z" level=debug msg="running VPP PING for IP: 172.100.252.2"
+time="2021-06-21T22:27:15Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:27:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:27:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:27:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:27:15Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:27:15Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:27:15Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:27:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:27:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:27:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:27:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:27:15Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:27:15Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:27:15Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:27:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:27:16Z" level=debug msg="VPP PING output: Source address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=1 ttl=64 time=4.4992 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=2 ttl=64 time=4.5266 ms\r\nSource address: 172.100.252.1 \r\n116 bytes from 172.100.252.2: icmp_seq=3 ttl=64 time=5.8519 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:27:16Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n"
+time="2021-06-21T22:27:45Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:27:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:27:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:27:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:27:45Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:27:45Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:27:45Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:27:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:27:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:27:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:27:45Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:27:45Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:27:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:27:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:27:45Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:28:15Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:28:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:28:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:28:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:28:15Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:28:15Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:28:15Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:28:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:28:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:28:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:28:15Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:28:15Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:28:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:28:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:28:15Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:28:45Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:28:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:28:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:28:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:28:45Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:28:45Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:28:45Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:28:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:28:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:28:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:28:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:28:45Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:28:45Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:28:45Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:28:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:29:15Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:29:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:29:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:29:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:29:15Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:29:15Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:29:15Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:29:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:29:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:29:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:29:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624317885},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624317882},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:29:15Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:29:15Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:29:15Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:29:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:29:45Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:29:45Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:29:45Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:29:45Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:29:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:29:45Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:29:45Z" level=info msg="newVL3Connect ConnectPeerEndpoint" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane state=0
+time="2021-06-21T22:29:45Z" level=info msg="request remote connection" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:29:45Z" level=info msg="Performing connect to peer" peer.Endpoint=green6nmkq
+time="2021-06-21T22:29:45Z" level=info msg="Initiating an outgoing connection." description="VPP interface green6nmkq" destEndpointManager=kind-2-control-plane destEndpointName=green6nmkq mechanism=MEMIF mechanismName=green6nmkq operation=nsmClient.Connect remoteIp= span="38b182d01c094be4:38b182d01c094be4:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=info msg="Initiating an outgoing connection." operation=nsmClient.Connect span="38b182d01c094be4:38b182d01c094be4:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:29:45Z" level=info msg="==--> nsmClient.Connect() span:38b182d01c094be4:38b182d01c094be4:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- Selected mechanism={\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green6nmkq\",\"name\":\"green6nmkq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green6nmkq/memif.sock\"}} span=38b182d01c094be4:38b182d01c094be4:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=info msg="==----> nsmClient.Connect.attempt:0() span:38b182d01c094be4:5f6d68ee18a2c8ca:38b182d01c094be4:1"
+time="2021-06-21T22:29:45Z" level=info msg="Requesting connection:<network_service:\"green\" context:<ip_context:<src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\" > path:<path_segments:<name:\"kind-2-control-plane\" > > network_service_endpoint_name:\"green6nmkq\" > mechanism_preferences:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"VPP interface green6nmkq\" > parameters:<key:\"name\" value:\"green6nmkq\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"green6nmkq/memif.sock\" > > " operation="nsmClient.Connect.attempt:0" span="38b182d01c094be4:5f6d68ee18a2c8ca:38b182d01c094be4:1"
+time="2021-06-21T22:29:45Z" level=info msg=">><<------ /networkservice.NetworkService/Request()=\"\" span=38b182d01c094be4:5f6d68ee18a2c8ca:38b182d01c094be4:1"
+time="2021-06-21T22:29:45Z" level=info msg=">><<------ request={\"connection\":{\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]},\"network_service_endpoint_name\":\"green6nmkq\"},\"mechanism_preferences\":[{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green6nmkq\",\"name\":\"green6nmkq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green6nmkq/memif.sock\"}}]} span=38b182d01c094be4:5f6d68ee18a2c8ca:38b182d01c094be4:1"
+time="2021-06-21T22:29:45Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624318162},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624318159},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green89pnc\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-lnmdj\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:29:45Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:29:45Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:29:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:29:45Z" level=info msg="Found vL3 service green peer green89pnc"
+time="2021-06-21T22:29:45Z" level=info msg="newVL3Connect ConnectPeerEndpoint" endpointName=green89pnc networkServiceManagerName=kind-3-control-plane state=0
+time="2021-06-21T22:29:45Z" level=info msg="request remote connection" endpointName=green89pnc networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:29:45Z" level=info msg="Performing connect to peer" peer.Endpoint=green89pnc
+time="2021-06-21T22:29:45Z" level=info msg="Initiating an outgoing connection." description="VPP interface green89pnc" destEndpointManager=kind-3-control-plane destEndpointName=green89pnc mechanism=MEMIF mechanismName=green89pnc operation=nsmClient.Connect remoteIp=green.nispatil-wcm-cisco.com span="325101e4da892c3e:325101e4da892c3e:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=info msg="Initiating an outgoing connection." operation=nsmClient.Connect span="325101e4da892c3e:325101e4da892c3e:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=info msg="==--> nsmClient.Connect() span:325101e4da892c3e:325101e4da892c3e:0000000000000000:1"
+2021/06/21 22:29:45 Reporting span 38b182d01c094be4:2cd78eb3c1b41dd1:5f6d68ee18a2c8ca:1
+time="2021-06-21T22:29:45Z" level=info msg=">><<------ response={\"id\":\"4\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green6nmkq\",\"name\":\"green6nmkq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green6nmkq/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.240.5/30\",\"dst_ip_addr\":\"172.100.240.6/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.240.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]},\"network_service_endpoint_name\":\"green6nmkq\"} span=38b182d01c094be4:5f6d68ee18a2c8ca:38b182d01c094be4:1"
+time="2021-06-21T22:29:45Z" level=info msg="Successfully requested connection" description="VPP interface green6nmkq" destEndpointManager=kind-2-control-plane destEndpointName=green6nmkq mechanism=MEMIF mechanismName=green6nmkq operation=nsmClient.Connect remoteIp= span="38b182d01c094be4:38b182d01c094be4:0000000000000000:1"
+2021/06/21 22:29:45 Reporting span 38b182d01c094be4:5f6d68ee18a2c8ca:38b182d01c094be4:1
+2021/06/21 22:29:45 Reporting span 38b182d01c094be4:38b182d01c094be4:0000000000000000:1
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- connection={\"id\":\"4\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green6nmkq\",\"name\":\"green6nmkq\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green6nmkq/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.240.5/30\",\"dst_ip_addr\":\"172.100.240.6/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.240.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]},\"network_service_endpoint_name\":\"green6nmkq\"} span=38b182d01c094be4:38b182d01c094be4:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=warning msg="Start continous ping, IP address: 172.100.240.6"
+time="2021-06-21T22:29:45Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+time="2021-06-21T22:29:45Z" level=info msg=">><<-- Selected mechanism={\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green89pnc\",\"name\":\"green89pnc\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green89pnc/memif.sock\"}} span=325101e4da892c3e:325101e4da892c3e:0000000000000000:1"
+time="2021-06-21T22:29:45Z" level=info msg="==----> nsmClient.Connect.attempt:0() span:325101e4da892c3e:12672a4fbc5736dc:325101e4da892c3e:1"
+time="2021-06-21T22:29:45Z" level=info msg=">><<------ /networkservice.NetworkService/Request()=\"\" span=325101e4da892c3e:12672a4fbc5736dc:325101e4da892c3e:1"
+time="2021-06-21T22:29:45Z" level=info msg=">><<------ request={\"connection\":{\"network_service\":\"green@green.nispatil-wcm-cisco.com\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-3-control-plane\"}]},\"network_service_endpoint_name\":\"green89pnc\"},\"mechanism_preferences\":[{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green89pnc\",\"name\":\"green89pnc\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green89pnc/memif.sock\"}}]} span=325101e4da892c3e:12672a4fbc5736dc:325101e4da892c3e:1"
+time="2021-06-21T22:29:45Z" level=info msg="starting continous ping IP 172.100.240.6"
+time="2021-06-21T22:29:45Z" level=info msg="Requesting connection:<network_service:\"green@green.nispatil-wcm-cisco.com\" context:<ip_context:<src_ip_required:true dst_ip_required:true src_routes:<prefix:\"172.100.248.0/22\" > > > labels:<key:\"\" value:\"\" > labels:<key:\"vl3Nse/nseSource/endpointName\" value:\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\" > path:<path_segments:<name:\"kind-3-control-plane\" > > network_service_endpoint_name:\"green89pnc\" > mechanism_preferences:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"VPP interface green89pnc\" > parameters:<key:\"name\" value:\"green89pnc\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"green89pnc/memif.sock\" > > " operation="nsmClient.Connect.attempt:0" span="325101e4da892c3e:12672a4fbc5736dc:325101e4da892c3e:1"
+time="2021-06-21T22:29:45Z" level=info msg="Liveness probe was successful: tcp:localhost:9113"
+time="2021-06-21T22:29:45Z" level=info msg="Sending DataChange to vppagent for updating desired config: vpp_config:{interfaces:{name:\"green6nmkq\"  type:MEMIF  enabled:true  ip_addresses:\"172.100.240.5/30\"  memif:{socket_filename:\"/var/lib/networkservicemesh/green6nmkq/memif.sock\"  ring_size:512}}  routes:{type:INTER_VRF  dst_network:\"172.100.240.0/22\"  next_hop_addr:\"172.100.240.6\"}}"
+time="2021-06-21 22:29:45.80084" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: EOF\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
++======================================================================================================================+
+| #4 - NBTransaction                                                                                                   |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 4
+      - type: NB Transaction
+      - values:
+          - key: config/vpp/v2/interfaces/green6nmkq
+            val: { name:"green6nmkq" type:MEMIF enabled:true ip_addresses:"172.100.240.5/30" memif:{socket_filename:"/var/lib/networkservicemesh/green6nmkq/memif.sock" ring_size:512} }
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.240.0/22/gw/172.100.240.6
+            val: { type:INTER_VRF dst_network:"172.100.240.0/22" next_hop_addr:"172.100.240.6" }
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:29:45.803 +0000 UTC -> 2021-06-21 22:29:45.819 +0000 UTC, dur: 16ms):
+      1. CREATE:
+          - key: config/vpp/v2/interfaces/green6nmkq
+          - value: { name:"green6nmkq" type:MEMIF enabled:true ip_addresses:"172.100.240.5/30" memif:{socket_filename:"/var/lib/networkservicemesh/green6nmkq/memif.sock" ring_size:512} } 
+      2. CREATE [DERIVED]:
+          - key: vpp/interface/green6nmkq/vrf/0/ip-version/v4
+          - value: <EMPTY> 
+      3. CREATE [DERIVED]:
+          - key: vpp/interface/green6nmkq/address/static/172.100.240.5/30
+          - value: <EMPTY> 
+      4. CREATE [DERIVED]:
+          - key: vpp/interface/green6nmkq/has-IP-address
+          - value: <EMPTY> 
+      5. CREATE:
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.240.0/22/gw/172.100.240.6
+          - value: { type:INTER_VRF dst_network:"172.100.240.0/22" next_hop_addr:"172.100.240.6" } 
+x----------------------------------------------------------------------------------------------------------------------x
+| #4 - NBTransaction                                                                                       took 15.8ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
++======================================================================================================================+
+| #5 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 5
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/green6nmkq/link-state/DOWN
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:29:45.82 +0000 UTC -> 2021-06-21 22:29:45.82 +0000 UTC, dur: 0s):
+      1. CREATE [OBTAINED]:
+          - key: vpp/interface/green6nmkq/link-state/DOWN
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #5 - SBNotification                                                                                       took 100µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21 22:29:45.81987" level=info msg="Transaction 5 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+time="2021-06-21 22:29:45.82302" level=info msg="Transaction #4 successful! (took 19.3ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
+2021/06/21 22:29:45 Reporting span 466d391b9976f6b4:466d391b9976f6b4:0000000000000000:1
+time="2021-06-21T22:29:45Z" level=info msg="Done with connect to peer" peer.Endpoint=green6nmkq
+time="2021-06-21T22:29:45Z" level=info msg="Connected to vL3 Peer" ConnExcludedPrefixes="[]" peer.DstRoutes="[prefix:\"172.100.240.0/22\" ]" peerEndpoint=green6nmkq peerExcludedPrefixes="[]" srcIP=172.100.240.5/30
+time="2021-06-21T22:29:46Z" level=info msg="EndpointConnectionMonitor using filter path_segments:<name:\"kind-2-control-plane\" > "
+time="2021-06-21T22:29:46Z" level=info msg="MonitorServerImpl.AddRecipient: EndpointConnection-&{0xc00040be90 0xc0000b4d40}"
+time="2021-06-21T22:29:46Z" level=debug msg="Try to send message "
+time="2021-06-21T22:29:46Z" level=info msg="EndpointConnectionMonitor using filter path_segments:<name:\"kind-2-control-plane\" > "
+time="2021-06-21T22:29:46Z" level=info msg="MonitorServerImpl.AddRecipient: EndpointConnection-&{0xc0001dde80 0xc0000b5b80}"
+time="2021-06-21T22:29:46Z" level=debug msg="Try to send message "
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 17 private_data 1 idx 7
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 20 private_data 65536 idx 8
+time="2021-06-21 22:29:46.66283" level=info msg="Transaction 6 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
++======================================================================================================================+
+| #6 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 6
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/green6nmkq/link-state/DOWN
+            val: <NIL>
+          - key: vpp/interface/green6nmkq/link-state/UP
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:29:46.663 +0000 UTC -> 2021-06-21 22:29:46.663 +0000 UTC, dur: 0s):
+      1. DELETE [WAS-OBTAINED]:
+          - key: vpp/interface/green6nmkq/link-state/DOWN
+          - value: <EMPTY> 
+      2. CREATE [OBTAINED]:
+          - key: vpp/interface/green6nmkq/link-state/UP
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #6 - SBNotification                                                                                       took 200µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+2021/06/21 22:29:46 Reporting span 325101e4da892c3e:7e7b8d877fb7fa00:12672a4fbc5736dc:1
+time="2021-06-21T22:29:46Z" level=info msg=">><<------ response={\"id\":\"6\",\"network_service\":\"green@green.nispatil-wcm-cisco.com\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green89pnc\",\"name\":\"green89pnc\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green89pnc/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.244.5/30\",\"dst_ip_addr\":\"172.100.244.6/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.244.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-3-control-plane\"}]},\"network_service_endpoint_name\":\"green89pnc\"} span=325101e4da892c3e:12672a4fbc5736dc:325101e4da892c3e:1"
+time="2021-06-21T22:29:46Z" level=info msg="Successfully requested connection" description="VPP interface green89pnc" destEndpointManager=kind-3-control-plane destEndpointName=green89pnc mechanism=MEMIF mechanismName=green89pnc operation=nsmClient.Connect remoteIp=green.nispatil-wcm-cisco.com span="325101e4da892c3e:325101e4da892c3e:0000000000000000:1"
+2021/06/21 22:29:46 Reporting span 325101e4da892c3e:12672a4fbc5736dc:325101e4da892c3e:1
+2021/06/21 22:29:46 Reporting span 325101e4da892c3e:325101e4da892c3e:0000000000000000:1
+time="2021-06-21T22:29:46Z" level=info msg=">><<-- connection={\"id\":\"6\",\"network_service\":\"green@green.nispatil-wcm-cisco.com\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"VPP interface green89pnc\",\"name\":\"green89pnc\",\"netnsInode\":\"4026535960\",\"socketfile\":\"green89pnc/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.244.5/30\",\"dst_ip_addr\":\"172.100.244.6/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"src_routes\":[{\"prefix\":\"172.100.248.0/22\"}],\"dst_routes\":[{\"prefix\":\"172.100.244.0/22\"}]}},\"labels\":{\"\":\"\",\"vl3Nse/nseSource/endpointName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"path\":{\"path_segments\":[{\"name\":\"kind-3-control-plane\"}]},\"network_service_endpoint_name\":\"green89pnc\"} span=325101e4da892c3e:325101e4da892c3e:0000000000000000:1"
+time="2021-06-21T22:29:46Z" level=warning msg="Start continous ping, IP address: 172.100.244.6"
+time="2021-06-21T22:29:46Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+time="2021-06-21T22:29:46Z" level=info msg="starting continous ping IP 172.100.244.6"
+time="2021-06-21 22:29:46.81148" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: read tcp [::1]:9113->[::1]:42068: read: connection reset by peer\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
+time="2021-06-21T22:29:46Z" level=info msg="Liveness probe was successful: tcp:localhost:9113"
+time="2021-06-21T22:29:46Z" level=info msg="Sending DataChange to vppagent for updating desired config: vpp_config:{interfaces:{name:\"green89pnc\"  type:MEMIF  enabled:true  ip_addresses:\"172.100.244.5/30\"  memif:{socket_filename:\"/var/lib/networkservicemesh/green89pnc/memif.sock\"  ring_size:512}}  routes:{type:INTER_VRF  dst_network:\"172.100.244.0/22\"  next_hop_addr:\"172.100.244.6\"}}"
++======================================================================================================================+
+| #7 - NBTransaction                                                                                                   |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 7
+      - type: NB Transaction
+      - values:
+          - key: config/vpp/v2/interfaces/green89pnc
+            val: { name:"green89pnc" type:MEMIF enabled:true ip_addresses:"172.100.244.5/30" memif:{socket_filename:"/var/lib/networkservicemesh/green89pnc/memif.sock" ring_size:512} }
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.244.0/22/gw/172.100.244.6
+            val: { type:INTER_VRF dst_network:"172.100.244.0/22" next_hop_addr:"172.100.244.6" }
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:29:46.815 +0000 UTC -> 2021-06-21 22:29:46.831 +0000 UTC, dur: 16ms):
+      1. CREATE:
+          - key: config/vpp/v2/interfaces/green89pnc
+          - value: { name:"green89pnc" type:MEMIF enabled:true ip_addresses:"172.100.244.5/30" memif:{socket_filename:"/var/lib/networkservicemesh/green89pnc/memif.sock" ring_size:512} } 
+      2. CREATE [DERIVED]:
+          - key: vpp/interface/green89pnc/vrf/0/ip-version/v4
+          - value: <EMPTY> 
+      3. CREATE [DERIVED]:
+          - key: vpp/interface/green89pnc/address/static/172.100.244.5/30
+          - value: <EMPTY> 
+      4. CREATE [DERIVED]:
+          - key: vpp/interface/green89pnc/has-IP-address
+          - value: <EMPTY> 
+      5. CREATE:
+          - key: config/vpp/v2/route/vrf/0/dst/172.100.244.0/22/gw/172.100.244.6
+          - value: { type:INTER_VRF dst_network:"172.100.244.0/22" next_hop_addr:"172.100.244.6" } 
+x----------------------------------------------------------------------------------------------------------------------x
+| #7 - NBTransaction                                                                                         took 16ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
++======================================================================================================================+
+| #8 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 8
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/green89pnc/link-state/DOWN
+            val: <EMPTY>
+
+time="2021-06-21 22:29:46.83164" level=info msg="Transaction 8 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+time="2021-06-21 22:29:46.83176" level=info msg="Transaction #7 successful! (took 16.6ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:29:46.831 +0000 UTC -> 2021-06-21 22:29:46.832 +0000 UTC, dur: 0s):
+      1. CREATE [OBTAINED]:
+          - key: vpp/interface/green89pnc/link-state/DOWN
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #8 - SBNotification                                                                                       took 200µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+2021/06/21 22:29:46 Reporting span 715949d49b071b01:715949d49b071b01:0000000000000000:1
+time="2021-06-21T22:29:46Z" level=info msg="Done with connect to peer" peer.Endpoint=green89pnc
+time="2021-06-21T22:29:46Z" level=info msg="Connected to vL3 Peer" ConnExcludedPrefixes="[]" peer.DstRoutes="[prefix:\"172.100.244.0/22\" ]" peerEndpoint=green89pnc peerExcludedPrefixes="[]" srcIP=172.100.244.5/30
+time="2021-06-21T22:29:46Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:29:46Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 21 private_data 2 idx 9
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 24 private_data 131072 idx 10
+time="2021-06-21 22:29:49.61010" level=info msg="Transaction 9 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
++======================================================================================================================+
+| #9 - SBNotification                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 9
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/green89pnc/link-state/DOWN
+            val: <NIL>
+          - key: vpp/interface/green89pnc/link-state/UP
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:29:49.61 +0000 UTC -> 2021-06-21 22:29:49.61 +0000 UTC, dur: 0s):
+      1. DELETE [WAS-OBTAINED]:
+          - key: vpp/interface/green89pnc/link-state/DOWN
+          - value: <EMPTY> 
+      2. CREATE [OBTAINED]:
+          - key: vpp/interface/green89pnc/link-state/UP
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #9 - SBNotification                                                                                       took 100µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21T22:29:50Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:29:51Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:29:53Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.2801 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.2069 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.1245 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:29:53Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:29:54Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=4.3701 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=5.5359 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=4.7098 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:29:54Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:29:58Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:29:59Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:01Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.3008 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.2117 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.1820 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:01Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:30:02Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=4.3549 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=4.3841 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=4.3733 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:02Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:30:06Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:30:07Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:09Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.1992 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.2086 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.2959 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:09Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:30:10Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=5.4267 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=4.2856 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=4.3628 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:10Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:30:14Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:30:15Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:30:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:30:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:30:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:30:15Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:30:15Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:30:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:30:15Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:30:15Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:30:15Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:30:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:30:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:30:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624318162},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624318159},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green89pnc\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-lnmdj\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:30:15Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:30:15Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:30:15Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:30:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:30:15Z" level=info msg="Found vL3 service green peer green89pnc"
+time="2021-06-21T22:30:15Z" level=info msg="Already connected" endpointName=green89pnc networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:30:15Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:30:15Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:30:15Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:17Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.3194 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.1929 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.1952 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:17Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:30:18Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=34.5480 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=5.8342 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=4.3544 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:18Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- GRPC->/networkservice.NetworkService/Request()=\"\" span=7185806d0eda64fa:2b1bc5f2158ae676:4e3903eaf0c2255d:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- request={\"connection\":{\"id\":\"a\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=7185806d0eda64fa:2b1bc5f2158ae676:4e3903eaf0c2255d:1"
+time="2021-06-21T22:30:21Z" level=info msg="==--> Endpoint.Request() span:7185806d0eda64fa:7b50e706d9ebc9ca:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- request={\"connection\":{\"id\":\"a\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=7185806d0eda64fa:7b50e706d9ebc9ca:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg="==--> *MonitorEndpoint.Request() span:7185806d0eda64fa:26bcbf25cb27f6d6:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- request={\"connection\":{\"id\":\"a\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=7185806d0eda64fa:26bcbf25cb27f6d6:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg="==----> *ConnectionEndpoint.Request() span:7185806d0eda64fa:05213c204981c72e:26bcbf25cb27f6d6:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<---- request={\"connection\":{\"id\":\"a\",\"network_service\":\"green\",\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=7185806d0eda64fa:05213c204981c72e:26bcbf25cb27f6d6:1"
+time="2021-06-21T22:30:21Z" level=info msg="==------> *IpamEndpoint.Request() span:7185806d0eda64fa:51ba3ddf7c32b70c:05213c204981c72e:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<------ request={\"connection\":{\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_required\":true,\"dst_ip_required\":true}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=7185806d0eda64fa:51ba3ddf7c32b70c:05213c204981c72e:1"
+time="2021-06-21T22:30:21Z" level=info msg="Request for Network Service received connection:<id:\"a\" network_service:\"green\" context:<ip_context:<src_ip_required:true dst_ip_required:true > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > mechanism_preferences:<type:\"MEMIF\" > mechanism_preferences:<type:\"KERNEL_INTERFACE\" > " operation=Endpoint.Request span="7185806d0eda64fa:7b50e706d9ebc9ca:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg="==--------> *vL3ConnectComposite.Request() span:7185806d0eda64fa:5d9a2783e0ae5557:51ba3ddf7c32b70c:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-------- request={\"connection\":{\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=7185806d0eda64fa:5d9a2783e0ae5557:51ba3ddf7c32b70c:1"
+time="2021-06-21T22:30:21Z" level=info msg="vL3ConnectComposite Request handler" endpointName= networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:30:21Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:30:21Z" level=info msg="vL3ConnectComposite serviceRegistry.DiscoveryClient"
+time="2021-06-21T22:30:21Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:30:21Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:30:21Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:30:21Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:30:21Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:30:21Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624318162},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624318159},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green89pnc\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-lnmdj\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:30:21Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:30:21Z" level=info msg="==----------> *UniversalCNFEndpoint.Request() span:7185806d0eda64fa:5731d0dac94d9c0d:5d9a2783e0ae5557:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<---------- request={\"connection\":{\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}},\"mechanism_preferences\":[{\"type\":\"MEMIF\"},{\"type\":\"KERNEL_INTERFACE\"}]} span=7185806d0eda64fa:5731d0dac94d9c0d:5d9a2783e0ae5557:1"
+time="2021-06-21T22:30:21Z" level=info msg="vL3ConnectComposite request done"
+time="2021-06-21T22:30:21Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:30:21Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:30:21Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:30:21Z" level=info msg="Found vL3 service green peer green89pnc"
+time="2021-06-21T22:30:21Z" level=info msg="Already connected" endpointName=green89pnc networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:30:21Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:30:21Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:30:21Z" level=info msg="Setting ifName with podName: helloworld-green-679c6b6b65-qzpwh"
+time="2021-06-21T22:30:21Z" level=warning msg="Start continous ping, IP address: 172.100.248.1"
+time="2021-06-21T22:30:21Z" level=info msg="Waiting for liveness probe: tcp:localhost:9113"
+time="2021-06-21T22:30:21Z" level=debug msg="queuing workload job: {Workload:{Type:WITH_SRV_REG_PARAM Labels:map[clusterName:cluster2 namespace:nsm-system podName:helloworld-green-679c6b6b65-qzpwh port:5000 service:helloworld] ConnectDomain:green IPs:[172.100.248.1/30] EndpointName:green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w} Type:REGISTER Attempt:1 Created:2021-06-21 22:30:21.546353814 +0000 UTC m=+336.804837552}"
+time="2021-06-21T22:30:21Z" level=debug msg="sent request for workload job (created 1.177174ms ago): {Workload:{Type:WITH_SRV_REG_PARAM Labels:map[clusterName:cluster2 namespace:nsm-system podName:helloworld-green-679c6b6b65-qzpwh port:5000 service:helloworld] ConnectDomain:green IPs:[172.100.248.1/30] EndpointName:green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w} Type:REGISTER Attempt:1 Created:2021-06-21 22:30:21.546353814 +0000 UTC m=+336.804837552}"
+time="2021-06-21T22:30:21Z" level=debug msg="0 jobs in workload queue, 0 workloads currently registered"
+time="2021-06-21T22:30:21Z" level=debug msg="calling RegisterWorkload" workload="{Type:WITH_SRV_REG_PARAM Labels:map[clusterName:cluster2 namespace:nsm-system podName:helloworld-green-679c6b6b65-qzpwh port:5000 service:helloworld] ConnectDomain:green IPs:[172.100.248.1/30] EndpointName:green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w}"
+time="2021-06-21T22:30:21Z" level=info msg="Sending workload register request: serviceName:\"helloworld\"  connectivityDomain:\"green\"  workloads:{identifier:{cluster:\"cluster2\"  podName:\"helloworld-green-679c6b6b65-qzpwh\"  name:\"helloworld\"  nseName:\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"}  IPAddress:\"172.100.248.1/30\"}  ports:5000"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- /svreg.Registry/RegisterWorkload()=\"\" span=<nil>"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- request={\"serviceName\":\"helloworld\",\"connectivityDomain\":\"green\",\"workloads\":[{\"identifier\":{\"cluster\":\"cluster2\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"name\":\"helloworld\",\"nseName\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\"},\"IPAddress\":[\"172.100.248.1/30\"]}],\"ports\":[5000]} span=<nil>"
+time="2021-06-21T22:30:21Z" level=info msg="Liveness probe was successful: tcp:localhost:9113"
+time="2021-06-21T22:30:21Z" level=info msg="starting continous ping IP 172.100.248.1"
+time="2021-06-21 22:30:21.54857" level=warning msg="grpc: Server.Serve failed to create ServerTransport: connection error: desc = \"transport: http2Server.HandleStreams failed to receive the preface from client: read tcp [::1]:9113->[::1]:43638: read: connection reset by peer\"" loc="grpclog/grpclog.go(42)" logger=grpc.grpc-server
+time="2021-06-21T22:30:21Z" level=info msg="Sending DataChange to vppagent for updating desired config: vpp_config:{interfaces:{name:\"helloworld-green-679c6b6b65-qzpwh\"  type:MEMIF  enabled:true  ip_addresses:\"172.100.248.2/30\"  rx_modes:{mode:INTERRUPT  default_mode:true}  memif:{master:true  socket_filename:\"/var/lib/networkservicemesh/nsm9g1K0Rdqi/memif.sock\"  ring_size:512}}}"
++======================================================================================================================+
+| #10 - NBTransaction                                                                                                  |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 10
+      - type: NB Transaction
+      - values:
+          - key: config/vpp/v2/interfaces/helloworld-green-679c6b6b65-qzpwh
+            val: { name:"helloworld-green-679c6b6b65-qzpwh" type:MEMIF enabled:true ip_addresses:"172.100.248.2/30" rx_modes:{mode:INTERRUPT default_mode:true} memif:{master:true socket_filename:"/var/lib/networkservicemesh/nsm9g1K0Rdqi/memif.sock" ring_size:512} }
+
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 25 private_data 4 idx 11
+2021/06/21 22:30:21 Reporting span 0a938fe51f803974:0a938fe51f803974:0000000000000000:1
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- response={} span=<nil>"
+time="2021-06-21T22:30:21Z" level=debug msg="RegisterWorkload succeeded" workload="{Type:WITH_SRV_REG_PARAM Labels:map[clusterName:cluster2 namespace:nsm-system podName:helloworld-green-679c6b6b65-qzpwh port:5000 service:helloworld] ConnectDomain:green IPs:[172.100.248.1/30] EndpointName:green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w}"
+time="2021-06-21T22:30:21Z" level=debug msg="workload job completed (created 17.642768ms ago): {Workload:{Type:WITH_SRV_REG_PARAM Labels:map[clusterName:cluster2 namespace:nsm-system podName:helloworld-green-679c6b6b65-qzpwh port:5000 service:helloworld] ConnectDomain:green IPs:[172.100.248.1/30] EndpointName:green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w} Type:REGISTER Attempt:1 Created:2021-06-21 22:30:21.546353814 +0000 UTC m=+336.804837552}"
+time="2021-06-21T22:30:21Z" level=info msg="workload job has finished registering the workload: {WITH_SRV_REG_PARAM map[clusterName:cluster2 namespace:nsm-system podName:helloworld-green-679c6b6b65-qzpwh port:5000 service:helloworld] green [172.100.248.1/30] green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w} \n"
+time="2021-06-21T22:30:21Z" level=info msg="workload {WITH_SRV_REG_PARAM map[clusterName:cluster2 namespace:nsm-system podName:helloworld-green-679c6b6b65-qzpwh port:5000 service:helloworld] green [172.100.248.1/30] green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w} registration refresh scheduled in: 2h30m0s\n"
+time="2021-06-21T22:30:21Z" level=debug msg="0 jobs in workload queue, 1 workloads currently registered"
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:30:21.554 +0000 UTC -> 2021-06-21 22:30:21.565 +0000 UTC, dur: 11ms):
+      1. CREATE:
+          - key: config/vpp/v2/interfaces/helloworld-green-679c6b6b65-qzpwh
+          - value: { name:"helloworld-green-679c6b6b65-qzpwh" type:MEMIF enabled:true ip_addresses:"172.100.248.2/30" rx_modes:{mode:INTERRUPT default_mode:true} memif:{master:true socket_filename:"/var/lib/networkservicemesh/nsm9g1K0Rdqi/memif.sock" ring_size:512} } 
+      2. CREATE [DERIVED NOOP IS-PENDING]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/rx-modes
+          - value: { name:"helloworld-green-679c6b6b65-qzpwh" type:MEMIF rx_modes:{mode:INTERRUPT default_mode:true} } 
+      3. CREATE [DERIVED]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/vrf/0/ip-version/v4
+          - value: <EMPTY> 
+      4. CREATE [DERIVED]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/address/static/172.100.248.2/30
+          - value: <EMPTY> 
+      5. CREATE [DERIVED]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/has-IP-address
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #10 - NBTransaction                                                                                      took 10.9ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21 22:30:21.56717" level=info msg="Transaction #10 successful! (took 12.1ms)" loc="orchestrator/dispatcher.go(178)" logger=dispatcher
++======================================================================================================================+
+| #11 - SBNotification                                                                                                 |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 11
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/link-state/DOWN
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:30:21.568 +0000 UTC -> 2021-06-21 22:30:21.569 +0000 UTC, dur: 1ms):
+      1. CREATE [OBTAINED]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/link-state/DOWN
+          - value: <EMPTY> 
+x----------------------------------------------------------------------------------------------------------------------x
+| #11 - SBNotification                                                                                      took 900µs |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21 22:30:21.56961" level=info msg="Transaction 11 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+2021/06/21 22:30:21 Reporting span 6ef22cd1a9919a79:6ef22cd1a9919a79:0000000000000000:1
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:5731d0dac94d9c0d:5d9a2783e0ae5557:1
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:5d9a2783e0ae5557:51ba3ddf7c32b70c:1
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:51ba3ddf7c32b70c:05213c204981c72e:1
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:05213c204981c72e:26bcbf25cb27f6d6:1
+time="2021-06-21T22:30:21Z" level=info msg=">><<---------- response={\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=7185806d0eda64fa:5731d0dac94d9c0d:5d9a2783e0ae5557:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-------- response={\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=7185806d0eda64fa:5d9a2783e0ae5557:51ba3ddf7c32b70c:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<------ response={\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=7185806d0eda64fa:51ba3ddf7c32b70c:05213c204981c72e:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<---- response={\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=7185806d0eda64fa:05213c204981c72e:26bcbf25cb27f6d6:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- response={\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=7185806d0eda64fa:26bcbf25cb27f6d6:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg="Monitor UpdateConnection: id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > " operation="*MonitorEndpoint.Request" span="7185806d0eda64fa:26bcbf25cb27f6d6:2b1bc5f2158ae676:1"
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:26bcbf25cb27f6d6:2b1bc5f2158ae676:1
+time="2021-06-21T22:30:21Z" level=info msg="Monitor UpdateConnection: id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > "
+time="2021-06-21T22:30:21Z" level=info msg="Responding to NetworkService.Request(connection:<id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > mechanism_preferences:<type:\"MEMIF\" > mechanism_preferences:<type:\"KERNEL_INTERFACE\" > ): id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > " operation=Endpoint.Request span="7185806d0eda64fa:7b50e706d9ebc9ca:2b1bc5f2158ae676:1"
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:7b50e706d9ebc9ca:2b1bc5f2158ae676:1
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:2b1bc5f2158ae676:4e3903eaf0c2255d:1
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- response={\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=7185806d0eda64fa:7b50e706d9ebc9ca:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- response={\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}} span=7185806d0eda64fa:2b1bc5f2158ae676:4e3903eaf0c2255d:1"
+time="2021-06-21T22:30:21Z" level=info msg="EndpointConnection-New event: &{{UPDATE map[a:0xc000745200] 0xc000908210}}"
+time="2021-06-21T22:30:21Z" level=info msg="==----> EndpointConnection-send-update() span:7185806d0eda64fa:0575e4808c7d6adf:26bcbf25cb27f6d6:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<---- eventType=\"UPDATE\" span=7185806d0eda64fa:0575e4808c7d6adf:26bcbf25cb27f6d6:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<---- msg={\"type\":1,\"connections\":{\"a\":{\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}}}} span=7185806d0eda64fa:0575e4808c7d6adf:26bcbf25cb27f6d6:1"
+time="2021-06-21T22:30:21Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"a\" value:<id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:0575e4808c7d6adf:26bcbf25cb27f6d6:1
+time="2021-06-21T22:30:21Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"a\" value:<id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+time="2021-06-21T22:30:21Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"a\" value:<id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+time="2021-06-21T22:30:21Z" level=info msg="EndpointConnection-New event: &{{UPDATE map[a:0xc000745200] 0xc000157ec0}}"
+time="2021-06-21T22:30:21Z" level=info msg="==--> EndpointConnection-send-update() span:7185806d0eda64fa:321dd16b7b7a3072:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- eventType=\"UPDATE\" span=7185806d0eda64fa:321dd16b7b7a3072:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=info msg=">><<-- msg={\"type\":1,\"connections\":{\"a\":{\"id\":\"a\",\"network_service\":\"green\",\"mechanism\":{\"cls\":\"LOCAL\",\"type\":\"MEMIF\",\"parameters\":{\"description\":\"NSM Endpoint\",\"name\":\"nsm9g1K0Rdqi\",\"netnsInode\":\"4026535960\",\"socketfile\":\"nsm9g1K0Rdqi/memif.sock\"}},\"context\":{\"ip_context\":{\"src_ip_addr\":\"172.100.248.1/30\",\"dst_ip_addr\":\"172.100.248.2/30\",\"src_ip_required\":true,\"dst_ip_required\":true,\"dst_routes\":[{\"prefix\":\"172.100.0.0/16\"}]}},\"labels\":{\"clusterName\":\"cluster2\",\"namespace\":\"nsm-system\",\"podName\":\"helloworld-green-679c6b6b65-qzpwh\",\"port\":\"5000\",\"service\":\"helloworld\"},\"path\":{\"path_segments\":[{\"name\":\"kind-2-control-plane\"}]}}}} span=7185806d0eda64fa:321dd16b7b7a3072:2b1bc5f2158ae676:1"
+time="2021-06-21T22:30:21Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"a\" value:<id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+time="2021-06-21T22:30:21Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"a\" value:<id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+time="2021-06-21T22:30:21Z" level=debug msg="Try to send message type:UPDATE connections:<key:\"a\" value:<id:\"a\" network_service:\"green\" mechanism:<cls:\"LOCAL\" type:\"MEMIF\" parameters:<key:\"description\" value:\"NSM Endpoint\" > parameters:<key:\"name\" value:\"nsm9g1K0Rdqi\" > parameters:<key:\"netnsInode\" value:\"4026535960\" > parameters:<key:\"socketfile\" value:\"nsm9g1K0Rdqi/memif.sock\" > > context:<ip_context:<src_ip_addr:\"172.100.248.1/30\" dst_ip_addr:\"172.100.248.2/30\" src_ip_required:true dst_ip_required:true dst_routes:<prefix:\"172.100.0.0/16\" > > > labels:<key:\"clusterName\" value:\"cluster2\" > labels:<key:\"namespace\" value:\"nsm-system\" > labels:<key:\"podName\" value:\"helloworld-green-679c6b6b65-qzpwh\" > labels:<key:\"port\" value:\"5000\" > labels:<key:\"service\" value:\"helloworld\" > path:<path_segments:<name:\"kind-2-control-plane\" > > > > "
+2021/06/21 22:30:21 Reporting span 7185806d0eda64fa:321dd16b7b7a3072:2b1bc5f2158ae676:1
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 26 private_data 4 idx 12
+/usr/bin/vpp[17]: memif_plugin: clib_file_add fd 29 private_data 196608 idx 13
++======================================================================================================================+
+| #12 - SBNotification                                                                                                 |
++======================================================================================================================+
+  * transaction arguments:
+      - seqNum: 12
+      - type: SB Notification
+      - values:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/link-state/DOWN
+            val: <NIL>
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/link-state/UP
+            val: <EMPTY>
+
+o----------------------------------------------------------------------------------------------------------------------o
+  * executed operations (2021-06-21 22:30:22.504 +0000 UTC -> 2021-06-21 22:30:22.507 +0000 UTC, dur: 2ms):
+      1. DELETE [WAS-OBTAINED]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/link-state/DOWN
+          - value: <EMPTY> 
+      2. CREATE [OBTAINED]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/link-state/UP
+          - value: <EMPTY> 
+      3. CREATE [DERIVED WAS-PENDING]:
+          - key: vpp/interface/helloworld-green-679c6b6b65-qzpwh/rx-modes
+          - value: { name:"helloworld-green-679c6b6b65-qzpwh" type:MEMIF rx_modes:{mode:INTERRUPT default_mode:true} } 
+x----------------------------------------------------------------------------------------------------------------------x
+| #12 - SBNotification                                                                                      took 2.4ms |
+x----------------------------------------------------------------------------------------------------------------------x
+
+time="2021-06-21 22:30:22.50689" level=info msg="Transaction 12 successful!" loc="kvscheduler/txn_process.go(405)" logger=kvscheduler
+time="2021-06-21T22:30:22Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:30:23Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:25Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.1588 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.1802 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.2060 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:25Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n"
+time="2021-06-21T22:30:26Z" level=debug msg="running VPP PING for IP: 172.100.248.1"
+time="2021-06-21T22:30:26Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=4.5877 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=5.5089 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=7.2168 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:26Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    341.8727              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:29Z" level=debug msg="VPP PING output: Source address: 172.100.248.2 \r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=2 ttl=64 time=4.5617 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=3 ttl=64 time=4.3513 ms\r\n\r\nStatistics: 3 sent, 2 received, 33% packet loss\r\n"
+time="2021-06-21T22:30:29Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    341.8727              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:30Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:30:31Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:33Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.1838 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.2173 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.4132 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:33Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:34Z" level=debug msg="running VPP PING for IP: 172.100.248.1"
+time="2021-06-21T22:30:34Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=5.7157 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=5.5167 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=6.4465 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:34Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:37Z" level=debug msg="VPP PING output: Source address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=1 ttl=64 time=3.2658 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=2 ttl=64 time=4.3199 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=3 ttl=64 time=4.3556 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:37Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:38Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:30:39Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:41Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.3502 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.2315 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.4810 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:41Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:42Z" level=debug msg="running VPP PING for IP: 172.100.248.1"
+time="2021-06-21T22:30:42Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=5.6245 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=8.9399 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=12.6269 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:42Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:45Z" level=debug msg="VPP PING output: Source address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=1 ttl=64 time=3.3002 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=2 ttl=64 time=4.1835 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=3 ttl=64 time=3.3951 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:45Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:45Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:30:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:30:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:30:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:30:45Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:30:45Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:30:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:30:45Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:30:45Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:30:45Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:30:45Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:30:45Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:30:45Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624318162},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624318159},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green89pnc\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-lnmdj\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:30:45Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:30:45Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:30:45Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:30:45Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:30:45Z" level=info msg="Found vL3 service green peer green89pnc"
+time="2021-06-21T22:30:45Z" level=info msg="Already connected" endpointName=green89pnc networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:30:45Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:30:45Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:30:46Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:30:47Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:49Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.1543 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.3814 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.2250 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:49Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:50Z" level=debug msg="running VPP PING for IP: 172.100.248.1"
+time="2021-06-21T22:30:50Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=4.6257 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=5.6775 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=4.6544 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:50Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:53Z" level=debug msg="VPP PING output: Source address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=1 ttl=64 time=4.3974 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=2 ttl=64 time=3.3178 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=3 ttl=64 time=4.3816 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:53Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:54Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:30:55Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:30:57Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.2292 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=3.0831 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.1836 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:57Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:30:58Z" level=debug msg="running VPP PING for IP: 172.100.248.1"
+time="2021-06-21T22:30:58Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=5.4607 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=5.6798 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=4.3865 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:30:58Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:31:01Z" level=debug msg="VPP PING output: Source address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=1 ttl=64 time=3.3396 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=2 ttl=64 time=3.4681 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=3 ttl=64 time=3.2914 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:31:01Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:31:02Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:31:03Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:31:05Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=2.1715 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=2.2339 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.1864 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:31:05Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:31:06Z" level=debug msg="running VPP PING for IP: 172.100.248.1"
+time="2021-06-21T22:31:06Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=4.5418 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=4.3376 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=5.9804 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:31:06Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:31:09Z" level=debug msg="VPP PING output: Source address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=1 ttl=64 time=3.4907 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=2 ttl=64 time=4.4376 ms\r\nSource address: 172.100.248.2 \r\n116 bytes from 172.100.248.1: icmp_seq=3 ttl=64 time=4.3863 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:31:09Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    347.9484              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:31:10Z" level=debug msg="running VPP PING for IP: 172.100.240.6"
+time="2021-06-21T22:31:11Z" level=debug msg="running VPP PING for IP: 172.100.244.6"
+time="2021-06-21T22:31:13Z" level=debug msg="VPP PING output: Source address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=1 ttl=64 time=3.3603 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=2 ttl=64 time=5.9259 ms\r\nSource address: 172.100.240.5 \r\n116 bytes from 172.100.240.6: icmp_seq=3 ttl=64 time=2.1871 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:31:13Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    387.1207              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:31:14Z" level=debug msg="running VPP PING for IP: 172.100.248.1"
+time="2021-06-21T22:31:14Z" level=debug msg="VPP PING output: Source address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=1 ttl=64 time=10.2534 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=2 ttl=64 time=5.5765 ms\r\nSource address: 172.100.244.5 \r\n116 bytes from 172.100.244.6: icmp_seq=3 ttl=64 time=4.4935 ms\r\n\r\nStatistics: 3 sent, 3 received, 0% packet loss\r\n"
+time="2021-06-21T22:31:14Z" level=debug msg="VPP IP ARP:     Time                       IP                    Flags      Ethernet              Interface       \r\n     36.3727              172.100.252.2                D    02:fe:58:4e:45:8b memif1/0\r\n    306.0054              172.100.240.6                D    02:fe:89:91:e9:b8 memif2/0\r\n    306.4737              172.100.244.6                D    02:fe:0c:23:56:6f memif3/0\r\n    387.1207              172.100.248.1                D    02:fe:e3:a5:49:ab memif4/0\r\n"
+time="2021-06-21T22:31:15Z" level=debug msg="vL3ConnectComposite FindNetworkService for NS=green"
+time="2021-06-21T22:31:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:31:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green\"} span=<nil>"
+time="2021-06-21T22:31:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"10.244.0.13:5001\",\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:31:15Z" level=debug msg="vL3ConnectComposite found network service green; processing endpoints"
+time="2021-06-21T22:31:15Z" level=debug msg="vL3ConnectComposite check remotes for endpoints"
+time="2021-06-21T22:31:15Z" level=debug msg="vL3ConnectComposite querying remote NS green@green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:31:15Z" level=info msg=">><<-- /registry.NetworkServiceDiscovery/FindNetworkService()=\"\" span=<nil>"
+time="2021-06-21T22:31:15Z" level=info msg=">><<-- request={\"network_service_name\":\"green@green.nispatil-wcm-cisco.com\"} span=<nil>"
+time="2021-06-21T22:31:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:31:15Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:31:15Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+time="2021-06-21T22:31:15Z" level=info msg=">><<-- response={\"payload\":\"IP\",\"network_service\":{\"name\":\"green@green.nispatil-wcm-cisco.com\",\"payload\":\"IP\"},\"network_service_managers\":{\"kind-2-control-plane\":{\"name\":\"kind-2-control-plane\",\"url\":\"172.17.0.3:5001\",\"expiration_time\":{\"seconds\":1624318162},\"state\":\"RUNNING\"},\"kind-3-control-plane\":{\"name\":\"kind-3-control-plane@172.17.0.4:5001\",\"url\":\"wcm-proxy-nsmgr:5006\",\"expiration_time\":{\"seconds\":1624318159},\"state\":\"RUNNING\"}},\"network_service_endpoints\":[{\"name\":\"greenfmxjq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-s6q9x\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"greeng5rrf\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-zrt6w\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green89pnc\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-3-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-3_vl3-nse-green-7555496c4c-lnmdj\",\"wcm/cluster\":\"member2\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"},{\"name\":\"green6nmkq\",\"payload\":\"IP\",\"network_service_name\":\"green\",\"network_service_manager_name\":\"kind-2-control-plane\",\"labels\":{\"app\":\"vl3-nse-green\",\"networkservicename\":\"green\",\"nsepod.name\":\"green-kind-2_vl3-nse-green-76bc7f4b96-x5qhl\",\"wcm/cluster\":\"member1\",\"wcm/nsr.addr\":\"green.nispatil-wcm-cisco.com\",\"wcm/nsr.port\":\"443\"},\"state\":\"RUNNING\"}]} span=<nil>"
+time="2021-06-21T22:31:15Z" level=debug msg="vL3ConnectComposite found network service green@green.nispatil-wcm-cisco.com; processing endpoints from remote green.nispatil-wcm-cisco.com"
+time="2021-06-21T22:31:15Z" level=info msg="Found vL3 service green peer greenfmxjq"
+time="2021-06-21T22:31:15Z" level=info msg="Already connected" endpointName=greenfmxjq networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:31:15Z" level=info msg="Found my vL3 service green instance endpoint name: greeng5rrf"
+time="2021-06-21T22:31:15Z" level=info msg="Found vL3 service green peer green89pnc"
+time="2021-06-21T22:31:15Z" level=info msg="Already connected" endpointName=green89pnc networkServiceManagerName=kind-3-control-plane
+time="2021-06-21T22:31:15Z" level=info msg="Found vL3 service green peer green6nmkq"
+time="2021-06-21T22:31:15Z" level=info msg="Already connected" endpointName=green6nmkq networkServiceManagerName=kind-2-control-plane
+==== END logs for container vl3-nse-green of pod wcm-system/vl3-nse-green-76bc7f4b96-zrt6w ====

@@ -1,0 +1,170 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      ns.networkservicemesh.io: example/example?service=helloworld&port=5000&clusterName=kind-11
+    creationTimestamp: "2021-09-23T23:10:03Z"
+    generation: 1
+    labels:
+      app: helloworld-example
+      nsm/servicename: helloworld.kind-11.example.wcm-cisco.com
+      pod-template-hash: 58d46c56d8
+      version: v1
+    name: helloworld-example-58d46c56d8
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: helloworld-example
+      uid: d587eaf8-c603-4086-9369-364ad7c173e7
+    resourceVersion: "2583"
+    selfLink: /apis/apps/v1/namespaces/default/replicasets/helloworld-example-58d46c56d8
+    uid: 5272dda3-f689-449d-9d6c-b92754c6d998
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: helloworld-example
+        pod-template-hash: 58d46c56d8
+        version: v1
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: helloworld-example
+          nsm/servicename: helloworld.kind-11.example.wcm-cisco.com
+          pod-template-hash: 58d46c56d8
+          version: v1
+      spec:
+        containers:
+        - image: docker.io/istio/examples-helloworld-v1:latest
+          imagePullPolicy: IfNotPresent
+          name: helloworld
+          ports:
+          - containerPort: 5000
+            protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        initContainers:
+        - env:
+          - name: NS_NETWORKSERVICEMESH_IO
+            value: example/example?service=helloworld&port=5000&clusterName=kind-11
+          - name: NSM_NAMESPACE
+            value: nsm-system
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          image: containers.cisco.com/appn/nsm-init:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: nsm-init-container
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: nsc
+        serviceAccountName: nsc
+        terminationGracePeriodSeconds: 30
+  status:
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: member-core-operator-release
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2021-09-23T23:04:32Z"
+    generation: 1
+    labels:
+      name: member-core-operator
+      pod-template-hash: 56f5b8f76c
+    name: member-core-operator-56f5b8f76c
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: member-core-operator
+      uid: 4d6ad3b8-39e6-4ccb-9473-acba1b64c9a1
+    resourceVersion: "1117"
+    selfLink: /apis/apps/v1/namespaces/default/replicasets/member-core-operator-56f5b8f76c
+    uid: 8cf52359-3cb0-408d-b4bc-8ee5eef8eb04
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: member-core-operator
+        pod-template-hash: 56f5b8f76c
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: member-core-operator
+          pod-template-hash: 56f5b8f76c
+      spec:
+        containers:
+        - command:
+          - member-core-operator
+          env:
+          - name: WATCH_NAMESPACE
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OPERATOR_NAME
+            value: member-core-operator
+          - name: CONFIG_PATH
+            value: etc/member-core-configmap/config.yaml
+          image: containers.cisco.com/appn/member-core-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: member-core-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: etc/member-core-configmap/config.yaml
+            name: config-data-member-core
+            subPath: config.yaml
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: member-core-operator
+        serviceAccountName: member-core-operator
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: member-core-configmap
+          name: config-data-member-core
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: ReplicaSetList
+metadata:
+  resourceVersion: "3667"
+  selfLink: /apis/apps/v1/namespaces/default/replicasets

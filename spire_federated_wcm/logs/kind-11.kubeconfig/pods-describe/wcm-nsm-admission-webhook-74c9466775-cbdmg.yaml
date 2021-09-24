@@ -1,0 +1,67 @@
+Name:         wcm-nsm-admission-webhook-74c9466775-cbdmg
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-11-control-plane/172.17.0.3
+Start Time:   Thu, 23 Sep 2021 19:04:43 -0400
+Labels:       app=wcm-nsm-admission-webhook
+              membercore=wcm
+              nsm-cr=wcm
+              pod-template-hash=74c9466775
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/wcm-nsm-admission-webhook-74c9466775
+Containers:
+  wcm-nsm-admission-webhook:
+    Container ID:   containerd://30ef4f7c24cda9c938d84a4f5f2164421cd590e8b44f588e50aabe36f2397dc2
+    Image:          containers.cisco.com/appn/admission-webhook:vl3_latest
+    Image ID:       containers.cisco.com/appn/admission-webhook@sha256:0bb74697b79db49a67bb74c2dc343646d55bcf93117e9da8677274cd2aa3d940
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:04:46 -0400
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      REPO:               containers.cisco.com/appn
+      TAG:                vl3_latest
+      IMAGE_PULL_POLICY:  IfNotPresent
+      NSM_NAMESPACE:      nsm-system
+      TRACER_ENABLED:     true
+      JAEGER_AGENT_HOST:  wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:  6831
+    Mounts:
+      /etc/webhook/certs from webhook-certs (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-qz9q8 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  webhook-certs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsm-admission-webhook-secret
+    Optional:    false
+  default-token-qz9q8:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-qz9q8
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  11m   default-scheduler               Successfully assigned nsm-system/wcm-nsm-admission-webhook-74c9466775-cbdmg to kind-11-control-plane
+  Normal  Pulling    11m   kubelet, kind-11-control-plane  Pulling image "containers.cisco.com/appn/admission-webhook:vl3_latest"
+  Normal  Pulled     11m   kubelet, kind-11-control-plane  Successfully pulled image "containers.cisco.com/appn/admission-webhook:vl3_latest"
+  Normal  Created    11m   kubelet, kind-11-control-plane  Created container wcm-nsm-admission-webhook
+  Normal  Started    11m   kubelet, kind-11-control-plane  Started container wcm-nsm-admission-webhook
+

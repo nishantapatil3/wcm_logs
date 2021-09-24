@@ -1,0 +1,99 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: metallb-system-release
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2021-09-23T23:06:04Z"
+    generation: 1
+    labels:
+      app: metallb
+      app.kubernetes.io/managed-by: Helm
+      component: controller
+    name: controller
+    namespace: metallb-system
+    resourceVersion: "1292"
+    selfLink: /apis/apps/v1/namespaces/metallb-system/deployments/controller
+    uid: 95125873-fba5-4e5b-b8b5-c0c760a5c3fa
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 3
+    selector:
+      matchLabels:
+        app: metallb
+        component: controller
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          prometheus.io/port: "7472"
+          prometheus.io/scrape: "true"
+        creationTimestamp: null
+        labels:
+          app: metallb
+          component: controller
+      spec:
+        containers:
+        - args:
+          - --port=7472
+          - --config=config
+          image: metallb/controller:v0.8.2
+          imagePullPolicy: IfNotPresent
+          name: controller
+          ports:
+          - containerPort: 7472
+            name: monitoring
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - all
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        nodeSelector:
+          beta.kubernetes.io/os: linux
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 65534
+        serviceAccount: controller
+        serviceAccountName: controller
+        terminationGracePeriodSeconds: 0
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:06:08Z"
+      lastUpdateTime: "2021-09-23T23:06:08Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:06:04Z"
+      lastUpdateTime: "2021-09-23T23:06:08Z"
+      message: ReplicaSet "controller-65895b47d4" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: DeploymentList
+metadata:
+  resourceVersion: "3651"
+  selfLink: /apis/apps/v1/namespaces/metallb-system/deployments

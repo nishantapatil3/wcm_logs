@@ -1,0 +1,78 @@
+Name:         wcm-nsm-vpp-forwarder-9bqrq
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-11-control-plane/172.17.0.3
+Start Time:   Thu, 23 Sep 2021 19:04:45 -0400
+Labels:       app=wcm-nsm-vpp-forwarder
+              controller-revision-hash=79b7b699bd
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.3
+IPs:
+  IP:           172.17.0.3
+Controlled By:  DaemonSet/wcm-nsm-vpp-forwarder
+Containers:
+  wcm-nsm-vpp-forwarder:
+    Container ID:   containerd://e3103a06f11a3d51577b65b8113b8cf3a71eb9ca74f97e6f888a978e746c6d5c
+    Image:          containers.cisco.com/appn/vppagent-forwarder:vl3_latest
+    Image ID:       containers.cisco.com/appn/vppagent-forwarder@sha256:e82b8680aa8cfe0e3daa772098c4dc1b315c0d530f98fff6be84825436d0bbd9
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:04:55 -0400
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:5555/readiness delay=10s timeout=3s period=60s #success=1 #failure=3
+    Environment:
+      INSECURE:                      false
+      METRICS_COLLECTOR_ENABLED:     false
+      NSM_FORWARDER_SRC_IP:           (v1:status.podIP)
+      TRACER_ENABLED:                true
+      JAEGER_AGENT_HOST:             wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:             6831
+      NSM_CONNECTION_MTU_OVERRIDE:   1364
+      VPP_INTERFACE_HEALTHCHECK_ON:  true
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/lib/networkservicemesh/ from workspace (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsm-vpp-forwarder-service-account-token-bcl8f (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  workspace:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-nsm-vpp-forwarder-service-account-token-bcl8f:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsm-vpp-forwarder-service-account-token-bcl8f
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  11m   default-scheduler               Successfully assigned nsm-system/wcm-nsm-vpp-forwarder-9bqrq to kind-11-control-plane
+  Normal  Pulling    11m   kubelet, kind-11-control-plane  Pulling image "containers.cisco.com/appn/vppagent-forwarder:vl3_latest"
+  Normal  Pulled     11m   kubelet, kind-11-control-plane  Successfully pulled image "containers.cisco.com/appn/vppagent-forwarder:vl3_latest"
+  Normal  Created    11m   kubelet, kind-11-control-plane  Created container wcm-nsm-vpp-forwarder
+  Normal  Started    11m   kubelet, kind-11-control-plane  Started container wcm-nsm-vpp-forwarder
+

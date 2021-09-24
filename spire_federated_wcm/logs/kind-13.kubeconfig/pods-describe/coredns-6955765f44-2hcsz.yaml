@@ -1,0 +1,69 @@
+Name:                 coredns-6955765f44-2hcsz
+Namespace:            kube-system
+Priority:             2000000000
+Priority Class Name:  system-cluster-critical
+Node:                 kind-13-control-plane/172.17.0.5
+Start Time:           Thu, 23 Sep 2021 19:13:01 -0400
+Labels:               k8s-app=kube-dns
+                      pod-template-hash=6955765f44
+Annotations:          <none>
+Status:               Running
+IP:                   10.244.0.5
+IPs:
+  IP:           10.244.0.5
+Controlled By:  ReplicaSet/coredns-6955765f44
+Containers:
+  coredns:
+    Container ID:  containerd://13783cb195d24e544c86724739675348ee3f37d66d2895d0bcd970c3d348fd4e
+    Image:         k8s.gcr.io/coredns:1.6.5
+    Image ID:      sha256:70f311871ae12c14bd0e02028f249f933f925e4370744e4e35f706da773a8f61
+    Ports:         53/UDP, 53/TCP, 9153/TCP
+    Host Ports:    0/UDP, 0/TCP, 0/TCP
+    Args:
+      -conf
+      /etc/coredns/Corefile
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:03 -0400
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      memory:  170Mi
+    Requests:
+      cpu:        100m
+      memory:     70Mi
+    Liveness:     http-get http://:8080/health delay=60s timeout=5s period=10s #success=1 #failure=5
+    Readiness:    http-get http://:8181/ready delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:  <none>
+    Mounts:
+      /etc/coredns from config-volume (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from coredns-token-vp57f (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      coredns
+    Optional:  false
+  coredns-token-vp57f:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  coredns-token-vp57f
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     CriticalAddonsOnly op=Exists
+                 node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                    From                            Message
+  ----     ------            ----                   ----                            -------
+  Warning  FailedScheduling  3m18s (x3 over 3m33s)  default-scheduler               0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Normal   Scheduled         3m17s                  default-scheduler               Successfully assigned kube-system/coredns-6955765f44-2hcsz to kind-13-control-plane
+  Normal   Pulled            3m16s                  kubelet, kind-13-control-plane  Container image "k8s.gcr.io/coredns:1.6.5" already present on machine
+  Normal   Created           3m15s                  kubelet, kind-13-control-plane  Created container coredns
+  Normal   Started           3m15s                  kubelet, kind-13-control-plane  Started container coredns
+

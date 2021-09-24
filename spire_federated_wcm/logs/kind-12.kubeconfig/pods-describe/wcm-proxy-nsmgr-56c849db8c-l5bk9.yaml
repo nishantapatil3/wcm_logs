@@ -1,0 +1,89 @@
+Name:         wcm-proxy-nsmgr-56c849db8c-l5bk9
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-12-control-plane/172.17.0.4
+Start Time:   Thu, 23 Sep 2021 19:06:17 -0400
+Labels:       app=wcm-proxy-nsmgr
+              membercore=wcm
+              pod-template-hash=56c849db8c
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  ReplicaSet/wcm-proxy-nsmgr-56c849db8c
+Containers:
+  wcm-proxy-nsmgr:
+    Container ID:   containerd://5dff5c98faa154f5a814fd558eedb606fa215352a0a642db4a25fc2db42a451c
+    Image:          containers.cisco.com/appn/proxy-nsmd:vl3_latest
+    Image ID:       containers.cisco.com/appn/proxy-nsmd@sha256:d0437b39248a277881cecfc424df18274eb340a518b8fe3cc5c1dd89388fbeae
+    Port:           5006/TCP
+    Host Port:      5006/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:06:26 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  31505
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-hjgbt (ro)
+  proxy-nsmd-k8s:
+    Container ID:   containerd://14b79a4b1b40cf2565ed736d8d40016b2c415ae593fe782ee9b468f4e2cd12e9
+    Image:          containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest
+    Image ID:       containers.cisco.com/appn/proxy-nsmd-k8s@sha256:d383a909e4ec98c30653243a22074f78fd5e09b3eef7495ada2c96292eea6e6f
+    Port:           5005/TCP
+    Host Port:      5005/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:06:30 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    false
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  443
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-hjgbt (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-proxy-nsmgr-service-account-token-hjgbt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-proxy-nsmgr-service-account-token-hjgbt
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  9m56s  default-scheduler               Successfully assigned nsm-system/wcm-proxy-nsmgr-56c849db8c-l5bk9 to kind-12-control-plane
+  Normal  Pulling    9m55s  kubelet, kind-12-control-plane  Pulling image "containers.cisco.com/appn/proxy-nsmd:vl3_latest"
+  Normal  Pulled     9m47s  kubelet, kind-12-control-plane  Successfully pulled image "containers.cisco.com/appn/proxy-nsmd:vl3_latest"
+  Normal  Created    9m47s  kubelet, kind-12-control-plane  Created container wcm-proxy-nsmgr
+  Normal  Started    9m47s  kubelet, kind-12-control-plane  Started container wcm-proxy-nsmgr
+  Normal  Pulling    9m47s  kubelet, kind-12-control-plane  Pulling image "containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest"
+  Normal  Pulled     9m44s  kubelet, kind-12-control-plane  Successfully pulled image "containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest"
+  Normal  Created    9m44s  kubelet, kind-12-control-plane  Created container proxy-nsmd-k8s
+  Normal  Started    9m43s  kubelet, kind-12-control-plane  Started container proxy-nsmd-k8s
+

@@ -1,0 +1,369 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:08:09Z"
+    generation: 1
+    labels:
+      networkservicemesh.io/app: vl3-nse-example
+      networkservicemesh.io/impl: example
+      wcm-nse: example
+      wcm/nse.servicename: example
+    name: vl3-nse-example
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomainEndpoint
+      name: example
+      uid: 9261af6b-7c83-4679-ba47-b9645a075fca
+    resourceVersion: "2122"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/vl3-nse-example
+    uid: b786c922-cf44-4cc9-a9e6-0efb6c8aa2bb
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 2
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        networkservicemesh.io/app: vl3-nse-example
+        networkservicemesh.io/impl: example
+        wcm-nse: example
+        wcm/nse.servicename: example
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          sidecar.istio.io/inject: "false"
+          wcm/nsr.address: example.wcm-cisco.com
+          wcm/nsr.port: "443"
+        creationTimestamp: null
+        labels:
+          networkservicemesh.io/app: vl3-nse-example
+          networkservicemesh.io/impl: example
+          wcm-nse: example
+          wcm/nse.servicename: example
+      spec:
+        containers:
+        - env:
+          - name: ENDPOINT_NETWORK_SERVICE
+            value: example
+          - name: ENDPOINT_LABELS
+            value: app=vl3-nse-example
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_SERVICE_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_SERVICE_PORT_JAEGER
+            value: "6831"
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: WORKLOAD_REFRESH_INTERVAL
+            value: 30s
+          - name: NSREGISTRY_ADDR
+            value: wcm-nsmgr.nsm-system
+          - name: NSREGISTRY_PORT
+            value: "5000"
+          - name: CLUSTER_NAME
+            value: example-kind-12
+          - name: NSE_POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          - name: NSE_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: NSM_REMOTE_NS_IP_LIST
+            valueFrom:
+              configMapKeyRef:
+                key: remote.ip_list
+                name: nsm-vl3-example-config-map
+          - name: METRICS_PORT
+            value: "2112"
+          - name: WORKLOAD_METRICS_PORT
+            value: "3000"
+          - name: INSECURE
+            value: "false"
+          image: containers.cisco.com/appn/vl3_ucnf-nse:latest
+          imagePullPolicy: IfNotPresent
+          name: vl3-nse-example
+          ports:
+          - containerPort: 9191
+            name: monitoring-vpp
+            protocol: TCP
+          - containerPort: 2112
+            name: monitoring
+            protocol: TCP
+          - containerPort: 3000
+            name: workload
+            protocol: TCP
+          resources:
+            limits:
+              networkservicemesh.io/socket: "1"
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/universal-cnf/config.yaml
+            name: universal-cnf-config-volume
+            subPath: config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: vl3-nse-example-service-account
+        serviceAccountName: vl3-nse-example-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: vl3-nse-example-config-map
+          name: universal-cnf-config-volume
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 2
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:08:12Z"
+      lastUpdateTime: "2021-09-23T23:08:12Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:08:09Z"
+      lastUpdateTime: "2021-09-23T23:08:12Z"
+      message: ReplicaSet "vl3-nse-example-dff8646dd" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 2
+    replicas: 2
+    updatedReplicas: 2
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:06:23Z"
+    generation: 1
+    labels:
+      app: nse-discovery-wcm
+      membercore: wcm
+    name: wcm-nse-discovery
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: MemberCore
+      name: wcm
+      uid: a2dcf81d-9d4b-4d9e-85c5-24c14b9de6c9
+    resourceVersion: "1612"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/wcm-nse-discovery
+    uid: 3945ec95-927f-4b5e-b869-5404d2902bad
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: nse-discovery-wcm
+        membercore: wcm
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: nse-discovery-wcm
+          membercore: wcm
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: CLUSTER_NAME
+            value: kind-12
+          - name: INSECURE
+            value: "false"
+          - name: NSE_NAMESPACE
+            value: wcm-system
+          - name: NSR_ADDRESS
+            value: wcm-proxy-nsmgr.nsm-system:5005
+          - name: METRICS_PORT
+            value: "2112"
+          image: containers.cisco.com/appn/nse-discovery-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-nse-discovery
+          ports:
+          - containerPort: 2112
+            name: monitoring
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-nse-discovery-service-account
+        serviceAccountName: wcm-nse-discovery-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:06:29Z"
+      lastUpdateTime: "2021-09-23T23:06:29Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:06:23Z"
+      lastUpdateTime: "2021-09-23T23:06:29Z"
+      message: ReplicaSet "wcm-nse-discovery-7bbb7c68d9" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: nse-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-09-23T23:07:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: wcm-nse-operator
+    namespace: wcm-system
+    resourceVersion: "1949"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/wcm-nse-operator
+    uid: 32536ecd-a2b8-482b-b324-a6791287653f
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        name: wcm-nse-operator
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: wcm-nse-operator
+      spec:
+        containers:
+        - command:
+          - wcm-nse-operator
+          env:
+          - name: WATCH_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OPERATOR_NAME
+            value: wcm-nse-operator
+          - name: CONFIG_PATH
+            value: etc/wcm-vpp-nse-configmap/config.yaml
+          - name: INSECURE
+            value: "false"
+          image: containers.cisco.com/appn/wcm-nse-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-nse-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: etc/wcm-vpp-nse-configmap/config.yaml
+            name: config-data-wcm-nse
+            subPath: config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-nse-operator-service-account
+        serviceAccountName: wcm-nse-operator-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: wcm-vpp-nse-configmap
+          name: config-data-wcm-nse
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:07:38Z"
+      lastUpdateTime: "2021-09-23T23:07:38Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:07:35Z"
+      lastUpdateTime: "2021-09-23T23:07:38Z"
+      message: ReplicaSet "wcm-nse-operator-784fc6cb88" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: DeploymentList
+metadata:
+  resourceVersion: "3657"
+  selfLink: /apis/apps/v1/namespaces/wcm-system/deployments

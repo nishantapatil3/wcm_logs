@@ -1,0 +1,72 @@
+Name:         wcm
+Namespace:    
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: member-core-cr-release
+              meta.helm.sh/release-namespace: default
+API Version:  wcm.cisco.com/v1alpha1
+Kind:         MemberCore
+Metadata:
+  Creation Timestamp:  2021-09-23T23:04:33Z
+  Generation:          1
+  Resource Version:    3655
+  Self Link:           /apis/wcm.cisco.com/v1alpha1/membercores/wcm
+  UID:                 b30c3861-3a05-4c15-ae5b-70bd3a20cf5d
+Spec:
+  Insecure:        false
+  Jaeger Tracing:  true
+  Nse Discovery:
+    Namespace:                 wcm-system
+  Preferred Remote Mechanism:  IPSEC
+  Size:                        1
+Status:
+  Cross Connect Monitor:
+    Service Account:  wcm-crossconnect-monitor-service-account
+  Jaeger:
+    Deployment:  wcm-jaeger
+    Service:     wcm-jaeger
+  Nse Discovery:
+    Cluster Role:          wcm-nse-discovery-cluster-role
+    Cluster Role Binding:  wcm-nse-discovery-cluster-role-binding
+    Deployment:            wcm-nse-discovery
+    Service Account:       wcm-nse-discovery-service-account
+  Nsm:
+    Cluster Role:          wcm-nsm-cluster-role
+    Cluster Role Binding:  wcm-nsm-cluster-role-binding
+    Cluster Role View:     wcm-nsm-cluster-role-view
+    Config Map:            wcm-nsm-config-map
+    Crds:
+      Network Service:           networkservices.networkservicemesh.io
+      Network Service Endpoint:  networkserviceendpoints.networkservicemesh.io
+      Network Service Manager:   networkservicemanagers.networkservicemesh.io
+    Namespace:                   nsm-system
+    Nsm Admission Webhook:
+      Deployment:                      wcm-nsm-admission-webhook
+      Mutating Webhook Configuration:  wcm-nsm-admission-webhook-mutating-webhook-config
+    Nsm Vpp Forwarder:
+      Daemon Set:       wcm-nsm-vpp-forwarder
+      Service Account:  wcm-nsm-vpp-forwarder-service-account
+    Nsmgr:
+      Daemon Set:       wcm-nsmgr
+      Service:          wcm-nsmgr
+      Service Account:  wcm-nsmgr-service-account
+  Pods:
+    Name:    wcm-nsm-vpp-forwarder-9bqrq
+    Status:  Running
+    Name:    wcm-jaeger-86c548cd44-hpw5b
+    Status:  Running
+    Name:    wcm-nse-discovery-7d675cc5f6-7597g
+    Status:  Running
+    Name:    wcm-nsm-admission-webhook-74c9466775-cbdmg
+    Status:  Running
+    Name:    wcm-proxy-nsmgr-56c849db8c-xv7r9
+    Status:  Running
+    Name:    wcm-crossconnect-monitor-778f845ddc-w6qqs
+    Status:  Running
+    Name:    wcm-nsmgr-sgcdf
+    Status:  Running
+  Prefix - Service:
+    Deployment:  wcm-prefix-service
+  Proxy - Nsmgr:
+    Deployment:  wcm-proxy-nsmgr
+    Service:     wcm-proxy-nsmgr
+Events:          <none>

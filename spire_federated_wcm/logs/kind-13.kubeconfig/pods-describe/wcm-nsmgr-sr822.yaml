@@ -1,0 +1,132 @@
+Name:         wcm-nsmgr-sr822
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-13-control-plane/172.17.0.5
+Start Time:   Thu, 23 Sep 2021 19:13:16 -0400
+Labels:       app=wcm-nsmgr
+              controller-revision-hash=56d4ccc749
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  DaemonSet/wcm-nsmgr
+Containers:
+  wcm-nsmgr:
+    Container ID:   containerd://4a202d832f0104ab6917a49496f592f6583d8a89ef76d9d3b655f99a930159e5
+    Image:          containers.cisco.com/appn/nsmdp:v1.1.0
+    Image ID:       containers.cisco.com/appn/nsmdp@sha256:1cc0025a0967f83430eae4a6adce0cfce6302b58364324f34bda9f1041538397
+    Port:           5001/TCP
+    Host Port:      5001/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:25 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                true
+      TRACER_ENABLED:          true
+      JAEGER_AGENT_HOST:       wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:       6831
+      PROXY_NSMD_K8S_ADDRESS:  wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:      wcm-proxy-nsmgr:5006
+    Mounts:
+      /var/lib/kubelet/device-plugins from kubelet-socket (rw)
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-4257n (ro)
+  nsmd:
+    Container ID:   containerd://d075a82c714d29f13e2b0efc4e54a6adbc9140bf5bf9e57436707efc0e0ec0fd
+    Image:          containers.cisco.com/appn/nsmd:v1.1.0
+    Image ID:       containers.cisco.com/appn/nsmd@sha256:d0aa4cd9cbf6349c887c9d2e7e54737118c1c33cb43164b0bcf3137491b4c2c2
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:27 -0400
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://127.0.0.1:5555/liveness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://127.0.0.1:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      INSECURE:                    true
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /var/lib/networkservicemesh from nsm-socket (rw)
+      /var/lib/networkservicemesh/config from nsm-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-4257n (ro)
+  nsmd-k8s:
+    Container ID:   containerd://423237230ee40e9bffd8ffb5ba53267dc3704cc44640fafd2376331d726a74b5
+    Image:          containers.cisco.com/appn/nsmd-k8s:v1.1.0
+    Image ID:       containers.cisco.com/appn/nsmd-k8s@sha256:db71b1083ff1cb6096b76572295172dc8cbeee748143000223b0ce7232657a6e
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:28 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    true
+      POD_NAME:                    wcm-nsmgr-sr822 (v1:metadata.name)
+      POD_UID:                      (v1:metadata.uid)
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PREFERRED_REMOTE_MECHANISM:  IPSEC
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsmgr-service-account-token-4257n (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubelet-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/kubelet/device-plugins
+    HostPathType:  DirectoryOrCreate
+  nsm-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  nsm-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      wcm-nsm-config-map
+    Optional:  false
+  wcm-nsmgr-service-account-token-4257n:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsmgr-service-account-token-4257n
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  3m2s   default-scheduler               Successfully assigned nsm-system/wcm-nsmgr-sr822 to kind-13-control-plane
+  Normal  Pulling    3m1s   kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/nsmdp:v1.1.0"
+  Normal  Pulled     2m54s  kubelet, kind-13-control-plane  Successfully pulled image "containers.cisco.com/appn/nsmdp:v1.1.0"
+  Normal  Created    2m54s  kubelet, kind-13-control-plane  Created container wcm-nsmgr
+  Normal  Started    2m53s  kubelet, kind-13-control-plane  Started container wcm-nsmgr
+  Normal  Pulling    2m53s  kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/nsmd:v1.1.0"
+  Normal  Pulled     2m51s  kubelet, kind-13-control-plane  Successfully pulled image "containers.cisco.com/appn/nsmd:v1.1.0"
+  Normal  Created    2m51s  kubelet, kind-13-control-plane  Created container nsmd
+  Normal  Started    2m51s  kubelet, kind-13-control-plane  Started container nsmd
+  Normal  Pulling    2m51s  kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/nsmd-k8s:v1.1.0"
+  Normal  Pulled     2m50s  kubelet, kind-13-control-plane  Successfully pulled image "containers.cisco.com/appn/nsmd-k8s:v1.1.0"
+  Normal  Created    2m50s  kubelet, kind-13-control-plane  Created container nsmd-k8s
+  Normal  Started    2m50s  kubelet, kind-13-control-plane  Started container nsmd-k8s
+

@@ -1,0 +1,20 @@
+Name:                     wcm-proxy-nsmgr
+Namespace:                nsm-system
+Labels:                   app=wcm-proxy-nsmgr
+                          membercore=wcm
+Annotations:              <none>
+Selector:                 app=wcm-proxy-nsmgr,membercore=wcm
+Type:                     NodePort
+IP:                       10.96.112.224
+Port:                     pnsmr  5005/TCP
+TargetPort:               5005/TCP
+NodePort:                 pnsmr  31505/TCP
+Endpoints:                10.244.0.10:5005
+Port:                     pnsmd  5006/TCP
+TargetPort:               5006/TCP
+NodePort:                 pnsmd  31506/TCP
+Endpoints:                10.244.0.10:5006
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+

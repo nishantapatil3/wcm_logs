@@ -1,0 +1,52 @@
+Name:         wcm-jaeger-86c548cd44-sg5bn
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-13-control-plane/172.17.0.5
+Start Time:   Thu, 23 Sep 2021 19:13:09 -0400
+Labels:       membercore=wcm
+              pod-template-hash=86c548cd44
+              run=wcm-jaeger
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  ReplicaSet/wcm-jaeger-86c548cd44
+Containers:
+  jaeger:
+    Container ID:   containerd://a4c1d51647ffbcc08ebe1cae6a85bc6207eed1b72b495f68ac53cc4d8672cd8e
+    Image:          jaegertracing/all-in-one:1.14.0
+    Image ID:       docker.io/jaegertracing/all-in-one@sha256:021aefafecbb5559078206996f1f4e8fc5907debab047f4fcc5c837689a66cfa
+    Ports:          16686/TCP, 6831/UDP
+    Host Ports:     0/TCP, 0/UDP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:12 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-gd5qt (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-gd5qt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-gd5qt
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  3m10s  default-scheduler               Successfully assigned nsm-system/wcm-jaeger-86c548cd44-sg5bn to kind-13-control-plane
+  Normal  Pulling    3m9s   kubelet, kind-13-control-plane  Pulling image "jaegertracing/all-in-one:1.14.0"
+  Normal  Pulled     3m6s   kubelet, kind-13-control-plane  Successfully pulled image "jaegertracing/all-in-one:1.14.0"
+  Normal  Created    3m6s   kubelet, kind-13-control-plane  Created container jaeger
+  Normal  Started    3m6s   kubelet, kind-13-control-plane  Started container jaeger
+

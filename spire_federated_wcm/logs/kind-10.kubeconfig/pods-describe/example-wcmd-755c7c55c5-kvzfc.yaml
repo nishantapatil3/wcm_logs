@@ -1,0 +1,72 @@
+Name:         example-wcmd-755c7c55c5-kvzfc
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-10-control-plane/172.17.0.2
+Start Time:   Thu, 23 Sep 2021 19:07:37 -0400
+Labels:       app=wcmd-example
+              connectivitydomain=example
+              pod-template-hash=755c7c55c5
+Annotations:  sidecar.jaegertracing.io/inject: true
+Status:       Running
+IP:           10.244.0.18
+IPs:
+  IP:           10.244.0.18
+Controlled By:  ReplicaSet/example-wcmd-755c7c55c5
+Containers:
+  example-wcmd:
+    Container ID:   containerd://ec0d206a4ba2dd568cade9e884e6a2560b78674ced7ceb85faee0e7fc0b8fa99
+    Image:          containers.cisco.com/appn/wcmd:latest
+    Image ID:       containers.cisco.com/appn/wcmd@sha256:9acf67d08b4c981bd7cab556e109858c095855f37129d489c3113e2f1e3aaadc
+    Ports:          50061/TCP, 50051/TCP, 8080/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:07:40 -0400
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:8080/probe/alive delay=10s timeout=1s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:8080/probe/ready delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      POD_UID:                     (v1:metadata.uid)
+      JAEGER_SERVICE_NAME:        wcmd.service.server
+      JAEGER_AGENT_HOST:          localhost
+      JAEGER_AGENT_PORT:          6831
+      JAEGER_REPORTER_LOG_SPANS:  true
+      INSECURE:                   false
+      WORKLOADS_TTL:              40
+      CONNECTIVITY_DOMAIN_NAME:   example
+    Mounts:
+      /etc/wcmd-server-config/config.yaml from example-wcmd-config-map (rw,path="./config.yaml")
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from example-wcmd-service-account-token-vvc6x (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  example-wcmd-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      example-wcmd-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  example-wcmd-service-account-token-vvc6x:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-wcmd-service-account-token-vvc6x
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  8m23s  default-scheduler               Successfully assigned wcm-system/example-wcmd-755c7c55c5-kvzfc to kind-10-control-plane
+  Normal  Pulling    8m22s  kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/wcmd:latest"
+  Normal  Pulled     8m21s  kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/wcmd:latest"
+  Normal  Created    8m20s  kubelet, kind-10-control-plane  Created container example-wcmd
+  Normal  Started    8m20s  kubelet, kind-10-control-plane  Started container example-wcmd
+

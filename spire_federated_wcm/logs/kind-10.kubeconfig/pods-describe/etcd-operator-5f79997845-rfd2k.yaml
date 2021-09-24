@@ -1,0 +1,55 @@
+Name:         etcd-operator-5f79997845-rfd2k
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-10-control-plane/172.17.0.2
+Start Time:   Thu, 23 Sep 2021 19:02:47 -0400
+Labels:       app=etcd-operator
+              pod-template-hash=5f79997845
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  ReplicaSet/etcd-operator-5f79997845
+Containers:
+  etcd-operator:
+    Container ID:  containerd://17cac0e06121d2bfa7d04170e7fd1da667ee0c0e4a61cd75524e3b626ad77fbd
+    Image:         containers.cisco.com/appn/coreos-etcd-operator:latest
+    Image ID:      containers.cisco.com/appn/coreos-etcd-operator@sha256:300b887d3958ce1da4fa907b016d5afdcbfc73890f029a58d591773c77b2a680
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      etcd-operator
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:02:51 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      MY_POD_NAMESPACE:  wcm-system (v1:metadata.namespace)
+      MY_POD_NAME:       etcd-operator-5f79997845-rfd2k (v1:metadata.name)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-67hmr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-67hmr:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-67hmr
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  13m   default-scheduler               Successfully assigned wcm-system/etcd-operator-5f79997845-rfd2k to kind-10-control-plane
+  Normal  Pulling    13m   kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/coreos-etcd-operator:latest"
+  Normal  Pulled     13m   kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/coreos-etcd-operator:latest"
+  Normal  Created    13m   kubelet, kind-10-control-plane  Created container etcd-operator
+  Normal  Started    13m   kubelet, kind-10-control-plane  Started container etcd-operator
+

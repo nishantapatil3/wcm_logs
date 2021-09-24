@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"helloworld-example","nsm/role":"client"},"name":"helloworld-example","namespace":"default"},"spec":{"ports":[{"name":"http","port":5000}],"selector":{"app":"helloworld-example"}}}
+    creationTimestamp: "2021-09-23T23:10:03Z"
+    labels:
+      app: helloworld-example
+      nsm/role: client
+    name: helloworld-example
+    namespace: default
+    resourceVersion: "2571"
+    selfLink: /api/v1/namespaces/default/services/helloworld-example
+    uid: d5100b79-77f7-43f9-83aa-ee593e512afc
+  spec:
+    clusterIP: 10.103.163.43
+    ports:
+    - name: http
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+    selector:
+      app: helloworld-example
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- metadata:
+    creationTimestamp: "2021-09-23T23:01:10Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "148"
+    selfLink: /api/v1/namespaces/default/services/kubernetes
+    uid: 99eb1789-685a-41ad-ab1e-94597f274af6
+  spec:
+    clusterIP: 10.96.0.1
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "3667"
+  selfLink: /api/v1/namespaces/default/services

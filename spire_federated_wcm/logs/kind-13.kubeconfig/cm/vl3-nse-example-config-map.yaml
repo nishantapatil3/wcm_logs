@@ -1,0 +1,37 @@
+Name:         vl3-nse-example-config-map
+Namespace:    wcm-system
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+config.yaml:
+----
+endpoints:
+    - name: example
+      labels:
+        app: vl3-nse-example
+        wcm/nsr.addr: example.wcm-cisco.com
+        wcm/nsr.port: "80"
+      nseControl:
+        name: example
+        address: example.wcm-cisco.com
+        connectivityDomain: example
+      vl3:
+        ipam:
+            defaultPrefixPool: 172.100.0.0/16
+            serverAddress: wcmd-example.wcm-cisco.com:80
+            prefixLength: 22
+            routes: []
+        ifName: endpoint0
+      awsTgwEndpoint:
+        attachToTgw: false
+        region: example-region
+        subnetIDs:
+            - example-subnet-IDs
+        transitGatewayID: example-tgw-ID
+        transitGatewayRouteTableID: example-tgw-rt-ID
+        vpcID: example-vpc-ID
+
+Events:  <none>
+

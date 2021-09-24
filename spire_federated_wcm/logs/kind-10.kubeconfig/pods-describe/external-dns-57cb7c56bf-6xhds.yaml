@@ -1,0 +1,65 @@
+Name:         external-dns-57cb7c56bf-6xhds
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-10-control-plane/172.17.0.2
+Start Time:   Thu, 23 Sep 2021 19:04:28 -0400
+Labels:       app=external-dns
+              pod-template-hash=57cb7c56bf
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  ReplicaSet/external-dns-57cb7c56bf
+Containers:
+  external-dns:
+    Container ID:  containerd://5c07d25fbb26207797194df4fe6ed9a478108d2284a27ef77fdfd8cd537c5c70
+    Image:         containers.cisco.com/appn/external-dns:latest
+    Image ID:      containers.cisco.com/appn/external-dns@sha256:30b83b9469ed6047c34666b0184991b88e5a83b122cc0899841abe014fad3a19
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      --log-level=debug
+      --source=service
+      --source=crd
+      --source=istio-virtualservice
+      --source=istio-gateway
+      --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      --crd-source-kind=DNSEndpoint
+      --publish-internal-services
+      --registry=noop
+      --policy=sync
+      --provider=coredns
+      --txt-owner-id=kind-10.kubeconfig
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:04:33 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      ETCD_URLS:  http://wcm-etcd-cluster-client.wcm-system:2379
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from external-dns-token-hjd94 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  external-dns-token-hjd94:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  external-dns-token-hjd94
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  11m   default-scheduler               Successfully assigned wcm-system/external-dns-57cb7c56bf-6xhds to kind-10-control-plane
+  Normal  Pulling    11m   kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/external-dns:latest"
+  Normal  Pulled     11m   kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/external-dns:latest"
+  Normal  Created    11m   kubelet, kind-10-control-plane  Created container external-dns
+  Normal  Started    11m   kubelet, kind-10-control-plane  Started container external-dns
+

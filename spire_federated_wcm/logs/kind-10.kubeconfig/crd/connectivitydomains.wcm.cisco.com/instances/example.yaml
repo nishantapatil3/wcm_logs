@@ -1,0 +1,63 @@
+Name:         example
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: cd-release-example-central-cluster
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  wcm.cisco.com/v1alpha1
+Kind:         ConnectivityDomain
+Metadata:
+  Creation Timestamp:  2021-09-23T23:07:37Z
+  Finalizers:
+    finalizer.cache.wcm-cisco.com
+  Generation:        1
+  Resource Version:  2638
+  Self Link:         /apis/wcm.cisco.com/v1alpha1/namespaces/wcm-system/connectivitydomains/example
+  UID:               2f94beb4-4f56-4059-af28-742c6fe685b1
+Spec:
+  App Dns Size:  1
+  CD Info Size:  1
+  NSR Size:      1
+  WCMD Size:     1
+  Fqdn:          example.wcm-cisco.com
+  Gateway:
+    Secret:       connectivity-domain-secret
+    Tls Mode:     2
+  Insecure:       false
+  Insecure Info:  true
+  Ipam:
+    Ip Family:    IPV4
+    Prefix Pool:  172.100.0.0/16
+  Istio:          false
+  Size:           1
+Status:
+  App Dns:
+    Deployment:       example-app-dns-publisher
+    Role:             example-app-dns-publisher-role
+    Role Binding:     example-app-dns-publisher-role-binding
+    Service Account:  example-app-dns-publisher-service-account
+  Cd Info:
+    Config Map:       example-cd-info-config-map
+    Deployment:       example-cd-info
+    Service:          example-cd-info
+    Service Account:  example-cd-info-service-account
+    Service Entry:    example-cd-info
+  Istio Resources:
+    Virtual Service:  rest-example
+  Istiopub:
+  Nsr:
+    Deployment:       example
+    Role:             example-role
+    Role Binding:     example-role-binding
+    Service:          example
+    Service Account:  example-service-account
+  Pods:
+    example-74f5b56bfb-kbkwk
+    example-wcmd-755c7c55c5-kvzfc
+    example-cd-info-66c77dd8d-m5llv
+    example-app-dns-publisher-7fcddd4689-zfm8k
+  Wcmd:
+    Config Map:       example-wcmd-config-map
+    Deployment:       example-wcmd
+    Service Account:  example-wcmd-service-account
+    Service Entry:    example-wcmd
+Events:               <none>

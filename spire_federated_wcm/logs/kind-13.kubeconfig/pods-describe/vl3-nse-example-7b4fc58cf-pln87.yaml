@@ -1,0 +1,82 @@
+Name:         vl3-nse-example-7b4fc58cf-pln87
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-13-control-plane/172.17.0.5
+Start Time:   Thu, 23 Sep 2021 19:14:17 -0400
+Labels:       networkservicemesh.io/app=vl3-nse-example
+              networkservicemesh.io/impl=example
+              pod-template-hash=7b4fc58cf
+              wcm-nse=example
+              wcm/nse.servicename=example
+Annotations:  sidecar.istio.io/inject: false
+              wcm/nsr.address: example.wcm-cisco.com
+              wcm/nsr.port: 80
+Status:       Running
+IP:           10.244.0.14
+IPs:
+  IP:           10.244.0.14
+Controlled By:  ReplicaSet/vl3-nse-example-7b4fc58cf
+Containers:
+  vl3-nse-example:
+    Container ID:   containerd://252afeb6d429eb7d99038a5c38b24647ca1b8746b6e32aef911cce3398b28a50
+    Image:          containers.cisco.com/appn/vl3_ucnf-nse:v1.1.0
+    Image ID:       containers.cisco.com/appn/vl3_ucnf-nse@sha256:fa55d4ca2bb0805cb5ff1b9a08f352e8059546c0e707e04e670ad88314df4825
+    Ports:          9191/TCP, 2112/TCP, 3000/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:14:19 -0400
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      ENDPOINT_NETWORK_SERVICE:    example
+      ENDPOINT_LABELS:             app=vl3-nse-example
+      TRACER_ENABLED:              true
+      JAEGER_SERVICE_HOST:         wcm-jaeger.nsm-system
+      JAEGER_SERVICE_PORT_JAEGER:  6831
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      WORKLOAD_REFRESH_INTERVAL:   30s
+      NSREGISTRY_ADDR:             wcm-nsmgr.nsm-system
+      NSREGISTRY_PORT:             5000
+      CLUSTER_NAME:                example-kind-13
+      NSE_POD_IP:                   (v1:status.podIP)
+      NSE_POD_NAME:                vl3-nse-example-7b4fc58cf-pln87 (v1:metadata.name)
+      NSM_REMOTE_NS_IP_LIST:       <set to the key 'remote.ip_list' of config map 'nsm-vl3-example-config-map'>  Optional: false
+      METRICS_PORT:                2112
+      WORKLOAD_METRICS_PORT:       3000
+      INSECURE:                    true
+    Mounts:
+      /etc/universal-cnf/config.yaml from universal-cnf-config-volume (rw,path="config.yaml")
+      /var/run/secrets/kubernetes.io/serviceaccount from vl3-nse-example-service-account-token-4zvn8 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  universal-cnf-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      vl3-nse-example-config-map
+    Optional:  false
+  vl3-nse-example-service-account-token-4zvn8:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  vl3-nse-example-service-account-token-4zvn8
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  2m2s  default-scheduler               Successfully assigned wcm-system/vl3-nse-example-7b4fc58cf-pln87 to kind-13-control-plane
+  Normal  Pulling    2m1s  kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/vl3_ucnf-nse:v1.1.0"
+  Normal  Pulled     119s  kubelet, kind-13-control-plane  Successfully pulled image "containers.cisco.com/appn/vl3_ucnf-nse:v1.1.0"
+  Normal  Created    119s  kubelet, kind-13-control-plane  Created container vl3-nse-example
+  Normal  Started    119s  kubelet, kind-13-control-plane  Started container vl3-nse-example
+

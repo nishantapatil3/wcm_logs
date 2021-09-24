@@ -1,0 +1,83 @@
+Name:         kindnet-mqqf6
+Namespace:    kube-system
+Priority:     0
+Node:         kind-13-control-plane/172.17.0.5
+Start Time:   Thu, 23 Sep 2021 19:12:45 -0400
+Labels:       app=kindnet
+              controller-revision-hash=5b955bbc76
+              k8s-app=kindnet
+              pod-template-generation=1
+              tier=node
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.5
+IPs:
+  IP:           172.17.0.5
+Controlled By:  DaemonSet/kindnet
+Containers:
+  kindnet-cni:
+    Container ID:   containerd://1c28f5aa3ba6a4d705d0c9d58e6bde1dc48c7a1bdfc69a49f3d925c07abbcd3b
+    Image:          kindest/kindnetd:0.5.4
+    Image ID:       sha256:2186a1a396deb58f1ea5eaf20193a518ca05049b46ccd754ec83366b5c8c13d5
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:12:47 -0400
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  50Mi
+    Requests:
+      cpu:     100m
+      memory:  50Mi
+    Environment:
+      HOST_IP:      (v1:status.hostIP)
+      POD_IP:       (v1:status.podIP)
+      POD_SUBNET:  10.244.0.0/16
+    Mounts:
+      /etc/cni/net.d from cni-cfg (rw)
+      /lib/modules from lib-modules (ro)
+      /run/xtables.lock from xtables-lock (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kindnet-token-k7rzh (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  cni-cfg:
+    Type:          HostPath (bare host directory volume)
+    Path:          /etc/cni/net.d
+    HostPathType:  
+  xtables-lock:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/xtables.lock
+    HostPathType:  FileOrCreate
+  lib-modules:
+    Type:          HostPath (bare host directory volume)
+    Path:          /lib/modules
+    HostPathType:  
+  kindnet-token-k7rzh:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  kindnet-token-k7rzh
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     :NoScheduleop=Exists
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  3m33s  default-scheduler               Successfully assigned kube-system/kindnet-mqqf6 to kind-13-control-plane
+  Normal  Pulled     3m32s  kubelet, kind-13-control-plane  Container image "kindest/kindnetd:0.5.4" already present on machine
+  Normal  Created    3m31s  kubelet, kind-13-control-plane  Created container kindnet-cni
+  Normal  Started    3m31s  kubelet, kind-13-control-plane  Started container kindnet-cni
+

@@ -1,0 +1,99 @@
+Name:         wcm-etcd-cluster-rz8bn4795l
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-10-control-plane/172.17.0.2
+Start Time:   Thu, 23 Sep 2021 19:03:06 -0400
+Labels:       app=etcd
+              etcd_cluster=wcm-etcd-cluster
+              etcd_node=wcm-etcd-cluster-rz8bn4795l
+Annotations:  etcd.version: latest
+Status:       Running
+IP:           10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  EtcdCluster/wcm-etcd-cluster
+Init Containers:
+  check-dns:
+    Container ID:  containerd://8d6fdd6925db98d82398c10979ba5c8ea941df9ca0600657bcc0b4b91a5f4470
+    Image:         containers.cisco.com/appn/busybox:latest
+    Image ID:      containers.cisco.com/appn/busybox@sha256:eb31109cc48cc7df6d77e559fbb221ef0e1497534538f7ce88f8306ee72b295a
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /bin/sh
+      -c
+      
+                TIMEOUT_READY=0
+                while ( ! nslookup wcm-etcd-cluster-rz8bn4795l.wcm-etcd-cluster.wcm-system.svc )
+                do
+                  # If TIMEOUT_READY is 0 we should never time out and exit 
+                  TIMEOUT_READY=$(( TIMEOUT_READY-1 ))
+                              if [ $TIMEOUT_READY -eq 0 ];
+                                  then
+                                      echo "Timed out waiting for DNS entry"
+                                      exit 1
+                                  fi
+                              sleep 1
+                            done
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 23 Sep 2021 19:03:07 -0400
+      Finished:     Thu, 23 Sep 2021 19:03:37 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:         <none>
+Containers:
+  etcd:
+    Container ID:  containerd://f03e550b36f9bde52f8e216620649375d3ac6e45e583ffc2b550b5248ad4fd73
+    Image:         containers.cisco.com/appn/coreos-etcd:latest
+    Image ID:      containers.cisco.com/appn/coreos-etcd@sha256:15f624bbc79f200552d5cd31745a1f437264d3f9b277684161e3591aba2bc54d
+    Ports:         2380/TCP, 2379/TCP
+    Host Ports:    0/TCP, 0/TCP
+    Command:
+      /usr/local/bin/etcd
+      --data-dir=/var/etcd/data
+      --name=wcm-etcd-cluster-rz8bn4795l
+      --initial-advertise-peer-urls=http://wcm-etcd-cluster-rz8bn4795l.wcm-etcd-cluster.wcm-system.svc:2380
+      --listen-peer-urls=http://0.0.0.0:2380
+      --listen-client-urls=http://0.0.0.0:2379
+      --advertise-client-urls=http://wcm-etcd-cluster-rz8bn4795l.wcm-etcd-cluster.wcm-system.svc:2379
+      --initial-cluster=wcm-etcd-cluster-rz8bn4795l=http://wcm-etcd-cluster-rz8bn4795l.wcm-etcd-cluster.wcm-system.svc:2380,wcm-etcd-cluster-7r4847ld8s=http://wcm-etcd-cluster-7r4847ld8s.wcm-etcd-cluster.wcm-system.svc:2380
+      --initial-cluster-state=existing
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:03:37 -0400
+    Ready:          True
+    Restart Count:  0
+    Liveness:       exec [/bin/sh -ec ETCDCTL_API=3 etcdctl endpoint status] delay=10s timeout=10s period=60s #success=1 #failure=3
+    Readiness:      exec [/bin/sh -ec ETCDCTL_API=3 etcdctl endpoint status] delay=1s timeout=5s period=5s #success=1 #failure=3
+    Environment:    <none>
+    Mounts:
+      /var/etcd from etcd-data (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  etcd-data:
+    Type:        EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:      
+    SizeLimit:   <unset>
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  12m   default-scheduler               Successfully assigned wcm-system/wcm-etcd-cluster-rz8bn4795l to kind-10-control-plane
+  Normal  Pulling    12m   kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/busybox:latest"
+  Normal  Pulled     12m   kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/busybox:latest"
+  Normal  Created    12m   kubelet, kind-10-control-plane  Created container check-dns
+  Normal  Started    12m   kubelet, kind-10-control-plane  Started container check-dns
+  Normal  Pulling    12m   kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/coreos-etcd:latest"
+  Normal  Pulled     12m   kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/coreos-etcd:latest"
+  Normal  Created    12m   kubelet, kind-10-control-plane  Created container etcd
+  Normal  Started    12m   kubelet, kind-10-control-plane  Started container etcd

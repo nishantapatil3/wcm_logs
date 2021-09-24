@@ -1,0 +1,68 @@
+Name:         example-cd-info-66c77dd8d-m5llv
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-10-control-plane/172.17.0.2
+Start Time:   Thu, 23 Sep 2021 19:07:39 -0400
+Labels:       app=cd-info-example
+              connectivitydomain=example
+              pod-template-hash=66c77dd8d
+Annotations:  sidecar.jaegertracing.io/inject: true
+Status:       Running
+IP:           10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/example-cd-info-66c77dd8d
+Containers:
+  example-cd-info:
+    Container ID:   containerd://250594d7972c54457e7a2f064b7d8493dee971ec9e572135753814fc8a6e1c99
+    Image:          containers.cisco.com/appn/connectivity-domain-info:latest
+    Image ID:       containers.cisco.com/appn/connectivity-domain-info@sha256:03ea501ce00c47c213adb9c6e584e6697378e8798012b942ecebb4b7b6196185
+    Port:           50071/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:07:41 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                     (v1:metadata.uid)
+      JAEGER_SERVICE_NAME:        status.service.server
+      JAEGER_AGENT_HOST:          localhost
+      JAEGER_AGENT_PORT:          6831
+      JAEGER_REPORTER_LOG_SPANS:  true
+      INSECURE:                   false
+    Mounts:
+      /etc/info-server-config/config.yaml from example-cd-info-config-map (rw,path="./config.yaml")
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from example-cd-info-service-account-token-lg8vv (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  example-cd-info-config-map:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      example-cd-info-config-map
+    Optional:  false
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  example-cd-info-service-account-token-lg8vv:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-cd-info-service-account-token-lg8vv
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  8m21s  default-scheduler               Successfully assigned wcm-system/example-cd-info-66c77dd8d-m5llv to kind-10-control-plane
+  Normal  Pulling    8m20s  kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/connectivity-domain-info:latest"
+  Normal  Pulled     8m19s  kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/connectivity-domain-info:latest"
+  Normal  Created    8m19s  kubelet, kind-10-control-plane  Created container example-cd-info
+  Normal  Started    8m19s  kubelet, kind-10-control-plane  Started container example-cd-info
+

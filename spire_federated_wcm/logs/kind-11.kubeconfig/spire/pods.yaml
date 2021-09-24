@@ -1,0 +1,355 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2021-09-23T23:02:12Z"
+    generateName: spire-agent-
+    labels:
+      app: spire-agent
+      controller-revision-hash: 568f64bdc7
+      pod-template-generation: "1"
+    name: spire-agent-z86x7
+    namespace: spire
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DaemonSet
+      name: spire-agent
+      uid: db23ffa8-dfe7-4317-a49e-30a4c33be6ce
+    resourceVersion: "658"
+    selfLink: /api/v1/namespaces/spire/pods/spire-agent-z86x7
+    uid: fe6db8f8-a9cb-405d-a70b-9f99e5702cda
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchFields:
+            - key: metadata.name
+              operator: In
+              values:
+              - kind-11-control-plane
+    containers:
+    - args:
+      - -config
+      - /run/spire/config/agent.conf
+      image: gcr.io/spiffe-io/spire-agent:0.11.3
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        exec:
+          command:
+          - /bin/sh
+          - -c
+          - /opt/spire/bin/spire-agent api fetch -socketPath /run/spire/sockets/agent.sock
+            2>&1 | grep -vqE 'connection refused|no such file or directory'
+        failureThreshold: 2
+        initialDelaySeconds: 15
+        periodSeconds: 60
+        successThreshold: 1
+        timeoutSeconds: 3
+      name: spire-agent
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/config
+        name: spire-config
+        readOnly: true
+      - mountPath: /run/spire/sockets
+        name: spire-agent-socket
+      - mountPath: /run/spire/bundle
+        name: spire-bundle
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: spire-agent-token-psvtr
+        readOnly: true
+    dnsPolicy: ClusterFirstWithHostNet
+    enableServiceLinks: true
+    hostNetwork: true
+    hostPID: true
+    initContainers:
+    - args:
+      - -t
+      - "30"
+      - spire-server:8081
+      image: gcr.io/spiffe-io/wait-for-it
+      imagePullPolicy: Always
+      name: init
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: spire-agent-token-psvtr
+        readOnly: true
+    nodeName: kind-11-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: spire-agent
+    serviceAccountName: spire-agent
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/disk-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/pid-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/unschedulable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/network-unavailable
+      operator: Exists
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: spire-agent
+      name: spire-config
+    - configMap:
+        defaultMode: 420
+        name: spire-bundle
+      name: spire-bundle
+    - hostPath:
+        path: /run/spire/sockets
+        type: DirectoryOrCreate
+      name: spire-agent-socket
+    - name: spire-agent-token-psvtr
+      secret:
+        defaultMode: 420
+        secretName: spire-agent-token-psvtr
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:23Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:24Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:24Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:12Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://2338c254668aa6a5de2e76845633507d38220809b06885e4ba0cec9b53407297
+      image: gcr.io/spiffe-io/spire-agent:0.11.3
+      imageID: gcr.io/spiffe-io/spire-agent@sha256:0185a98dd527c448ee997f0f4830078b05eafa8c5810ec58d45380207f2e811c
+      lastState: {}
+      name: spire-agent
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-09-23T23:02:24Z"
+    hostIP: 172.17.0.3
+    initContainerStatuses:
+    - containerID: containerd://fb9e4432f562a619c1d48f8a4fe10a1fa7091bedd7e7f48b2b3ef3b257c26c36
+      image: gcr.io/spiffe-io/wait-for-it:latest
+      imageID: gcr.io/spiffe-io/wait-for-it@sha256:3facff26e582e57e3b994d3a3b95fc06475bb02a3dc6647ce6c91f4c3c2534b5
+      lastState: {}
+      name: init
+      ready: true
+      restartCount: 0
+      state:
+        terminated:
+          containerID: containerd://fb9e4432f562a619c1d48f8a4fe10a1fa7091bedd7e7f48b2b3ef3b257c26c36
+          exitCode: 0
+          finishedAt: "2021-09-23T23:02:22Z"
+          reason: Completed
+          startedAt: "2021-09-23T23:02:13Z"
+    phase: Running
+    podIP: 172.17.0.3
+    podIPs:
+    - ip: 172.17.0.3
+    qosClass: BestEffort
+    startTime: "2021-09-23T23:02:12Z"
+- metadata:
+    creationTimestamp: "2021-09-23T23:02:00Z"
+    generateName: spire-server-
+    labels:
+      app: spire-server
+      controller-revision-hash: spire-server-8d5665d7f
+      statefulset.kubernetes.io/pod-name: spire-server-0
+    name: spire-server-0
+    namespace: spire
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: StatefulSet
+      name: spire-server
+      uid: 09870d55-aaee-4d8a-80fd-d2c72e5986c5
+    resourceVersion: "625"
+    selfLink: /api/v1/namespaces/spire/pods/spire-server-0
+    uid: cddd8df0-61a6-4ce6-b86b-8f74e4e2c051
+  spec:
+    containers:
+    - image: networkservicemesh/nsm-spire:master
+      imagePullPolicy: IfNotPresent
+      name: nsm-spire
+      resources: {}
+      securityContext:
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-server-socket
+        readOnly: true
+      - mountPath: /run/spire/entries
+        name: spire-entries
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: spire-server-token-mgs2h
+        readOnly: true
+    - args:
+      - -config
+      - /run/spire/config/server.conf
+      image: gcr.io/spiffe-io/spire-server:0.11.3
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 2
+        initialDelaySeconds: 15
+        periodSeconds: 60
+        successThreshold: 1
+        tcpSocket:
+          port: 8081
+        timeoutSeconds: 3
+      name: spire-server
+      ports:
+      - containerPort: 8081
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /run/spire/sockets
+        name: spire-server-socket
+      - mountPath: /run/spire/config
+        name: spire-config
+        readOnly: true
+      - mountPath: /run/spire/data
+        name: spire-data
+      - mountPath: /run/spire/secret
+        name: spire-secret
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: spire-server-token-mgs2h
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: spire-server-0
+    nodeName: kind-11-control-plane
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: spire-server
+    serviceAccountName: spire-server
+    shareProcessNamespace: true
+    subdomain: spire-server
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - hostPath:
+        path: /run/spire/server-sockets
+        type: DirectoryOrCreate
+      name: spire-server-socket
+    - configMap:
+        defaultMode: 420
+        name: spire-server
+      name: spire-config
+    - name: spire-secret
+      secret:
+        defaultMode: 420
+        secretName: spire-secret
+    - configMap:
+        defaultMode: 420
+        name: spire-entries
+      name: spire-entries
+    - hostPath:
+        path: /var/spire-data
+        type: DirectoryOrCreate
+      name: spire-data
+    - name: spire-server-token-mgs2h
+      secret:
+        defaultMode: 420
+        secretName: spire-server-token-mgs2h
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:12Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:18Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:18Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-09-23T23:02:12Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://dcc5375bbd6cf34d5cfc40456c1e669bb2a411d8f257d278ea20933b988636a0
+      image: docker.io/networkservicemesh/nsm-spire:master
+      imageID: docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
+      lastState: {}
+      name: nsm-spire
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-09-23T23:02:15Z"
+    - containerID: containerd://0c22c5f727764c12753aa48981196e84e7c260cced1641e2ff9d7c65dea70960
+      image: gcr.io/spiffe-io/spire-server:0.11.3
+      imageID: gcr.io/spiffe-io/spire-server@sha256:3b371f6c513d61ae5f4e4db845ac36223da7782923a5ee57038cba9a161a3f93
+      lastState: {}
+      name: spire-server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-09-23T23:02:17Z"
+    hostIP: 172.17.0.3
+    phase: Running
+    podIP: 10.244.0.4
+    podIPs:
+    - ip: 10.244.0.4
+    qosClass: BestEffort
+    startTime: "2021-09-23T23:02:12Z"
+kind: PodList
+metadata:
+  resourceVersion: "3678"
+  selfLink: /api/v1/namespaces/spire/pods

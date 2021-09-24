@@ -1,0 +1,62 @@
+Name:         member-core-operator-56f5b8f76c-jgszc
+Namespace:    default
+Priority:     0
+Node:         kind-12-control-plane/172.17.0.4
+Start Time:   Thu, 23 Sep 2021 19:06:04 -0400
+Labels:       name=member-core-operator
+              pod-template-hash=56f5b8f76c
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.7
+IPs:
+  IP:           10.244.0.7
+Controlled By:  ReplicaSet/member-core-operator-56f5b8f76c
+Containers:
+  member-core-operator:
+    Container ID:  containerd://977dbf3b9995e1ca8f2827c5652c2de662b10d364f11422d6b4b6771538cc56f
+    Image:         containers.cisco.com/appn/member-core-operator:latest
+    Image ID:      containers.cisco.com/appn/member-core-operator@sha256:e89bc3e7575b9122cdabfd935ff77e73e90a918e3cee2ea364ca0ba57a15dc1f
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      member-core-operator
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:06:09 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      WATCH_NAMESPACE:  
+      POD_NAME:         member-core-operator-56f5b8f76c-jgszc (v1:metadata.name)
+      OPERATOR_NAME:    member-core-operator
+      CONFIG_PATH:      etc/member-core-configmap/config.yaml
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from member-core-operator-token-997jv (ro)
+      etc/member-core-configmap/config.yaml from config-data-member-core (rw,path="config.yaml")
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  config-data-member-core:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      member-core-configmap
+    Optional:  false
+  member-core-operator-token-997jv:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  member-core-operator-token-997jv
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  10m   default-scheduler               Successfully assigned default/member-core-operator-56f5b8f76c-jgszc to kind-12-control-plane
+  Normal  Pulling    10m   kubelet, kind-12-control-plane  Pulling image "containers.cisco.com/appn/member-core-operator:latest"
+  Normal  Pulled     10m   kubelet, kind-12-control-plane  Successfully pulled image "containers.cisco.com/appn/member-core-operator:latest"
+  Normal  Created    10m   kubelet, kind-12-control-plane  Created container member-core-operator
+  Normal  Started    10m   kubelet, kind-12-control-plane  Started container member-core-operator
+

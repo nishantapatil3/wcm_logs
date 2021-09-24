@@ -1,0 +1,25 @@
+Name:                     spire-server
+Namespace:                spire
+Labels:                   app.kubernetes.io/managed-by=Helm
+Annotations:              meta.helm.sh/release-name: spire-release
+                          meta.helm.sh/release-namespace: spire
+Selector:                 app=spire-server
+Type:                     LoadBalancer
+IP:                       10.110.45.185
+LoadBalancer Ingress:     172.17.253.1
+Port:                     grpc  8081/TCP
+TargetPort:               8081/TCP
+NodePort:                 grpc  32660/TCP
+Endpoints:                10.244.0.5:8081
+Port:                     federation-endpoint  8443/TCP
+TargetPort:               8443/TCP
+NodePort:                 federation-endpoint  32136/TCP
+Endpoints:                10.244.0.5:8443
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason        Age                    From                Message
+  ----    ------        ----                   ----                -------
+  Normal  IPAllocated   9m59s                  metallb-controller  Assigned IP "172.17.253.1"
+  Normal  nodeAssigned  9m56s (x2 over 9m56s)  metallb-speaker     announcing from node "kind-12-control-plane"
+

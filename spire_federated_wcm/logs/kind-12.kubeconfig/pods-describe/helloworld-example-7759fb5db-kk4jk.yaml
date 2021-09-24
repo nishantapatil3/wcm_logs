@@ -1,0 +1,77 @@
+Name:         helloworld-example-7759fb5db-kk4jk
+Namespace:    default
+Priority:     0
+Node:         kind-12-control-plane/172.17.0.4
+Start Time:   Thu, 23 Sep 2021 19:10:03 -0400
+Labels:       app=helloworld-example
+              nsm/servicename=helloworld.kind-12.example.wcm-cisco.com
+              pod-template-hash=7759fb5db
+              version=v1
+Annotations:  <none>
+Status:       Pending
+IP:           10.244.0.18
+IPs:
+  IP:           10.244.0.18
+Controlled By:  ReplicaSet/helloworld-example-7759fb5db
+Init Containers:
+  nsm-init-container:
+    Container ID:   containerd://96de90a2efbaa1ce0677a2f161fa8866c6cab49e097c993c9ca1e25b9d207464
+    Image:          containers.cisco.com/appn/nsm-init:vl3_latest
+    Image ID:       containers.cisco.com/appn/nsm-init@sha256:ac8ef8f2a14e99a7a46776be8f6ee05d08e167fe47ee4d42d942b7036a80c014
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:10:04 -0400
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      networkservicemesh.io/socket:  1
+    Requests:
+      networkservicemesh.io/socket:  1
+    Environment:
+      NS_NETWORKSERVICEMESH_IO:  example/example?service=helloworld&port=5000&clusterName=kind-12
+      NSM_NAMESPACE:             nsm-system
+      JAEGER_AGENT_HOST:         wcm-jaeger.nsm-system
+      TRACER_ENABLED:            true
+      JAEGER_AGENT_PORT:         6831
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-token-kc7gf (ro)
+Containers:
+  helloworld:
+    Container ID:   
+    Image:          docker.io/istio/examples-helloworld-v1:latest
+    Image ID:       
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       PodInitializing
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from nsc-token-kc7gf (ro)
+Conditions:
+  Type              Status
+  Initialized       False 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  nsc-token-kc7gf:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  nsc-token-kc7gf
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  6m10s  default-scheduler               Successfully assigned default/helloworld-example-7759fb5db-kk4jk to kind-12-control-plane
+  Normal  Pulled     6m9s   kubelet, kind-12-control-plane  Container image "containers.cisco.com/appn/nsm-init:vl3_latest" already present on machine
+  Normal  Created    6m9s   kubelet, kind-12-control-plane  Created container nsm-init-container
+  Normal  Started    6m9s   kubelet, kind-12-control-plane  Started container nsm-init-container
+

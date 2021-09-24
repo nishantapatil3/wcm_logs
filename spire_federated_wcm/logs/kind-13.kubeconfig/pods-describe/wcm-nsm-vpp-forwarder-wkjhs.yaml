@@ -1,0 +1,73 @@
+Name:         wcm-nsm-vpp-forwarder-wkjhs
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-13-control-plane/172.17.0.5
+Start Time:   Thu, 23 Sep 2021 19:13:13 -0400
+Labels:       app=wcm-nsm-vpp-forwarder
+              controller-revision-hash=786dcd5fc9
+              membercore=wcm
+              pod-template-generation=1
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.5
+IPs:
+  IP:           172.17.0.5
+Controlled By:  DaemonSet/wcm-nsm-vpp-forwarder
+Containers:
+  wcm-nsm-vpp-forwarder:
+    Container ID:   containerd://4c7646ed425a49da0396e15930678ba43e49aa5fc7f8c4f3733e6cee7e829e2e
+    Image:          containers.cisco.com/appn/vppagent-forwarder:v1.1.0
+    Image ID:       containers.cisco.com/appn/vppagent-forwarder@sha256:3a9ab56e395ca33cec2bfdfd2de5ec8cf0527d847446d0c7b62f8d4d18aba237
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:23 -0400
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:5555/readiness delay=10s timeout=3s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:5555/readiness delay=10s timeout=3s period=60s #success=1 #failure=3
+    Environment:
+      INSECURE:                      true
+      METRICS_COLLECTOR_ENABLED:     false
+      NSM_FORWARDER_SRC_IP:           (v1:status.podIP)
+      TRACER_ENABLED:                true
+      JAEGER_AGENT_HOST:             wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:             6831
+      NSM_CONNECTION_MTU_OVERRIDE:   1364
+      VPP_INTERFACE_HEALTHCHECK_ON:  true
+    Mounts:
+      /var/lib/networkservicemesh/ from workspace (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nsm-vpp-forwarder-service-account-token-25qj5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  workspace:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/lib/networkservicemesh
+    HostPathType:  DirectoryOrCreate
+  wcm-nsm-vpp-forwarder-service-account-token-25qj5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nsm-vpp-forwarder-service-account-token-25qj5
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  3m5s   default-scheduler               Successfully assigned nsm-system/wcm-nsm-vpp-forwarder-wkjhs to kind-13-control-plane
+  Normal  Pulling    3m4s   kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/vppagent-forwarder:v1.1.0"
+  Normal  Pulled     2m56s  kubelet, kind-13-control-plane  Successfully pulled image "containers.cisco.com/appn/vppagent-forwarder:v1.1.0"
+  Normal  Created    2m55s  kubelet, kind-13-control-plane  Created container wcm-nsm-vpp-forwarder
+  Normal  Started    2m55s  kubelet, kind-13-control-plane  Started container wcm-nsm-vpp-forwarder
+

@@ -1,0 +1,71 @@
+Name:         speaker-xj6hz
+Namespace:    metallb-system
+Priority:     0
+Node:         kind-12-control-plane/172.17.0.4
+Start Time:   Thu, 23 Sep 2021 19:06:04 -0400
+Labels:       app=metallb
+              component=speaker
+              controller-revision-hash=f6cf9fd9f
+              pod-template-generation=1
+Annotations:  prometheus.io/port: 7472
+              prometheus.io/scrape: true
+Status:       Running
+IP:           172.17.0.4
+IPs:
+  IP:           172.17.0.4
+Controlled By:  DaemonSet/speaker
+Containers:
+  speaker:
+    Container ID:  containerd://9a232a61f8b8468c921d7860e0033446c2e7939794c5eeab456f70536e2c4243
+    Image:         metallb/speaker:v0.8.2
+    Image ID:      docker.io/metallb/speaker@sha256:f1941498a28cdb332429e25d18233683da6949ecfc4f6dacf12b1416d7d38263
+    Port:          7472/TCP
+    Host Port:     7472/TCP
+    Args:
+      --port=7472
+      --config=config
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:06:11 -0400
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  100Mi
+    Requests:
+      cpu:     100m
+      memory:  100Mi
+    Environment:
+      METALLB_NODE_NAME:   (v1:spec.nodeName)
+      METALLB_HOST:        (v1:status.hostIP)
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from speaker-token-hrjxv (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  speaker-token-hrjxv:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  speaker-token-hrjxv
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  beta.kubernetes.io/os=linux
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age   From                            Message
+  ----    ------     ----  ----                            -------
+  Normal  Scheduled  10m   default-scheduler               Successfully assigned metallb-system/speaker-xj6hz to kind-12-control-plane
+  Normal  Pulling    10m   kubelet, kind-12-control-plane  Pulling image "metallb/speaker:v0.8.2"
+  Normal  Pulled     10m   kubelet, kind-12-control-plane  Successfully pulled image "metallb/speaker:v0.8.2"
+  Normal  Created    10m   kubelet, kind-12-control-plane  Created container speaker
+  Normal  Started    10m   kubelet, kind-12-control-plane  Started container speaker
+

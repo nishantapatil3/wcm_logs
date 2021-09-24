@@ -1,0 +1,201 @@
+apiVersion: v1
+items:
+- metadata:
+    annotations:
+      kubeadm.alpha.kubernetes.io/cri-socket: /run/containerd/containerd.sock
+      node.alpha.kubernetes.io/ttl: "0"
+      volumes.kubernetes.io/controller-managed-attach-detach: "true"
+    creationTimestamp: "2021-09-23T23:01:09Z"
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: kind-11-control-plane
+      kubernetes.io/os: linux
+      node-role.kubernetes.io/master: ""
+    name: kind-11-control-plane
+    resourceVersion: "3509"
+    selfLink: /api/v1/nodes/kind-11-control-plane
+    uid: 60e45052-093a-409b-a5a2-0f961ae09e60
+  spec:
+    podCIDR: 10.244.0.0/24
+    podCIDRs:
+    - 10.244.0.0/24
+  status:
+    addresses:
+    - address: 172.17.0.3
+      type: InternalIP
+    - address: kind-11-control-plane
+      type: Hostname
+    allocatable:
+      cpu: "4"
+      ephemeral-storage: 173995Mi
+      hugepages-2Mi: 234Mi
+      memory: 16185428Ki
+      networkservicemesh.io/socket: "34"
+      pods: "110"
+    capacity:
+      cpu: "4"
+      ephemeral-storage: 173995Mi
+      hugepages-2Mi: 234Mi
+      memory: 16425044Ki
+      networkservicemesh.io/socket: "34"
+      pods: "110"
+    conditions:
+    - lastHeartbeatTime: "2021-09-23T23:15:12Z"
+      lastTransitionTime: "2021-09-23T23:01:04Z"
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: "False"
+      type: MemoryPressure
+    - lastHeartbeatTime: "2021-09-23T23:15:12Z"
+      lastTransitionTime: "2021-09-23T23:01:04Z"
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: "False"
+      type: DiskPressure
+    - lastHeartbeatTime: "2021-09-23T23:15:12Z"
+      lastTransitionTime: "2021-09-23T23:01:04Z"
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: "False"
+      type: PIDPressure
+    - lastHeartbeatTime: "2021-09-23T23:15:12Z"
+      lastTransitionTime: "2021-09-23T23:02:12Z"
+      message: kubelet is posting ready status
+      reason: KubeletReady
+      status: "True"
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - k8s.gcr.io/etcd:3.4.3-0
+      sizeBytes: 289997247
+    - names:
+      - docker.io/istio/examples-helloworld-v1@sha256:c671702b11cbcda103720c2bd3e81a4211012bfef085b7326bb7fbfd8cea4a94
+      - docker.io/istio/examples-helloworld-v1:latest
+      sizeBytes: 271341434
+    - names:
+      - k8s.gcr.io/kube-apiserver:v1.17.5
+      sizeBytes: 144466737
+    - names:
+      - k8s.gcr.io/kube-proxy:v1.17.5
+      sizeBytes: 132100222
+    - names:
+      - k8s.gcr.io/kube-controller-manager:v1.17.5
+      sizeBytes: 131244355
+    - names:
+      - docker.io/kindest/kindnetd:0.5.4
+      sizeBytes: 113207016
+    - names:
+      - k8s.gcr.io/kube-scheduler:v1.17.5
+      sizeBytes: 111947057
+    - names:
+      - containers.cisco.com/appn/vl3_ucnf-nse@sha256:1da58e9c26ba05011b4c784569db90d14e5b7ae60ef713934d33b1ce9ae01f5a
+      - containers.cisco.com/appn/vl3_ucnf-nse:latest
+      sizeBytes: 110806034
+    - names:
+      - containers.cisco.com/appn/vppagent-forwarder@sha256:e82b8680aa8cfe0e3daa772098c4dc1b315c0d530f98fff6be84825436d0bbd9
+      - containers.cisco.com/appn/vppagent-forwarder:vl3_latest
+      sizeBytes: 106282008
+    - names:
+      - k8s.gcr.io/debian-base:v2.0.0
+      sizeBytes: 53884301
+    - names:
+      - docker.io/rancher/local-path-provisioner:v0.0.12
+      sizeBytes: 41994847
+    - names:
+      - k8s.gcr.io/coredns:1.6.5
+      sizeBytes: 41705951
+    - names:
+      - containers.cisco.com/appn/wcm-nse-operator@sha256:9239de8fb425e35b881d1ab7444343f56300ada603cebce8b48fe9e8e58e5c16
+      - containers.cisco.com/appn/wcm-nse-operator:latest
+      sizeBytes: 27128029
+    - names:
+      - containers.cisco.com/appn/member-core-operator@sha256:e89bc3e7575b9122cdabfd935ff77e73e90a918e3cee2ea364ca0ba57a15dc1f
+      - containers.cisco.com/appn/member-core-operator:latest
+      sizeBytes: 25542548
+    - names:
+      - containers.cisco.com/appn/nse-discovery-operator@sha256:f39b7af2ac91b3c6657841a72de8b7f796934ea6641d9bbcfdefad5f8df4c90e
+      - containers.cisco.com/appn/nse-discovery-operator:latest
+      sizeBytes: 25012936
+    - names:
+      - docker.io/jaegertracing/all-in-one@sha256:021aefafecbb5559078206996f1f4e8fc5907debab047f4fcc5c837689a66cfa
+      - docker.io/jaegertracing/all-in-one:1.14.0
+      sizeBytes: 23208939
+    - names:
+      - containers.cisco.com/appn/proxy-nsmd-k8s@sha256:d383a909e4ec98c30653243a22074f78fd5e09b3eef7495ada2c96292eea6e6f
+      - containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest
+      sizeBytes: 22626808
+    - names:
+      - containers.cisco.com/appn/nsmd-k8s@sha256:4e13e26b85d5c5becfc95707496e47b334bc65e9be4678cece0d67069bbb4207
+      - containers.cisco.com/appn/nsmd-k8s:vl3_latest
+      sizeBytes: 22105845
+    - names:
+      - containers.cisco.com/appn/crossconnect-monitor@sha256:9662288f3992fea81f127eb0a166f869d1948944ee23a7f7f76f1db08c9e10e9
+      - containers.cisco.com/appn/crossconnect-monitor:vl3_latest
+      sizeBytes: 21205354
+    - names:
+      - gcr.io/spiffe-io/spire-server@sha256:3b371f6c513d61ae5f4e4db845ac36223da7782923a5ee57038cba9a161a3f93
+      - gcr.io/spiffe-io/spire-server:0.11.3
+      sizeBytes: 21179296
+    - names:
+      - docker.io/metallb/speaker@sha256:f1941498a28cdb332429e25d18233683da6949ecfc4f6dacf12b1416d7d38263
+      - docker.io/metallb/speaker:v0.8.2
+      sizeBytes: 18506027
+    - names:
+      - docker.io/metallb/controller@sha256:5c050e59074e152711737d2bb9ede96dff67016c80cf25cdf5fc46109718a583
+      - docker.io/metallb/controller:v0.8.2
+      sizeBytes: 18056417
+    - names:
+      - containers.cisco.com/appn/admission-webhook@sha256:0bb74697b79db49a67bb74c2dc343646d55bcf93117e9da8677274cd2aa3d940
+      - containers.cisco.com/appn/admission-webhook:vl3_latest
+      sizeBytes: 17189856
+    - names:
+      - containers.cisco.com/appn/nsmd@sha256:9bae1fcd0805a83b70786e5506b81aaa2ddd310fe8605eac6568f2548cd611d2
+      - containers.cisco.com/appn/nsmd:vl3_latest
+      sizeBytes: 13518450
+    - names:
+      - containers.cisco.com/appn/nsmdp@sha256:3589cb27fba2038a1f7b4ea30b67bdb23c2f1a7e9aa0422fad10a1665091943e
+      - containers.cisco.com/appn/nsmdp:vl3_latest
+      sizeBytes: 13483942
+    - names:
+      - containers.cisco.com/appn/proxy-nsmd@sha256:d0437b39248a277881cecfc424df18274eb340a518b8fe3cc5c1dd89388fbeae
+      - containers.cisco.com/appn/proxy-nsmd:vl3_latest
+      sizeBytes: 13047447
+    - names:
+      - gcr.io/spiffe-io/spire-agent@sha256:0185a98dd527c448ee997f0f4830078b05eafa8c5810ec58d45380207f2e811c
+      - gcr.io/spiffe-io/spire-agent:0.11.3
+      sizeBytes: 12750734
+    - names:
+      - containers.cisco.com/appn/nsm-init@sha256:ac8ef8f2a14e99a7a46776be8f6ee05d08e167fe47ee4d42d942b7036a80c014
+      - containers.cisco.com/appn/nsm-init:vl3_latest
+      sizeBytes: 12598945
+    - names:
+      - docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
+      - docker.io/networkservicemesh/nsm-spire:master
+      sizeBytes: 9486906
+    - names:
+      - gcr.io/spiffe-io/wait-for-it@sha256:3facff26e582e57e3b994d3a3b95fc06475bb02a3dc6647ce6c91f4c3c2534b5
+      - gcr.io/spiffe-io/wait-for-it:latest
+      sizeBytes: 5410686
+    - names:
+      - k8s.gcr.io/pause:3.1
+      sizeBytes: 746479
+    nodeInfo:
+      architecture: amd64
+      bootID: 6dea94ce-d6e0-4595-90e3-c4623e227352
+      containerRuntimeVersion: containerd://1.3.3-14-g449e9269
+      kernelVersion: 4.15.0-112-generic
+      kubeProxyVersion: v1.17.5
+      kubeletVersion: v1.17.5
+      machineID: 9f44640656c449ca95eccdd19f026b4d
+      operatingSystem: linux
+      osImage: Ubuntu 19.10
+      systemUUID: 59f48b24-4966-4dad-bbe3-94e7f52c6a0e
+kind: NodeList
+metadata:
+  resourceVersion: "3667"
+  selfLink: /api/v1/nodes

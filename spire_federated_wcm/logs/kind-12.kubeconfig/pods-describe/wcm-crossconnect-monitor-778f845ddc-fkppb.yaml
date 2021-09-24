@@ -1,0 +1,67 @@
+Name:         wcm-crossconnect-monitor-778f845ddc-fkppb
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-12-control-plane/172.17.0.4
+Start Time:   Thu, 23 Sep 2021 19:06:10 -0400
+Labels:       app=wcm-crossconnect-monitor
+              membercore=wcm
+              pod-template-hash=778f845ddc
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  ReplicaSet/wcm-crossconnect-monitor-778f845ddc
+Containers:
+  crossconnect-monitor:
+    Container ID:   containerd://060908c77801c9a4b8d5f993ced15e54d82764f82d198dbc6a2fdb01c2ca0be3
+    Image:          containers.cisco.com/appn/crossconnect-monitor:vl3_latest
+    Image ID:       containers.cisco.com/appn/crossconnect-monitor@sha256:9662288f3992fea81f127eb0a166f869d1948944ee23a7f7f76f1db08c9e10e9
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:06:30 -0400
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Thu, 23 Sep 2021 19:06:14 -0400
+      Finished:     Thu, 23 Sep 2021 19:06:14 -0400
+    Ready:          True
+    Restart Count:  2
+    Environment:
+      INSECURE:                   false
+      METRICS_COLLECTOR_ENABLED:  false
+      PROMETHEUS:                 false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-crossconnect-monitor-service-account-token-qtzgz (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  wcm-crossconnect-monitor-service-account-token-qtzgz:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-crossconnect-monitor-service-account-token-qtzgz
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                    From                            Message
+  ----     ------     ----                   ----                            -------
+  Normal   Scheduled  10m                    default-scheduler               Successfully assigned nsm-system/wcm-crossconnect-monitor-778f845ddc-fkppb to kind-12-control-plane
+  Normal   Pulling    10m                    kubelet, kind-12-control-plane  Pulling image "containers.cisco.com/appn/crossconnect-monitor:vl3_latest"
+  Normal   Pulled     10m                    kubelet, kind-12-control-plane  Successfully pulled image "containers.cisco.com/appn/crossconnect-monitor:vl3_latest"
+  Warning  BackOff    9m57s (x2 over 9m58s)  kubelet, kind-12-control-plane  Back-off restarting failed container
+  Normal   Pulled     9m44s (x2 over 9m59s)  kubelet, kind-12-control-plane  Container image "containers.cisco.com/appn/crossconnect-monitor:vl3_latest" already present on machine
+  Normal   Created    9m43s (x3 over 10m)    kubelet, kind-12-control-plane  Created container crossconnect-monitor
+  Normal   Started    9m43s (x3 over 10m)    kubelet, kind-12-control-plane  Started container crossconnect-monitor
+

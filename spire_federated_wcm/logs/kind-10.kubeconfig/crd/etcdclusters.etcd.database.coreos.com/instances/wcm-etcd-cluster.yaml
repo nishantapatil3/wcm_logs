@@ -1,0 +1,46 @@
+Name:         wcm-etcd-cluster
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: etcd-wcm-release
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  etcd.database.coreos.com/v1beta2
+Kind:         EtcdCluster
+Metadata:
+  Creation Timestamp:  2021-09-23T23:02:57Z
+  Generation:          7
+  Resource Version:    1244
+  Self Link:           /apis/etcd.database.coreos.com/v1beta2/namespaces/wcm-system/etcdclusters/wcm-etcd-cluster
+  UID:                 5ad8b991-b660-48f9-89d2-1310a20e6f88
+Spec:
+  Pod:
+    Cluster Domain:  
+    Busybox Image:   containers.cisco.com/appn/busybox:latest
+    Resources:
+    Secret Name:  secure-container-registry
+  Repository:     containers.cisco.com/appn/coreos-etcd
+  Size:           3
+  Version:        latest
+Status:
+  Client Port:  2379
+  Conditions:
+    Last Transition Time:  2021-09-23T23:04:19Z
+    Last Update Time:      2021-09-23T23:04:19Z
+    Reason:                Cluster available
+    Status:                True
+    Type:                  Available
+  Current Version:         latest
+  Members:
+    Ready:
+      wcm-etcd-cluster-7r4847ld8s
+      wcm-etcd-cluster-9tnjzvwg92
+      wcm-etcd-cluster-rz8bn4795l
+  Phase:           Running
+  Service Name:    wcm-etcd-cluster-client
+  Size:            3
+  Target Version:  
+Events:
+  Type    Reason            Age   From                            Message
+  ----    ------            ----  ----                            -------
+  Normal  New Member Added  12m   etcd-operator-5f79997845-rfd2k  New member wcm-etcd-cluster-7r4847ld8s added to cluster
+  Normal  New Member Added  12m   etcd-operator-5f79997845-rfd2k  New member wcm-etcd-cluster-rz8bn4795l added to cluster
+  Normal  New Member Added  12m   etcd-operator-5f79997845-rfd2k  New member wcm-etcd-cluster-9tnjzvwg92 added to cluster

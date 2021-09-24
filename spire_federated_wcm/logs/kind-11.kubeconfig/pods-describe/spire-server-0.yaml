@@ -1,0 +1,100 @@
+Name:         spire-server-0
+Namespace:    spire
+Priority:     0
+Node:         kind-11-control-plane/172.17.0.3
+Start Time:   Thu, 23 Sep 2021 19:02:12 -0400
+Labels:       app=spire-server
+              controller-revision-hash=spire-server-8d5665d7f
+              statefulset.kubernetes.io/pod-name=spire-server-0
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.4
+IPs:
+  IP:           10.244.0.4
+Controlled By:  StatefulSet/spire-server
+Containers:
+  nsm-spire:
+    Container ID:   containerd://dcc5375bbd6cf34d5cfc40456c1e669bb2a411d8f257d278ea20933b988636a0
+    Image:          networkservicemesh/nsm-spire:master
+    Image ID:       docker.io/networkservicemesh/nsm-spire@sha256:a713d95627223bbf9b31306a429c9f6293609119a0d6c58e8d27971f4b6fdf1c
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:02:15 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /run/spire/entries from spire-entries (ro)
+      /run/spire/sockets from spire-server-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from spire-server-token-mgs2h (ro)
+  spire-server:
+    Container ID:  containerd://0c22c5f727764c12753aa48981196e84e7c260cced1641e2ff9d7c65dea70960
+    Image:         gcr.io/spiffe-io/spire-server:0.11.3
+    Image ID:      gcr.io/spiffe-io/spire-server@sha256:3b371f6c513d61ae5f4e4db845ac36223da7782923a5ee57038cba9a161a3f93
+    Port:          8081/TCP
+    Host Port:     0/TCP
+    Args:
+      -config
+      /run/spire/config/server.conf
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:02:17 -0400
+    Ready:          True
+    Restart Count:  0
+    Liveness:       tcp-socket :8081 delay=15s timeout=3s period=60s #success=1 #failure=2
+    Environment:    <none>
+    Mounts:
+      /run/spire/config from spire-config (ro)
+      /run/spire/data from spire-data (rw)
+      /run/spire/secret from spire-secret (rw)
+      /run/spire/sockets from spire-server-socket (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from spire-server-token-mgs2h (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-server-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/server-sockets
+    HostPathType:  DirectoryOrCreate
+  spire-config:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      spire-server
+    Optional:  false
+  spire-secret:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  spire-secret
+    Optional:    false
+  spire-entries:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      spire-entries
+    Optional:  false
+  spire-data:
+    Type:          HostPath (bare host directory volume)
+    Path:          /var/spire-data
+    HostPathType:  DirectoryOrCreate
+  spire-server-token-mgs2h:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  spire-server-token-mgs2h
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                From                            Message
+  ----     ------            ----               ----                            -------
+  Warning  FailedScheduling  14m (x2 over 14m)  default-scheduler               0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Normal   Scheduled         13m                default-scheduler               Successfully assigned spire/spire-server-0 to kind-11-control-plane
+  Normal   Pulling           13m                kubelet, kind-11-control-plane  Pulling image "networkservicemesh/nsm-spire:master"
+  Normal   Pulled            13m                kubelet, kind-11-control-plane  Successfully pulled image "networkservicemesh/nsm-spire:master"
+  Normal   Created           13m                kubelet, kind-11-control-plane  Created container nsm-spire
+  Normal   Started           13m                kubelet, kind-11-control-plane  Started container nsm-spire
+  Normal   Pulling           13m                kubelet, kind-11-control-plane  Pulling image "gcr.io/spiffe-io/spire-server:0.11.3"
+  Normal   Pulled            13m                kubelet, kind-11-control-plane  Successfully pulled image "gcr.io/spiffe-io/spire-server:0.11.3"
+  Normal   Created           13m                kubelet, kind-11-control-plane  Created container spire-server
+  Normal   Started           13m                kubelet, kind-11-control-plane  Started container spire-server
+

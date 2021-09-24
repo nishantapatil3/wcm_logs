@@ -1,0 +1,424 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:06:10Z"
+    generation: 1
+    labels:
+      app: wcm-crossconnect-monitor
+      membercore: wcm
+      pod-template-hash: 778f845ddc
+    name: wcm-crossconnect-monitor-778f845ddc
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-crossconnect-monitor
+      uid: 1748470e-4661-4677-a7fd-f31221b8c1bd
+    resourceVersion: "1672"
+    selfLink: /apis/apps/v1/namespaces/nsm-system/replicasets/wcm-crossconnect-monitor-778f845ddc
+    uid: 82d4d0e9-4bb3-4b8c-a7bc-fe8b42109413
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: wcm-crossconnect-monitor
+        membercore: wcm
+        pod-template-hash: 778f845ddc
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: wcm-crossconnect-monitor
+          membercore: wcm
+          pod-template-hash: 778f845ddc
+      spec:
+        containers:
+        - env:
+          - name: INSECURE
+            value: "false"
+          - name: METRICS_COLLECTOR_ENABLED
+            value: "false"
+          - name: PROMETHEUS
+            value: "false"
+          image: containers.cisco.com/appn/crossconnect-monitor:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: crossconnect-monitor
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-crossconnect-monitor-service-account
+        serviceAccountName: wcm-crossconnect-monitor-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:06:11Z"
+    generation: 1
+    labels:
+      membercore: wcm
+      pod-template-hash: 86c548cd44
+      run: wcm-jaeger
+    name: wcm-jaeger-86c548cd44
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-jaeger
+      uid: d5ec4ec2-7e8c-43b5-aff5-c0527d17b53b
+    resourceVersion: "1454"
+    selfLink: /apis/apps/v1/namespaces/nsm-system/replicasets/wcm-jaeger-86c548cd44
+    uid: 019aca67-7f52-4319-8910-2437f5925fa4
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        membercore: wcm
+        pod-template-hash: 86c548cd44
+        run: wcm-jaeger
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          membercore: wcm
+          pod-template-hash: 86c548cd44
+          run: wcm-jaeger
+      spec:
+        containers:
+        - image: jaegertracing/all-in-one:1.14.0
+          imagePullPolicy: IfNotPresent
+          name: jaeger
+          ports:
+          - containerPort: 16686
+            name: http
+            protocol: TCP
+          - containerPort: 6831
+            name: jaeger
+            protocol: UDP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:06:13Z"
+    generation: 1
+    labels:
+      app: wcm-nsm-admission-webhook
+      membercore: wcm
+      nsm-cr: wcm
+      pod-template-hash: 74c9466775
+    name: wcm-nsm-admission-webhook-74c9466775
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-nsm-admission-webhook
+      uid: 96988775-f9e9-4ad6-8a64-95c4e30854e8
+    resourceVersion: "1576"
+    selfLink: /apis/apps/v1/namespaces/nsm-system/replicasets/wcm-nsm-admission-webhook-74c9466775
+    uid: c7ce1133-952d-4c01-b11e-d1c1041e4291
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: wcm-nsm-admission-webhook
+        membercore: wcm
+        nsm-cr: wcm
+        pod-template-hash: 74c9466775
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: wcm-nsm-admission-webhook
+          membercore: wcm
+          nsm-cr: wcm
+          pod-template-hash: 74c9466775
+      spec:
+        containers:
+        - env:
+          - name: REPO
+            value: containers.cisco.com/appn
+          - name: TAG
+            value: vl3_latest
+          - name: IMAGE_PULL_POLICY
+            value: IfNotPresent
+          - name: NSM_NAMESPACE
+            value: nsm-system
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          image: containers.cisco.com/appn/admission-webhook:vl3_latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /liveness
+              port: 5555
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: wcm-nsm-admission-webhook
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readiness
+              port: 5555
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/webhook/certs
+            name: webhook-certs
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: webhook-certs
+          secret:
+            defaultMode: 420
+            secretName: wcm-nsm-admission-webhook-secret
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "0"
+      deployment.kubernetes.io/max-replicas: "0"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:06:21Z"
+    generation: 1
+    labels:
+      app: wcm-prefix-service
+      membercore: wcm
+      pod-template-hash: 556f7674bf
+    name: wcm-prefix-service-556f7674bf
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-prefix-service
+      uid: b3949f70-22da-4438-9ea0-e431e0dad675
+    resourceVersion: "1516"
+    selfLink: /apis/apps/v1/namespaces/nsm-system/replicasets/wcm-prefix-service-556f7674bf
+    uid: b9141504-571e-46a7-a30b-cc55c5c14e9b
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: wcm-prefix-service
+        membercore: wcm
+        pod-template-hash: 556f7674bf
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: wcm-prefix-service
+          membercore: wcm
+          pod-template-hash: 556f7674bf
+      spec:
+        containers:
+        - image: containers.cisco.com/appn/prefix-service:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-prefix-service
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-nsmgr-service-account
+        serviceAccountName: wcm-nsmgr-service-account
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 1
+    replicas: 0
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:06:16Z"
+    generation: 1
+    labels:
+      app: wcm-proxy-nsmgr
+      membercore: wcm
+      pod-template-hash: 56c849db8c
+    name: wcm-proxy-nsmgr-56c849db8c
+    namespace: nsm-system
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: wcm-proxy-nsmgr
+      uid: f6a37539-3bc1-44c4-8f77-aadabe03f8a5
+    resourceVersion: "1669"
+    selfLink: /apis/apps/v1/namespaces/nsm-system/replicasets/wcm-proxy-nsmgr-56c849db8c
+    uid: b06841c3-ade7-4fe9-9e95-da6b5eb07408
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: wcm-proxy-nsmgr
+        membercore: wcm
+        pod-template-hash: 56c849db8c
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: wcm-proxy-nsmgr
+          membercore: wcm
+          pod-template-hash: 56c849db8c
+      spec:
+        containers:
+        - env:
+          - name: INSECURE
+            value: "false"
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: PROXY_NSMD_K8S_REMOTE_PORT
+            value: "31505"
+          - name: PROXY_NSMD_ADDRESS
+            value: wcm-proxy-nsmgr:5006
+          - name: PROXY_NSMD_K8S_ADDRESS
+            value: wcm-proxy-nsmgr:5005
+          image: containers.cisco.com/appn/proxy-nsmd:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: wcm-proxy-nsmgr
+          ports:
+          - containerPort: 5006
+            hostPort: 5006
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        - env:
+          - name: INSECURE
+            value: "false"
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: TRACER_ENABLED
+            value: "true"
+          - name: JAEGER_AGENT_HOST
+            value: wcm-jaeger.nsm-system
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: PROXY_NSMD_K8S_REMOTE_PORT
+            value: "443"
+          - name: PROXY_NSMD_ADDRESS
+            value: wcm-proxy-nsmgr:5006
+          image: containers.cisco.com/appn/proxy-nsmd-k8s:vl3_latest
+          imagePullPolicy: IfNotPresent
+          name: proxy-nsmd-k8s
+          ports:
+          - containerPort: 5005
+            hostPort: 5005
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: wcm-proxy-nsmgr-service-account
+        serviceAccountName: wcm-proxy-nsmgr-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: ReplicaSetList
+metadata:
+  resourceVersion: "3652"
+  selfLink: /apis/apps/v1/namespaces/nsm-system/replicasets

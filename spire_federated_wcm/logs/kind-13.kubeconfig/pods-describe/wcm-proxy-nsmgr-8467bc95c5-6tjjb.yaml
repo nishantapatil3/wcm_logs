@@ -1,0 +1,83 @@
+Name:         wcm-proxy-nsmgr-8467bc95c5-6tjjb
+Namespace:    nsm-system
+Priority:     0
+Node:         kind-13-control-plane/172.17.0.5
+Start Time:   Thu, 23 Sep 2021 19:13:15 -0400
+Labels:       app=wcm-proxy-nsmgr
+              membercore=wcm
+              pod-template-hash=8467bc95c5
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/wcm-proxy-nsmgr-8467bc95c5
+Containers:
+  wcm-proxy-nsmgr:
+    Container ID:   containerd://b2899fae50a673af8d0445f87a9cf0532a6d160dad2da70b9524f84e3dc22377
+    Image:          containers.cisco.com/appn/proxy-nsmd:v1.1.0
+    Image ID:       containers.cisco.com/appn/proxy-nsmd@sha256:343a93e6409e6b2992614bd9aa3f273655c915350ee4bc3f5896ec4b132b3154
+    Port:           5006/TCP
+    Host Port:      5006/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:24 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    true
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  31505
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+      PROXY_NSMD_K8S_ADDRESS:      wcm-proxy-nsmgr:5005
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-bd2wt (ro)
+  proxy-nsmd-k8s:
+    Container ID:   containerd://9414d8d853d3eeaf66708fe421ba65f1cb2d54387190ecf03b5e9a0afff82c71
+    Image:          containers.cisco.com/appn/proxy-nsmd-k8s:v1.1.0
+    Image ID:       containers.cisco.com/appn/proxy-nsmd-k8s@sha256:7f255830ffcdf62850ee946647e75da910dc10c9c8640311b0cf33b1a8f3a0e8
+    Port:           5005/TCP
+    Host Port:      5005/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:13:26 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INSECURE:                    true
+      NODE_NAME:                    (v1:spec.nodeName)
+      TRACER_ENABLED:              true
+      JAEGER_AGENT_HOST:           wcm-jaeger.nsm-system
+      JAEGER_AGENT_PORT:           6831
+      PROXY_NSMD_K8S_REMOTE_PORT:  80
+      PROXY_NSMD_ADDRESS:          wcm-proxy-nsmgr:5006
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-proxy-nsmgr-service-account-token-bd2wt (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  wcm-proxy-nsmgr-service-account-token-bd2wt:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-proxy-nsmgr-service-account-token-bd2wt
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  3m3s   default-scheduler               Successfully assigned nsm-system/wcm-proxy-nsmgr-8467bc95c5-6tjjb to kind-13-control-plane
+  Normal  Pulling    3m2s   kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/proxy-nsmd:v1.1.0"
+  Normal  Pulled     2m55s  kubelet, kind-13-control-plane  Successfully pulled image "containers.cisco.com/appn/proxy-nsmd:v1.1.0"
+  Normal  Created    2m54s  kubelet, kind-13-control-plane  Created container wcm-proxy-nsmgr
+  Normal  Started    2m54s  kubelet, kind-13-control-plane  Started container wcm-proxy-nsmgr
+  Normal  Pulling    2m54s  kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/proxy-nsmd-k8s:v1.1.0"
+  Normal  Pulled     2m52s  kubelet, kind-13-control-plane  Successfully pulled image "containers.cisco.com/appn/proxy-nsmd-k8s:v1.1.0"
+  Normal  Created    2m52s  kubelet, kind-13-control-plane  Created container proxy-nsmd-k8s
+  Normal  Started    2m52s  kubelet, kind-13-control-plane  Started container proxy-nsmd-k8s
+

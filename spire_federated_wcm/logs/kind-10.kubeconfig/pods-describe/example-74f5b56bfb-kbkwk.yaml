@@ -1,0 +1,65 @@
+Name:         example-74f5b56bfb-kbkwk
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-10-control-plane/172.17.0.2
+Start Time:   Thu, 23 Sep 2021 19:07:37 -0400
+Labels:       app=wcm-nsr-example
+              connectivitydomain=example
+              pod-template-hash=74f5b56bfb
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.17
+IPs:
+  IP:           10.244.0.17
+Controlled By:  ReplicaSet/example-74f5b56bfb
+Containers:
+  example:
+    Container ID:   containerd://f6d738fe857140fcf839cdf3f7aa5b46bf84ec866e419891042ca9b94669b04d
+    Image:          containers.cisco.com/appn/nsmrs-etcd:latest
+    Image ID:       containers.cisco.com/appn/nsmrs-etcd@sha256:16fd80271ef49d7d6681c12f6a1a4d2a22f3940a5a4ad4946a8f0b7bde621758
+    Port:           31505/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:07:39 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      POD_UID:                    (v1:metadata.uid)
+      NODE_NAME:                  (v1:spec.nodeName)
+      NSM_NAMESPACE:             wcm-system
+      INSECURE:                  false
+      NSMRS_API_ADDRESS:         :31505
+      NSE_EXPIRATION_TIMEOUT:    40
+      ETCD_ADDRESSES:            wcm-etcd-cluster-client:2379
+      CONNECTIVITY_DOMAIN_NAME:  example
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from example-service-account-token-d58sm (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  example-service-account-token-d58sm:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-service-account-token-d58sm
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From                            Message
+  ----    ------     ----   ----                            -------
+  Normal  Scheduled  8m23s  default-scheduler               Successfully assigned wcm-system/example-74f5b56bfb-kbkwk to kind-10-control-plane
+  Normal  Pulling    8m22s  kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/nsmrs-etcd:latest"
+  Normal  Pulled     8m21s  kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/nsmrs-etcd:latest"
+  Normal  Created    8m21s  kubelet, kind-10-control-plane  Created container example
+  Normal  Started    8m21s  kubelet, kind-10-control-plane  Started container example
+

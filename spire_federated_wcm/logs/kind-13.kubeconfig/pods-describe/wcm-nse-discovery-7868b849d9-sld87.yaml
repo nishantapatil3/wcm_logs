@@ -1,0 +1,59 @@
+Name:         wcm-nse-discovery-7868b849d9-sld87
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-13-control-plane/172.17.0.5
+Start Time:   Thu, 23 Sep 2021 19:13:20 -0400
+Labels:       app=nse-discovery-wcm
+              membercore=wcm
+              pod-template-hash=7868b849d9
+Annotations:  <none>
+Status:       Pending
+IP:           10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  ReplicaSet/wcm-nse-discovery-7868b849d9
+Containers:
+  wcm-nse-discovery:
+    Container ID:   
+    Image:          containers.cisco.com/appn/nse-discovery-operator:v1.1.0
+    Image ID:       
+    Port:           2112/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      POD_UID:         (v1:metadata.uid)
+      CLUSTER_NAME:   kind-13
+      INSECURE:       true
+      NSE_NAMESPACE:  wcm-system
+      NSR_ADDRESS:    wcm-proxy-nsmgr.nsm-system:5005
+      METRICS_PORT:   2112
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from wcm-nse-discovery-service-account-token-7b6g8 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  wcm-nse-discovery-service-account-token-7b6g8:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  wcm-nse-discovery-service-account-token-7b6g8
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From                            Message
+  ----     ------     ----                 ----                            -------
+  Normal   Scheduled  2m58s                default-scheduler               Successfully assigned wcm-system/wcm-nse-discovery-7868b849d9-sld87 to kind-13-control-plane
+  Normal   Pulling    80s (x4 over 2m58s)  kubelet, kind-13-control-plane  Pulling image "containers.cisco.com/appn/nse-discovery-operator:v1.1.0"
+  Warning  Failed     80s (x4 over 2m54s)  kubelet, kind-13-control-plane  Failed to pull image "containers.cisco.com/appn/nse-discovery-operator:v1.1.0": rpc error: code = NotFound desc = failed to pull and unpack image "containers.cisco.com/appn/nse-discovery-operator:v1.1.0": failed to resolve reference "containers.cisco.com/appn/nse-discovery-operator:v1.1.0": containers.cisco.com/appn/nse-discovery-operator:v1.1.0: not found
+  Warning  Failed     80s (x4 over 2m54s)  kubelet, kind-13-control-plane  Error: ErrImagePull
+  Warning  Failed     68s (x6 over 2m53s)  kubelet, kind-13-control-plane  Error: ImagePullBackOff
+  Normal   BackOff    55s (x7 over 2m53s)  kubelet, kind-13-control-plane  Back-off pulling image "containers.cisco.com/appn/nse-discovery-operator:v1.1.0"
+

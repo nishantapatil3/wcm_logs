@@ -1,0 +1,51 @@
+Name:         example
+Namespace:    wcm-system
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: cd-release-example-member-cluster
+              meta.helm.sh/release-namespace: wcm-system
+API Version:  wcm.cisco.com/v1alpha1
+Kind:         ConnectivityDomainEndpoint
+Metadata:
+  Creation Timestamp:  2021-09-23T23:14:11Z
+  Finalizers:
+    finalizer.cache.wcm-cisco.com
+  Generation:        1
+  Resource Version:  1220
+  Self Link:         /apis/wcm.cisco.com/v1alpha1/namespaces/wcm-system/connectivitydomainendpoints/example
+  UID:               fc7c2c82-c910-4282-8d5d-13edaf384e7a
+Spec:
+  Insecure:  true
+  Nse:
+    Aws Tgw Endpoint:
+      Attach To Tgw:  false
+      Region:         example-region
+      Subnet I Ds:
+        example-subnet-IDs
+      Transit Gateway ID:              example-tgw-ID
+      Transit Gateway Route Table ID:  example-tgw-rt-ID
+      Vpc ID:                          example-vpc-ID
+    Cluster Name:                      example-kind-13
+    Ipam:
+      Prefix Length:   22
+      Prefix Pool:     172.100.0.0/16
+      Server Address:  wcmd-example.wcm-cisco.com:80
+    Nsr:
+      Address:              example.wcm-cisco.com
+      Connectivity Domain:  example
+      Port:                 80
+  Nsm:
+    Jaeger Service Name:  wcm-jaeger.nsm-system
+    Nsmgr Service Name:   wcm-nsmgr.nsm-system
+    Service Name:         example
+  Size:                   2
+Status:
+  Nse:
+    Config Map:              vl3-nse-example-config-map
+    Deployment:              vl3-nse-example
+    Service Monitoring Vpp:  vl3-nse-example-vpp
+  Nsm:
+    Config Map:  nsm-vl3-example-config-map
+  Pods:
+    vl3-nse-example-7b4fc58cf-pln87
+    vl3-nse-example-7b4fc58cf-zmjbz
+Events:  <none>

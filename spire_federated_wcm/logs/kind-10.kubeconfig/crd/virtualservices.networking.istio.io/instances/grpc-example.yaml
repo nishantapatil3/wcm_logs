@@ -1,0 +1,47 @@
+Name:         grpc-example
+Namespace:    wcm-system
+Labels:       connectivitydomain=example
+              gateway=example
+Annotations:  <none>
+API Version:  networking.istio.io/v1beta1
+Kind:         VirtualService
+Metadata:
+  Creation Timestamp:  2021-09-23T23:07:40Z
+  Generation:          1
+  Owner References:
+    API Version:           wcm.cisco.com/v1alpha1
+    Block Owner Deletion:  true
+    Controller:            true
+    Kind:                  ConnectivityDomain
+    Name:                  example
+    UID:                   2f94beb4-4f56-4059-af28-742c6fe685b1
+  Resource Version:        2521
+  Self Link:               /apis/networking.istio.io/v1beta1/namespaces/wcm-system/virtualservices/grpc-example
+  UID:                     c1de6ff3-91a2-4c31-8e45-675274d18c37
+Spec:
+  Gateways:
+    grpc-example
+  Hosts:
+    wcmd-example.wcm-cisco.com
+    example.wcm-cisco.com
+  Tls:
+    Match:
+      Port:  443
+      Sni Hosts:
+        wcmd-example.wcm-cisco.com
+    Route:
+      Destination:
+        Host:  example-wcmd
+        Port:
+          Number:  50051
+    Match:
+      Port:  443
+      Sni Hosts:
+        example.wcm-cisco.com
+    Route:
+      Destination:
+        Host:  example
+        Port:
+          Number:  31505
+Events:            <none>
+

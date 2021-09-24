@@ -1,0 +1,832 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: connectivity-domain-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-09-23T23:04:29Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: connectivity-domain-operator
+    namespace: wcm-system
+    resourceVersion: "1479"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/connectivity-domain-operator
+    uid: 32d3feb4-9ec0-4634-8756-df845eec3014
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        name: connectivity-domain-operator
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: connectivity-domain-operator
+      spec:
+        containers:
+        - command:
+          - connectivity-domain-operator
+          env:
+          - name: WATCH_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OPERATOR_NAME
+            value: connectivity-domain-operator
+          - name: CONFIG_PATH
+            value: etc/connectivity-domain-configmap/config.yaml
+          - name: INSECURE
+            value: "false"
+          image: containers.cisco.com/appn/connectivity-domain-operator:latest
+          imagePullPolicy: IfNotPresent
+          name: connectivity-domain-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: etc/connectivity-domain-configmap/config.yaml
+            name: config-data-connectivity-domain
+            subPath: config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: connectivity-domain-operator-service-account
+        serviceAccountName: connectivity-domain-operator-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: connectivity-domain-configmap
+          name: config-data-connectivity-domain
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:04:39Z"
+      lastUpdateTime: "2021-09-23T23:04:39Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:04:29Z"
+      lastUpdateTime: "2021-09-23T23:04:39Z"
+      message: ReplicaSet "connectivity-domain-operator-7fc4d6d597" has successfully
+        progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: etcd-operator-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-09-23T23:02:47Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: etcd-operator
+    namespace: wcm-system
+    resourceVersion: "851"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/etcd-operator
+    uid: 6bcf053b-745d-42d3-85d4-646ef74d8485
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: etcd-operator
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: etcd-operator
+      spec:
+        containers:
+        - command:
+          - etcd-operator
+          env:
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          image: containers.cisco.com/appn/coreos-etcd-operator:latest
+          imagePullPolicy: Always
+          name: etcd-operator
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:02:51Z"
+      lastUpdateTime: "2021-09-23T23:02:51Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:02:47Z"
+      lastUpdateTime: "2021-09-23T23:02:51Z"
+      message: ReplicaSet "etcd-operator-5f79997845" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:07:37Z"
+    generation: 1
+    labels:
+      app: wcm-nsr-example
+      connectivitydomain: example
+    name: example
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: example
+      uid: 2f94beb4-4f56-4059-af28-742c6fe685b1
+    resourceVersion: "2516"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/example
+    uid: ac152137-b2ea-4234-acca-feb33949b406
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: wcm-nsr-example
+        connectivitydomain: example
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: wcm-nsr-example
+          connectivitydomain: example
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: NSM_NAMESPACE
+            value: wcm-system
+          - name: INSECURE
+            value: "false"
+          - name: NSMRS_API_ADDRESS
+            value: :31505
+          - name: NSE_EXPIRATION_TIMEOUT
+            value: "40"
+          - name: ETCD_ADDRESSES
+            value: wcm-etcd-cluster-client:2379
+          - name: CONNECTIVITY_DOMAIN_NAME
+            value: example
+          image: containers.cisco.com/appn/nsmrs-etcd:latest
+          imagePullPolicy: IfNotPresent
+          name: example
+          ports:
+          - containerPort: 31505
+            name: grpc-nsr
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-service-account
+        serviceAccountName: example-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:07:40Z"
+      lastUpdateTime: "2021-09-23T23:07:40Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:07:37Z"
+      lastUpdateTime: "2021-09-23T23:07:40Z"
+      message: ReplicaSet "example-74f5b56bfb" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-09-23T23:07:40Z"
+    generation: 1
+    labels:
+      app: app-dns-publisher-example
+      connectivitydomain: example
+    name: example-app-dns-publisher
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: example
+      uid: 2f94beb4-4f56-4059-af28-742c6fe685b1
+    resourceVersion: "2634"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/example-app-dns-publisher
+    uid: 92d22702-a75d-48bd-bd35-6e2191095076
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: app-dns-publisher-example
+        connectivitydomain: example
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: app-dns-publisher-example
+          connectivitydomain: example
+      spec:
+        containers:
+        - args:
+          - -n
+          - wcm-system
+          - -s
+          - example-wcmd:50051
+          - -d
+          - example.wcm-cisco.com
+          - -i
+          - "false"
+          command:
+          - /app/bin/app-dns-publisher-controller
+          env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: INSECURE
+            value: "false"
+          image: containers.cisco.com/appn/app-dns-publisher-controller:latest
+          imagePullPolicy: IfNotPresent
+          name: example-app-dns-publisher
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-app-dns-publisher-service-account
+        serviceAccountName: example-app-dns-publisher-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:07:40Z"
+      lastUpdateTime: "2021-09-23T23:07:45Z"
+      message: ReplicaSet "example-app-dns-publisher-7fcddd4689" has successfully
+        progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2021-09-23T23:07:52Z"
+      lastUpdateTime: "2021-09-23T23:07:52Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-09-23T23:07:38Z"
+    generation: 1
+    labels:
+      app: cd-info-example
+      connectivitydomain: example
+    name: example-cd-info
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: example
+      uid: 2f94beb4-4f56-4059-af28-742c6fe685b1
+    resourceVersion: "2567"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/example-cd-info
+    uid: f4625d8a-7880-439d-b6b0-c4f5336e4227
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: cd-info-example
+        connectivitydomain: example
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          sidecar.jaegertracing.io/inject: "true"
+        creationTimestamp: null
+        labels:
+          app: cd-info-example
+          connectivitydomain: example
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: JAEGER_SERVICE_NAME
+            value: status.service.server
+          - name: JAEGER_AGENT_HOST
+            value: localhost
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: JAEGER_REPORTER_LOG_SPANS
+            value: "true"
+          - name: INSECURE
+            value: "false"
+          image: containers.cisco.com/appn/connectivity-domain-info:latest
+          imagePullPolicy: IfNotPresent
+          name: example-cd-info
+          ports:
+          - containerPort: 50071
+            name: info-http
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/info-server-config/config.yaml
+            name: example-cd-info-config-map
+            subPath: ./config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-cd-info-service-account
+        serviceAccountName: example-cd-info-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: example-cd-info-config-map
+          name: example-cd-info-config-map
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:07:42Z"
+      lastUpdateTime: "2021-09-23T23:07:42Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:07:38Z"
+      lastUpdateTime: "2021-09-23T23:07:42Z"
+      message: ReplicaSet "example-cd-info-66c77dd8d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      sidecar.jaegertracing.io/inject: "true"
+    creationTimestamp: "2021-09-23T23:07:37Z"
+    generation: 1
+    labels:
+      app: wcmd-example
+      connectivitydomain: example
+    name: example-wcmd
+    namespace: wcm-system
+    ownerReferences:
+    - apiVersion: wcm.cisco.com/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ConnectivityDomain
+      name: example
+      uid: 2f94beb4-4f56-4059-af28-742c6fe685b1
+    resourceVersion: "2620"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/example-wcmd
+    uid: e8def331-b506-4133-a10c-e166ff41a251
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: wcmd-example
+        connectivitydomain: example
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          sidecar.jaegertracing.io/inject: "true"
+        creationTimestamp: null
+        labels:
+          app: wcmd-example
+          connectivitydomain: example
+      spec:
+        containers:
+        - env:
+          - name: POD_UID
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.uid
+          - name: JAEGER_SERVICE_NAME
+            value: wcmd.service.server
+          - name: JAEGER_AGENT_HOST
+            value: localhost
+          - name: JAEGER_AGENT_PORT
+            value: "6831"
+          - name: JAEGER_REPORTER_LOG_SPANS
+            value: "true"
+          - name: INSECURE
+            value: "false"
+          - name: WORKLOADS_TTL
+            value: "40"
+          - name: CONNECTIVITY_DOMAIN_NAME
+            value: example
+          image: containers.cisco.com/appn/wcmd:latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /probe/alive
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: example-wcmd
+          ports:
+          - containerPort: 50061
+            name: grpc-registry
+            protocol: TCP
+          - containerPort: 50051
+            name: grpc-allocator
+            protocol: TCP
+          - containerPort: 8080
+            name: probes
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /probe/ready
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/wcmd-server-config/config.yaml
+            name: example-wcmd-config-map
+            subPath: ./config.yaml
+          - mountPath: /run/spire/sockets
+            name: spire-agent-socket
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: example-wcmd-service-account
+        serviceAccountName: example-wcmd-service-account
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: example-wcmd-config-map
+          name: example-wcmd-config-map
+        - hostPath:
+            path: /run/spire/sockets
+            type: DirectoryOrCreate
+          name: spire-agent-socket
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:07:51Z"
+      lastUpdateTime: "2021-09-23T23:07:51Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:07:37Z"
+      lastUpdateTime: "2021-09-23T23:07:51Z"
+      message: ReplicaSet "example-wcmd-755c7c55c5" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: external-dns-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-09-23T23:04:28Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: external-dns
+    namespace: wcm-system
+    resourceVersion: "1438"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/external-dns
+    uid: 994fbfdc-b5db-49c9-adf3-7e89ec9245e5
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: external-dns
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: external-dns
+      spec:
+        containers:
+        - args:
+          - --log-level=debug
+          - --source=service
+          - --source=crd
+          - --source=istio-virtualservice
+          - --source=istio-gateway
+          - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+          - --crd-source-kind=DNSEndpoint
+          - --publish-internal-services
+          - --registry=noop
+          - --policy=sync
+          - --provider=coredns
+          - --txt-owner-id=kind-10.kubeconfig
+          env:
+          - name: ETCD_URLS
+            value: http://wcm-etcd-cluster-client.wcm-system:2379
+          image: containers.cisco.com/appn/external-dns:latest
+          imagePullPolicy: Always
+          name: external-dns
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: external-dns
+        serviceAccountName: external-dns
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:04:33Z"
+      lastUpdateTime: "2021-09-23T23:04:33Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:04:28Z"
+      lastUpdateTime: "2021-09-23T23:04:33Z"
+      message: ReplicaSet "external-dns-57cb7c56bf" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: coredns-release
+      meta.helm.sh/release-namespace: wcm-system
+    creationTimestamp: "2021-09-23T23:04:28Z"
+    generation: 1
+    labels:
+      app: coredns
+      app.kubernetes.io/managed-by: Helm
+      chart: coredns-1.2.4
+      heritage: Tiller
+      release: my-coredns
+    name: my-coredns-coredns
+    namespace: wcm-system
+    resourceVersion: "1422"
+    selfLink: /apis/apps/v1/namespaces/wcm-system/deployments/my-coredns-coredns
+    uid: 33daa504-0645-42d6-a8a5-cd12904f00f1
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: coredns
+        release: my-coredns
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          checksum/config: 00754626f8f4e5239ec2382866eacbad725e07e4e8ef778d703597e246a15b2c
+        creationTimestamp: null
+        labels:
+          app: coredns
+          release: my-coredns
+      spec:
+        containers:
+        - args:
+          - -conf
+          - /etc/coredns/Corefile
+          image: coredns/coredns:1.3.1
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          name: coredns
+          ports:
+          - containerPort: 53
+            protocol: UDP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/coredns
+            name: config-volume
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: my-coredns-coredns
+        serviceAccountName: my-coredns-coredns
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+            - key: Corefile
+              path: Corefile
+            name: my-coredns-coredns
+          name: config-volume
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-09-23T23:04:31Z"
+      lastUpdateTime: "2021-09-23T23:04:31Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-09-23T23:04:28Z"
+      lastUpdateTime: "2021-09-23T23:04:31Z"
+      message: ReplicaSet "my-coredns-coredns-7d7ccd5547" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: DeploymentList
+metadata:
+  resourceVersion: "4636"
+  selfLink: /apis/apps/v1/namespaces/wcm-system/deployments

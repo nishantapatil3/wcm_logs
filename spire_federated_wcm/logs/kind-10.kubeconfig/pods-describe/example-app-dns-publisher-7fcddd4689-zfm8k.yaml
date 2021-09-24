@@ -1,0 +1,76 @@
+Name:         example-app-dns-publisher-7fcddd4689-zfm8k
+Namespace:    wcm-system
+Priority:     0
+Node:         kind-10-control-plane/172.17.0.2
+Start Time:   Thu, 23 Sep 2021 19:07:40 -0400
+Labels:       app=app-dns-publisher-example
+              connectivitydomain=example
+              pod-template-hash=7fcddd4689
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/example-app-dns-publisher-7fcddd4689
+Containers:
+  example-app-dns-publisher:
+    Container ID:  containerd://3f935db7dccf7b3baee4751c11b1549868abbe1098c0399346350070e74d85a1
+    Image:         containers.cisco.com/appn/app-dns-publisher-controller:latest
+    Image ID:      containers.cisco.com/appn/app-dns-publisher-controller@sha256:e4d6e67ce1f0e55e78b4a009ee8b014ad14e869b74a342404acfb7c3ce6e028c
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/bin/app-dns-publisher-controller
+    Args:
+      -n
+      wcm-system
+      -s
+      example-wcmd:50051
+      -d
+      example.wcm-cisco.com
+      -i
+      false
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:07:51 -0400
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    255
+      Started:      Thu, 23 Sep 2021 19:07:44 -0400
+      Finished:     Thu, 23 Sep 2021 19:07:50 -0400
+    Ready:          True
+    Restart Count:  1
+    Environment:
+      POD_UID:    (v1:metadata.uid)
+      INSECURE:  false
+    Mounts:
+      /run/spire/sockets from spire-agent-socket (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from example-app-dns-publisher-service-account-token-tnqgv (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  spire-agent-socket:
+    Type:          HostPath (bare host directory volume)
+    Path:          /run/spire/sockets
+    HostPathType:  DirectoryOrCreate
+  example-app-dns-publisher-service-account-token-tnqgv:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  example-app-dns-publisher-service-account-token-tnqgv
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age                   From                            Message
+  ----    ------     ----                  ----                            -------
+  Normal  Scheduled  8m20s                 default-scheduler               Successfully assigned wcm-system/example-app-dns-publisher-7fcddd4689-zfm8k to kind-10-control-plane
+  Normal  Pulling    8m19s                 kubelet, kind-10-control-plane  Pulling image "containers.cisco.com/appn/app-dns-publisher-controller:latest"
+  Normal  Pulled     8m17s                 kubelet, kind-10-control-plane  Successfully pulled image "containers.cisco.com/appn/app-dns-publisher-controller:latest"
+  Normal  Created    8m9s (x2 over 8m16s)  kubelet, kind-10-control-plane  Created container example-app-dns-publisher
+  Normal  Started    8m9s (x2 over 8m16s)  kubelet, kind-10-control-plane  Started container example-app-dns-publisher
+  Normal  Pulled     8m9s                  kubelet, kind-10-control-plane  Container image "containers.cisco.com/appn/app-dns-publisher-controller:latest" already present on machine
+

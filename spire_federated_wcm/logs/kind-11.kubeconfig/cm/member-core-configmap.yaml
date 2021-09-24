@@ -1,0 +1,45 @@
+Name:         member-core-configmap
+Namespace:    default
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: member-core-operator-release
+              meta.helm.sh/release-namespace: default
+
+Data
+====
+config.yaml:
+----
+pullPolicy: IfNotPresent
+nsm:
+  org: containers.cisco.com/appn
+  tag: vl3_latest
+  namespace: nsm-system
+  publicNsrPort: 31505
+  remoteNsrPort: 443
+  vpp:
+    image: vppagent-forwarder
+    mtuOverride: 1364
+    vppInterfaceHealthCheckProbe: true
+  secretName: 
+nseDiscovery:
+  org: containers.cisco.com/appn
+  tag: latest
+  clusterName: kind-11
+  metricsPort: 2112
+monitoring:
+  org: containers.cisco.com/appn
+  tag: vl3_latest
+  namespace: nsm-system
+  prometheus: false
+  metricsCollectorEnabled: false
+jaeger:
+  image: jaegertracing/all-in-one:1.14.0
+  namespace: nsm-system
+  serviceType: NodePort
+prefixService:
+  org: containers.cisco.com/appn
+  tag: vl3_latest
+  namespace: nsm-system
+domainName: wcm-cisco.com
+
+Events:  <none>
+

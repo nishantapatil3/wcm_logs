@@ -1,0 +1,37 @@
+Name:         spire-entries
+Namespace:    spire
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: spire-release
+              meta.helm.sh/release-namespace: spire
+
+Data
+====
+registration.json:
+----
+{
+  "entries": [
+    {
+      "selectors": [
+        {
+          "type": "k8s_sat",
+          "value": "agent_sa:spire-agent"
+        }
+      ],
+      "spiffe_id": "spiffe://member1.com/spire-agent",
+      "parent_id": "spiffe://member1.com/spire/server"
+    },
+    {
+      "selectors": [
+        {
+          "type": "k8s",
+          "value": "sa:connectivity-domain-operator-service-account"
+        }
+      ],
+      "spiffe_id": "spiffe://member1.com/connectivity-domain-operator",
+      "parent_id": "spiffe://member1.com/spire-agent"
+    }
+  ]
+}
+
+Events:  <none>
+

@@ -1,0 +1,166 @@
+==== START logs for container istio-operator of pod istio-system/istio-operator-69678d7cfb-dllg7 ====
+2021-09-23T23:04:46.214421Z	info	ControlZ available at 127.0.0.1:9876
+2021-09-23T23:04:46.214572Z	info	leader election cm: istio-operator-lock
+2021-09-23T23:04:46.682392Z	info	Creating operator metrics exporter
+2021-09-23T23:04:46.682509Z	info	Registering Components.
+2021-09-23T23:04:46.682652Z	info	installer	Adding controller for IstioOperator.
+2021-09-23T23:04:46.682787Z	info	installer	Controller added
+2021-09-23T23:04:46.682811Z	info	Starting the Cmd.
+2021-09-23T23:04:46.683094Z	info	klog	attempting to acquire leader lease  istio-system/istio-operator-lock...[]
+2021-09-23T23:04:46.691244Z	info	klog	successfully acquired lease istio-system/istio-operator-lock[]
+2021-09-23T23:04:48.903814Z	info	installer	Reconciling IstioOperator
+2021-09-23T23:04:48.904940Z	info	Adding finalizer istio-finalizer.install.istio.io to istio-system/istiocontrolplane-default
+2021-09-23T23:04:48.916310Z	info	installer	Updating IstioOperator
+2021-09-23T23:04:48.916350Z	info	installer	Loading values from compiled in VFS at path profiles/default.yaml
+2021-09-23T23:04:48.922963Z	info	proto: tag has too few fields: "-"
+2021-09-23T23:04:49.207868Z	info	installer	Detecting third-party JWT support
+2021-09-23T23:04:49.659570Z	info	installer	Detected that your cluster does not support third party JWT authentication. Falling back to less secure first party JWT. See https://istio.io/v1.8/docs/ops/best-practices/security/#configure-third-party-service-account-tokens for details.
+2021-09-23T23:04:50.319223Z	info	installer	Processing resources from manifest: Base for CR istiocontrolplane-default-istio-system-Base-https://10.96.0.1:443
+2021-09-23T23:04:50.319459Z	info	installer	EgressGateways is waiting on dependency...
+2021-09-23T23:04:50.319509Z	info	installer	IngressGateways is waiting on dependency...
+2021-09-23T23:04:50.319520Z	info	installer	Cni is waiting on dependency...
+2021-09-23T23:04:50.319547Z	info	installer	AddonComponents is waiting on dependency...
+2021-09-23T23:04:50.319568Z	info	installer	IstiodRemote is waiting on dependency...
+2021-09-23T23:04:50.400885Z	info	installer	Pilot is waiting on dependency...
+2021-09-23T23:04:50.420305Z	info	installer	The following objects differ between generated manifest and cache: 
+ - ClusterRole::istiod-istio-system
+ - ClusterRole::istio-reader-istio-system
+ - ClusterRoleBinding::istio-reader-istio-system
+ - ClusterRoleBinding::istiod-istio-system
+ - Role:istio-system:istiod-istio-system
+ - RoleBinding:istio-system:istiod-istio-system
+ - ServiceAccount:istio-system:istio-reader-service-account
+ - ServiceAccount:istio-system:istiod-service-account
+ - ValidatingWebhookConfiguration::istiod-istio-system
+ - CustomResourceDefinition::destinationrules.networking.istio.io
+ - CustomResourceDefinition::envoyfilters.networking.istio.io
+ - CustomResourceDefinition::gateways.networking.istio.io
+ - CustomResourceDefinition::serviceentries.networking.istio.io
+ - CustomResourceDefinition::sidecars.networking.istio.io
+ - CustomResourceDefinition::virtualservices.networking.istio.io
+ - CustomResourceDefinition::workloadentries.networking.istio.io
+ - CustomResourceDefinition::workloadgroups.networking.istio.io
+ - CustomResourceDefinition::authorizationpolicies.security.istio.io
+ - CustomResourceDefinition::peerauthentications.security.istio.io
+ - CustomResourceDefinition::requestauthentications.security.istio.io
+ - CustomResourceDefinition::istiooperators.install.istio.io
+2021-09-23T23:04:50.505431Z	info	installer	Creating CustomResourceDefinition//authorizationpolicies.security.istio.io (istiocontrolplane-default/)
+
+2021-09-23T23:04:50.704782Z	info	installer	Creating CustomResourceDefinition//destinationrules.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:50.751362Z	info	installer	Creating CustomResourceDefinition//envoyfilters.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:50.772396Z	info	installer	Creating CustomResourceDefinition//gateways.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:50.840347Z	info	installer	Updating CustomResourceDefinition//istiooperators.install.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:50.935941Z	info	installer	Creating CustomResourceDefinition//peerauthentications.security.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:50.967970Z	info	installer	Creating CustomResourceDefinition//requestauthentications.security.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:50.979868Z	info	installer	Creating CustomResourceDefinition//serviceentries.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:51.015807Z	info	installer	Creating CustomResourceDefinition//sidecars.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:51.047513Z	info	installer	Creating CustomResourceDefinition//virtualservices.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:51.223055Z	info	installer	Creating CustomResourceDefinition//workloadentries.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:51.536413Z	info	installer	Creating CustomResourceDefinition//workloadgroups.networking.istio.io (istiocontrolplane-default/)
+2021-09-23T23:04:51.583302Z	info	installer	Creating ServiceAccount/istio-system/istio-reader-service-account (istiocontrolplane-default/)
+2021-09-23T23:04:51.595966Z	info	installer	Creating ServiceAccount/istio-system/istiod-service-account (istiocontrolplane-default/)
+2021-09-23T23:04:51.609758Z	info	installer	Creating ClusterRole//istio-reader-istio-system (istiocontrolplane-default/)
+2021-09-23T23:04:51.632965Z	info	installer	Creating ClusterRole//istiod-istio-system (istiocontrolplane-default/)
+2021-09-23T23:04:51.668963Z	info	installer	Creating ClusterRoleBinding//istio-reader-istio-system (istiocontrolplane-default/)
+2021-09-23T23:04:51.677930Z	info	installer	Creating ClusterRoleBinding//istiod-istio-system (istiocontrolplane-default/)
+2021-09-23T23:04:51.729944Z	info	installer	Creating ValidatingWebhookConfiguration//istiod-istio-system (istiocontrolplane-default/)
+2021-09-23T23:04:51.747989Z	info	installer	Creating Role/istio-system/istiod-istio-system (istiocontrolplane-default/)
+2021-09-23T23:04:51.760108Z	info	installer	Creating RoleBinding/istio-system/istiod-istio-system (istiocontrolplane-default/)
+2021-09-23T23:04:52.288384Z	info	installer	established CRD authorizationpolicies.security.istio.io
+2021-09-23T23:04:52.301634Z	info	installer	established CRD destinationrules.networking.istio.io
+2021-09-23T23:04:52.307620Z	info	installer	established CRD envoyfilters.networking.istio.io
+2021-09-23T23:04:52.309957Z	info	installer	established CRD gateways.networking.istio.io
+2021-09-23T23:04:52.313530Z	info	installer	established CRD istiooperators.install.istio.io
+2021-09-23T23:04:52.315342Z	info	installer	established CRD peerauthentications.security.istio.io
+2021-09-23T23:04:52.323532Z	info	installer	established CRD requestauthentications.security.istio.io
+2021-09-23T23:04:52.326000Z	info	installer	established CRD serviceentries.networking.istio.io
+2021-09-23T23:04:52.328845Z	info	installer	established CRD sidecars.networking.istio.io
+2021-09-23T23:04:52.337469Z	info	installer	established CRD virtualservices.networking.istio.io
+2021-09-23T23:04:52.340523Z	info	installer	established CRD workloadentries.networking.istio.io
+2021-09-23T23:04:52.345773Z	info	installer	established CRD workloadgroups.networking.istio.io
+2021-09-23T23:04:52.345814Z	info	installer	Finished applying CRDs.
+- Processing resources for Istio core.
+2021-09-23T23:04:52.346409Z	info	installer	Unblocking dependency Pilot.
+2021-09-23T23:04:52.346449Z	info	installer	Unblocking dependency IstiodRemote.
+2021-09-23T23:04:52.346463Z	info	installer	Dependency for IstiodRemote has completed, proceeding.
+2021-09-23T23:04:52.346517Z	info	installer	Dependency for Pilot has completed, proceeding.
+2021-09-23T23:04:52.346533Z	info	installer	Processing resources from manifest: Pilot for CR istiocontrolplane-default-istio-system-Pilot-https://10.96.0.1:443
+2021-09-23T23:04:52.349575Z	info	installer	Processing resources from manifest: IstiodRemote for CR istiocontrolplane-default-istio-system-IstiodRemote-https://10.96.0.1:443
+2021-09-23T23:04:52.349604Z	info	installer	Generated manifest objects are the same as cached for component IstiodRemote.
+2021-09-23T23:04:52.357984Z	info	installer	The following objects differ between generated manifest and cache: 
+ - HorizontalPodAutoscaler:istio-system:istiod
+ - ConfigMap:istio-system:istio
+ - Deployment:istio-system:istiod
+ - ConfigMap:istio-system:istio-sidecar-injector
+ - MutatingWebhookConfiguration::istio-sidecar-injector
+ - PodDisruptionBudget:istio-system:istiod
+ - Service:istio-system:istiod
+ - EnvoyFilter:istio-system:metadata-exchange-1.6
+ - EnvoyFilter:istio-system:tcp-metadata-exchange-1.6
+ - EnvoyFilter:istio-system:stats-filter-1.6
+ - EnvoyFilter:istio-system:tcp-stats-filter-1.6
+ - EnvoyFilter:istio-system:metadata-exchange-1.7
+ - EnvoyFilter:istio-system:tcp-metadata-exchange-1.7
+ - EnvoyFilter:istio-system:stats-filter-1.7
+ - EnvoyFilter:istio-system:tcp-stats-filter-1.7
+ - EnvoyFilter:istio-system:metadata-exchange-1.8
+ - EnvoyFilter:istio-system:tcp-metadata-exchange-1.8
+ - EnvoyFilter:istio-system:stats-filter-1.8
+ - EnvoyFilter:istio-system:tcp-stats-filter-1.8
+2021-09-23T23:04:53.001488Z	info	installer	Creating EnvoyFilter/istio-system/metadata-exchange-1.6 (istiocontrolplane-default/)
+✔ Istio core installed
+2021-09-23T23:04:53.014745Z	info	installer	Creating EnvoyFilter/istio-system/metadata-exchange-1.7 (istiocontrolplane-default/)
+2021-09-23T23:04:53.025863Z	info	installer	Creating EnvoyFilter/istio-system/metadata-exchange-1.8 (istiocontrolplane-default/)
+2021-09-23T23:04:53.041305Z	info	installer	Creating EnvoyFilter/istio-system/stats-filter-1.6 (istiocontrolplane-default/)
+2021-09-23T23:04:53.127442Z	info	installer	Creating EnvoyFilter/istio-system/stats-filter-1.7 (istiocontrolplane-default/)
+2021-09-23T23:04:53.137815Z	info	installer	Creating EnvoyFilter/istio-system/stats-filter-1.8 (istiocontrolplane-default/)
+2021-09-23T23:04:53.203818Z	info	installer	Creating EnvoyFilter/istio-system/tcp-metadata-exchange-1.6 (istiocontrolplane-default/)
+2021-09-23T23:04:53.218995Z	info	installer	Creating EnvoyFilter/istio-system/tcp-metadata-exchange-1.7 (istiocontrolplane-default/)
+2021-09-23T23:04:53.230603Z	info	installer	Creating EnvoyFilter/istio-system/tcp-metadata-exchange-1.8 (istiocontrolplane-default/)
+2021-09-23T23:04:53.243231Z	info	installer	Creating EnvoyFilter/istio-system/tcp-stats-filter-1.6 (istiocontrolplane-default/)
+2021-09-23T23:04:53.256599Z	info	installer	Creating EnvoyFilter/istio-system/tcp-stats-filter-1.7 (istiocontrolplane-default/)
+2021-09-23T23:04:53.305526Z	info	installer	Creating EnvoyFilter/istio-system/tcp-stats-filter-1.8 (istiocontrolplane-default/)
+2021-09-23T23:04:53.319747Z	info	installer	Creating ConfigMap/istio-system/istio (istiocontrolplane-default/)
+2021-09-23T23:04:53.338424Z	info	installer	Creating ConfigMap/istio-system/istio-sidecar-injector (istiocontrolplane-default/)
+2021-09-23T23:04:53.382537Z	info	installer	Creating MutatingWebhookConfiguration//istio-sidecar-injector (istiocontrolplane-default/)
+2021-09-23T23:04:53.404495Z	info	installer	Creating Deployment/istio-system/istiod (istiocontrolplane-default/)
+2021-09-23T23:04:53.422019Z	info	installer	Creating PodDisruptionBudget/istio-system/istiod (istiocontrolplane-default/)
+2021-09-23T23:04:53.434115Z	info	installer	Creating HorizontalPodAutoscaler/istio-system/istiod (istiocontrolplane-default/)
+2021-09-23T23:04:53.453745Z	info	installer	Creating Service/istio-system/istiod (istiocontrolplane-default/)
+- Processing resources for Istiod.
+- Processing resources for Istiod. Waiting for Deployment/istio-system/istiod
+2021-09-23T23:05:01.603756Z	info	installer	Unblocking dependency Cni.
+2021-09-23T23:05:01.603820Z	info	installer	Unblocking dependency IngressGateways.
+2021-09-23T23:05:01.603824Z	info	installer	Unblocking dependency EgressGateways.
+2021-09-23T23:05:01.603828Z	info	installer	Unblocking dependency AddonComponents.
+2021-09-23T23:05:01.603861Z	info	installer	Dependency for AddonComponents has completed, proceeding.
+2021-09-23T23:05:01.603906Z	info	installer	Processing resources from manifest: AddonComponents for CR istiocontrolplane-default-istio-system-AddonComponents-https://10.96.0.1:443
+2021-09-23T23:05:01.603951Z	info	installer	Generated manifest objects are the same as cached for component AddonComponents.
+2021-09-23T23:05:01.603961Z	info	installer	Dependency for IngressGateways has completed, proceeding.
+2021-09-23T23:05:01.604005Z	info	installer	Processing resources from manifest: IngressGateways for CR istiocontrolplane-default-istio-system-IngressGateways-https://10.96.0.1:443
+2021-09-23T23:05:01.603870Z	info	installer	Dependency for Cni has completed, proceeding.
+2021-09-23T23:05:01.604852Z	info	installer	Processing resources from manifest: Cni for CR istiocontrolplane-default-istio-system-Cni-https://10.96.0.1:443
+2021-09-23T23:05:01.604885Z	info	installer	Generated manifest objects are the same as cached for component Cni.
+2021-09-23T23:05:01.604919Z	info	installer	Dependency for EgressGateways has completed, proceeding.
+2021-09-23T23:05:01.604962Z	info	installer	Processing resources from manifest: EgressGateways for CR istiocontrolplane-default-istio-system-EgressGateways-https://10.96.0.1:443
+2021-09-23T23:05:01.604990Z	info	installer	Generated manifest objects are the same as cached for component EgressGateways.
+2021-09-23T23:05:01.606499Z	info	installer	The following objects differ between generated manifest and cache: 
+ - HorizontalPodAutoscaler:istio-system:istio-ingressgateway
+ - Deployment:istio-system:istio-ingressgateway
+ - PodDisruptionBudget:istio-system:istio-ingressgateway
+ - Role:istio-system:istio-ingressgateway-sds
+ - RoleBinding:istio-system:istio-ingressgateway-sds
+ - Service:istio-system:istio-ingressgateway
+ - ServiceAccount:istio-system:istio-ingressgateway-service-account
+2021-09-23T23:05:01.610034Z	info	installer	Creating ServiceAccount/istio-system/istio-ingressgateway-service-account (istiocontrolplane-default/)
+✔ Istiod installed
+2021-09-23T23:05:01.706672Z	info	installer	Creating Deployment/istio-system/istio-ingressgateway (istiocontrolplane-default/)
+2021-09-23T23:05:01.772671Z	info	installer	Creating PodDisruptionBudget/istio-system/istio-ingressgateway (istiocontrolplane-default/)
+2021-09-23T23:05:01.819172Z	info	installer	Creating Role/istio-system/istio-ingressgateway-sds (istiocontrolplane-default/)
+2021-09-23T23:05:01.828148Z	info	installer	Creating RoleBinding/istio-system/istio-ingressgateway-sds (istiocontrolplane-default/)
+2021-09-23T23:05:01.841408Z	info	installer	Creating HorizontalPodAutoscaler/istio-system/istio-ingressgateway (istiocontrolplane-default/)
+2021-09-23T23:05:01.848014Z	info	installer	Creating Service/istio-system/istio-ingressgateway (istiocontrolplane-default/)
+- Processing resources for Ingress gateways.
+- Processing resources for Ingress gateways. Waiting for Deployment/istio-system/istio-ingressgat...
+✔ Ingress gateways installed
+==== END logs for container istio-operator of pod istio-system/istio-operator-69678d7cfb-dllg7 ====

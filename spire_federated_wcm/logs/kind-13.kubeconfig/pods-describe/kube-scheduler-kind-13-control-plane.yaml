@@ -1,0 +1,57 @@
+Name:                 kube-scheduler-kind-13-control-plane
+Namespace:            kube-system
+Priority:             2000000000
+Priority Class Name:  system-cluster-critical
+Node:                 kind-13-control-plane/172.17.0.5
+Start Time:           Thu, 23 Sep 2021 19:12:30 -0400
+Labels:               component=kube-scheduler
+                      tier=control-plane
+Annotations:          kubernetes.io/config.hash: ff67867321338ffd885039e188f6b424
+                      kubernetes.io/config.mirror: ff67867321338ffd885039e188f6b424
+                      kubernetes.io/config.seen: 2021-09-23T23:12:30.064214875Z
+                      kubernetes.io/config.source: file
+Status:               Running
+IP:                   172.17.0.5
+IPs:
+  IP:           172.17.0.5
+Controlled By:  Node/kind-13-control-plane
+Containers:
+  kube-scheduler:
+    Container ID:  containerd://229c68d9be0ccf8da883dca1402892f882639d5d1ddd1479351fe067c5837534
+    Image:         k8s.gcr.io/kube-scheduler:v1.17.0
+    Image ID:      sha256:09a204f38b41d064525714a9cb87782dc74442fb648ff40c85264c2e96f431e1
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      kube-scheduler
+      --authentication-kubeconfig=/etc/kubernetes/scheduler.conf
+      --authorization-kubeconfig=/etc/kubernetes/scheduler.conf
+      --bind-address=127.0.0.1
+      --kubeconfig=/etc/kubernetes/scheduler.conf
+      --leader-elect=true
+    State:          Running
+      Started:      Thu, 23 Sep 2021 19:12:21 -0400
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+    Liveness:     http-get https://127.0.0.1:10259/healthz delay=15s timeout=15s period=10s #success=1 #failure=8
+    Environment:  <none>
+    Mounts:
+      /etc/kubernetes/scheduler.conf from kubeconfig (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kubeconfig:
+    Type:          HostPath (bare host directory volume)
+    Path:          /etc/kubernetes/scheduler.conf
+    HostPathType:  FileOrCreate
+QoS Class:         Burstable
+Node-Selectors:    <none>
+Tolerations:       :NoExecuteop=Exists
+Events:            <none>
+
